@@ -1,0 +1,189 @@
+/* Additional styles for the auction page */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    color: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a2e;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f39c12;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e74c3c;
+}
+
+/* Utility Classes */
+.text-gold {
+    color: #f39c12;
+}
+
+.text-red {
+    color: #e74c3c;
+}
+
+.text-green {
+    color: #2ecc71;
+}
+
+.glow {
+    text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Team Colors */
+.team-MI { border-left-color: #004BA0; }
+.team-CSK { border-left-color: #FFFF00; }
+.team-RCB { border-left-color: #D1002A; }
+.team-KKR { border-left-color: #3B2F2F; }
+.team-RR { border-left-color: #254AA5; }
+.team-SRH { border-left-color: #F26522; }
+.team-DC { border-left-color: #0078BC; }
+.team-PBKS { border-left-color: #ED1B24; }
+.team-GT { border-left-color: #1B2F5C; }
+.team-LSG { border-left-color: #A72035; }/* Bid Calculator Styles */
+.bid-calculator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.calculator-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 20px;
+    padding: 20px;
+    width: 280px;
+    border: 1px solid rgba(243, 156, 18, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.calculator-card h4 {
+    color: #f39c12;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.calculator-info {
+    margin-bottom: 15px;
+}
+
+.calc-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calc-row.highlight {
+    background: rgba(243, 156, 18, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.calc-value {
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.next-bid {
+    color: #f39c12;
+    font-size: 18px;
+}
+
+.quick-bid-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.quick-bid-btn:hover {
+    transform: scale(1.02);
+}
+
+.quick-bid-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .bid-calculator {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+    
+    .calculator-card {
+        width: 100%;
+        padding: 15px;
+    }
+}

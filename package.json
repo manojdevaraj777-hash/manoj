@@ -1,0 +1,29 @@
+{
+  "name": "ipl-auction-game",
+  "version": "1.0.0",
+  "description": "Multiplayer IPL Auction Game with Friends - Play from anywhere!",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "import:players": "node utils/importPlayersCsv.js",
+    "build:market-data": "node scripts/buildRealMarketData.js",
+    "select:top400": "node scripts/selectTop400Players.js",
+    "build:rankings": "node scripts/buildIplRankingsAndKeyPlayers.js",
+    "enrich:source618": "node scripts/enrichSource618File.js",
+    "reorder:source618": "node scripts/reorderSource618ByBuckets.js"
+  },
+  "keywords": ["ipl", "auction", "cricket", "multiplayer", "game"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

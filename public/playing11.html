@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Premier - Playing XI Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #06111d;
+            --panel: rgba(12, 26, 42, 0.92);
+            --panel-strong: rgba(16, 33, 51, 0.97);
+            --line: rgba(255, 214, 153, 0.14);
+            --text: #f8f3e8;
+            --muted: #9eb5c8;
+            --gold: #ffd27a;
+            --gold-strong: #ffb54d;
+            --mint: #73f1d1;
+            --danger: #ff8f8f;
+            --shadow: 0 26px 80px rgba(0, 0, 0, 0.34);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top, rgba(255, 189, 89, 0.12), transparent 24%),
+                radial-gradient(circle at bottom left, rgba(63, 140, 197, 0.16), transparent 28%),
+                linear-gradient(180deg, #07121f 0%, #04101a 100%);
+        }
+
+        .container {
+            width: min(1320px, calc(100% - 28px));
+            margin: 0 auto;
+            padding: 18px 0 28px;
+            display: grid;
+            gap: 16px;
+        }
+
+        .hero,
+        .panel {
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+                var(--panel);
+            box-shadow: var(--shadow);
+        }
+
+        .hero {
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .brand-block {
+            display: grid;
+            gap: 4px;
+        }
+
+        .brand-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 7vw, 68px);
+            letter-spacing: 0.05em;
+            line-height: 0.92;
+            color: #ffe8ba;
+        }
+
+        .brand-sub {
+            color: var(--muted);
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .code-pill,
+        .mode-pill,
+        .summary-card,
+        .rule-chip,
+        .team-status-card,
+        .player-card,
+        .selected-player,
+        .ranking-row,
+        .result-team-card {
+            border: 1px solid var(--line);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+                var(--panel-strong);
+        }
+
+        .code-pill,
+        .mode-pill {
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .code-pill strong {
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 0.1em;
+            margin-left: 10px;
+        }
+
+        .copy-btn,
+        .primary-btn,
+        .ghost-btn {
+            border: 0;
+            border-radius: 14px;
+            padding: 12px 16px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .copy-btn,
+        .ghost-btn {
+            color: #fff2d7;
+            background: linear-gradient(180deg, rgba(255, 214, 140, 0.16), rgba(255, 255, 255, 0.06));
+            border: 1px solid rgba(255, 214, 140, 0.18);
+        }
+
+        .primary-btn {
+            color: #04111c;
+            background: linear-gradient(110deg, #ffd67f, #ffb553);
+            box-shadow: 0 10px 30px rgba(255, 181, 83, 0.26);
+        }
+
+        .primary-btn:disabled,
+        .ghost-btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .summary-grid,
+        .team-status-grid,
+        .results-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .summary-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .summary-card {
+            border-radius: 18px;
+            padding: 16px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .summary-label {
+            color: var(--muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .summary-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 34px;
+            letter-spacing: 0.05em;
+            color: #fff0c9;
+            line-height: 1;
+        }
+
+        .panel {
+            padding: 18px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .panel-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .panel-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 0.05em;
+            color: #ffe2ac;
+            line-height: 1;
+        }
+
+        .panel-note {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .team-status-grid {
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        }
+
+        .team-status-card {
+            border-radius: 18px;
+            padding: 14px;
+            display: grid;
+            gap: 8px;
+            border-top: 3px solid var(--team-color, var(--gold));
+        }
+
+        .team-status-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .team-code {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 0.08em;
+            color: #fff0ca;
+            line-height: 1;
+        }
+
+        .team-owner,
+        .team-meta {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .status-chip {
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .status-chip.locked {
+            background: rgba(115, 241, 209, 0.14);
+            color: #b7ffea;
+            border: 1px solid rgba(115, 241, 209, 0.22);
+        }
+
+        .status-chip.waiting {
+            background: rgba(255, 210, 122, 0.12);
+            color: #ffe7b8;
+            border: 1px solid rgba(255, 210, 122, 0.18);
+        }
+
+        .workspace {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
+            gap: 16px;
+        }
+
+        .empty-state {
+            border-radius: 18px;
+            border: 1px dashed rgba(255, 214, 153, 0.24);
+            color: var(--muted);
+            padding: 18px;
+            text-align: center;
+        }
+
+        .squad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 12px;
+        }
+
+        .player-card {
+            border-radius: 18px;
+            padding: 14px;
+            display: grid;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 212, 139, 0.28);
+            box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .player-card.selected {
+            border-color: rgba(115, 241, 209, 0.42);
+            box-shadow: 0 16px 30px rgba(115, 241, 209, 0.12);
+            background:
+                linear-gradient(180deg, rgba(115, 241, 209, 0.08), rgba(255, 255, 255, 0.02)),
+                var(--panel-strong);
+        }
+
+        .player-card.locked {
+            cursor: default;
+        }
+
+        .player-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff7e9;
+        }
+
+        .player-meta {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .player-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .player-tag {
+            border-radius: 999px;
+            padding: 5px 9px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 214, 153, 0.14);
+            color: #fff1ce;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .rule-list,
+        .selected-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .rule-chip {
+            border-radius: 16px;
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .rule-chip strong {
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .rule-chip.pass span {
+            color: #bafce7;
+        }
+
+        .rule-chip.warn span {
+            color: #ffd8a6;
+        }
+
+        .selected-player {
+            border-radius: 16px;
+            padding: 12px 14px;
+            display: grid;
+            gap: 5px;
+        }
+
+        .selected-player strong {
+            font-size: 16px;
+        }
+
+        .selected-player span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .ranking-table {
+            display: grid;
+            gap: 10px;
+        }
+
+        .ranking-row {
+            border-radius: 16px;
+            padding: 14px 16px;
+            display: grid;
+            grid-template-columns: 80px minmax(0, 1.4fr) repeat(4, minmax(0, 0.7fr));
+            gap: 10px;
+            align-items: center;
+        }
+
+        .ranking-rank {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 0.06em;
+            color: #ffe1a6;
+        }
+
+        .ranking-team {
+            display: grid;
+            gap: 4px;
+        }
+
+        .ranking-team strong {
+            font-size: 18px;
+        }
+
+        .ranking-team span,
+        .ranking-metric {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .results-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .result-team-card {
+            border-radius: 20px;
+            padding: 16px;
+            display: grid;
+            gap: 12px;
+            border-top: 3px solid var(--team-color, var(--gold));
+        }
+
+        .result-team-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .result-team-title {
+            display: grid;
+            gap: 3px;
+        }
+
+        .result-team-title strong {
+            font-size: 20px;
+        }
+
+        .result-team-title span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .result-player-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .result-player {
+            border-radius: 14px;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 214, 153, 0.08);
+        }
+
+        .result-player strong {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+
+        .result-player span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        @media (max-width: 980px) {
+            .summary-grid,
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+
+            .ranking-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                width: min(100%, calc(100% - 18px));
+                padding: 10px 0 18px;
+            }
+
+            .hero,
+            .panel {
+                border-radius: 18px;
+                padding: 14px;
+            }
+
+            .brand-title {
+                font-size: 48px;
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .squad-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="brand-block">
+                <div class="brand-title">Playing XI Room</div>
+                <div class="brand-sub">Lock the final XI and decide the rankings</div>
+            </div>
+            <div class="hero-actions">
+                <div class="code-pill">Join Code <strong id="roomCode">-----</strong></div>
+                <div class="mode-pill" id="modeBadge">Loading</div>
+                <button class="copy-btn" type="button" onclick="copyRoomCode()">Copy Code</button>
+            </div>
+        </header>
+
+        <section class="summary-grid">
+            <article class="summary-card">
+                <div class="summary-label">Stage</div>
+                <div class="summary-value">Playing XI</div>
+            </article>
+            <article class="summary-card">
+                <div class="summary-label">Your Team</div>
+                <div class="summary-value" id="myTeamValue">Viewer</div>
+            </article>
+            <article class="summary-card">
+                <div class="summary-label">Locked Teams</div>
+                <div class="summary-value" id="lockedTeamsValue">0 / 0</div>
+            </article>
+            <article class="summary-card">
+                <div class="summary-label">Rules</div>
+                <div class="summary-value">11 Players</div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <div class="panel-title">Team Lock Status</div>
+                <div class="panel-note" id="statusNote">Waiting for room state...</div>
+            </div>
+            <div class="team-status-grid" id="teamStatusGrid"></div>
+        </section>
+
+        <section class="workspace">
+            <section class="panel">
+                <div class="panel-head">
+                    <div class="panel-title">Squad Selector</div>
+                    <div class="panel-note" id="selectorNote">Choose your best 11 players.</div>
+                </div>
+                <div id="selectorEmpty" class="empty-state" style="display:none;"></div>
+                <div class="squad-grid" id="squadGrid"></div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-head">
+                    <div class="panel-title">Your Playing XI</div>
+                    <div class="panel-note" id="selectionCount">0 / 11 selected</div>
+                </div>
+                <div class="rule-list" id="ruleList"></div>
+                <div class="selected-list" id="selectedList"></div>
+                <div class="editor-actions">
+                    <button class="ghost-btn" type="button" onclick="refreshPlayingXIState()">Refresh</button>
+                    <button class="primary-btn" id="lockBtn" type="button" onclick="lockPlayingXI()">Lock Playing XI</button>
+                </div>
+            </section>
+        </section>
+
+        <section class="panel" id="rankingsPanel" style="display:none;">
+            <div class="panel-head">
+                <div class="panel-title">Final Rankings</div>
+                <div class="panel-note">Teams are ranked directly from Playing XI secret value score plus balance bonus.</div>
+            </div>
+            <div class="ranking-table" id="rankingTable"></div>
+            <div class="results-grid" id="resultsGrid"></div>
+        </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomCode = (urlParams.get('room') || localStorage.getItem('roomCode') || '').toUpperCase();
+        const playerName = localStorage.getItem('playerName');
+        const roomPassword = localStorage.getItem('roomPassword') || '';
+        const teamPalette = {
+            MI: '#2d80ff',
+            CSK: '#ffe247',
+            RCB: '#ff4f44',
+            KKR: '#b183ff',
+            RR: '#ff7eb6',
+            SRH: '#ff8b2d',
+            DC: '#58a6ff',
+            PBKS: '#ff6468',
+            GT: '#759cff',
+            LSG: '#46d7f5'
+        };
+
+        let playingXIState = null;
+        let localSelectedPlayerIds = [];
+
+        if (!roomCode || !playerName) {
+            window.location.href = '/';
+        }
+
+        document.getElementById('roomCode').innerText = roomCode;
+        socket.emit('joinRoom', { roomCode, password: roomPassword, playerName });
+
+        socket.on('roomJoined', (data) => {
+            if (data.phase !== 'playing11') {
+                window.location.href = `/auction.html?room=${data.roomCode}`;
+                return;
+            }
+            document.getElementById('roomCode').innerText = data.roomCode;
+            document.getElementById('modeBadge').innerText = data.mode === 'ai' ? 'AI Mode' : 'Manual Mode';
+            refreshPlayingXIState();
+        });
+
+        socket.on('playingXIStarted', () => {
+            refreshPlayingXIState();
+        });
+
+        socket.on('playingXIStateChanged', () => {
+            refreshPlayingXIState();
+        });
+
+        socket.on('playingXIState', (state) => {
+            playingXIState = state;
+            renderPlayingXIState();
+        });
+
+        socket.on('error', (message) => {
+            if ((message || '').toLowerCase().includes('room not found')) {
+                window.location.href = '/';
+                return;
+            }
+            alert(message);
+        });
+
+        function refreshPlayingXIState() {
+            socket.emit('getPlayingXIState', roomCode);
+        }
+
+        function getViewerTeamState() {
+            if (!playingXIState || !Array.isArray(playingXIState.teams)) return null;
+            return playingXIState.teams.find((team) => team.code === playingXIState.viewerTeamCode) || null;
+        }
+
+        function getSelectedPlayers(viewerTeam) {
+            if (!viewerTeam) return [];
+            const byId = new Map((viewerTeam.squadPlayers || []).map((player) => [Number(player.id), player]));
+            return localSelectedPlayerIds
+                .map((playerId) => byId.get(Number(playerId)))
+                .filter(Boolean);
+        }
+
+        function classifyRole(player) {
+            const role = String((player && player.role) || '').toLowerCase();
+            if (role.includes('wicket')) return 'wicketkeeper';
+            if (role.includes('all')) return 'allrounder';
+            if (role.includes('bowl')) return 'bowler';
+            return 'batter';
+        }
+
+        function calculateSelectionMeta(players) {
+            const meta = {
+                wicketkeepers: 0,
+                batters: 0,
+                allrounders: 0,
+                bowlers: 0,
+                overseas: 0
+            };
+
+            for (const player of players) {
+                const role = classifyRole(player);
+                if (role === 'wicketkeeper') meta.wicketkeepers += 1;
+                if (role === 'batter') meta.batters += 1;
+                if (role === 'allrounder') meta.allrounders += 1;
+                if (role === 'bowler') meta.bowlers += 1;
+                if (String(player.country || '').toLowerCase() !== 'india') meta.overseas += 1;
+            }
+
+            return meta;
+        }
+
+        function renderPlayingXIState() {
+            if (!playingXIState) return;
+            if (playingXIState.phase !== 'playing11') {
+                window.location.href = `/auction.html?room=${roomCode}`;
+                return;
+            }
+
+            const viewerTeam = getViewerTeamState();
+            localSelectedPlayerIds = viewerTeam ? (viewerTeam.selectedPlayerIds || []).slice() : [];
+
+            const lockedCount = (playingXIState.teams || []).filter((team) => team.locked).length;
+            document.getElementById('myTeamValue').innerText = playingXIState.viewerIsAuctioneer
+                ? 'Auctioneer'
+                : (viewerTeam ? viewerTeam.code : 'Viewer');
+            document.getElementById('lockedTeamsValue').innerText = `${lockedCount} / ${(playingXIState.teams || []).length}`;
+
+            renderTeamStatusGrid();
+            renderSelector(viewerTeam);
+            renderSelectedXI(viewerTeam);
+            renderRankings();
+        }
+
+        function renderTeamStatusGrid() {
+            const grid = document.getElementById('teamStatusGrid');
+            const statusNote = document.getElementById('statusNote');
+            grid.innerHTML = '';
+
+            const teams = playingXIState.teams || [];
+            const lockedCount = teams.filter((team) => team.locked).length;
+
+            statusNote.innerText = playingXIState.allTeamsLocked
+                ? 'All teams locked. Final rankings are live.'
+                : `${lockedCount} of ${teams.length} teams locked so far.`;
+
+            for (const team of teams) {
+                const card = document.createElement('article');
+                card.className = 'team-status-card';
+                card.style.setProperty('--team-color', teamPalette[team.code] || '#ffd27a');
+                card.innerHTML = `
+                    <div class="team-status-top">
+                        <div>
+                            <div class="team-code">${team.code}</div>
+                            <div class="team-owner">${team.name}</div>
+                        </div>
+                        <div class="status-chip ${team.locked ? 'locked' : 'waiting'}">${team.locked ? 'Locked' : 'Waiting'}</div>
+                    </div>
+                    <div class="team-meta">Owner: ${team.ownerName || 'N/A'}</div>
+                    <div class="team-meta">Squad: ${team.squadCount} players</div>
+                    <div class="team-meta">Playing XI: ${team.selectionCount} / ${playingXIState.playingXISize}</div>
+                `;
+                grid.appendChild(card);
+            }
+        }
+
+        function renderSelector(viewerTeam) {
+            const grid = document.getElementById('squadGrid');
+            const empty = document.getElementById('selectorEmpty');
+            const selectorNote = document.getElementById('selectorNote');
+            grid.innerHTML = '';
+
+            if (!viewerTeam) {
+                selectorNote.innerText = 'You are watching this room. Franchise owners lock the Playing XI.';
+                empty.style.display = 'block';
+                empty.innerText = playingXIState.viewerIsAuctioneer
+                    ? 'Auctioneer view only. You can watch team locks and final rankings here.'
+                    : 'No franchise team is linked to this user in this room.';
+                return;
+            }
+
+            if (!viewerTeam.canEdit) {
+                selectorNote.innerText = viewerTeam.locked
+                    ? `${viewerTeam.name} already locked the final XI.`
+                    : 'Waiting for this team to become editable.';
+            } else {
+                selectorNote.innerText = 'Tap players to choose your final XI before locking.';
+            }
+
+            const squadPlayers = viewerTeam.squadPlayers || [];
+            if (!squadPlayers.length) {
+                empty.style.display = 'block';
+                empty.innerText = 'No squad players available for Playing XI selection.';
+                return;
+            }
+
+            empty.style.display = 'none';
+            for (const player of squadPlayers) {
+                const card = document.createElement('article');
+                const isSelected = localSelectedPlayerIds.includes(Number(player.id));
+                card.className = `player-card${isSelected ? ' selected' : ''}${viewerTeam.canEdit ? '' : ' locked'}`;
+                card.innerHTML = `
+                    <div class="player-name">${player.name}</div>
+                    <div class="player-meta">${player.role || '-'} | ${player.country || '-'}</div>
+                    <div class="player-meta">Price: ${formatCrValue(player.price)} | Base: ${formatCrValue(player.basePrice)}</div>
+                    <div class="player-tags">
+                        <span class="player-tag">Score ${formatSecretScore(player)}</span>
+                        <span class="player-tag">${player.boughtInAuction ? 'Auction Buy' : 'Retained'}</span>
+                    </div>
+                `;
+                if (viewerTeam.canEdit) {
+                    card.addEventListener('click', () => togglePlayerSelection(Number(player.id)));
+                }
+                grid.appendChild(card);
+            }
+        }
+
+        function renderSelectedXI(viewerTeam) {
+            const selectedList = document.getElementById('selectedList');
+            const ruleList = document.getElementById('ruleList');
+            const selectionCount = document.getElementById('selectionCount');
+            const lockBtn = document.getElementById('lockBtn');
+            selectedList.innerHTML = '';
+            ruleList.innerHTML = '';
+
+            if (!viewerTeam) {
+                selectionCount.innerText = 'View only';
+                lockBtn.disabled = true;
+                selectedList.innerHTML = '<div class="empty-state">No franchise is connected for Playing XI editing on this screen.</div>';
+                return;
+            }
+
+            const selectedPlayers = getSelectedPlayers(viewerTeam);
+            const meta = calculateSelectionMeta(selectedPlayers);
+            selectionCount.innerText = `${selectedPlayers.length} / ${playingXIState.playingXISize} selected`;
+
+            const ruleRows = [
+                ['Exact XI', `${selectedPlayers.length} / ${playingXIState.playingXISize}`, selectedPlayers.length === playingXIState.playingXISize],
+                ['Overseas Limit', `${meta.overseas} / ${playingXIState.maxOverseas}`, meta.overseas <= playingXIState.maxOverseas],
+                ['Wicketkeepers', String(meta.wicketkeepers), meta.wicketkeepers >= 1],
+                ['Batters', String(meta.batters), meta.batters >= 3],
+                ['All-Rounders', String(meta.allrounders), meta.allrounders >= 1],
+                ['Bowlers', String(meta.bowlers), meta.bowlers >= 3]
+            ];
+
+            for (const [label, value, pass] of ruleRows) {
+                const chip = document.createElement('div');
+                chip.className = `rule-chip ${pass ? 'pass' : 'warn'}`;
+                chip.innerHTML = `<strong>${label}</strong><span>${value}</span>`;
+                ruleList.appendChild(chip);
+            }
+
+            if (!selectedPlayers.length) {
+                selectedList.innerHTML = '<div class="empty-state">Select players from your squad to build the final XI.</div>';
+            } else {
+                for (const player of selectedPlayers) {
+                    const item = document.createElement('div');
+                    item.className = 'selected-player';
+                    item.innerHTML = `
+                        <strong>${player.name}</strong>
+                        <span>${player.role || '-'} | ${player.country || '-'} | Score ${formatSecretScore(player)}</span>
+                    `;
+                    selectedList.appendChild(item);
+                }
+            }
+
+            const canLock = viewerTeam.canEdit
+                && selectedPlayers.length === playingXIState.playingXISize
+                && meta.overseas <= playingXIState.maxOverseas;
+
+            lockBtn.disabled = !canLock;
+            if (!viewerTeam.canEdit) {
+                lockBtn.disabled = true;
+                lockBtn.innerText = viewerTeam.locked ? 'Locked' : 'Waiting';
+            } else {
+                lockBtn.innerText = 'Lock Playing XI';
+            }
+        }
+
+        function renderRankings() {
+            const rankingsPanel = document.getElementById('rankingsPanel');
+            const rankingTable = document.getElementById('rankingTable');
+            const resultsGrid = document.getElementById('resultsGrid');
+
+            rankingTable.innerHTML = '';
+            resultsGrid.innerHTML = '';
+
+            if (!playingXIState.allTeamsLocked) {
+                rankingsPanel.style.display = 'none';
+                return;
+            }
+
+            rankingsPanel.style.display = 'grid';
+            for (const entry of playingXIState.rankings || []) {
+                const row = document.createElement('div');
+                row.className = 'ranking-row';
+                row.innerHTML = `
+                    <div class="ranking-rank">${entry.label}</div>
+                    <div class="ranking-team">
+                        <strong>${entry.teamName} (${entry.teamCode})</strong>
+                        <span>${entry.ownerName || 'Franchise'} | Score ${entry.finalScore}</span>
+                    </div>
+                    <div class="ranking-metric">Secret Total: ${entry.secretTotal}</div>
+                    <div class="ranking-metric">Bonus: +${entry.bonus}</div>
+                    <div class="ranking-metric">Penalty: -${entry.penalty}</div>
+                    <div class="ranking-metric">Overseas: ${entry.roleCounts ? entry.roleCounts.overseas : 0}</div>
+                `;
+                rankingTable.appendChild(row);
+            }
+
+            for (const team of playingXIState.teams || []) {
+                const matchingRank = (playingXIState.rankings || []).find((entry) => entry.teamCode === team.code);
+                const card = document.createElement('article');
+                card.className = 'result-team-card';
+                card.style.setProperty('--team-color', teamPalette[team.code] || '#ffd27a');
+                card.innerHTML = `
+                    <div class="result-team-head">
+                        <div class="result-team-title">
+                            <strong>${team.name} (${team.code})</strong>
+                            <span>${matchingRank ? matchingRank.label : 'Locked XI'} | ${team.ownerName || 'Franchise'}</span>
+                        </div>
+                        <div class="status-chip locked">${team.locked ? 'Locked XI' : 'Waiting'}</div>
+                    </div>
+                    <div class="result-player-list">
+                        ${(team.selectedPlayers || []).map((player) => `
+                            <div class="result-player">
+                                <strong>${player.name}</strong>
+                                <span>${player.role || '-'} | ${player.country || '-'} | Price ${formatCrValue(player.price)}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                resultsGrid.appendChild(card);
+            }
+        }
+
+        function togglePlayerSelection(playerId) {
+            const viewerTeam = getViewerTeamState();
+            if (!viewerTeam || !viewerTeam.canEdit) return;
+
+            const existingIndex = localSelectedPlayerIds.indexOf(playerId);
+            if (existingIndex >= 0) {
+                localSelectedPlayerIds.splice(existingIndex, 1);
+            } else {
+                if (localSelectedPlayerIds.length >= playingXIState.playingXISize) {
+                    alert(`You can select only ${playingXIState.playingXISize} players.`);
+                    return;
+                }
+                localSelectedPlayerIds.push(playerId);
+            }
+
+            socket.emit('savePlayingXISelection', {
+                roomCode,
+                playerIds: localSelectedPlayerIds
+            });
+            renderSelector(viewerTeam);
+            renderSelectedXI(viewerTeam);
+        }
+
+        function lockPlayingXI() {
+            const viewerTeam = getViewerTeamState();
+            if (!viewerTeam || !viewerTeam.canEdit) return;
+
+            socket.emit('lockPlayingXI', {
+                roomCode,
+                playerIds: localSelectedPlayerIds
+            });
+        }
+
+        function formatCrValue(value) {
+            const numeric = Number(value);
+            if (!Number.isFinite(numeric)) return '--';
+            return `Rs.${numeric.toFixed(1).replace(/\\.0$/, '')} Cr`;
+        }
+
+        function formatSecretScore(player) {
+            if (player.secretScoreHidden) return 'Hidden';
+            const numeric = Number(player.secretScore);
+            if (!Number.isFinite(numeric)) return '--';
+            return `${Math.round(numeric)} / 10`;
+        }
+
+        function copyRoomCode() {
+            navigator.clipboard.writeText(roomCode);
+            alert(`Join code copied: ${roomCode}`);
+        }
+    </script>
+</body>
+</html>

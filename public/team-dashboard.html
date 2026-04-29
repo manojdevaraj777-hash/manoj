@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Team Dashboard - Auction Premier</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg: #05101d;
+			--panel: rgba(7, 21, 36, 0.86);
+			--line: rgba(255, 255, 255, 0.15);
+			--text: #f4f8ff;
+			--muted: #a8bfd8;
+			--accent: #ff7a18;
+			--accent-soft: rgba(255, 122, 24, 0.18);
+			--good: #4de5c4;
+			--shadow: 0 24px 50px rgba(0, 0, 0, 0.34);
+			--page-max-width: 1460px;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			min-height: 100svh;
+			min-height: 100dvh;
+			font-family: 'Manrope', sans-serif;
+			font-size: clamp(14px, 0.24vw + 12px, 18px);
+			color: var(--text);
+			background:
+				radial-gradient(circle at 10% 10%, rgba(255, 122, 24, 0.2), transparent 30%),
+				radial-gradient(circle at 84% 14%, rgba(77, 229, 196, 0.14), transparent 32%),
+				linear-gradient(145deg, #030914 0%, #071425 60%, #0b213b 100%);
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		.container {
+			width: calc(100% - 32px);
+			max-width: var(--page-max-width);
+			margin: 0 auto;
+			padding: 18px 14px 28px;
+			display: grid;
+			gap: 12px;
+		}
+
+		.brand-strip,
+		.panel {
+			border-radius: 16px;
+			border: 1px solid var(--line);
+			background: var(--panel);
+			box-shadow: var(--shadow);
+		}
+
+		.brand-strip {
+			padding: 10px 14px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+			flex-wrap: wrap;
+		}
+
+		.brand-left {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.brand-left img {
+			width: 44px;
+			height: 44px;
+		}
+
+		.brand-title {
+			font-family: 'Bebas Neue', sans-serif;
+			letter-spacing: 0.08em;
+			color: #ffeeca;
+			font-size: 30px;
+			line-height: 1;
+		}
+
+		.brand-sub {
+			color: var(--muted);
+			font-size: 11px;
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+		}
+
+		.header-controls {
+			display: flex;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+
+		.btn {
+			border: 0;
+			border-radius: 999px;
+			padding: 9px 14px;
+			font-size: 12px;
+			font-weight: 800;
+			letter-spacing: 0.03em;
+			cursor: pointer;
+		}
+
+		.btn.primary {
+			color: #fff;
+			background: linear-gradient(100deg, #ff7a18, #ff5050);
+		}
+
+		.btn.secondary {
+			color: #ddedff;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			background: rgba(255, 255, 255, 0.08);
+		}
+
+		.panel {
+			padding: 16px;
+			display: grid;
+			gap: 12px;
+		}
+
+		.panel h1 {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: clamp(34px, 6vw, 54px);
+			color: #ffe7bd;
+			letter-spacing: 0.05em;
+			line-height: 0.92;
+		}
+
+		.room-row {
+			display: flex;
+			gap: 8px;
+			flex-wrap: wrap;
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		.chip {
+			border-radius: 999px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			background: rgba(255, 255, 255, 0.08);
+			color: #f1f7ff;
+			font-size: 12px;
+			font-weight: 700;
+			padding: 7px 11px;
+		}
+
+		.stats {
+			display: grid;
+			grid-template-columns: repeat(4, minmax(180px, 1fr));
+			gap: 8px;
+		}
+
+		.stat-card {
+			border-radius: 12px;
+			border: 1px solid var(--line);
+			background: rgba(255, 255, 255, 0.05);
+			padding: 10px;
+		}
+
+		.stat-label {
+			color: var(--muted);
+			font-size: 11px;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.stat-value {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 34px;
+			line-height: 1;
+			margin-top: 5px;
+			color: #fff0d1;
+		}
+
+		.table-wrap {
+			overflow: hidden;
+			border-radius: 12px;
+			border: 1px solid var(--line);
+		}
+
+		.player-focus {
+			position: fixed;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 24px;
+			overflow-y: auto;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition: opacity 220ms ease, visibility 220ms ease;
+			z-index: 40;
+		}
+
+		.player-focus.active {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+
+		.player-focus-modal {
+			width: min(640px, calc(100vw - 56px));
+			max-height: none;
+			display: grid;
+			grid-template-rows: auto minmax(0, 1fr);
+			border-radius: 24px;
+			border: 1px solid rgba(255, 211, 143, 0.24);
+			background:
+				radial-gradient(circle at top right, rgba(255, 205, 112, 0.22), transparent 34%),
+				radial-gradient(circle at bottom left, rgba(33, 87, 133, 0.22), transparent 36%),
+				linear-gradient(145deg, rgba(8, 20, 35, 0.985), rgba(4, 12, 24, 0.98));
+			box-shadow: 0 28px 90px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 223, 170, 0.08);
+			overflow: hidden;
+			transform: translateY(18px) scale(0.985);
+			transition: transform 260ms ease;
+		}
+
+		.player-focus.active .player-focus-modal {
+			transform: translateY(0) scale(1);
+		}
+
+		.player-focus-backdrop {
+			position: fixed;
+			inset: 0;
+			background: rgba(2, 8, 16, 0.54);
+			backdrop-filter: blur(8px);
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition: opacity 220ms ease, visibility 220ms ease;
+			z-index: 30;
+		}
+
+		.player-focus-backdrop.active {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+
+		.player-focus-toolbar {
+			display: flex;
+			justify-content: flex-end;
+			padding: 12px 12px 0;
+		}
+
+		.player-focus-scroll {
+			overflow: visible;
+			padding: 4px 12px 12px;
+		}
+
+		.player-focus-layout {
+			display: grid;
+			grid-template-columns: minmax(180px, 205px) minmax(0, 1fr);
+			gap: 12px;
+			align-items: start;
+		}
+
+		.player-hero {
+			border-radius: 18px;
+			border: 1px solid rgba(255, 214, 152, 0.18);
+			background:
+				linear-gradient(180deg, rgba(255, 245, 220, 0.06), rgba(255, 255, 255, 0.02)),
+				radial-gradient(circle at top, rgba(255, 198, 102, 0.18), transparent 48%),
+				linear-gradient(180deg, rgba(14, 31, 49, 0.92), rgba(10, 22, 38, 0.94));
+			padding: 10px;
+			display: grid;
+			gap: 8px;
+			position: static;
+		}
+
+		.player-hero-image {
+			width: min(100%, 172px);
+			aspect-ratio: 1 / 1;
+			justify-self: center;
+			border-radius: 18px;
+			border: 1px solid rgba(255, 214, 152, 0.26);
+			object-fit: cover;
+			background:
+				radial-gradient(circle at 28% 18%, rgba(255, 196, 77, 0.28), transparent 34%),
+				linear-gradient(145deg, rgba(21, 38, 61, 0.98), rgba(8, 16, 28, 0.99));
+			box-shadow: 0 16px 28px rgba(0, 0, 0, 0.28);
+		}
+
+		.player-focus-head {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 10px;
+			flex-wrap: wrap;
+		}
+
+		.player-focus-label {
+			color: #d6b882;
+			font-size: 11px;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		.player-focus-name {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: clamp(24px, 2.5vw, 32px);
+			letter-spacing: 0.05em;
+			line-height: 0.95;
+			color: #ffefc9;
+		}
+
+		.player-focus-sub {
+			color: #d9e7f3;
+			font-size: 13px;
+		}
+
+		.player-focus-close {
+			border: 1px solid rgba(255, 210, 138, 0.22);
+			background: linear-gradient(180deg, rgba(255, 214, 148, 0.16), rgba(255, 255, 255, 0.06));
+			color: #fff2d1;
+			border-radius: 999px;
+			padding: 8px 12px;
+			font-size: 11px;
+			font-weight: 800;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			cursor: pointer;
+			transition: background 180ms ease, border-color 180ms ease;
+		}
+
+		.player-focus-close:hover {
+			background: linear-gradient(180deg, rgba(255, 214, 148, 0.24), rgba(255, 255, 255, 0.08));
+			border-color: rgba(255, 207, 126, 0.58);
+		}
+
+		.player-score-row {
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+
+		.player-focus-score {
+			display: grid;
+			gap: 2px;
+			padding: 8px 10px;
+			border-radius: 14px;
+			border: 1px solid rgba(255, 210, 138, 0.16);
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+			min-width: 82px;
+		}
+
+		.player-focus-score .score-value {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 38px;
+			line-height: 1;
+			color: #fff0c8;
+		}
+
+		.player-focus-score .score-caption {
+			color: var(--muted);
+			font-size: 11px;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+		}
+
+		.player-chip-row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 6px;
+		}
+
+		.player-chip {
+			border-radius: 999px;
+			border: 1px solid rgba(255, 212, 141, 0.18);
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+			color: #fff2d8;
+			font-size: 10px;
+			font-weight: 800;
+			letter-spacing: 0.04em;
+			padding: 6px 9px;
+		}
+
+		.player-focus-content {
+			display: grid;
+			gap: 8px;
+			min-width: 0;
+		}
+
+		.player-section {
+			display: grid;
+			gap: 8px;
+		}
+
+		.player-section-title {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 22px;
+			letter-spacing: 0.05em;
+			color: #ffd895;
+		}
+
+		.player-focus-grid,
+		.player-detail-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 9px;
+		}
+
+		.player-focus-card {
+			border-radius: 12px;
+			border: 1px solid rgba(255, 209, 136, 0.14);
+			background:
+				linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02)),
+				linear-gradient(180deg, rgba(16, 33, 51, 0.94), rgba(10, 20, 35, 0.94));
+			padding: 9px;
+			display: grid;
+			gap: 4px;
+			min-width: 0;
+		}
+
+		.player-focus-card .focus-card-label {
+			color: #caa86b;
+			font-size: 10px;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+		}
+
+		.player-focus-card .focus-card-value {
+			color: #fff8ea;
+			font-size: 15px;
+			font-weight: 800;
+			line-height: 1.35;
+		}
+
+		.teams-panel {
+			border-radius: 14px;
+			border: 1px solid var(--line);
+			background: rgba(255, 255, 255, 0.03);
+			padding: 12px;
+			display: grid;
+			gap: 8px;
+		}
+
+		.teams-panel h3 {
+			font-family: 'Bebas Neue', sans-serif;
+			letter-spacing: 0.05em;
+			color: #ffe4b7;
+			font-size: 28px;
+		}
+
+		.teams-note {
+			color: var(--muted);
+			font-size: 12px;
+		}
+
+		.teams-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 8px;
+		}
+
+		.team-card {
+			border: 1px solid rgba(255, 255, 255, 0.13);
+			background: rgba(255, 255, 255, 0.05);
+			border-top: 3px solid var(--team-color, rgba(255, 255, 255, 0.45));
+			border-radius: 10px;
+			padding: 9px;
+			display: grid;
+			gap: 4px;
+			transition: transform 180ms ease, border-color 180ms ease;
+			cursor: pointer;
+		}
+
+		.team-card:hover {
+			transform: translateY(-1px);
+		}
+
+		.team-card.active {
+			border-color: rgba(255, 191, 70, 0.9);
+			box-shadow: 0 0 0 1px rgba(255, 191, 70, 0.38) inset;
+		}
+
+		.team-row {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.team-logo {
+			width: 34px;
+			height: 34px;
+			border-radius: 8px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			object-fit: contain;
+			object-position: center;
+			background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+			padding: 2px;
+			flex: 0 0 auto;
+		}
+
+		.team-name {
+			font-size: 13px;
+			font-weight: 800;
+			color: #edf5ff;
+		}
+
+		.team-purse {
+			color: #b5f7e8;
+			font-weight: 800;
+			font-size: 13px;
+		}
+
+		.team-meta {
+			font-size: 11px;
+			color: var(--muted);
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			table-layout: fixed;
+		}
+
+		th,
+		td {
+			text-align: left;
+			padding: 10px;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+			font-size: 13px;
+			vertical-align: top;
+			white-space: normal;
+			overflow-wrap: anywhere;
+		}
+
+		th {
+			background: rgba(255, 255, 255, 0.08);
+			color: #ffe0ae;
+			font-size: 12px;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		tbody tr.player-row {
+			cursor: pointer;
+			transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+		}
+
+		tbody tr.player-row:hover {
+			background: rgba(255, 255, 255, 0.045);
+		}
+
+		tbody tr.player-row:focus-visible {
+			outline: 2px solid rgba(255, 196, 77, 0.85);
+			outline-offset: -2px;
+		}
+
+		tbody tr.player-row.active {
+			background: linear-gradient(90deg, rgba(255, 196, 77, 0.16), rgba(255, 255, 255, 0.04));
+			box-shadow: inset 3px 0 0 rgba(255, 196, 77, 0.92);
+		}
+
+		.empty {
+			color: var(--muted);
+			text-align: center;
+			border: 1px dashed rgba(255, 255, 255, 0.2);
+			border-radius: 12px;
+			padding: 16px;
+			background: rgba(255, 255, 255, 0.05);
+		}
+
+		@media (min-width: 1500px) {
+			.container {
+				padding: 26px 22px 40px;
+				gap: 16px;
+			}
+
+			.panel {
+				padding: 20px;
+			}
+
+			.stat-value {
+				font-size: 42px;
+			}
+
+			th,
+			td {
+				padding: 12px;
+				font-size: 14px;
+			}
+		}
+
+		@media (min-width: 2100px) {
+			.container {
+				width: calc(100% - 32px);
+				max-width: var(--page-max-width);
+			}
+		}
+
+		@media (min-width: 1024px) {
+			.container {
+				width: calc(100% - 32px);
+				max-width: var(--page-max-width);
+				padding: 14px;
+				gap: 12px;
+			}
+
+			.table-wrap {
+				overflow: hidden;
+			}
+		}
+
+		@media (max-width: 900px) {
+			.stats {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.player-focus {
+				padding: 14px;
+			}
+
+			.player-focus-modal {
+				width: min(100%, calc(100vw - 18px));
+				max-height: none;
+			}
+
+			.player-focus-layout {
+				grid-template-columns: 1fr;
+			}
+
+			.player-hero {
+				position: static;
+			}
+
+			.player-detail-grid {
+				grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			}
+		}
+
+		@media (max-width: 560px) {
+			.stats {
+				grid-template-columns: 1fr;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="player-focus-backdrop" id="playerFocusBackdrop" onclick="hidePlayerFocus()"></div>
+	<div class="container">
+		<div class="brand-strip">
+			<div class="brand-left">
+				<img src="/auction-logo.svg" alt="Auction Premier logo" onerror="this.onerror=null;this.src='/auction-logo.svg.webp';">
+				<div>
+					<div class="brand-title">Auction Premier</div>
+					<div class="brand-sub">Franchise Squad Dashboard</div>
+				</div>
+			</div>
+			<div class="header-controls">
+				<button class="btn secondary" onclick="goBackToAuction()">Back To Auction</button>
+				<button class="btn primary" onclick="refreshSquad()">Refresh Squad</button>
+			</div>
+		</div>
+
+		<section class="panel">
+			<h1 id="teamName">My Franchise</h1>
+			<div class="room-row">
+				<span class="chip" id="roomChip">Room: ---</span>
+				<span class="chip" id="purseChip">Purse: Rs.0.0 Cr</span>
+				<span class="chip" id="playersChip">Players: 0/25</span>
+				<span class="chip" id="overseasChip">Overseas: 0/8</span>
+			</div>
+
+			<div class="stats">
+				<article class="stat-card">
+					<div class="stat-label">Total Players</div>
+					<div class="stat-value" id="statTotalPlayers">0</div>
+				</article>
+				<article class="stat-card">
+					<div class="stat-label">Overseas Slots</div>
+					<div class="stat-value" id="statOverseas">0</div>
+				</article>
+				<article class="stat-card">
+					<div class="stat-label">Spent (Cr)</div>
+					<div class="stat-value" id="statSpent">0.0</div>
+				</article>
+				<article class="stat-card">
+					<div class="stat-label">Remaining Purse</div>
+					<div class="stat-value" id="statPurse">0.0</div>
+				</article>
+			</div>
+
+			<div class="player-focus" id="playerFocus" role="dialog" aria-modal="true" aria-labelledby="focusPlayerName">
+				<div class="player-focus-modal" onclick="event.stopPropagation()">
+					<div class="player-focus-toolbar">
+						<button class="player-focus-close" type="button" onclick="hidePlayerFocus()">Close</button>
+					</div>
+					<div class="player-focus-scroll">
+						<div class="player-focus-layout">
+							<aside class="player-hero">
+								<img id="focusPlayerImage" class="player-hero-image" src="/images/players/placeholder.jpg" alt="Selected player">
+								<div class="player-focus-label">Player Spotlight</div>
+								<div class="player-focus-name" id="focusPlayerName">Select a player</div>
+								<div class="player-focus-sub" id="focusPlayerSub">Click a squad row to open full player details.</div>
+								<div class="player-score-row">
+									<div class="player-focus-score">
+										<div class="score-caption">Secret Score</div>
+										<div class="score-value" id="focusPlayerScore">--</div>
+									</div>
+									<div class="player-focus-score">
+										<div class="score-caption">Tier</div>
+										<div class="score-value" id="focusPlayerTier">--</div>
+									</div>
+								</div>
+								<div class="player-chip-row">
+									<div class="player-chip" id="focusPlayerTypeChip">--</div>
+									<div class="player-chip" id="focusPlayerPriceChip">Price --</div>
+									<div class="player-chip" id="focusPlayerBasePriceChip">Base --</div>
+								</div>
+							</aside>
+							<div class="player-focus-content">
+								<section class="player-section">
+									<div class="player-section-title">Profile</div>
+									<div class="player-detail-grid">
+										<div class="player-focus-card"><div class="focus-card-label">Role</div><div class="focus-card-value" id="focusPlayerRole">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Country</div><div class="focus-card-value" id="focusPlayerCountry">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Age</div><div class="focus-card-value" id="focusPlayerAge">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Capped Status</div><div class="focus-card-value" id="focusPlayerCapped">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Batting Style</div><div class="focus-card-value" id="focusPlayerBatting">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Bowling Style</div><div class="focus-card-value" id="focusPlayerBowling">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Current Form</div><div class="focus-card-value" id="focusPlayerForm">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Bought For</div><div class="focus-card-value" id="focusPlayerPrice">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Base Price</div><div class="focus-card-value" id="focusPlayerBasePrice">--</div></div>
+										<div class="player-focus-card"><div class="focus-card-label">Acquisition</div><div class="focus-card-value" id="focusPlayerType">--</div></div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="table-wrap" id="tableWrap" style="display: none;">
+				<table>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Player</th>
+							<th>Role</th>
+							<th>Country</th>
+							<th>Price (Cr)</th>
+							<th>Secret Score (/10)</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody id="squadBody"></tbody>
+				</table>
+			</div>
+
+			<div class="empty" id="emptyState">No players in your current squad yet.</div>
+
+			<div class="teams-panel">
+				<h3>Franchise Boards</h3>
+				<div class="teams-note">Click any card to view that franchise squad on this dashboard.</div>
+				<div class="teams-grid" id="tdTeamsGrid"></div>
+			</div>
+		</section>
+	</div>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		const socket = io();
+		const urlParams = new URLSearchParams(window.location.search);
+		const roomCode = (urlParams.get('room') || localStorage.getItem('roomCode') || '').toUpperCase();
+		const teamCodeFromQuery = (urlParams.get('team') || '').toUpperCase();
+		const playerName = localStorage.getItem('playerName');
+		const roomPassword = localStorage.getItem('roomPassword') || '';
+		let preferredTeamCode = teamCodeFromQuery || null;
+		let myTeamCode = null;
+		let selectedPlayerKey = null;
+		let selectedPlayerTeamCode = null;
+		const teamPalette = {
+			MI: '#2d80ff',
+			CSK: '#ffe247',
+			RCB: '#f44336',
+			KKR: '#b183ff',
+			RR: '#ff7eb6',
+			SRH: '#ff8b2d',
+			DC: '#58a6ff',
+			PBKS: '#ff6468',
+			GT: '#759cff',
+			LSG: '#46d7f5'
+		};
+		const teamLogoMap = {
+			MI: 'mi_Logo.svg.png',
+			CSK: 'csk_Logo.svg.webp',
+			RCB: 'rcb_Logo.svg.png',
+			KKR: 'kkr_Logo.svg.webp',
+			RR: 'rr_Logo.svg.png',
+			SRH: 'srh_Logo.svg.webp',
+			DC: 'dc_Logo.svg.webp',
+			PBKS: 'pk_Logo.svg.webp',
+			GT: 'gt_Logo.svg.png',
+			LSG: 'lsg_Logo.svg.webp'
+		};
+
+		if (!roomCode || !playerName) {
+			window.location.href = '/';
+		}
+
+		document.getElementById('roomChip').innerText = `Room: ${roomCode}`;
+		socket.emit('joinRoom', { roomCode, password: roomPassword, playerName });
+
+		socket.on('roomJoined', (data) => {
+			if (data && data.phase === 'playing11') {
+				window.location.href = `/playing11.html?room=${data.roomCode}`;
+				return;
+			}
+			if (data && data.teams) {
+				myTeamCode = resolveMyTeamCode(data.teams);
+			}
+			refreshSquad();
+		});
+
+		socket.on('playingXIStarted', (data) => {
+			const nextRoomCode = (data && data.roomCode) || roomCode;
+			window.location.href = `/playing11.html?room=${nextRoomCode}`;
+		});
+
+		socket.on('allTeams', (teams) => {
+			renderFranchiseBoards(teams);
+			const activeCode = preferredTeamCode || resolveMyTeamCode(teams) || myTeamCode;
+			if (!activeCode || !teams[activeCode]) {
+				renderEmptyState();
+				return;
+			}
+
+			myTeamCode = resolveMyTeamCode(teams) || myTeamCode;
+			renderTeam(teams[activeCode], activeCode);
+		});
+
+		socket.on('teamsUpdate', () => {
+			refreshSquad();
+		});
+
+		socket.on('error', (message) => {
+			if ((message || '').toLowerCase().includes('room not found')) {
+				window.location.href = '/';
+			}
+		});
+
+		function refreshSquad() {
+			socket.emit('getAllTeams', roomCode);
+		}
+
+		function resolveMyTeamCode(teams) {
+			if (!teams) return null;
+			for (const [code, team] of Object.entries(teams)) {
+				if (team.socketId === socket.id) return code;
+			}
+			return null;
+		}
+
+		function formatNumberValue(value, decimals = 0) {
+			const numeric = Number(value);
+			if (!Number.isFinite(numeric)) return '--';
+			return numeric
+				.toFixed(decimals)
+				.replace(/\.0+$/, '')
+				.replace(/(\.\d*[1-9])0+$/, '$1');
+		}
+
+		function formatCrValue(value) {
+			const text = formatNumberValue(value, 2);
+			return text === '--' ? '--' : `Rs.${text} Cr`;
+		}
+
+		function getSafeValue(value, fallback = '--') {
+			if (value === undefined || value === null) return fallback;
+			const text = String(value).trim();
+			return text ? text : fallback;
+		}
+
+		function buildPlayerPlaceholder(name) {
+			const initials = (name || 'PL')
+				.split(' ')
+				.filter(Boolean)
+				.slice(0, 2)
+				.map((part) => part[0].toUpperCase())
+				.join('');
+
+			const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+				<defs>
+					<linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='0%'>
+						<stop offset='0%' stop-color='#061325'/>
+						<stop offset='100%' stop-color='#0b2f5f'/>
+					</linearGradient>
+				</defs>
+				<rect width='100%' height='100%' fill='url(#g)'/>
+				<text x='256' y='250' text-anchor='middle' dominant-baseline='middle' fill='#f9f1dc' font-size='152' font-family='Segoe UI, Arial, sans-serif' font-weight='700'>${initials}</text>
+			</svg>`;
+
+			return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+		}
+
+		function setFocusPlayerImage(player) {
+			const imageEl = document.getElementById('focusPlayerImage');
+			if (!imageEl) return;
+
+			if (!player || !player.image) {
+				imageEl.src = buildPlayerPlaceholder(player && player.name ? player.name : 'Player');
+				return;
+			}
+
+			const jpgCandidate = `/images/players/${player.image}`;
+			const svgCandidate = `/images/players/${String(player.image).replace(/\.jpg$/i, '.svg')}`;
+			imageEl.onerror = () => {
+				if (imageEl.src.endsWith('.jpg')) {
+					imageEl.onerror = () => {
+						imageEl.onerror = null;
+						imageEl.src = buildPlayerPlaceholder(player.name || 'Player');
+					};
+					imageEl.src = svgCandidate;
+					return;
+				}
+				imageEl.onerror = null;
+				imageEl.src = buildPlayerPlaceholder(player.name || 'Player');
+			};
+			imageEl.src = jpgCandidate;
+		}
+
+		function renderEmptyState() {
+			document.getElementById('teamName').innerText = preferredTeamCode ? `${preferredTeamCode} Squad` : 'Team Squad';
+			document.getElementById('purseChip').innerText = 'Purse: Rs.0.0 Cr';
+			document.getElementById('playersChip').innerText = 'Players: 0/25';
+			document.getElementById('overseasChip').innerText = 'Overseas: 0/8';
+			document.getElementById('statTotalPlayers').innerText = '0';
+			document.getElementById('statOverseas').innerText = '0';
+			document.getElementById('statSpent').innerText = '0.0';
+			document.getElementById('statPurse').innerText = '0.0';
+			document.getElementById('tableWrap').style.display = 'none';
+			hidePlayerFocus();
+			document.getElementById('emptyState').style.display = 'block';
+			document.getElementById('emptyState').innerText = 'No team data available for this view yet.';
+		}
+
+		function renderTeam(team, teamCode) {
+			if (!team) return;
+
+			const players = team.players || [];
+			const spent = players.reduce((sum, p) => sum + Number(p.price || 0), 0);
+
+			document.getElementById('teamName').innerText = `${team.name} (${teamCode})`;
+			document.getElementById('purseChip').innerText = `Purse: Rs.${Number(team.purse || 0).toFixed(1)} Cr`;
+			document.getElementById('playersChip').innerText = `Players: ${players.length}/25`;
+			document.getElementById('overseasChip').innerText = `Overseas: ${team.overseasCount || 0}/8`;
+
+			document.getElementById('statTotalPlayers').innerText = players.length;
+			document.getElementById('statOverseas').innerText = team.overseasCount || 0;
+			document.getElementById('statSpent').innerText = spent.toFixed(1);
+			document.getElementById('statPurse').innerText = Number(team.purse || 0).toFixed(1);
+
+			const body = document.getElementById('squadBody');
+			body.innerHTML = '';
+
+			if (!players.length) {
+				document.getElementById('tableWrap').style.display = 'none';
+				hidePlayerFocus();
+				document.getElementById('emptyState').style.display = 'block';
+				document.getElementById('emptyState').innerText = 'No players in this squad yet.';
+				return;
+			}
+
+			players.forEach((player, index) => {
+				const playerKey = buildPlayerKey(teamCode, player, index);
+				const secretScoreCell = player.secretScore !== null && player.secretScore !== undefined
+					? `${Number(player.secretScore).toFixed(0)} / 10`
+					: (player.secretScoreHidden ? 'Hidden' : '--');
+				const row = document.createElement('tr');
+				row.className = 'player-row';
+				row.tabIndex = 0;
+				row.dataset.playerKey = playerKey;
+				if (selectedPlayerKey === playerKey && selectedPlayerTeamCode === teamCode) {
+					row.classList.add('active');
+				}
+				row.innerHTML = `
+					<td>${index + 1}</td>
+					<td>${player.name}</td>
+					<td>${player.role || '-'}</td>
+					<td>${player.country || '-'}</td>
+					<td>Rs.${Number(player.price || 0).toFixed(1)}</td>
+					<td>${secretScoreCell}</td>
+					<td>${player.boughtInAuction ? 'Auction Buy' : 'Retained'}</td>
+				`;
+				row.addEventListener('click', () => selectPlayer(teamCode, player, index));
+				row.addEventListener('keydown', (event) => {
+					if (event.key === 'Enter' || event.key === ' ') {
+						event.preventDefault();
+						selectPlayer(teamCode, player, index);
+					}
+				});
+				body.appendChild(row);
+			});
+
+			if (selectedPlayerTeamCode === teamCode) {
+				const selectedPlayer = players.find((player, index) => buildPlayerKey(teamCode, player, index) === selectedPlayerKey);
+				if (selectedPlayer) {
+					renderPlayerModal(selectedPlayer, teamCode);
+				} else {
+					hidePlayerFocus();
+				}
+			} else {
+				hidePlayerFocus();
+			}
+
+			document.getElementById('emptyState').style.display = 'none';
+			document.getElementById('tableWrap').style.display = 'block';
+			setActiveFranchiseCard(teamCode);
+		}
+
+		function buildPlayerKey(teamCode, player, index) {
+			return `${teamCode}::${String(player.name || '').trim().toLowerCase()}::${Number(player.price || 0).toFixed(1)}::${index}`;
+		}
+
+		function selectPlayer(teamCode, player, index) {
+			const playerKey = buildPlayerKey(teamCode, player, index);
+			const isSameSelection = selectedPlayerKey === playerKey && selectedPlayerTeamCode === teamCode;
+			if (isSameSelection) {
+				hidePlayerFocus();
+				highlightSelectedPlayerRow();
+				return;
+			}
+
+			selectedPlayerKey = playerKey;
+			selectedPlayerTeamCode = teamCode;
+			highlightSelectedPlayerRow();
+			renderPlayerModal(player, teamCode);
+		}
+
+		function highlightSelectedPlayerRow() {
+			const rows = document.querySelectorAll('#squadBody .player-row');
+			for (const row of rows) {
+				row.classList.toggle('active', row.dataset.playerKey === selectedPlayerKey);
+			}
+		}
+
+		function renderPlayerModal(player, teamCode) {
+			const focus = document.getElementById('playerFocus');
+			const backdrop = document.getElementById('playerFocusBackdrop');
+			if (!focus || !player) return;
+
+			setFocusPlayerImage(player);
+
+			const profile = player.profile || {};
+			const scoreText = player.secretScore !== null && player.secretScore !== undefined
+				? `${Number(player.secretScore).toFixed(0)} / 10`
+				: (player.secretScoreHidden ? 'Hidden' : '--');
+
+			document.getElementById('focusPlayerName').innerText = player.name || 'Unknown Player';
+			document.getElementById('focusPlayerSub').innerText = teamCode + ' player profile - ' + getSafeValue(player.role, 'Role N/A') + ' - ' + getSafeValue(player.country, 'Country N/A');
+			document.getElementById('focusPlayerScore').innerText = scoreText;
+			document.getElementById('focusPlayerTier').innerText = player.tier !== null && player.tier !== undefined ? formatNumberValue(player.tier) : '--';
+			document.getElementById('focusPlayerTypeChip').innerText = player.boughtInAuction ? 'Auction Buy' : 'Retained';
+			document.getElementById('focusPlayerPriceChip').innerText = `Paid ${formatCrValue(player.price)}`;
+			document.getElementById('focusPlayerBasePriceChip').innerText = `Base ${formatCrValue(player.basePrice)}`;
+
+			document.getElementById('focusPlayerPrice').innerText = formatCrValue(player.price);
+			document.getElementById('focusPlayerBasePrice').innerText = formatCrValue(player.basePrice);
+			document.getElementById('focusPlayerType').innerText = player.boughtInAuction ? 'Auction Buy' : 'Retained';
+			document.getElementById('focusPlayerRole').innerText = getSafeValue(player.role);
+			document.getElementById('focusPlayerCountry').innerText = getSafeValue(player.country);
+			document.getElementById('focusPlayerAge').innerText = formatNumberValue(profile.age);
+			document.getElementById('focusPlayerCapped').innerText = getSafeValue(profile.cappedStatus);
+			document.getElementById('focusPlayerBatting').innerText = getSafeValue(profile.battingStyle);
+			document.getElementById('focusPlayerBowling').innerText = getSafeValue(profile.bowlingStyle);
+			document.getElementById('focusPlayerForm').innerText = getSafeValue(profile.form);
+			focus.classList.add('active');
+			if (backdrop) backdrop.classList.add('active');
+		}
+
+		function hidePlayerFocus() {
+			const focus = document.getElementById('playerFocus');
+			const backdrop = document.getElementById('playerFocusBackdrop');
+			if (!focus) return;
+			focus.classList.remove('active');
+			if (backdrop) backdrop.classList.remove('active');
+			selectedPlayerKey = null;
+			selectedPlayerTeamCode = null;
+			highlightSelectedPlayerRow();
+		}
+
+		function renderFranchiseBoards(teams) {
+			const grid = document.getElementById('tdTeamsGrid');
+			if (!grid) return;
+			grid.innerHTML = '';
+
+			for (const [code, team] of Object.entries(teams || {})) {
+				const card = document.createElement('div');
+				card.className = 'team-card';
+				card.style.setProperty('--team-color', teamPalette[code] || '#ffc44d');
+
+				if ((preferredTeamCode || myTeamCode) === code) {
+					card.classList.add('active');
+				}
+
+				card.innerHTML = `
+					<div class="team-row">
+						<img class="team-logo team-logo-${code}" src="/images/teams/${teamLogoMap[code] || (code + '.png')}" alt="${code} logo" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/images/teams/${code}.svg';">
+						<div class="team-name">${team.name} (${code})</div>
+					</div>
+					<div class="team-purse">Purse: Rs.${Number(team.purse || 0).toFixed(1)} Cr</div>
+					<div class="team-meta">Squad: ${(team.players || []).length}/25</div>
+					<div class="team-meta">Overseas: ${team.overseasCount || 0}/8</div>
+				`;
+
+				card.addEventListener('click', () => {
+					preferredTeamCode = code;
+					renderTeam(team, code);
+					setActiveFranchiseCard(code);
+				});
+				grid.appendChild(card);
+			}
+		}
+
+		function setActiveFranchiseCard(teamCode) {
+			const grid = document.getElementById('tdTeamsGrid');
+			if (!grid) return;
+			for (const card of grid.querySelectorAll('.team-card')) {
+				card.classList.remove('active');
+			}
+			const cards = Array.from(grid.querySelectorAll('.team-card'));
+			const match = cards.find((card) => card.innerText.includes(`(${teamCode})`));
+			if (match) match.classList.add('active');
+		}
+
+		function goBackToAuction() {
+			window.location.href = `/auction.html?room=${roomCode}`;
+		}
+	</script>
+</body>
+</html>

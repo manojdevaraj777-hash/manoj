@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>IPL Auction Game - Join or Create Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #07111f;
+            --panel: rgba(9, 25, 44, 0.78);
+            --panel-strong: rgba(6, 18, 31, 0.92);
+            --line: rgba(255, 255, 255, 0.14);
+            --text: #f5f8ff;
+            --muted: #adc3df;
+            --accent: #ff7a18;
+            --accent-2: #ffbf46;
+            --secondary: #29c6a9;
+            --danger: #ef5350;
+            --shadow: 0 22px 55px rgba(0, 0, 0, 0.35);
+            --page-max-width: 1460px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100svh;
+            min-height: 100dvh;
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(14px, 0.28vw + 12px, 18px);
+            color: var(--text);
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255, 122, 24, 0.18), transparent 30%),
+                radial-gradient(circle at 92% 16%, rgba(41, 198, 169, 0.16), transparent 28%),
+                linear-gradient(140deg, #040b14 0%, #07111f 55%, #0a1a30 100%);
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            inset: auto auto 10% -70px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transform: rotate(15deg);
+        }
+
+        body::after {
+            inset: 70px -90px auto auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transform: rotate(-18deg);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: calc(100% - 32px);
+            max-width: var(--page-max-width);
+            margin: 0 auto;
+            padding: 28px 18px 46px;
+            display: grid;
+            gap: 22px;
+        }
+
+        .brand-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: rgba(8, 21, 36, 0.78);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .brand-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-main img {
+            width: 52px;
+            height: 52px;
+            padding: 5px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            filter: brightness(0) saturate(0) invert(1) drop-shadow(0 0 14px rgba(255, 255, 255, 0.32));
+        }
+
+        .brand-title {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.08em;
+            font-size: 30px;
+            line-height: 1;
+            color: #ffedcf;
+        }
+
+        .brand-sub {
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .ticker-inline {
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 191, 70, 0.36);
+            color: #ffe9b3;
+            background: rgba(255, 122, 24, 0.12);
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+            animation: ticker-glow 2.4s ease-in-out infinite;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, var(--panel-strong), rgba(14, 38, 67, 0.86));
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            padding: 30px 28px 26px;
+            display: grid;
+            gap: 8px;
+            animation: rise-in 550ms ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 270px;
+            height: 270px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            right: -100px;
+            top: -110px;
+            transform: rotate(18deg);
+        }
+
+        .badge {
+            width: fit-content;
+            padding: 7px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 191, 70, 0.4);
+            background: rgba(255, 191, 70, 0.15);
+            color: #ffe9b0;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(44px, 9vw, 86px);
+            line-height: 0.96;
+            letter-spacing: 0.04em;
+            color: #fff6e8;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: clamp(14px, 2.8vw, 18px);
+            max-width: 760px;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            animation: rise-in 700ms ease;
+        }
+
+        .card h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+            font-size: 34px;
+            margin-bottom: 12px;
+            color: #ffe3bc;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            border-radius: 12px;
+            font-family: inherit;
+        }
+
+        input,
+        select {
+            margin: 8px 0;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 15px;
+            padding: 12px 13px;
+            outline: none;
+            transition: border-color 180ms ease, transform 180ms ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: rgba(255, 122, 24, 0.9);
+            transform: translateY(-1px);
+        }
+
+        input::placeholder {
+            color: rgba(173, 195, 223, 0.85);
+        }
+
+        select option {
+            color: #06101e;
+        }
+
+        button {
+            margin-top: 10px;
+            border: 0;
+            cursor: pointer;
+            padding: 13px;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(100deg, #ff7a18, #ff5050);
+            box-shadow: 0 10px 24px rgba(255, 80, 80, 0.36);
+        }
+
+        .btn-secondary {
+            color: #042035;
+            background: linear-gradient(100deg, #4ee5c9, #88f5de);
+            box-shadow: 0 10px 24px rgba(78, 229, 201, 0.3);
+        }
+
+        .how-to-play {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .how-to-play h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 30px;
+            letter-spacing: 0.06em;
+            color: #ffe3bc;
+            margin-bottom: 10px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 14px;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(130deg, var(--accent), var(--accent-2));
+            color: #111;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .step strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .error-hint {
+            margin-top: 8px;
+            color: #ffb3b1;
+            min-height: 18px;
+            font-size: 12px;
+        }
+
+        @keyframes rise-in {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ticker-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(255, 122, 24, 0);
+            }
+            50% {
+                box-shadow: 0 0 14px rgba(255, 122, 24, 0.24);
+            }
+        }
+
+        @media (min-width: 1500px) {
+            .container {
+                padding: 34px 22px 54px;
+                gap: 24px;
+            }
+
+            .brand-main img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .hero {
+                padding: 40px 36px 34px;
+            }
+
+            .card {
+                padding: 28px;
+            }
+
+            .steps {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 14px;
+            }
+        }
+
+        @media (min-width: 2100px) {
+            .container {
+                width: calc(100% - 32px);
+                max-width: var(--page-max-width);
+            }
+
+            .split-layout {
+                gap: 24px;
+            }
+        }
+
+        @media (min-width: 1024px) and (min-height: 700px) {
+            .container {
+                width: calc(100% - 32px);
+                max-width: var(--page-max-width);
+                min-height: 100dvh;
+                padding: 16px 18px 24px;
+                gap: 14px;
+                grid-template-rows: auto auto auto minmax(0, 1fr);
+            }
+
+            .hero {
+                padding: 20px 22px 18px;
+            }
+
+            h1 {
+                font-size: clamp(36px, 4.8vw, 66px);
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            .card h2 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .card p {
+                margin-bottom: 8px;
+            }
+
+            input,
+            select {
+                margin: 6px 0;
+                padding: 10px 11px;
+            }
+
+            button {
+                margin-top: 8px;
+                padding: 11px;
+            }
+
+            .how-to-play {
+                padding: 14px;
+                overflow: visible;
+                height: 100%;
+            }
+
+            .how-to-play h3 {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            .steps {
+                gap: 8px;
+                height: 100%;
+                align-items: stretch;
+            }
+
+            .step {
+                padding: 10px;
+                height: 100%;
+            }
+
+            .step p {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .brand-strip {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero {
+                padding: 22px 18px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="brand-strip">
+            <div class="brand-main">
+                <img src="/auction-logo.svg" alt="Auction Premier logo" onerror="this.onerror=null;this.src='/auction-logo.svg.webp';">
+                <div>
+                    <div class="brand-title">Auction Premier</div>
+                    <div class="brand-sub">T20 Franchise Draft Simulator</div>
+                </div>
+            </div>
+            <div class="ticker-inline">Live Multiplayer Draft Rooms</div>
+        </div>
+
+        <section class="hero">
+            <div class="badge">IPL Season 2026</div>
+            <h1>Build A Champion Squad</h1>
+            <div class="subtitle">Host a live auction room, draft with friends, and battle purse strategy in a realistic IPL-style mega auction.</div>
+        </section>
+
+        <div class="split-layout">
+            <section class="card">
+                <h2>Create Room</h2>
+                <p>Become the auctioneer, name your room, and get a 5-character join code instantly.</p>
+                <input type="text" id="createRoomName" placeholder="Room title (example: Friday Auction)" maxlength="20">
+                <input type="password" id="createPassword" placeholder="Password (optional)">
+                <select id="auctionMode">
+                    <option value="manual">Manual Auctioneer (host controls nomination)</option>
+                    <option value="ai">AI Auctioneer (instruction-driven auto nomination)</option>
+                </select>
+                <input type="text" id="creatorName" placeholder="Your display name">
+                <button class="btn-primary" onclick="createRoom()">Launch Auction Room</button>
+                <div id="createError" class="error-hint"></div>
+            </section>
+
+            <section class="card">
+                <h2>Join Room</h2>
+                <p>Enter the 5-character join code to pick your franchise and start bidding.</p>
+                <input type="text" id="joinRoomCode" placeholder="5-character room code" maxlength="5" autocapitalize="characters">
+                <input type="password" id="joinPassword" placeholder="Password (if enabled)">
+                <input type="text" id="joinerName" placeholder="Your display name">
+                <button class="btn-secondary" onclick="joinRoom()">Enter Auction Room</button>
+                <div id="joinError" class="error-hint"></div>
+            </section>
+        </div>
+
+        <section class="how-to-play">
+            <h3>How The Auction Works</h3>
+            <div class="steps">
+                <article class="step">
+                    <div class="step-number">1</div>
+                    <strong>Create or Join</strong>
+                    <p>Host with a room code or join an existing session.</p>
+                </article>
+                <article class="step">
+                    <div class="step-number">2</div>
+                    <strong>Select Team</strong>
+                    <p>Claim your franchise before someone else does.</p>
+                </article>
+                <article class="step">
+                    <div class="step-number">3</div>
+                    <strong>Bid Live</strong>
+                    <p>Outbid rivals before the auction clock hits zero.</p>
+                </article>
+                <article class="step">
+                    <div class="step-number">4</div>
+                    <strong>Assemble Squad</strong>
+                    <p>Balance stars, depth, and overseas slots to win.</p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = null;
+
+        function setError(targetId, message) {
+            document.getElementById(targetId).innerText = message || '';
+        }
+
+        function createRoom() {
+            const roomName = document.getElementById('createRoomName').value.trim();
+            const password = document.getElementById('createPassword').value;
+            const mode = document.getElementById('auctionMode').value;
+            const playerName = document.getElementById('creatorName').value.trim();
+
+            setError('createError', '');
+
+            if (!roomName) {
+                setError('createError', 'Enter a room name to continue.');
+                return;
+            }
+            if (!playerName) {
+                setError('createError', 'Enter your display name.');
+                return;
+            }
+
+            socket = io();
+
+            socket.on('connect', () => {
+                socket.emit('createRoom', { roomName, password, mode, playerName });
+            });
+
+            socket.on('roomCreated', (data) => {
+                localStorage.setItem('playerName', playerName);
+                localStorage.setItem('roomCode', data.roomCode);
+                localStorage.setItem('roomName', roomName);
+                localStorage.setItem('roomPassword', password || '');
+                window.location.href = `/lobby.html?room=${data.roomCode}`;
+            });
+
+            socket.on('error', (error) => {
+                setError('createError', error);
+            });
+        }
+
+        function joinRoom() {
+            const roomCode = document.getElementById('joinRoomCode').value.trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5);
+            const password = document.getElementById('joinPassword').value;
+            const playerName = document.getElementById('joinerName').value.trim();
+
+            setError('joinError', '');
+
+            if (!roomCode) {
+                setError('joinError', 'Enter a room code.');
+                return;
+            }
+            if (!playerName) {
+                setError('joinError', 'Enter your display name.');
+                return;
+            }
+
+            socket = io();
+
+            socket.on('connect', () => {
+                socket.emit('joinRoom', { roomCode, password, playerName });
+            });
+
+            socket.on('roomJoined', (data) => {
+                localStorage.setItem('playerName', playerName);
+                localStorage.setItem('roomCode', data.roomCode);
+                localStorage.setItem('roomName', data.roomName || '');
+                localStorage.setItem('roomPassword', password || '');
+                window.location.href = `/lobby.html?room=${data.roomCode}`;
+            });
+
+            socket.on('error', (error) => {
+                setError('joinError', error);
+            });
+        }
+
+        document.getElementById('creatorName').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') createRoom();
+        });
+
+        document.getElementById('joinerName').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') joinRoom();
+        });
+
+        document.getElementById('joinRoomCode').addEventListener('input', (event) => {
+            event.target.value = event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5);
+        });
+    </script>
+</body>
+</html>
