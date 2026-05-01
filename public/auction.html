@@ -1567,7 +1567,7 @@
 
         socket.on('bidSkipUpdate', (data) => {
             if (data && data.team && data.playerId === currentPlayerId) {
-                if (data.team === myTeam) {
+                if (data.isMySkip === true) {
                     skippedCurrentPlayer = true;
                     if (typeof data.timeLeft === 'number') {
                         const timer = document.getElementById('timer');
@@ -1575,6 +1575,10 @@
                         timer.classList.toggle('warning', data.timeLeft <= 3);
                     }
                     document.getElementById('liveTicker').innerText = `You skipped ${data.playerName}. Waiting for final SOLD/UNSOLD result.`;
+                    updateBidButton();
+                    updateBidCalculator();
+                } else if (!skippedCurrentPlayer) {
+                    document.getElementById('liveTicker').innerText = `${data.team} skipped this player. You can still bid.`;
                     updateBidButton();
                     updateBidCalculator();
                 }

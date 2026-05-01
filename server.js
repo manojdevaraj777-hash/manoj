@@ -2824,6 +2824,18 @@ function emitBidUpdateWithSkipPrivacy(room, payload, io) {
   }
 }
 
+function emitBidSkipUpdateWithPrivacy(room, skippedTeamCode, payload, io) {
+  for (const participant of room.players || []) {
+    if (participant.connected === false) continue;
+    if (!participant.id) continue;
+
+    io.to(participant.id).emit('bidSkipUpdate', {
+      ...payload,
+      isMySkip: participant.team === skippedTeamCode
+    });
+  }
+}
+
 function runAIBidCycle(room, io) {
   clearAIBidTimeout(room);
   const roomAvailablePlayers = getRoomAvailablePlayers(room);
@@ -3776,12 +3788,12 @@ io.on('connection', (socket) => {
     room.fastTrackEndAt = Date.now() + 4000;
     room.timeLeft = getPostBidTimeLeft(room, 4);
 
-    io.to(normalizedRoomCode).emit('bidSkipUpdate', {
+    emitBidSkipUpdateWithPrivacy(room, teamCode, {
       team: teamCode,
       playerId: room.currentPlayer.id,
       playerName: room.currentPlayer.name,
       timeLeft: room.timeLeft
-    });
+    }, io);
     io.to(normalizedRoomCode).emit('timerTick', room.timeLeft);
 
     if (adjustedState) {
