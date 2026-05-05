@@ -1522,7 +1522,8 @@ function buildFreshTeams() {
       players: [],
       overseasCount: 0,
       totalPlayers: 0,
-      socketId: null
+      socketId: null,
+      auctionStatus: 'active'
     };
   }
 
@@ -2791,6 +2792,7 @@ function getTeamPlayerValuation(room, teamCode, playerData) {
 function canTeamBidForPlayer(room, teamCode, bidAmount, playerData) {
   const team = room.teams[teamCode];
   if (!team) return false;
+  if (team.auctionStatus === 'complete') return false;
   if (team.purse < bidAmount) return false;
   if (team.players.length >= 25) return false;
 
@@ -2992,6 +2994,9 @@ function validateBid(room, teamCode, bidAmount) {
   const roomAvailablePlayers = getRoomAvailablePlayers(room);
   
   if (!player) return { valid: false, reason: 'No player on auction' };
+  if (team?.auctionStatus === 'complete') {
+    return { valid: false, reason: 'Your team ended its auction. Switch back to continue if you want to bid again.' };
+  }
   if (room.currentPlayerSkippedTeams && room.currentPlayerSkippedTeams[teamCode]) {
     return { valid: false, reason: 'You skipped this player. Wait for next player.' };
   }
@@ -3039,6 +3044,9 @@ function isAuctionReadyForPlayingXI(room) {
 
   return competitionTeamCodes.every((teamCode) => {
     const team = room.teams?.[teamCode];
+    if (team?.auctionStatus === 'complete') {
+      return true;
+    }
     const squadSize = Array.isArray(team?.players) ? team.players.length : 0;
     if (squadSize >= MIN_SQUAD_SIZE_FOR_PLAYING_XI || squadSize >= 25) {
       return true;
@@ -3710,6 +3718,53 @@ io.on('connection', (socket) => {
 
     if (isAIMode(room.mode)) {
       runAIBidCycle(room, io);
+    }
+  });
+
+  socket.on('setTeamAuctionStatus', (data) => {
+    const { roomCode, status } = data || {};
+    const normalizedRoomCode = normalizeRoomCode(roomCode);
+    const room = activeRooms.get(normalizedRoomCode);
+    if (!room) return;
+
+    if (room.phase !== ROOM_PHASES.AUCTION) {
+      socket.emit('error', 'Auction already moved to Playing XI stage.');
+      return;
+    }
+
+    const teamCode = getSocketTeamCode(room, socket.id);
+    if (!teamCode) {
+      socket.emit('error', 'Select a team first.');
+      return;
+    }
+
+    const team = room.teams?.[teamCode];
+    if (!team) return;
+
+    const normalizedStatus = String(status || '').trim().toLowerCase();
+    if (normalizedStatus !== 'active' && normalizedStatus !== 'complete') {
+      socket.emit('error', 'Invalid auction status selected.');
+      return;
+    }
+
+    if (normalizedStatus === 'complete') {
+      if ((team.players || []).length < MIN_SQUAD_SIZE_FOR_PLAYING_XI) {
+        socket.emit('error', `Your team needs at least ${MIN_SQUAD_SIZE_FOR_PLAYING_XI} players before ending the auction.`);
+        return;
+      }
+
+      if (room.currentHighestBidder === teamCode) {
+        socket.emit('error', 'You are currently leading the active bid. Finish this player first, then end your auction.');
+        return;
+      }
+    }
+
+    team.auctionStatus = normalizedStatus;
+    io.to(normalizedRoomCode).emit('teamsUpdate', room.teams);
+    io.to(normalizedRoomCode).emit('message', `${team.name} is now ${normalizedStatus === 'complete' ? 'done with the auction' : 'back in the auction'}.`);
+
+    if (isAuctionReadyForPlayingXI(room)) {
+      startPlayingXIPhase(room, io);
     }
   });
   

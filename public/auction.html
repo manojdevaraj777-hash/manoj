@@ -1198,6 +1198,23 @@
                         </div>
                         <button class="quick-bid-btn" id="quickBidBtn" onclick="placeBid()">Quick Bid <span id="quickBidAmount">₹0.0 Cr</span></button>
                     </div>
+                    <div class="bid-calculator" id="teamAuctionStatusPanel" style="display:none;">
+                        <h4>Team Auction Status</h4>
+                        <div class="calculator-info">
+                            <div class="calc-row">
+                                <span>Squad Status</span>
+                                <span class="calc-value" id="teamAuctionStatusText">Active</span>
+                            </div>
+                            <div class="calc-row">
+                                <span>Minimum Reached</span>
+                                <span class="calc-value" id="teamAuctionMinimumText">No</span>
+                            </div>
+                        </div>
+                        <div class="action-row">
+                            <button class="quick-bid-btn" id="continueAuctionBtn" onclick="setTeamAuctionStatus('active')">Continue Auction</button>
+                            <button class="skip-bid-btn" id="endAuctionBtn" onclick="setTeamAuctionStatus('complete')">End Auction</button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -1323,6 +1340,7 @@
         let currentPlayerId = null;
         let skippedCurrentPlayer = false;
         let auctionLive = false;
+        let currentTeamAuctionStatus = 'active';
         let soldPlayersHistory = [];
         let unsoldPlayersHistory = [];
         let soundEnabled = true;
@@ -1362,6 +1380,7 @@
             tryResumeStartSoundHandoff();
             updateModeDisplay();
             updateTeamsDisplay(teamsData);
+            updateTeamAuctionStatusPanel();
             renderAuctionOutcomeLists();
 
             if (data.auctionState && data.auctionState.player) {
@@ -1382,6 +1401,7 @@
             teamsData = teams || {};
             hydrateMyTeam();
             updateTeamsDisplay(teamsData);
+            updateTeamAuctionStatusPanel();
             updateBidCalculator();
             updateBidButton();
         });
@@ -1407,6 +1427,7 @@
             renderAuctionQueue();
 
             updateTeamsDisplay(teamsData);
+            updateTeamAuctionStatusPanel();
             updateBidButton();
             updateBidCalculator();
         });
@@ -1439,6 +1460,7 @@
             renderAuctionQueue();
 
             updateTeamsDisplay(teamsData);
+            updateTeamAuctionStatusPanel();
             updateBidButton();
             updateBidCalculator();
         }
@@ -1502,6 +1524,7 @@
             renderAuctionQueue();
 
             updateTeamsDisplay(teamsData);
+            updateTeamAuctionStatusPanel();
             updateBidButton();
             updateBidCalculator();
             if (isAuctioneer) loadAvailablePlayers();
@@ -1535,6 +1558,7 @@
             renderAuctionQueue();
 
             updateTeamsDisplay(teamsData);
+            updateTeamAuctionStatusPanel();
             updateBidButton();
             updateBidCalculator();
             if (isAuctioneer) loadAvailablePlayers();
@@ -1631,6 +1655,34 @@
                     break;
                 }
             }
+            currentTeamAuctionStatus = (myTeam && teamsData[myTeam] && teamsData[myTeam].auctionStatus) || 'active';
+        }
+
+        function updateTeamAuctionStatusPanel() {
+            const panel = document.getElementById('teamAuctionStatusPanel');
+            const statusText = document.getElementById('teamAuctionStatusText');
+            const minimumText = document.getElementById('teamAuctionMinimumText');
+            const continueBtn = document.getElementById('continueAuctionBtn');
+            const endBtn = document.getElementById('endAuctionBtn');
+
+            if (!panel || !statusText || !minimumText || !continueBtn || !endBtn) return;
+
+            if (!myTeam || !teamsData[myTeam]) {
+                panel.style.display = 'none';
+                return;
+            }
+
+            const myTeamData = teamsData[myTeam];
+            const squadSize = Array.isArray(myTeamData.players) ? myTeamData.players.length : 0;
+            const minimumReached = squadSize >= 18;
+            currentTeamAuctionStatus = myTeamData.auctionStatus || 'active';
+
+            panel.style.display = minimumReached ? 'block' : 'none';
+            statusText.innerText = currentTeamAuctionStatus === 'complete' ? 'Ended' : 'Active';
+            minimumText.innerText = minimumReached ? `Yes (${squadSize}/25)` : `No (${squadSize}/25)`;
+
+            continueBtn.disabled = currentTeamAuctionStatus === 'active';
+            endBtn.disabled = currentTeamAuctionStatus === 'complete' || !minimumReached;
         }
 
         function renderPlayerStats(player) {
@@ -1961,8 +2013,9 @@
         }
 
         function updateBidButton() {
-            const bidDisabled = !myTeam || !auctionLive || currentMode === 'ended' || skippedCurrentPlayer;
-            const skipDisabled = !myTeam || !auctionLive || (currentMode !== 'ai' && currentMode !== 'ai_trainer') || skippedCurrentPlayer;
+            const teamAuctionEnded = currentTeamAuctionStatus === 'complete';
+            const bidDisabled = !myTeam || !auctionLive || currentMode === 'ended' || skippedCurrentPlayer || teamAuctionEnded;
+            const skipDisabled = !myTeam || !auctionLive || (currentMode !== 'ai' && currentMode !== 'ai_trainer') || skippedCurrentPlayer || teamAuctionEnded;
             document.getElementById('bidButton').disabled = bidDisabled;
             document.getElementById('quickBidBtn').disabled = bidDisabled;
             document.getElementById('skipBidBtn').disabled = skipDisabled;
@@ -2021,13 +2074,14 @@
 
             const remainingAfterBid = Number((myPurse - nextBid).toFixed(2));
             const affordable = nextBid <= myPurse;
+            const teamAuctionEnded = currentTeamAuctionStatus === 'complete';
 
             document.getElementById('calcCurrentBid').innerText = formatCr(currentBid);
             document.getElementById('calcRemaining').innerText = formatCr(remainingAfterBid);
             document.getElementById('quickBidAmount').innerText = formatCr(nextBid);
             bidButton.innerText = 'Bid';
 
-            document.getElementById('quickBidBtn').disabled = !affordable || !myTeam || !auctionLive || skippedCurrentPlayer || currentMode === 'ended';
+            document.getElementById('quickBidBtn').disabled = !affordable || !myTeam || !auctionLive || skippedCurrentPlayer || currentMode === 'ended' || teamAuctionEnded;
             calculator.style.display = 'block';
         }
 
@@ -2057,6 +2111,21 @@
                 return;
             }
             socket.emit('skipMyBid', roomCode);
+        }
+
+        function setTeamAuctionStatus(status) {
+            if (!myTeam || !teamsData[myTeam]) {
+                alert('Select your team first.');
+                return;
+            }
+
+            const squadSize = Array.isArray(teamsData[myTeam].players) ? teamsData[myTeam].players.length : 0;
+            if (status === 'complete' && squadSize < 18) {
+                alert('Your team needs at least 18 players before ending the auction.');
+                return;
+            }
+
+            socket.emit('setTeamAuctionStatus', { roomCode, status });
         }
 
         function nominatePlayer() {
