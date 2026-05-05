@@ -1222,6 +1222,7 @@ const MAX_CHAT_MESSAGE_LENGTH = 280;
 const MAX_PLAYERS_PER_ROOM = 12;
 const ROOM_IDLE_CLEANUP_MS = 30 * 60 * 1000;
 const MIN_SQUAD_SIZE_FOR_PLAYING_XI = 18;
+const AI_PREFERRED_MIN_SQUAD_SIZE = 20;
 const PLAYING_XI_SIZE = 11;
 const MAX_PLAYING_XI_OVERSEAS = 4;
 
@@ -2803,6 +2804,34 @@ function canTeamBidForPlayer(room, teamCode, bidAmount, playerData) {
 
     const valuation = getTeamPlayerValuation(room, teamCode, playerData);
     if (bidAmount > valuation) return false;
+
+    if (!team.socketId) {
+      const postPurchaseSquadSize = team.players.length + 1;
+      const postBidPurse = Number((team.purse - bidAmount).toFixed(2));
+      const otherRemainingPlayers = getRoomAvailablePlayers(room)
+        .filter((player) => player && player.id !== playerData.id)
+        .sort((a, b) => Number(a.basePrice || 0) - Number(b.basePrice || 0));
+
+      const requiredReserveForTarget = (targetSize) => {
+        const targetSlotsNeeded = Math.max(0, targetSize - postPurchaseSquadSize);
+        if (targetSlotsNeeded <= 0) return 0;
+
+        return Number(otherRemainingPlayers
+          .slice(0, targetSlotsNeeded)
+          .reduce((sum, player) => sum + Number(player.basePrice || 0), 0)
+          .toFixed(2));
+      };
+
+      const minimumSquadReserve = requiredReserveForTarget(MIN_SQUAD_SIZE_FOR_PLAYING_XI);
+      if (postPurchaseSquadSize < MIN_SQUAD_SIZE_FOR_PLAYING_XI && postBidPurse + 0.001 < minimumSquadReserve) {
+        return false;
+      }
+
+      const preferredSquadReserve = requiredReserveForTarget(AI_PREFERRED_MIN_SQUAD_SIZE);
+      if (postPurchaseSquadSize < AI_PREFERRED_MIN_SQUAD_SIZE && postBidPurse + 0.001 < preferredSquadReserve) {
+        return false;
+      }
+    }
   }
 
   return true;
@@ -2856,9 +2885,18 @@ function runAIBidCycle(room, io) {
     const aiBidCandidates = Object.entries(room.teams)
       .filter(([code, team]) => !team.socketId && code !== room.currentHighestBidder && canTeamBidForPlayer(room, code, nextBid, playerData))
       .map(([code]) => {
+        const team = room.teams[code];
         const valuation = getTeamPlayerValuation(room, code, playerData);
         const headroom = Math.max(0, valuation - nextBid);
-        const score = Math.max(0.05, 0.08 + (headroom / Math.max(1, valuation)) + (demandScore * 0.45));
+        const squadSize = Array.isArray(team?.players) ? team.players.length : 0;
+        const squadNeedBoost = clamp((AI_PREFERRED_MIN_SQUAD_SIZE - squadSize) * 0.035, 0, 0.42);
+        const overseasPressure = (playerData.country !== 'India')
+          ? clamp((Number(team?.overseasCount || 0) - 5) * 0.06, 0, 0.18)
+          : 0;
+        const score = Math.max(
+          0.05,
+          0.08 + (headroom / Math.max(1, valuation)) + (demandScore * 0.45) + squadNeedBoost - overseasPressure
+        );
         return { code, score };
       });
 
@@ -3000,8 +3038,24 @@ function isAuctionReadyForPlayingXI(room) {
   if (roomAvailablePlayers.length === 0) return true;
 
   return competitionTeamCodes.every((teamCode) => {
-    const squadSize = Array.isArray(room.teams?.[teamCode]?.players) ? room.teams[teamCode].players.length : 0;
-    return squadSize >= MIN_SQUAD_SIZE_FOR_PLAYING_XI || squadSize >= 25;
+    const team = room.teams?.[teamCode];
+    const squadSize = Array.isArray(team?.players) ? team.players.length : 0;
+    if (squadSize >= MIN_SQUAD_SIZE_FOR_PLAYING_XI || squadSize >= 25) {
+      return true;
+    }
+
+    const cheapestRemainingBasePrice = roomAvailablePlayers.reduce((lowest, player) => {
+      const basePrice = Number(player?.basePrice || 0);
+      if (!Number.isFinite(basePrice) || basePrice <= 0) return lowest;
+      if (lowest === null || basePrice < lowest) return basePrice;
+      return lowest;
+    }, null);
+
+    if (cheapestRemainingBasePrice === null) {
+      return true;
+    }
+
+    return Number(team?.purse || 0) + 0.001 < cheapestRemainingBasePrice;
   });
 }
 
