@@ -1644,6 +1644,14 @@
         });
 
         socket.on('error', (error) => {
+            const normalizedError = String(error || '').toLowerCase();
+            if (normalizedError.includes('room not found') || normalizedError.includes('room expired')) {
+                showToast('Room expired or not found. Redirecting to home...');
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 1200);
+                return;
+            }
             alert(error);
         });
 

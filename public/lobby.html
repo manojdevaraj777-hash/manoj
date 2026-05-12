@@ -378,6 +378,82 @@
             font-size: 13px;
         }
 
+        .room-access-strip {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.05);
+            display: grid;
+            gap: 10px;
+        }
+
+        .room-access-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .room-access-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .room-access-badge.active {
+            background: rgba(39, 211, 168, 0.14);
+            color: #aaf4e3;
+            border-color: rgba(39, 211, 168, 0.45);
+        }
+
+        .room-access-badge.locked {
+            background: rgba(255, 196, 77, 0.14);
+            color: #ffe4aa;
+            border-color: rgba(255, 196, 77, 0.42);
+        }
+
+        .room-access-badge.expired {
+            background: rgba(255, 126, 121, 0.14);
+            color: #ffc3c0;
+            border-color: rgba(255, 126, 121, 0.42);
+        }
+
+        .room-access-note {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .room-access-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .ghost-btn {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text);
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .ghost-btn:disabled {
+            opacity: 0.48;
+            cursor: not-allowed;
+        }
+
         .toast {
             position: fixed;
             right: 16px;
@@ -592,6 +668,16 @@
                     <div>Auction starts only by auctioneer.</div>
                     <div>All picks sync in real-time.</div>
                 </div>
+                <div class="room-access-strip">
+                    <div class="room-access-row">
+                        <div class="room-access-badge active" id="roomAccessBadge">Active</div>
+                        <div class="room-access-actions" id="roomAccessActions" style="display: none;">
+                            <button class="ghost-btn" id="unlockRoomBtn" onclick="setRoomAccessStatus('active')">Unlock Room</button>
+                            <button class="ghost-btn" id="lockRoomBtn" onclick="setRoomAccessStatus('locked')">Lock Room</button>
+                        </div>
+                    </div>
+                    <div class="room-access-note" id="roomAccessNote">Room is open. New players can join with this code right now.</div>
+                </div>
                 <button class="start-btn" id="startBtn" onclick="startAuction()" style="display: none;">Start Live Auction</button>
                 <div id="warning" class="warning"></div>
             </div>
@@ -633,6 +719,7 @@
         let isAuctioneer = false;
         let auctioneerId = null;
         let currentMode = 'manual';
+        let roomAccessStatus = 'active';
         let teamsData = null;
         let audioCtx = null;
         let startAuctionTriggered = false;
@@ -662,6 +749,8 @@
                 ? 'AI Mode'
                 : 'Manual Mode';
             document.getElementById('startBtn').style.display = isAuctioneer ? 'block' : 'none';
+            roomAccessStatus = data.accessStatus || 'active';
+            updateRoomAccessUi();
             teamsData = data.teams;
             updateTeamsDisplay(data.teams);
         });
@@ -669,6 +758,17 @@
         socket.on('teamsUpdate', (teams) => {
             teamsData = teams;
             updateTeamsDisplay(teams);
+        });
+
+        socket.on('roomAccessStateChanged', (state) => {
+            roomAccessStatus = (state && state.accessStatus) || 'active';
+            updateRoomAccessUi();
+            if (roomAccessStatus === 'expired') {
+                showToast('Room expired. Redirecting to home...');
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 1200);
+            }
         });
 
         socket.on('playersUpdate', (players) => {
@@ -682,6 +782,7 @@
                 }
             }
             document.getElementById('startBtn').style.display = isAuctioneer ? 'block' : 'none';
+            updateRoomAccessUi();
             updateTeamsDisplay(teamsData || {});
         });
 
@@ -709,7 +810,8 @@
         });
 
         socket.on('error', (error) => {
-            if ((error || '').toLowerCase().includes('room not found')) {
+            const normalizedError = String(error || '').toLowerCase();
+            if (normalizedError.includes('room not found') || normalizedError.includes('room expired')) {
                 showToast('Room expired or not found. Redirecting to home...');
                 setTimeout(() => {
                     window.location.href = '/';
@@ -718,6 +820,40 @@
             }
             alert(error);
         });
+
+        function updateRoomAccessUi() {
+            const badge = document.getElementById('roomAccessBadge');
+            const note = document.getElementById('roomAccessNote');
+            const actions = document.getElementById('roomAccessActions');
+            const lockBtn = document.getElementById('lockRoomBtn');
+            const unlockBtn = document.getElementById('unlockRoomBtn');
+            const startBtn = document.getElementById('startBtn');
+            const status = roomAccessStatus || 'active';
+
+            badge.className = `room-access-badge ${status}`;
+            badge.innerText = status.charAt(0).toUpperCase() + status.slice(1);
+
+            if (status === 'locked') {
+                note.innerText = 'Room is locked. New players cannot join now, but already-joined players can still re-enter.';
+            } else if (status === 'expired') {
+                note.innerText = 'Room expired. This join code is no longer usable.';
+            } else {
+                note.innerText = 'Room is open. New players can join with this code right now.';
+            }
+
+            const canManageAccess = isAuctioneer && !auctionRedirectInProgress;
+            actions.style.display = canManageAccess ? 'flex' : 'none';
+            lockBtn.disabled = status === 'locked' || status === 'expired';
+            unlockBtn.disabled = status !== 'locked' || startAuctionTriggered;
+            if (startBtn) {
+                startBtn.disabled = status === 'expired';
+            }
+        }
+
+        function setRoomAccessStatus(status) {
+            if (!isAuctioneer) return;
+            socket.emit('setRoomAccessState', { roomCode, accessStatus: status });
+        }
 
         function formatPurseCr(value) {
             let amountCr = Number(value);

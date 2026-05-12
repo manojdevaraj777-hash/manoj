@@ -1221,6 +1221,7 @@ const ROOM_CODE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const MAX_CHAT_MESSAGE_LENGTH = 280;
 const MAX_PLAYERS_PER_ROOM = 12;
 const ROOM_IDLE_CLEANUP_MS = 30 * 60 * 1000;
+const ROOM_EXPIRED_RETENTION_MS = 10 * 60 * 1000;
 const MIN_SQUAD_SIZE_FOR_PLAYING_XI = 18;
 const AI_PREFERRED_MIN_SQUAD_SIZE = 20;
 const PLAYING_XI_SIZE = 11;
@@ -1460,6 +1461,75 @@ function clearRoomCleanupTimeout(room) {
   room.cleanupTimeout = null;
 }
 
+function getRoomAccessStatus(room) {
+  return room?.accessStatus || ROOM_ACCESS_STATES.ACTIVE;
+}
+
+function isRoomExpired(room) {
+  return getRoomAccessStatus(room) === ROOM_ACCESS_STATES.EXPIRED;
+}
+
+function updateRoomActivity(room) {
+  if (!room) return;
+  room.lastActivityAt = Date.now();
+}
+
+function emitRoomAccessState(roomCode, room, target = io.to(roomCode)) {
+  if (!room || !target?.emit) return;
+  target.emit('roomAccessStateChanged', {
+    roomCode,
+    accessStatus: getRoomAccessStatus(room),
+    phase: room.phase || ROOM_PHASES.AUCTION,
+    expiredAt: room.expiredAt || null,
+    lastActivityAt: room.lastActivityAt || null
+  });
+}
+
+function setRoomAccessStatus(roomCode, room, nextStatus) {
+  if (!room || !nextStatus || getRoomAccessStatus(room) === nextStatus) return false;
+  room.accessStatus = nextStatus;
+  if (nextStatus === ROOM_ACCESS_STATES.EXPIRED) {
+    room.expiredAt = Date.now();
+  } else {
+    room.expiredAt = null;
+  }
+  updateRoomActivity(room);
+  emitRoomAccessState(roomCode, room);
+  return true;
+}
+
+function expireRoom(roomCode, room, reason = '') {
+  if (!room) return;
+
+  if (room.timer) {
+    clearInterval(room.timer);
+    room.timer = null;
+  }
+  clearAIBidTimeout(room);
+  if (room.aiAutoFinishTimeout) {
+    clearTimeout(room.aiAutoFinishTimeout);
+    room.aiAutoFinishTimeout = null;
+  }
+
+  room.currentPlayer = null;
+  room.currentHighestBidder = null;
+  room.currentPlayerSkippedTeams = {};
+  room.currentBidTeams = {};
+  room.currentBidHistory = [];
+  room.fastTrackEndAt = null;
+
+  setRoomAccessStatus(roomCode, room, ROOM_ACCESS_STATES.EXPIRED);
+  clearRoomCleanupTimeout(room);
+  room.cleanupTimeout = setTimeout(() => {
+    const latestRoom = activeRooms.get(roomCode);
+    if (!latestRoom || !isRoomExpired(latestRoom)) return;
+    activeRooms.delete(roomCode);
+    console.log(`[ROOM CLEANUP] Removed expired room ${roomCode}`);
+  }, ROOM_EXPIRED_RETENTION_MS);
+
+  console.log(`[ROOM EXPIRED] ${roomCode}${reason ? ` - ${reason}` : ''}`);
+}
+
 function scheduleRoomCleanup(roomCode, room) {
   clearRoomCleanupTimeout(room);
   room.cleanupTimeout = setTimeout(() => {
@@ -1471,11 +1541,7 @@ function scheduleRoomCleanup(roomCode, room) {
       clearRoomCleanupTimeout(latestRoom);
       return;
     }
-
-    if (latestRoom.timer) clearInterval(latestRoom.timer);
-    clearAIBidTimeout(latestRoom);
-    activeRooms.delete(roomCode);
-    console.log(`[ROOM CLEANUP] Removed idle room ${roomCode}`);
+    expireRoom(roomCode, latestRoom, 'No connected players for 30 minutes');
   }, ROOM_IDLE_CLEANUP_MS);
 }
 
@@ -1594,6 +1660,12 @@ const ROOM_MODES = {
 const ROOM_PHASES = {
   AUCTION: 'auction',
   PLAYING_XI: 'playing11'
+};
+
+const ROOM_ACCESS_STATES = {
+  ACTIVE: 'active',
+  LOCKED: 'locked',
+  EXPIRED: 'expired'
 };
 
 const LEGACY_AI_TRAINER_MODE = 'ai_trainer';
@@ -3605,7 +3677,10 @@ io.on('connection', (socket) => {
       players: [{ id: socket.id, name: safePlayerName, team: null, connected: true }],
       messages: [],
       pendingRemovals: {},
-      cleanupTimeout: null
+      cleanupTimeout: null,
+      accessStatus: ROOM_ACCESS_STATES.ACTIVE,
+      expiredAt: null,
+      lastActivityAt: Date.now()
     };
 
     activeRooms.set(roomCode, newRoom);
@@ -3637,18 +3712,29 @@ io.on('connection', (socket) => {
       return;
     }
 
+    if (isRoomExpired(room)) {
+      socket.emit('error', 'Room expired or not found');
+      return;
+    }
+
     if (room.password && room.password !== submittedPassword) {
       socket.emit('error', 'Incorrect password');
       return;
     }
 
     const existingPlayer = findPlayerByName(room, safePlayerName);
+    if (getRoomAccessStatus(room) === ROOM_ACCESS_STATES.LOCKED && !existingPlayer) {
+      socket.emit('error', 'Room is locked. Only existing joined players can re-enter now.');
+      return;
+    }
+
     if (!existingPlayer && room.players.length >= MAX_PLAYERS_PER_ROOM) {
       socket.emit('error', `Room is full (${MAX_PLAYERS_PER_ROOM} players max).`);
       return;
     }
 
     socket.join(normalizedRoomCode);
+    updateRoomActivity(room);
     const player = attachSocketToRoomPlayer(room, socket, safePlayerName);
     const releasedAuctioneerTeam = ensureManualAuctioneerControlOnly(room);
     if (player.team) {
@@ -3673,7 +3759,10 @@ io.on('connection', (socket) => {
             timeLeft: room.timeLeft,
             skippedTeams: room.currentPlayerSkippedTeams || {}
           }
-        : null
+        : null,
+      accessStatus: getRoomAccessStatus(room),
+      expiredAt: room.expiredAt || null,
+      lastActivityAt: room.lastActivityAt || null
     });
     if (releasedAuctioneerTeam) {
       io.to(normalizedRoomCode).emit('teamsUpdate', room.teams);
@@ -3681,6 +3770,7 @@ io.on('connection', (socket) => {
     }
     io.to(normalizedRoomCode).emit('playersUpdate', buildPlayersSnapshot(room));
     io.to(normalizedRoomCode).emit('teamsUpdate', room.teams);
+    emitRoomAccessState(normalizedRoomCode, room, io.to(normalizedRoomCode));
     socket.emit('availablePlayers', getRoomAvailablePlayers(room));
     socket.emit('message', `Welcome to room ${normalizedRoomCode}, ${player.name}!`);
   });
@@ -3735,6 +3825,44 @@ io.on('connection', (socket) => {
     io.to(normalizedRoomCode).emit('message', `${sanitizeDisplayName(playerName) || player.name} joined as ${team.name}`);
   });
   
+  socket.on('setRoomAccessState', (data) => {
+    const { roomCode, accessStatus } = data || {};
+    const normalizedRoomCode = normalizeRoomCode(roomCode);
+    const room = activeRooms.get(normalizedRoomCode);
+    if (!room) return;
+
+    if (room.auctioneer !== socket.id) {
+      socket.emit('error', 'Only the auctioneer can change room access.');
+      return;
+    }
+
+    if (isRoomExpired(room)) {
+      socket.emit('error', 'This room is already expired.');
+      return;
+    }
+
+    const normalizedStatus = String(accessStatus || '').trim().toLowerCase();
+    if (![ROOM_ACCESS_STATES.ACTIVE, ROOM_ACCESS_STATES.LOCKED].includes(normalizedStatus)) {
+      socket.emit('error', 'Invalid room access status.');
+      return;
+    }
+
+    const auctionAlreadyStarted = Boolean(room.currentPlayer) || (room.soldPlayers || []).length > 0 || (room.unsoldPlayers || []).length > 0 || room.phase === ROOM_PHASES.PLAYING_XI;
+    if (auctionAlreadyStarted && normalizedStatus === ROOM_ACCESS_STATES.ACTIVE) {
+      socket.emit('error', 'Once the auction starts, the room can stay locked only.');
+      return;
+    }
+
+    if (!setRoomAccessStatus(normalizedRoomCode, room, normalizedStatus)) {
+      socket.emit('message', `Room is already ${normalizedStatus}.`);
+      return;
+    }
+
+    io.to(normalizedRoomCode).emit('message', normalizedStatus === ROOM_ACCESS_STATES.LOCKED
+      ? 'Room locked. New players cannot join now, but existing joined players can still re-enter.'
+      : 'Room unlocked. New players can join again.');
+  });
+
   // Start auction (auctioneer only)
   socket.on('startAuction', (roomCode) => {
     const normalizedRoomCode = normalizeRoomCode(roomCode);
@@ -3766,6 +3894,7 @@ io.on('connection', (socket) => {
       }
     }
     
+    setRoomAccessStatus(normalizedRoomCode, room, ROOM_ACCESS_STATES.LOCKED);
     nominateNextPlayer(room, io);
     io.to(normalizedRoomCode).emit('auctionStarted', { mode: room.mode });
   });

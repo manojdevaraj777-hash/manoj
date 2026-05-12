@@ -652,7 +652,8 @@
         });
 
         socket.on('error', (message) => {
-            if ((message || '').toLowerCase().includes('room not found')) {
+            const normalizedMessage = String(message || '').toLowerCase();
+            if (normalizedMessage.includes('room not found') || normalizedMessage.includes('room expired')) {
                 window.location.href = '/';
                 return;
             }
