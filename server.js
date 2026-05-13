@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
 const cors = require('cors');
+const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
 const app = express();
@@ -1222,10 +1223,197 @@ const MAX_CHAT_MESSAGE_LENGTH = 280;
 const MAX_PLAYERS_PER_ROOM = 12;
 const ROOM_IDLE_CLEANUP_MS = 30 * 60 * 1000;
 const ROOM_EXPIRED_RETENTION_MS = 10 * 60 * 1000;
+const ROOM_TTL_DAYS = Math.max(1, Number(process.env.ROOM_TTL_DAYS) || 7);
+const ROOM_TTL_MS = ROOM_TTL_DAYS * 24 * 60 * 60 * 1000;
 const MIN_SQUAD_SIZE_FOR_PLAYING_XI = 18;
 const AI_PREFERRED_MIN_SQUAD_SIZE = 20;
 const PLAYING_XI_SIZE = 11;
 const MAX_PLAYING_XI_OVERSEAS = 4;
+const mongoUri = String(process.env.MONGODB_URI || '').trim();
+const mongoDbName = String(process.env.MONGODB_DB_NAME || 'iplAuctionGame').trim() || 'iplAuctionGame';
+let mongoClient = null;
+let roomsCollection = null;
+const roomPersistTimeouts = new Map();
+
+function isRoomPersistenceEnabled() {
+  return Boolean(roomsCollection);
+}
+
+function getRoomPersistenceExpiryDate(room) {
+  const baseline = Number(room?.lastActivityAt) || Date.now();
+  return new Date(baseline + ROOM_TTL_MS);
+}
+
+function clearRoomPersistTimeout(roomCode) {
+  const pending = roomPersistTimeouts.get(roomCode);
+  if (pending) {
+    clearTimeout(pending);
+    roomPersistTimeouts.delete(roomCode);
+  }
+}
+
+function buildRoomPersistenceSnapshot(roomCode, room) {
+  const roomSnapshot = {
+    name: room.name,
+    code: room.code || roomCode,
+    password: room.password || null,
+    mode: room.mode,
+    phase: room.phase,
+    teams: JSON.parse(JSON.stringify(room.teams || {})),
+    availablePlayers: JSON.parse(JSON.stringify(room.availablePlayers || buildInitialAvailablePlayers())),
+    currentPlayer: room.currentPlayer ? JSON.parse(JSON.stringify(room.currentPlayer)) : null,
+    currentHighestBidder: room.currentHighestBidder || null,
+    currentPlayerSkippedTeams: { ...(room.currentPlayerSkippedTeams || {}) },
+    currentBidTeams: { ...(room.currentBidTeams || {}) },
+    currentBidHistory: JSON.parse(JSON.stringify(room.currentBidHistory || [])),
+    reserveExtendedCurrentPlayer: Boolean(room.reserveExtendedCurrentPlayer),
+    forceAIBidCurrent: Boolean(room.forceAIBidCurrent),
+    fastTrackEndAt: room.fastTrackEndAt || null,
+    aiUnsoldStreak: Number(room.aiUnsoldStreak || 0),
+    timeLeft: Number(room.timeLeft || 10),
+    soldPlayers: JSON.parse(JSON.stringify(room.soldPlayers || [])),
+    unsoldPlayers: JSON.parse(JSON.stringify(room.unsoldPlayers || [])),
+    playingXICompetitionTeams: JSON.parse(JSON.stringify(room.playingXICompetitionTeams || [])),
+    playingXISelections: JSON.parse(JSON.stringify(room.playingXISelections || {})),
+    rankings: JSON.parse(JSON.stringify(room.rankings || [])),
+    auctioneerName: String(room.auctioneerName || '').trim() || null,
+    players: (room.players || []).map((player) => ({
+      id: null,
+      name: player.name,
+      team: player.team || null,
+      connected: false
+    })),
+    messages: JSON.parse(JSON.stringify((room.messages || []).slice(-120))),
+    accessStatus: getRoomAccessStatus(room),
+    expiredAt: room.expiredAt || null,
+    lastActivityAt: Number(room.lastActivityAt || Date.now()),
+    createdAt: Number(room.createdAt || Date.now())
+  };
+
+  for (const team of Object.values(roomSnapshot.teams || {})) {
+    if (team) {
+      team.socketId = null;
+    }
+  }
+
+  return {
+    roomCode,
+    ...roomSnapshot,
+    persistExpiresAt: getRoomPersistenceExpiryDate(room)
+  };
+}
+
+async function persistRoomNow(roomCode, room) {
+  if (!isRoomPersistenceEnabled() || !roomCode || !room) return;
+
+  try {
+    const snapshot = buildRoomPersistenceSnapshot(roomCode, room);
+    await roomsCollection.updateOne(
+      { roomCode },
+      { $set: snapshot },
+      { upsert: true }
+    );
+  } catch (error) {
+    console.error(`[ROOM PERSIST] Failed to save room ${roomCode}: ${error.message}`);
+  }
+}
+
+function queueRoomPersist(roomCode, room, delayMs = 250) {
+  if (!mongoUri || !roomCode || !room) return;
+
+  clearRoomPersistTimeout(roomCode);
+  const timeout = setTimeout(() => {
+    roomPersistTimeouts.delete(roomCode);
+    void persistRoomNow(roomCode, room);
+  }, delayMs);
+  roomPersistTimeouts.set(roomCode, timeout);
+}
+
+function hydrateLoadedRoom(roomData) {
+  if (!roomData) return null;
+
+  const restoredRoom = {
+    ...roomData,
+    teams: JSON.parse(JSON.stringify(roomData.teams || {})),
+    availablePlayers: JSON.parse(JSON.stringify(roomData.availablePlayers || buildInitialAvailablePlayers())),
+    currentPlayer: roomData.currentPlayer ? JSON.parse(JSON.stringify(roomData.currentPlayer)) : null,
+    currentPlayerSkippedTeams: { ...(roomData.currentPlayerSkippedTeams || {}) },
+    currentBidTeams: { ...(roomData.currentBidTeams || {}) },
+    currentBidHistory: JSON.parse(JSON.stringify(roomData.currentBidHistory || [])),
+    soldPlayers: JSON.parse(JSON.stringify(roomData.soldPlayers || [])),
+    unsoldPlayers: JSON.parse(JSON.stringify(roomData.unsoldPlayers || [])),
+    playingXICompetitionTeams: JSON.parse(JSON.stringify(roomData.playingXICompetitionTeams || [])),
+    playingXISelections: JSON.parse(JSON.stringify(roomData.playingXISelections || {})),
+    rankings: JSON.parse(JSON.stringify(roomData.rankings || [])),
+    players: (roomData.players || []).map((player) => ({
+      id: null,
+      name: player.name,
+      team: player.team || null,
+      connected: false
+    })),
+    auctioneer: null,
+    auctioneerName: String(roomData.auctioneerName || '').trim() || null,
+    pendingRemovals: {},
+    cleanupTimeout: null,
+    timer: null,
+    aiBidTimeout: null,
+    aiAutoFinishTimeout: null,
+    lastActivityAt: Number(roomData.lastActivityAt || Date.now()),
+    createdAt: Number(roomData.createdAt || Date.now())
+  };
+
+  for (const team of Object.values(restoredRoom.teams || {})) {
+    if (team) {
+      team.socketId = null;
+    }
+  }
+
+  return restoredRoom;
+}
+
+async function loadRoomFromPersistence(roomCode) {
+  if (!isRoomPersistenceEnabled() || !roomCode) return null;
+
+  try {
+    const doc = await roomsCollection.findOne({ roomCode });
+    if (!doc) return null;
+
+    const restoredRoom = hydrateLoadedRoom(doc);
+    if (!restoredRoom) return null;
+
+    activeRooms.set(roomCode, restoredRoom);
+    return restoredRoom;
+  } catch (error) {
+    console.error(`[ROOM PERSIST] Failed to load room ${roomCode}: ${error.message}`);
+    return null;
+  }
+}
+
+async function initializeRoomPersistence() {
+  if (!mongoUri) {
+    console.log('[ROOM PERSIST] MongoDB is not configured. Rooms will stay memory-only.');
+    return;
+  }
+
+  try {
+    mongoClient = new MongoClient(mongoUri);
+    await mongoClient.connect();
+    const db = mongoClient.db(mongoDbName);
+    roomsCollection = db.collection('rooms');
+    await roomsCollection.createIndex({ roomCode: 1 }, { unique: true });
+    await roomsCollection.createIndex({ persistExpiresAt: 1 }, { expireAfterSeconds: 0 });
+    console.log(`[ROOM PERSIST] MongoDB connected. Room persistence is active (${ROOM_TTL_DAYS} day TTL).`);
+  } catch (error) {
+    console.error(`[ROOM PERSIST] MongoDB connection failed: ${error.message}`);
+    roomsCollection = null;
+    if (mongoClient) {
+      try {
+        await mongoClient.close();
+      } catch (_closeError) {}
+    }
+    mongoClient = null;
+  }
+}
 
 function buildInitialAvailablePlayers() {
   return JSON.parse(JSON.stringify(allPlayers));
@@ -1401,6 +1589,20 @@ function generateUniqueRoomCode() {
   throw new Error('Unable to generate a unique room code right now.');
 }
 
+async function generateUniqueRoomCodeAcrossStorage() {
+  for (let attempt = 0; attempt < 500; attempt += 1) {
+    const code = generateRoomCode();
+    if (activeRooms.has(code)) continue;
+    if (isRoomPersistenceEnabled()) {
+      const existing = await roomsCollection.findOne({ roomCode: code }, { projection: { _id: 1 } });
+      if (existing) continue;
+    }
+    return code;
+  }
+
+  throw new Error('Unable to generate a unique room code right now.');
+}
+
 function findPlayerByName(room, playerName) {
   const normalizedName = String(playerName || '').trim().toLowerCase();
   if (!normalizedName) return null;
@@ -1495,6 +1697,7 @@ function setRoomAccessStatus(roomCode, room, nextStatus) {
   }
   updateRoomActivity(room);
   emitRoomAccessState(roomCode, room);
+  queueRoomPersist(roomCode, room);
   return true;
 }
 
@@ -1528,6 +1731,7 @@ function expireRoom(roomCode, room, reason = '') {
   }, ROOM_EXPIRED_RETENTION_MS);
 
   console.log(`[ROOM EXPIRED] ${roomCode}${reason ? ` - ${reason}` : ''}`);
+  void persistRoomNow(roomCode, room);
 }
 
 function scheduleRoomCleanup(roomCode, room) {
@@ -1541,6 +1745,24 @@ function scheduleRoomCleanup(roomCode, room) {
       clearRoomCleanupTimeout(latestRoom);
       return;
     }
+
+    if (isRoomPersistenceEnabled()) {
+      void persistRoomNow(roomCode, latestRoom);
+      clearRoomPersistTimeout(roomCode);
+      if (latestRoom.timer) {
+        clearInterval(latestRoom.timer);
+        latestRoom.timer = null;
+      }
+      clearAIBidTimeout(latestRoom);
+      if (latestRoom.aiAutoFinishTimeout) {
+        clearTimeout(latestRoom.aiAutoFinishTimeout);
+        latestRoom.aiAutoFinishTimeout = null;
+      }
+      activeRooms.delete(roomCode);
+      console.log(`[ROOM EVICT] Removed inactive room ${roomCode} from memory. Persistent copy remains available.`);
+      return;
+    }
+
     expireRoom(roomCode, latestRoom, 'No connected players for 30 minutes');
   }, ROOM_IDLE_CLEANUP_MS);
 }
@@ -1563,6 +1785,10 @@ function attachSocketToRoomPlayer(room, socket, playerName) {
   player.connected = true;
 
   if (room.auctioneer === oldSocketId) {
+    room.auctioneer = socket.id;
+  }
+
+  if (!room.auctioneer && room.auctioneerName && String(room.auctioneerName).trim().toLowerCase() === safeName.toLowerCase()) {
     room.auctioneer = socket.id;
   }
 
@@ -3270,6 +3496,7 @@ function beginAIAuctionWrapUp(room, io) {
   io.to(room.code).emit('message', 'All human teams ended the auction. AI teams are finishing their squads...');
   io.to(room.code).emit('gameEnd', 'All human teams are done. AI teams are finishing their squads...');
   io.to(room.code).emit('availablePlayers', getRoomAvailablePlayers(room));
+  queueRoomPersist(room.code, room);
 
   room.aiAutoFinishTimeout = setTimeout(() => {
     room.aiAutoFinishTimeout = null;
@@ -3338,6 +3565,7 @@ function startPlayingXIPhase(room, io) {
     roomCode: room.code,
     phase: room.phase
   });
+  queueRoomPersist(room.code, room);
 }
 
 function startTimer(room, io) {
@@ -3543,6 +3771,7 @@ function finalizeSale(room, io) {
   room.forceAIBidCurrent = false;
   room.fastTrackEndAt = null;
   io.to(room.code).emit('availablePlayers', roomAvailablePlayers);
+  queueRoomPersist(room.code, room);
 
   if (isAIMode(room.mode) && areAllHumanTeamsReadyToEndInAIMode(room)) {
     beginAIAuctionWrapUp(room, io);
@@ -3614,6 +3843,7 @@ function nominateNextPlayer(room, io) {
   
   io.to(room.code).emit('playerNominated', room.currentPlayer);
   io.to(room.code).emit('availablePlayers', roomAvailablePlayers);
+  queueRoomPersist(room.code, room);
 }
 
 // ============ SOCKET.IO EVENTS ============
@@ -3622,7 +3852,7 @@ io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
   
   // Create room
-  socket.on('createRoom', (data) => {
+  socket.on('createRoom', async (data) => {
     const { roomName, password, mode, playerName } = data || {};
     const safeRoomName = sanitizeRoomName(roomName);
     const safePlayerName = sanitizeDisplayName(playerName);
@@ -3641,7 +3871,7 @@ io.on('connection', (socket) => {
 
     let roomCode = '';
     try {
-      roomCode = generateUniqueRoomCode();
+      roomCode = await generateUniqueRoomCodeAcrossStorage();
     } catch (_error) {
       socket.emit('error', 'Could not generate a unique join code. Please try again.');
       return;
@@ -3674,28 +3904,31 @@ io.on('connection', (socket) => {
       playingXISelections: {},
       rankings: [],
       auctioneer: socket.id,
+      auctioneerName: safePlayerName,
       players: [{ id: socket.id, name: safePlayerName, team: null, connected: true }],
       messages: [],
       pendingRemovals: {},
       cleanupTimeout: null,
       accessStatus: ROOM_ACCESS_STATES.ACTIVE,
       expiredAt: null,
-      lastActivityAt: Date.now()
+      lastActivityAt: Date.now(),
+      createdAt: Date.now()
     };
 
     activeRooms.set(roomCode, newRoom);
+    queueRoomPersist(roomCode, newRoom, 0);
     socket.join(roomCode);
     socket.emit('roomCreated', { roomCode, roomName: safeRoomName, mode: normalizedMode });
     socket.emit('message', `Room created successfully. Share join code ${roomCode} with friends.`);
   });
   
   // Join room
-  socket.on('joinRoom', (data) => {
+  socket.on('joinRoom', async (data) => {
     const { roomCode, password, playerName } = data || {};
     const normalizedRoomCode = normalizeRoomCode(roomCode);
     const safePlayerName = sanitizeDisplayName(playerName);
     const submittedPassword = String(password || '').trim();
-    const room = activeRooms.get(normalizedRoomCode);
+    let room = activeRooms.get(normalizedRoomCode);
 
     if (!normalizedRoomCode) {
       socket.emit('error', 'Please enter a valid room code.');
@@ -3705,6 +3938,10 @@ io.on('connection', (socket) => {
     if (!safePlayerName) {
       socket.emit('error', 'Please enter your display name.');
       return;
+    }
+
+    if (!room) {
+      room = await loadRoomFromPersistence(normalizedRoomCode);
     }
 
     if (!room) {
@@ -3736,6 +3973,9 @@ io.on('connection', (socket) => {
     socket.join(normalizedRoomCode);
     updateRoomActivity(room);
     const player = attachSocketToRoomPlayer(room, socket, safePlayerName);
+    if (!room.auctioneer && room.auctioneerName && room.auctioneerName.trim().toLowerCase() === safePlayerName.toLowerCase()) {
+      room.auctioneer = socket.id;
+    }
     const releasedAuctioneerTeam = ensureManualAuctioneerControlOnly(room);
     if (player.team) {
       socket.team = player.team;
@@ -3773,6 +4013,12 @@ io.on('connection', (socket) => {
     emitRoomAccessState(normalizedRoomCode, room, io.to(normalizedRoomCode));
     socket.emit('availablePlayers', getRoomAvailablePlayers(room));
     socket.emit('message', `Welcome to room ${normalizedRoomCode}, ${player.name}!`);
+
+    if (room.phase === ROOM_PHASES.AUCTION && room.currentPlayer && !room.timer) {
+      startTimer(room, io);
+    }
+
+    queueRoomPersist(normalizedRoomCode, room);
   });
   
   // Select team
@@ -3823,6 +4069,7 @@ io.on('connection', (socket) => {
     io.to(normalizedRoomCode).emit('playersUpdate', buildPlayersSnapshot(room));
     io.to(normalizedRoomCode).emit('teamsUpdate', room.teams);
     io.to(normalizedRoomCode).emit('message', `${sanitizeDisplayName(playerName) || player.name} joined as ${team.name}`);
+    queueRoomPersist(normalizedRoomCode, room);
   });
   
   socket.on('setRoomAccessState', (data) => {
@@ -3897,6 +4144,7 @@ io.on('connection', (socket) => {
     setRoomAccessStatus(normalizedRoomCode, room, ROOM_ACCESS_STATES.LOCKED);
     nominateNextPlayer(room, io);
     io.to(normalizedRoomCode).emit('auctionStarted', { mode: room.mode });
+    queueRoomPersist(normalizedRoomCode, room);
   });
   
   // Nominate player (auctioneer only)
@@ -3953,6 +4201,7 @@ io.on('connection', (socket) => {
     
     io.to(normalizedRoomCode).emit('playerNominated', room.currentPlayer);
     io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
+    queueRoomPersist(normalizedRoomCode, room);
   });
   
   // Place bid
@@ -3999,6 +4248,7 @@ io.on('connection', (socket) => {
       bid: normalizedBidAmount,
       player: room.currentPlayer
     }, io);
+    queueRoomPersist(normalizedRoomCode, room);
 
     if (isAIMode(room.mode)) {
       runAIBidCycle(room, io);
@@ -4046,6 +4296,7 @@ io.on('connection', (socket) => {
     team.auctionStatus = normalizedStatus;
     io.to(normalizedRoomCode).emit('teamsUpdate', room.teams);
     io.to(normalizedRoomCode).emit('message', `${team.name} is now ${normalizedStatus === 'complete' ? 'done with the auction' : 'back in the auction'}.`);
+    queueRoomPersist(normalizedRoomCode, room);
 
     if (isAIMode(room.mode) && areAllHumanTeamsReadyToEndInAIMode(room)) {
       beginAIAuctionWrapUp(room, io);
@@ -4133,6 +4384,7 @@ io.on('connection', (socket) => {
     room.currentHighestBidder = null;
     room.currentBidHistory = [];
     io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
+    queueRoomPersist(normalizedRoomCode, room);
 
     if (isAuctionReadyForPlayingXI(room)) {
       startPlayingXIPhase(room, io);
@@ -4193,6 +4445,7 @@ io.on('connection', (socket) => {
       timeLeft: room.timeLeft
     }, io);
     io.to(normalizedRoomCode).emit('timerTick', room.timeLeft);
+    queueRoomPersist(normalizedRoomCode, room);
 
     if (adjustedState) {
       io.to(normalizedRoomCode).emit('auctionStateAdjusted', {
@@ -4239,6 +4492,7 @@ io.on('connection', (socket) => {
     
     room.messages.push(msgData);
     io.to(normalizedRoomCode).emit('newMessage', msgData);
+    queueRoomPersist(normalizedRoomCode, room, 500);
   });
   
   // Get available players
@@ -4323,6 +4577,7 @@ io.on('connection', (socket) => {
     };
 
     io.to(normalizedRoomCode).emit('playingXIStateChanged', { roomCode: normalizedRoomCode });
+    queueRoomPersist(normalizedRoomCode, room);
   });
 
   socket.on('lockPlayingXI', (data) => {
@@ -4376,6 +4631,7 @@ io.on('connection', (socket) => {
       roomCode: normalizedRoomCode,
       allTeamsLocked: allCompetitionTeamsLocked(room)
     });
+    queueRoomPersist(normalizedRoomCode, room);
   });
   
   // Disconnect
@@ -4398,6 +4654,7 @@ io.on('connection', (socket) => {
 
         io.to(roomCode).emit('playersUpdate', buildPlayersSnapshot(room));
         io.to(roomCode).emit('message', `${player.name} disconnected. Team and auction progress are preserved.`);
+        queueRoomPersist(roomCode, room);
 
         const hasConnectedPlayers = room.players.some((p) => p.connected !== false);
         if (!hasConnectedPlayers) {
@@ -4447,4 +4704,5 @@ function startServer(port, attemptsLeft = 10) {
   });
 }
 
+void initializeRoomPersistence();
 startServer(BASE_PORT);
