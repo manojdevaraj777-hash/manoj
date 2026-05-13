@@ -651,6 +651,10 @@
             renderPlayingXIState();
         });
 
+        socket.on('roomDeleted', () => {
+            window.location.href = '/';
+        });
+
         socket.on('error', (message) => {
             const normalizedMessage = String(message || '').toLowerCase();
             if (normalizedMessage.includes('room not found') || normalizedMessage.includes('room expired')) {

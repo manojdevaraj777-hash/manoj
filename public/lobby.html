@@ -454,6 +454,12 @@
             cursor: not-allowed;
         }
 
+        .danger-btn {
+            border-color: rgba(255, 126, 121, 0.38);
+            background: rgba(255, 126, 121, 0.12);
+            color: #ffd2cf;
+        }
+
         .toast {
             position: fixed;
             right: 16px;
@@ -674,6 +680,7 @@
                         <div class="room-access-actions" id="roomAccessActions" style="display: none;">
                             <button class="ghost-btn" id="unlockRoomBtn" onclick="setRoomAccessStatus('active')">Unlock Room</button>
                             <button class="ghost-btn" id="lockRoomBtn" onclick="setRoomAccessStatus('locked')">Lock Room</button>
+                            <button class="ghost-btn danger-btn" id="deleteRoomBtn" onclick="deleteRoom()">Delete Room</button>
                         </div>
                     </div>
                     <div class="room-access-note" id="roomAccessNote">Room is open. New players can join with this code right now.</div>
@@ -771,6 +778,13 @@
             }
         });
 
+        socket.on('roomDeleted', (payload) => {
+            showToast((payload && payload.reason) || 'Room deleted. Redirecting to home...');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1200);
+        });
+
         socket.on('playersUpdate', (players) => {
             updatePlayersList(players);
 
@@ -827,6 +841,7 @@
             const actions = document.getElementById('roomAccessActions');
             const lockBtn = document.getElementById('lockRoomBtn');
             const unlockBtn = document.getElementById('unlockRoomBtn');
+            const deleteBtn = document.getElementById('deleteRoomBtn');
             const startBtn = document.getElementById('startBtn');
             const status = roomAccessStatus || 'active';
 
@@ -845,6 +860,7 @@
             actions.style.display = canManageAccess ? 'flex' : 'none';
             lockBtn.disabled = status === 'locked' || status === 'expired';
             unlockBtn.disabled = status !== 'locked' || startAuctionTriggered;
+            deleteBtn.disabled = status === 'expired';
             if (startBtn) {
                 startBtn.disabled = status === 'expired';
             }
@@ -853,6 +869,13 @@
         function setRoomAccessStatus(status) {
             if (!isAuctioneer) return;
             socket.emit('setRoomAccessState', { roomCode, accessStatus: status });
+        }
+
+        function deleteRoom() {
+            if (!isAuctioneer) return;
+            const confirmed = window.confirm('Delete this room permanently? Existing saved auction progress for this room code will be removed.');
+            if (!confirmed) return;
+            socket.emit('deleteRoom', roomCode);
         }
 
         function formatPurseCr(value) {

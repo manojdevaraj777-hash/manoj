@@ -1389,6 +1389,39 @@ async function loadRoomFromPersistence(roomCode) {
   }
 }
 
+async function deletePersistedRoom(roomCode) {
+  clearRoomPersistTimeout(roomCode);
+  if (!isRoomPersistenceEnabled() || !roomCode) return;
+
+  try {
+    await roomsCollection.deleteOne({ roomCode });
+  } catch (error) {
+    console.error(`[ROOM PERSIST] Failed to delete room ${roomCode}: ${error.message}`);
+  }
+}
+
+function deleteRoomNow(roomCode, room, io, reason = 'Room deleted by auctioneer.') {
+  if (!room || !roomCode) return;
+
+  if (room.timer) {
+    clearInterval(room.timer);
+    room.timer = null;
+  }
+  clearAIBidTimeout(room);
+  if (room.aiAutoFinishTimeout) {
+    clearTimeout(room.aiAutoFinishTimeout);
+    room.aiAutoFinishTimeout = null;
+  }
+  clearRoomCleanupTimeout(room);
+  clearRoomPersistTimeout(roomCode);
+
+  io.to(roomCode).emit('message', reason);
+  io.to(roomCode).emit('roomDeleted', { roomCode, reason });
+
+  activeRooms.delete(roomCode);
+  void deletePersistedRoom(roomCode);
+}
+
 async function initializeRoomPersistence() {
   if (!mongoUri) {
     console.log('[ROOM PERSIST] MongoDB is not configured. Rooms will stay memory-only.');
@@ -4108,6 +4141,22 @@ io.on('connection', (socket) => {
     io.to(normalizedRoomCode).emit('message', normalizedStatus === ROOM_ACCESS_STATES.LOCKED
       ? 'Room locked. New players cannot join now, but existing joined players can still re-enter.'
       : 'Room unlocked. New players can join again.');
+  });
+
+  socket.on('deleteRoom', (roomCode) => {
+    const normalizedRoomCode = normalizeRoomCode(roomCode);
+    const room = activeRooms.get(normalizedRoomCode);
+    if (!room) {
+      socket.emit('error', 'Room not found.');
+      return;
+    }
+
+    if (room.auctioneer !== socket.id) {
+      socket.emit('error', 'Only the auctioneer can delete this room.');
+      return;
+    }
+
+    deleteRoomNow(normalizedRoomCode, room, io, 'Room deleted by auctioneer.');
   });
 
   // Start auction (auctioneer only)

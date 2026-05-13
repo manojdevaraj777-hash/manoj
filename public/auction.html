@@ -1643,6 +1643,13 @@
             addMessage(`${data.player}: ${data.message}`, 'chat');
         });
 
+        socket.on('roomDeleted', (payload) => {
+            showToast((payload && payload.reason) || 'Room deleted. Redirecting to home...');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1200);
+        });
+
         socket.on('error', (error) => {
             const normalizedError = String(error || '').toLowerCase();
             if (normalizedError.includes('room not found') || normalizedError.includes('room expired')) {
