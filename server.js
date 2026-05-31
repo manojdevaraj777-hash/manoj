@@ -1264,6 +1264,7 @@ function buildRoomPersistenceSnapshot(roomCode, room) {
     currentPlayer: room.currentPlayer ? JSON.parse(JSON.stringify(room.currentPlayer)) : null,
     currentHighestBidder: room.currentHighestBidder || null,
     currentPlayerSkippedTeams: { ...(room.currentPlayerSkippedTeams || {}) },
+    currentPlayerTargetContinueTeams: { ...(room.currentPlayerTargetContinueTeams || {}) },
     currentBidTeams: { ...(room.currentBidTeams || {}) },
     currentBidHistory: JSON.parse(JSON.stringify(room.currentBidHistory || [])),
     reserveExtendedCurrentPlayer: Boolean(room.reserveExtendedCurrentPlayer),
@@ -1281,7 +1282,8 @@ function buildRoomPersistenceSnapshot(roomCode, room) {
       id: null,
       name: player.name,
       team: player.team || null,
-      connected: false
+      connected: false,
+      resumeToken: player.resumeToken || null
     })),
     messages: JSON.parse(JSON.stringify((room.messages || []).slice(-120))),
     accessStatus: getRoomAccessStatus(room),
@@ -1338,6 +1340,7 @@ function hydrateLoadedRoom(roomData) {
     availablePlayers: JSON.parse(JSON.stringify(roomData.availablePlayers || buildInitialAvailablePlayers())),
     currentPlayer: roomData.currentPlayer ? JSON.parse(JSON.stringify(roomData.currentPlayer)) : null,
     currentPlayerSkippedTeams: { ...(roomData.currentPlayerSkippedTeams || {}) },
+    currentPlayerTargetContinueTeams: { ...(roomData.currentPlayerTargetContinueTeams || {}) },
     currentBidTeams: { ...(roomData.currentBidTeams || {}) },
     currentBidHistory: JSON.parse(JSON.stringify(roomData.currentBidHistory || [])),
     soldPlayers: JSON.parse(JSON.stringify(roomData.soldPlayers || [])),
@@ -1349,7 +1352,8 @@ function hydrateLoadedRoom(roomData) {
       id: null,
       name: player.name,
       team: player.team || null,
-      connected: false
+      connected: false,
+      resumeToken: player.resumeToken || null
     })),
     auctioneer: null,
     auctioneerName: String(roomData.auctioneerName || '').trim() || null,
@@ -1642,6 +1646,12 @@ function findPlayerByName(room, playerName) {
   return room.players.find((p) => String(p.name || '').trim().toLowerCase() === normalizedName) || null;
 }
 
+function findPlayerByResumeToken(room, resumeToken) {
+  const normalizedToken = String(resumeToken || '').trim();
+  if (!normalizedToken) return null;
+  return room.players.find((p) => String(p.resumeToken || '').trim() === normalizedToken) || null;
+}
+
 function findPlayerBySocketId(room, socketId) {
   return room.players.find((p) => p.id === socketId) || null;
 }
@@ -1654,6 +1664,7 @@ function getSocketTeamCode(room, socketId) {
 function buildPlayersSnapshot(room) {
   return (room.players || []).map((player) => ({
     ...player,
+    resumeToken: undefined,
     isAuctioneer: player.id === room.auctioneer
   }));
 }
@@ -1750,6 +1761,7 @@ function expireRoom(roomCode, room, reason = '') {
   room.currentPlayer = null;
   room.currentHighestBidder = null;
   room.currentPlayerSkippedTeams = {};
+  room.currentPlayerTargetContinueTeams = {};
   room.currentBidTeams = {};
   room.currentBidHistory = [];
   room.fastTrackEndAt = null;
@@ -1800,14 +1812,24 @@ function scheduleRoomCleanup(roomCode, room) {
   }, ROOM_IDLE_CLEANUP_MS);
 }
 
-function attachSocketToRoomPlayer(room, socket, playerName) {
+function attachSocketToRoomPlayer(room, socket, playerName, resumeToken = '') {
   const safeName = String(playerName || '').trim() || 'Player';
-  let player = findPlayerByName(room, safeName);
+  const normalizedResumeToken = String(resumeToken || '').trim();
+  let player = normalizedResumeToken ? findPlayerByResumeToken(room, normalizedResumeToken) : null;
+  if (!player) {
+    player = findPlayerByName(room, safeName);
+  }
 
   clearRoomCleanupTimeout(room);
 
   if (!player) {
-    player = { id: socket.id, name: safeName, team: null, connected: true };
+    player = {
+      id: socket.id,
+      name: safeName,
+      team: null,
+      connected: true,
+      resumeToken: normalizedResumeToken || crypto.randomUUID()
+    };
     room.players.push(player);
     return player;
   }
@@ -1816,6 +1838,9 @@ function attachSocketToRoomPlayer(room, socket, playerName) {
   const oldSocketId = player.id;
   player.id = socket.id;
   player.connected = true;
+  if (!player.resumeToken) {
+    player.resumeToken = normalizedResumeToken || crypto.randomUUID();
+  }
 
   if (room.auctioneer === oldSocketId) {
     room.auctioneer = socket.id;
@@ -1905,6 +1930,28 @@ function rebuildAuctionLeaderAfterSkip(room) {
     team: null,
     bid: room.currentPlayer.currentBid
   };
+}
+
+function markTeamEndedCurrentPlayerBid(room, teamCode) {
+  if (!room || !room.currentPlayer || !teamCode) return null;
+
+  if (!room.currentPlayerSkippedTeams) room.currentPlayerSkippedTeams = {};
+  room.currentPlayerSkippedTeams[teamCode] = true;
+
+  if (room.currentPlayerTargetContinueTeams) {
+    delete room.currentPlayerTargetContinueTeams[teamCode];
+  }
+
+  if (room.currentBidTeams && room.currentBidTeams[teamCode]) {
+    delete room.currentBidTeams[teamCode];
+  }
+
+  const skippedHighestBidder = room.currentHighestBidder === teamCode;
+  if (skippedHighestBidder) {
+    return rebuildAuctionLeaderAfterSkip(room);
+  }
+
+  return null;
 }
 
 function clamp(value, min, max) {
@@ -3364,8 +3411,17 @@ function validateBid(room, teamCode, bidAmount) {
 
   if (isAIMode(room.mode)) {
     const ceiling = getPlayerAuctionCeiling(playerData, room.mode);
-    if (bidAmount > ceiling + 0.001) {
-      return { valid: false, reason: `AI mode cap for this player is ₹${ceiling} Cr` };
+    const hasOverTargetApproval = Boolean(room.currentPlayerTargetContinueTeams && room.currentPlayerTargetContinueTeams[teamCode]);
+    if (bidAmount > ceiling + 0.001 && !hasOverTargetApproval) {
+      return {
+        valid: false,
+        needsTargetDecision: true,
+        reason: 'Target value reached for this player.',
+        playerId: player.id,
+        playerName: player.name,
+        bidAmount,
+        targetPrice: ceiling
+      };
     }
   }
 
@@ -3520,6 +3576,7 @@ function beginAIAuctionWrapUp(room, io) {
   room.currentPlayer = null;
   room.currentHighestBidder = null;
   room.currentPlayerSkippedTeams = {};
+  room.currentPlayerTargetContinueTeams = {};
   room.currentBidTeams = {};
   room.currentBidHistory = [];
   room.fastTrackEndAt = null;
@@ -3549,6 +3606,7 @@ function initializePlayingXIPhase(room) {
   room.currentPlayer = null;
   room.currentHighestBidder = null;
   room.currentPlayerSkippedTeams = {};
+  room.currentPlayerTargetContinueTeams = {};
   room.currentBidTeams = {};
   room.currentBidHistory = [];
   room.fastTrackEndAt = null;
@@ -3798,6 +3856,7 @@ function finalizeSale(room, io) {
   room.currentPlayer = null;
   room.currentHighestBidder = null;
   room.currentPlayerSkippedTeams = {};
+  room.currentPlayerTargetContinueTeams = {};
   room.currentBidTeams = {};
   room.currentBidHistory = [];
   room.reserveExtendedCurrentPlayer = false;
@@ -3862,6 +3921,7 @@ function nominateNextPlayer(room, io) {
   room.currentHighestBidder = null;
   room.timeLeft = 10;
   room.currentPlayerSkippedTeams = {};
+  room.currentPlayerTargetContinueTeams = {};
   room.currentBidTeams = {};
   room.currentBidHistory = [];
   room.reserveExtendedCurrentPlayer = false;
@@ -3921,6 +3981,7 @@ io.on('connection', (socket) => {
       currentPlayer: null,
       currentHighestBidder: null,
       currentPlayerSkippedTeams: {},
+      currentPlayerTargetContinueTeams: {},
       currentBidTeams: {},
       currentBidHistory: [],
       reserveExtendedCurrentPlayer: false,
@@ -3957,7 +4018,7 @@ io.on('connection', (socket) => {
   
   // Join room
   socket.on('joinRoom', async (data) => {
-    const { roomCode, password, playerName } = data || {};
+    const { roomCode, password, playerName, resumeToken } = data || {};
     const normalizedRoomCode = normalizeRoomCode(roomCode);
     const safePlayerName = sanitizeDisplayName(playerName);
     const submittedPassword = String(password || '').trim();
@@ -3992,7 +4053,7 @@ io.on('connection', (socket) => {
       return;
     }
 
-    const existingPlayer = findPlayerByName(room, safePlayerName);
+    const existingPlayer = findPlayerByResumeToken(room, resumeToken) || findPlayerByName(room, safePlayerName);
     if (getRoomAccessStatus(room) === ROOM_ACCESS_STATES.LOCKED && !existingPlayer) {
       socket.emit('error', 'Room is locked. Only existing joined players can re-enter now.');
       return;
@@ -4005,7 +4066,7 @@ io.on('connection', (socket) => {
 
     socket.join(normalizedRoomCode);
     updateRoomActivity(room);
-    const player = attachSocketToRoomPlayer(room, socket, safePlayerName);
+    const player = attachSocketToRoomPlayer(room, socket, safePlayerName, resumeToken);
     if (!room.auctioneer && room.auctioneerName && room.auctioneerName.trim().toLowerCase() === safePlayerName.toLowerCase()) {
       room.auctioneer = socket.id;
     }
@@ -4030,12 +4091,14 @@ io.on('connection', (socket) => {
             player: room.currentPlayer,
             currentHighestBidder: room.currentHighestBidder,
             timeLeft: room.timeLeft,
-            skippedTeams: room.currentPlayerSkippedTeams || {}
+            skippedTeams: room.currentPlayerSkippedTeams || {},
+            targetContinueTeams: room.currentPlayerTargetContinueTeams || {}
           }
         : null,
       accessStatus: getRoomAccessStatus(room),
       expiredAt: room.expiredAt || null,
-      lastActivityAt: room.lastActivityAt || null
+      lastActivityAt: room.lastActivityAt || null,
+      resumeToken: player.resumeToken || null
     });
     if (releasedAuctioneerTeam) {
       io.to(normalizedRoomCode).emit('teamsUpdate', room.teams);
@@ -4243,6 +4306,9 @@ io.on('connection', (socket) => {
     };
     room.currentHighestBidder = null;
     room.timeLeft = 10;
+    room.currentPlayerSkippedTeams = {};
+    room.currentPlayerTargetContinueTeams = {};
+    room.currentBidTeams = {};
     room.currentBidHistory = [];
     
     if (room.timer) clearInterval(room.timer);
@@ -4255,7 +4321,7 @@ io.on('connection', (socket) => {
   
   // Place bid
   socket.on('placeBid', (data) => {
-    const { roomCode, bidAmount } = data || {};
+    const { roomCode, bidAmount, allowOverTarget } = data || {};
     const normalizedRoomCode = normalizeRoomCode(roomCode);
     const room = activeRooms.get(normalizedRoomCode);
     
@@ -4280,8 +4346,17 @@ io.on('connection', (socket) => {
       return;
     }
 
+    if (allowOverTarget && isAIMode(room.mode)) {
+      if (!room.currentPlayerTargetContinueTeams) room.currentPlayerTargetContinueTeams = {};
+      room.currentPlayerTargetContinueTeams[teamCode] = true;
+    }
+
     const validation = validateBid(room, teamCode, normalizedBidAmount);
     if (!validation.valid) {
+      if (validation.needsTargetDecision) {
+        socket.emit('targetBidDecisionRequired', validation);
+        return;
+      }
       socket.emit('error', validation.reason);
       return;
     }
@@ -4431,6 +4506,9 @@ io.on('connection', (socket) => {
     
     room.currentPlayer = null;
     room.currentHighestBidder = null;
+    room.currentPlayerSkippedTeams = {};
+    room.currentPlayerTargetContinueTeams = {};
+    room.currentBidTeams = {};
     room.currentBidHistory = [];
     io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
     queueRoomPersist(normalizedRoomCode, room);
@@ -4445,6 +4523,75 @@ io.on('connection', (socket) => {
         nominateNextPlayer(room, io);
       }, 2000);
     }
+  });
+
+  socket.on('setTargetBidDecision', (data) => {
+    const { roomCode, decision } = data || {};
+    const normalizedRoomCode = normalizeRoomCode(roomCode);
+    const room = activeRooms.get(normalizedRoomCode);
+    if (!room) return;
+    if (room.phase !== ROOM_PHASES.AUCTION) {
+      socket.emit('error', 'Auction already moved to Playing XI stage.');
+      return;
+    }
+
+    if (!isAIMode(room.mode)) {
+      socket.emit('error', 'Target bidding decisions are available only in AI mode.');
+      return;
+    }
+
+    if (!room.currentPlayer) {
+      socket.emit('error', 'No active player right now.');
+      return;
+    }
+
+    const teamCode = getSocketTeamCode(room, socket.id);
+    if (!teamCode) {
+      socket.emit('error', 'Select a team first.');
+      return;
+    }
+
+    const normalizedDecision = String(decision || '').trim().toLowerCase();
+    if (normalizedDecision === 'continue') {
+      if (!room.currentPlayerTargetContinueTeams) room.currentPlayerTargetContinueTeams = {};
+      room.currentPlayerTargetContinueTeams[teamCode] = true;
+      socket.emit('targetBidDecisionUpdated', {
+        playerId: room.currentPlayer.id,
+        decision: 'continue'
+      });
+      queueRoomPersist(normalizedRoomCode, room);
+      return;
+    }
+
+    if (normalizedDecision !== 'end') {
+      socket.emit('error', 'Invalid target bidding decision.');
+      return;
+    }
+
+    const adjustedState = markTeamEndedCurrentPlayerBid(room, teamCode);
+    room.forceAIBidCurrent = true;
+    room.fastTrackEndAt = Date.now() + 4000;
+    room.timeLeft = getPostBidTimeLeft(room, 4);
+
+    emitBidSkipUpdateWithPrivacy(room, teamCode, {
+      team: teamCode,
+      playerId: room.currentPlayer.id,
+      playerName: room.currentPlayer.name,
+      reason: 'target-end',
+      timeLeft: room.timeLeft
+    }, io);
+    io.to(normalizedRoomCode).emit('timerTick', room.timeLeft);
+    queueRoomPersist(normalizedRoomCode, room);
+
+    if (adjustedState) {
+      io.to(normalizedRoomCode).emit('auctionStateAdjusted', {
+        playerId: room.currentPlayer.id,
+        team: adjustedState.team,
+        bid: adjustedState.bid
+      });
+    }
+
+    runAIBidCycle(room, io);
   });
 
   // Skip only your bid for current player (AI mode)
@@ -4473,16 +4620,7 @@ io.on('connection', (socket) => {
       return;
     }
 
-    if (!room.currentPlayerSkippedTeams) room.currentPlayerSkippedTeams = {};
-    room.currentPlayerSkippedTeams[teamCode] = true;
-    if (room.currentBidTeams && room.currentBidTeams[teamCode]) {
-      delete room.currentBidTeams[teamCode];
-    }
-    const skippedHighestBidder = room.currentHighestBidder === teamCode;
-    let adjustedState = null;
-    if (skippedHighestBidder) {
-      adjustedState = rebuildAuctionLeaderAfterSkip(room);
-    }
+    const adjustedState = markTeamEndedCurrentPlayerBid(room, teamCode);
     room.forceAIBidCurrent = true;
     room.fastTrackEndAt = Date.now() + 4000;
     room.timeLeft = getPostBidTimeLeft(room, 4);

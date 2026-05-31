@@ -478,6 +478,55 @@
             background: linear-gradient(100deg, #43e5c0, #9ef2df);
         }
 
+        .target-bid-panel {
+            width: 100%;
+            border: 1px solid rgba(255, 191, 70, 0.44);
+            border-radius: 12px;
+            background:
+                linear-gradient(135deg, rgba(255, 191, 70, 0.13), rgba(255, 111, 105, 0.1)),
+                rgba(9, 24, 42, 0.92);
+            padding: 11px;
+            display: none;
+            text-align: left;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+        }
+
+        .target-bid-panel.active {
+            display: grid;
+            gap: 8px;
+        }
+
+        .target-bid-title {
+            font-size: 12px;
+            font-weight: 900;
+            color: #ffe2a7;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .target-bid-copy {
+            color: #dcecff;
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        .target-bid-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .target-bid-status {
+            border-radius: 999px;
+            border: 1px solid rgba(67, 229, 192, 0.38);
+            background: rgba(67, 229, 192, 0.12);
+            color: #b8fff0;
+            font-size: 12px;
+            font-weight: 900;
+            padding: 8px 10px;
+            text-align: center;
+        }
+
         .sidebar {
             display: grid;
             gap: 12px;
@@ -821,6 +870,50 @@
             cursor: pointer;
         }
 
+        .app-toast-stack {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            display: grid;
+            gap: 10px;
+            z-index: 1400;
+            pointer-events: none;
+        }
+
+        .app-toast {
+            min-width: min(320px, calc(100vw - 32px));
+            max-width: 360px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: linear-gradient(135deg, rgba(8, 21, 39, 0.96), rgba(12, 29, 49, 0.95));
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+            color: #ecf8ff;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: transform 180ms ease, opacity 180ms ease;
+            pointer-events: auto;
+        }
+
+        .app-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .app-toast-title {
+            display: block;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .app-toast.info { border-left: 4px solid #66d6ff; }
+        .app-toast.success { border-left: 4px solid #5ef0b6; }
+        .app-toast.warn { border-left: 4px solid #ffd27a; }
+        .app-toast.error { border-left: 4px solid #ff8d86; }
+
         .sold-celebration {
             position: fixed;
             inset: 0;
@@ -1132,6 +1225,10 @@
             .bid-button {
                 min-width: 100%;
             }
+
+            .target-bid-actions {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1197,6 +1294,15 @@
                             </div>
                         </div>
                         <button class="quick-bid-btn" id="quickBidBtn" onclick="placeBid()">Quick Bid <span id="quickBidAmount">₹0.0 Cr</span></button>
+                    </div>
+                    <div class="target-bid-panel" id="targetBidPanel" aria-live="polite">
+                        <div class="target-bid-title" id="targetBidTitle">Target reached</div>
+                        <div class="target-bid-copy" id="targetBidCopy">This bid is above your internal target range for this player.</div>
+                        <div class="target-bid-actions" id="targetBidActions">
+                            <button class="quick-bid-btn" id="continuePlayerBidBtn" onclick="continueOverTargetBid()">Continue Bid</button>
+                            <button class="skip-bid-btn" id="endPlayerBidBtn" onclick="endOverTargetBid()">End Bid</button>
+                        </div>
+                        <div class="target-bid-status" id="targetBidStatus" style="display:none;">Over target: continue mode active</div>
                     </div>
                     <div class="bid-calculator" id="teamAuctionStatusPanel" style="display:none;">
                         <h4>Team Auction Status</h4>
@@ -1285,6 +1391,8 @@
         </div>
     </div>
 
+    <div class="app-toast-stack" id="appToastStack" aria-live="polite" aria-atomic="true"></div>
+
     <div class="sold-celebration" id="soldCelebration">
         <div class="sold-celebration-backdrop"></div>
         <div class="celebration-confetti" id="celebrationConfetti"></div>
@@ -1330,6 +1438,14 @@
         const roomCode = (urlParams.get('room') || '').toUpperCase();
         const playerName = localStorage.getItem('playerName');
         const roomPassword = localStorage.getItem('roomPassword') || '';
+        const resumeToken = (() => {
+            try {
+                const tokenMap = JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
+                return tokenMap[roomCode] || '';
+            } catch (_error) {
+                return '';
+            }
+        })();
 
         let myTeam = null;
         let isAuctioneer = false;
@@ -1339,6 +1455,8 @@
         let currentHighestBidder = null;
         let currentPlayerId = null;
         let skippedCurrentPlayer = false;
+        let pendingOverTargetBid = null;
+        let overTargetContinuePlayerId = null;
         let auctionLive = false;
         let currentTeamAuctionStatus = 'active';
         let soldPlayersHistory = [];
@@ -1364,7 +1482,7 @@
             tryResumeStartSoundHandoff();
         }, 0);
 
-        socket.emit('joinRoom', { roomCode, password: roomPassword, playerName });
+        socket.emit('joinRoom', { roomCode, password: roomPassword, playerName, resumeToken });
 
         socket.on('roomJoined', (data) => {
             if (data.phase === 'playing11') {
@@ -1372,6 +1490,13 @@
                 return;
             }
             document.getElementById('roomCode').innerText = data.roomCode;
+            if (data.resumeToken) {
+                try {
+                    const tokenMap = JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
+                    tokenMap[data.roomCode] = data.resumeToken;
+                    localStorage.setItem('roomResumeTokens', JSON.stringify(tokenMap));
+                } catch (_error) {}
+            }
             currentMode = data.mode;
             teamsData = data.teams || {};
             soldPlayersHistory = Array.isArray(data.soldPlayers) ? data.soldPlayers.slice(-40) : [];
@@ -1411,6 +1536,7 @@
             currentHighestBidder = null;
             currentPlayerId = player.id;
             skippedCurrentPlayer = false;
+            resetTargetBidState();
 
             document.getElementById('playerName').innerText = player.name;
             document.getElementById('playerDetails').innerText = `${player.role} | ${player.country} | Tier ${player.tier}`;
@@ -1440,6 +1566,10 @@
             currentHighestBidder = state.currentHighestBidder || null;
             currentPlayerId = player.id;
             skippedCurrentPlayer = Boolean(state.skippedTeams && myTeam && state.skippedTeams[myTeam]);
+            pendingOverTargetBid = null;
+            overTargetContinuePlayerId = (state.targetContinueTeams && myTeam && state.targetContinueTeams[myTeam])
+                ? player.id
+                : null;
             const syncedTimeLeft = (state.timeLeft !== undefined && state.timeLeft !== null) ? Number(state.timeLeft) : 10;
 
             document.getElementById('playerName').innerText = player.name;
@@ -1496,6 +1626,7 @@
             currentHighestBidder = null;
             currentPlayerId = null;
             skippedCurrentPlayer = false;
+            resetTargetBidState();
             teamsData = data.teams || teamsData;
             hydrateMyTeam();
 
@@ -1535,6 +1666,7 @@
             currentHighestBidder = null;
             currentPlayerId = null;
             skippedCurrentPlayer = false;
+            resetTargetBidState();
             teamsData = data.teams || teamsData;
 
             unsoldPlayersHistory.unshift({
@@ -1593,16 +1725,23 @@
             if (data && data.team && data.playerId === currentPlayerId) {
                 if (data.isMySkip === true) {
                     skippedCurrentPlayer = true;
+                    pendingOverTargetBid = null;
+                    overTargetContinuePlayerId = null;
                     if (typeof data.timeLeft === 'number') {
                         const timer = document.getElementById('timer');
                         timer.innerText = String(data.timeLeft);
                         timer.classList.toggle('warning', data.timeLeft <= 3);
                     }
-                    document.getElementById('liveTicker').innerText = `You skipped ${data.playerName}. Waiting for final SOLD/UNSOLD result.`;
+                    const mySkipText = data.reason === 'target-end'
+                        ? `You ended bidding for ${data.playerName}. Waiting for final SOLD/UNSOLD result.`
+                        : `You skipped ${data.playerName}. Waiting for final SOLD/UNSOLD result.`;
+                    document.getElementById('liveTicker').innerText = mySkipText;
                     updateBidButton();
                     updateBidCalculator();
                 } else if (!skippedCurrentPlayer) {
-                    document.getElementById('liveTicker').innerText = `${data.team} skipped this player. You can still bid.`;
+                    document.getElementById('liveTicker').innerText = data.reason === 'target-end'
+                        ? `${data.team} ended bidding for this player. You can still bid.`
+                        : `${data.team} skipped this player. You can still bid.`;
                     updateBidButton();
                     updateBidCalculator();
                 }
@@ -1659,7 +1798,29 @@
                 }, 1200);
                 return;
             }
-            alert(error);
+            showToast(error, 'error', 'Auction Error');
+        });
+
+        socket.on('targetBidDecisionRequired', (data) => {
+            if (!data || data.playerId !== currentPlayerId) return;
+            pendingOverTargetBid = {
+                playerId: data.playerId,
+                playerName: data.playerName,
+                bidAmount: Number(data.bidAmount || 0),
+                targetPrice: Number(data.targetPrice || 0)
+            };
+            overTargetContinuePlayerId = null;
+            document.getElementById('liveTicker').innerText = `Target range reached for ${data.playerName}. Choose whether to continue or end your bid for this player.`;
+            updateTargetBidPanel();
+        });
+
+        socket.on('targetBidDecisionUpdated', (data) => {
+            if (!data || data.playerId !== currentPlayerId) return;
+            if (data.decision === 'continue') {
+                pendingOverTargetBid = null;
+                overTargetContinuePlayerId = currentPlayerId;
+                updateTargetBidPanel();
+            }
         });
 
         function hydrateMyTeam() {
@@ -2039,6 +2200,46 @@
             if (!auctionLive) {
                 bidButton.innerText = 'Bid';
             }
+            updateTargetBidPanel();
+        }
+
+        function resetTargetBidState() {
+            pendingOverTargetBid = null;
+            overTargetContinuePlayerId = null;
+            updateTargetBidPanel();
+        }
+
+        function updateTargetBidPanel() {
+            const panel = document.getElementById('targetBidPanel');
+            const copy = document.getElementById('targetBidCopy');
+            const actions = document.getElementById('targetBidActions');
+            const status = document.getElementById('targetBidStatus');
+            if (!panel || !copy || !actions || !status) return;
+
+            const canShow = myTeam && auctionLive && currentPlayerId && !skippedCurrentPlayer && currentTeamAuctionStatus !== 'complete';
+            if (!canShow) {
+                panel.classList.remove('active');
+                return;
+            }
+
+            if (overTargetContinuePlayerId === currentPlayerId) {
+                copy.innerText = 'You chose to keep bidding above your internal target range for this player.';
+                actions.style.display = 'none';
+                status.style.display = 'block';
+                panel.classList.add('active');
+                return;
+            }
+
+            if (pendingOverTargetBid && pendingOverTargetBid.playerId === currentPlayerId) {
+                const bidText = pendingOverTargetBid.bidAmount ? ` Next bid: ${formatCr(Number(pendingOverTargetBid.bidAmount))}.` : '';
+                copy.innerText = `This player has crossed your internal target range.${bidText}`;
+                actions.style.display = 'grid';
+                status.style.display = 'none';
+                panel.classList.add('active');
+                return;
+            }
+
+            panel.classList.remove('active');
         }
 
         function getBidIncrement(currentBid) {
@@ -2100,29 +2301,50 @@
             calculator.style.display = 'block';
         }
 
-        function placeBid() {
+        function placeBid(allowOverTarget = false) {
             const currentBidText = document.getElementById('currentBid').innerText;
             const currentBid = parseFloat(currentBidText.replace('₹', '').replace(' Cr', ''));
             const increment = getBidIncrement(currentBid);
             const newBid = roundBidByMode(currentBid + increment);
-            socket.emit('placeBid', { roomCode, bidAmount: newBid });
+            socket.emit('placeBid', { roomCode, bidAmount: newBid, allowOverTarget });
+        }
+
+        function continueOverTargetBid() {
+            if (!pendingOverTargetBid || pendingOverTargetBid.playerId !== currentPlayerId) {
+                overTargetContinuePlayerId = currentPlayerId;
+                updateTargetBidPanel();
+                socket.emit('setTargetBidDecision', { roomCode, decision: 'continue' });
+                return;
+            }
+
+            overTargetContinuePlayerId = currentPlayerId;
+            const bidAmount = Number(pendingOverTargetBid.bidAmount || 0);
+            pendingOverTargetBid = null;
+            updateTargetBidPanel();
+            socket.emit('placeBid', { roomCode, bidAmount, allowOverTarget: true });
+        }
+
+        function endOverTargetBid() {
+            pendingOverTargetBid = null;
+            socket.emit('setTargetBidDecision', { roomCode, decision: 'end' });
+            updateTargetBidPanel();
         }
 
         function skipMyBid() {
             if ((currentMode !== 'ai' && currentMode !== 'ai_trainer')) {
-                alert('Skip bid works only in AI mode.');
+                showToast('Skip bid works only in AI mode.', 'warn', 'Not Available');
                 return;
             }
             if (!auctionLive) {
-                alert('No active player to skip right now.');
+                showToast('No active player to skip right now.', 'warn', 'No Active Bid');
                 return;
             }
             if (!myTeam) {
-                alert('Select your team first.');
+                showToast('Select your team first.', 'warn', 'Team Required');
                 return;
             }
             if (skippedCurrentPlayer) {
-                alert('You already skipped this player.');
+                showToast('You already skipped this player.', 'info', 'Already Skipped');
                 return;
             }
             socket.emit('skipMyBid', roomCode);
@@ -2130,13 +2352,13 @@
 
         function setTeamAuctionStatus(status) {
             if (!myTeam || !teamsData[myTeam]) {
-                alert('Select your team first.');
+                showToast('Select your team first.', 'warn', 'Team Required');
                 return;
             }
 
             const squadSize = Array.isArray(teamsData[myTeam].players) ? teamsData[myTeam].players.length : 0;
             if (status === 'complete' && squadSize < 18) {
-                alert('Your team needs at least 18 players before ending the auction.');
+                showToast('Your team needs at least 18 players before ending the auction.', 'warn', 'Minimum Squad');
                 return;
             }
 
@@ -2264,6 +2486,25 @@
             messageDiv.innerHTML = `<span class="message-time">[${time}]</span><span style="color:${color}">${msg}</span>`;
             messagesDiv.appendChild(messageDiv);
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function showToast(message, type = 'info', title = '') {
+            const stack = document.getElementById('appToastStack');
+            if (!stack || !message) return;
+
+            const toast = document.createElement('div');
+            toast.className = `app-toast ${type}`;
+            toast.innerHTML = `${title ? `<span class="app-toast-title">${title}</span>` : ''}<span>${message}</span>`;
+            stack.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 220);
+            }, 2800);
         }
 
         function renderAuctionOutcomeLists() {

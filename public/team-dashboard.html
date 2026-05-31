@@ -780,6 +780,14 @@
 		const teamCodeFromQuery = (urlParams.get('team') || '').toUpperCase();
 		const playerName = localStorage.getItem('playerName');
 		const roomPassword = localStorage.getItem('roomPassword') || '';
+		const resumeToken = (() => {
+			try {
+				const tokenMap = JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
+				return tokenMap[roomCode] || '';
+			} catch (_error) {
+				return '';
+			}
+		})();
 		let preferredTeamCode = teamCodeFromQuery || null;
 		let myTeamCode = null;
 		let selectedPlayerKey = null;
@@ -814,12 +822,19 @@
 		}
 
 		document.getElementById('roomChip').innerText = `Room: ${roomCode}`;
-		socket.emit('joinRoom', { roomCode, password: roomPassword, playerName });
+		socket.emit('joinRoom', { roomCode, password: roomPassword, playerName, resumeToken });
 
 		socket.on('roomJoined', (data) => {
 			if (data && data.phase === 'playing11') {
 				window.location.href = `/playing11.html?room=${data.roomCode}`;
 				return;
+			}
+			if (data && data.resumeToken) {
+				try {
+					const tokenMap = JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
+					tokenMap[data.roomCode] = data.resumeToken;
+					localStorage.setItem('roomResumeTokens', JSON.stringify(tokenMap));
+				} catch (_error) {}
 			}
 			if (data && data.teams) {
 				myTeamCode = resolveMyTeamCode(data.teams);

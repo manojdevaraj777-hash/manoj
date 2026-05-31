@@ -477,9 +477,76 @@
             transition: opacity 200ms ease, transform 200ms ease;
         }
 
+        .toast.info {
+            border-left-color: #54f0d6;
+        }
+
+        .toast.success {
+            border-left-color: #7df0a4;
+        }
+
+        .toast.warn {
+            border-left-color: #ffd27a;
+        }
+
+        .toast.error {
+            border-left-color: #ff8d86;
+        }
+
         .toast.show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .confirm-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 9, 18, 0.74);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            z-index: 60;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 180ms ease;
+        }
+
+        .confirm-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .confirm-dialog {
+            width: min(430px, 100%);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: linear-gradient(160deg, rgba(8, 21, 39, 0.98), rgba(13, 30, 49, 0.98));
+            box-shadow: 0 28px 56px rgba(0, 0, 0, 0.34);
+            padding: 20px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .confirm-dialog h3 {
+            margin: 0;
+            color: #fff3d4;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 0.04em;
+        }
+
+        .confirm-dialog p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .confirm-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 4px;
         }
 
         .info-points {
@@ -691,6 +758,17 @@
         </section>
     </div>
 
+    <div class="confirm-overlay" id="confirmOverlay" aria-hidden="true">
+        <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+            <h3 id="confirmTitle">Confirm Action</h3>
+            <p id="confirmMessage">Are you sure?</p>
+            <div class="confirm-actions">
+                <button class="ghost-btn" type="button" id="confirmCancelBtn">Cancel</button>
+                <button class="ghost-btn danger-btn" type="button" id="confirmOkBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
@@ -722,6 +800,14 @@
         const roomCode = (urlParams.get('room') || '').toUpperCase();
         const playerName = localStorage.getItem('playerName');
         const roomPassword = localStorage.getItem('roomPassword') || '';
+        const resumeToken = (() => {
+            try {
+                const tokenMap = JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
+                return tokenMap[roomCode] || '';
+            } catch (_error) {
+                return '';
+            }
+        })();
         let myTeam = null;
         let isAuctioneer = false;
         let auctioneerId = null;
@@ -741,7 +827,7 @@
             window.location.href = '/';
         }
 
-        socket.emit('joinRoom', { roomCode, password: roomPassword, playerName });
+        socket.emit('joinRoom', { roomCode, password: roomPassword, playerName, resumeToken });
 
         socket.on('roomJoined', (data) => {
             if (data.phase === 'playing11') {
@@ -750,6 +836,13 @@
             }
             document.getElementById('roomCode').innerText = data.roomCode;
             currentMode = data.mode === 'ai_trainer' ? 'ai' : (data.mode || 'manual');
+            if (data.resumeToken) {
+                try {
+                    const tokenMap = JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
+                    tokenMap[data.roomCode] = data.resumeToken;
+                    localStorage.setItem('roomResumeTokens', JSON.stringify(tokenMap));
+                } catch (_error) {}
+            }
             auctioneerId = data.auctioneerId || auctioneerId;
             isAuctioneer = auctioneerId === socket.id;
             document.getElementById('modeIndicator').innerText = (data.mode === 'ai' || data.mode === 'ai_trainer')
@@ -832,7 +925,7 @@
                 }, 1200);
                 return;
             }
-            alert(error);
+            showToast(error, 'error');
         });
 
         function updateRoomAccessUi() {
@@ -871,9 +964,13 @@
             socket.emit('setRoomAccessState', { roomCode, accessStatus: status });
         }
 
-        function deleteRoom() {
+        async function deleteRoom() {
             if (!isAuctioneer) return;
-            const confirmed = window.confirm('Delete this room permanently? Existing saved auction progress for this room code will be removed.');
+            const confirmed = await showConfirmDialog({
+                title: 'Delete Room',
+                message: 'Delete this room permanently? Existing saved auction progress for this room code will be removed.',
+                confirmText: 'Delete Room'
+            });
             if (!confirmed) return;
             socket.emit('deleteRoom', roomCode);
         }
@@ -984,7 +1081,7 @@
 
         function selectTeam(teamCode) {
             if (currentMode === 'manual' && isAuctioneer) {
-                alert('Auctioneer cannot select a franchise in manual mode.');
+                showToast('Auctioneer cannot select a franchise in manual mode.', 'warn');
                 return;
             }
             socket.emit('selectTeam', { roomCode, teamCode, playerName });
@@ -1085,13 +1182,13 @@
             showToast(`Join code copied: ${roomCode}`);
         }
 
-        function showToast(text) {
+        function showToast(text, type = 'info') {
             const old = document.getElementById('lobbyToast');
             if (old) old.remove();
 
             const toast = document.createElement('div');
             toast.id = 'lobbyToast';
-            toast.className = 'toast';
+            toast.className = `toast ${type}`;
             toast.innerText = text;
             document.body.appendChild(toast);
 
@@ -1103,6 +1200,46 @@
                 toast.classList.remove('show');
                 setTimeout(() => toast.remove(), 220);
             }, 2200);
+        }
+
+        function showConfirmDialog({ title = 'Confirm Action', message = 'Are you sure?', confirmText = 'Confirm' } = {}) {
+            const overlay = document.getElementById('confirmOverlay');
+            const titleNode = document.getElementById('confirmTitle');
+            const messageNode = document.getElementById('confirmMessage');
+            const cancelBtn = document.getElementById('confirmCancelBtn');
+            const okBtn = document.getElementById('confirmOkBtn');
+
+            titleNode.innerText = title;
+            messageNode.innerText = message;
+            okBtn.innerText = confirmText;
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+
+            return new Promise((resolve) => {
+                const cleanup = (result) => {
+                    overlay.classList.remove('active');
+                    overlay.setAttribute('aria-hidden', 'true');
+                    cancelBtn.removeEventListener('click', onCancel);
+                    okBtn.removeEventListener('click', onConfirm);
+                    overlay.removeEventListener('click', onBackdrop);
+                    document.removeEventListener('keydown', onKeydown);
+                    resolve(result);
+                };
+
+                const onCancel = () => cleanup(false);
+                const onConfirm = () => cleanup(true);
+                const onBackdrop = (event) => {
+                    if (event.target === overlay) cleanup(false);
+                };
+                const onKeydown = (event) => {
+                    if (event.key === 'Escape') cleanup(false);
+                };
+
+                cancelBtn.addEventListener('click', onCancel);
+                okBtn.addEventListener('click', onConfirm);
+                overlay.addEventListener('click', onBackdrop);
+                document.addEventListener('keydown', onKeydown);
+            });
         }
     </script>
 </body>

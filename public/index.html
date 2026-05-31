@@ -575,6 +575,28 @@
     <script>
         let socket = null;
 
+        function getResumeTokenMap() {
+            try {
+                return JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
+            } catch (_error) {
+                return {};
+            }
+        }
+
+        function getResumeToken(roomCode) {
+            const tokens = getResumeTokenMap();
+            return tokens[String(roomCode || '').toUpperCase()] || '';
+        }
+
+        function saveResumeToken(roomCode, token) {
+            const normalizedRoomCode = String(roomCode || '').toUpperCase();
+            const normalizedToken = String(token || '').trim();
+            if (!normalizedRoomCode || !normalizedToken) return;
+            const tokens = getResumeTokenMap();
+            tokens[normalizedRoomCode] = normalizedToken;
+            localStorage.setItem('roomResumeTokens', JSON.stringify(tokens));
+        }
+
         function setError(targetId, message) {
             document.getElementById(targetId).innerText = message || '';
         }
@@ -634,7 +656,12 @@
             socket = io();
 
             socket.on('connect', () => {
-                socket.emit('joinRoom', { roomCode, password, playerName });
+                socket.emit('joinRoom', {
+                    roomCode,
+                    password,
+                    playerName,
+                    resumeToken: getResumeToken(roomCode)
+                });
             });
 
             socket.on('roomJoined', (data) => {
@@ -642,6 +669,7 @@
                 localStorage.setItem('roomCode', data.roomCode);
                 localStorage.setItem('roomName', data.roomName || '');
                 localStorage.setItem('roomPassword', password || '');
+                saveResumeToken(data.roomCode, data.resumeToken);
                 window.location.href = `/lobby.html?room=${data.roomCode}`;
             });
 
