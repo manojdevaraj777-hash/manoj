@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>IPL Auction - Live</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg: #050d18;
@@ -175,7 +178,7 @@
             gap: 12px;
         }
 
-        .main-grid > * {
+        .main-grid>* {
             min-width: 0;
         }
 
@@ -664,7 +667,7 @@
             display: grid;
             grid-template-rows: auto 1fr;
             gap: 6px;
-            height: 220px;
+            height: 320px;
             min-height: 0;
         }
 
@@ -909,10 +912,21 @@
             margin-bottom: 4px;
         }
 
-        .app-toast.info { border-left: 4px solid #66d6ff; }
-        .app-toast.success { border-left: 4px solid #5ef0b6; }
-        .app-toast.warn { border-left: 4px solid #ffd27a; }
-        .app-toast.error { border-left: 4px solid #ff8d86; }
+        .app-toast.info {
+            border-left: 4px solid #66d6ff;
+        }
+
+        .app-toast.success {
+            border-left: 4px solid #5ef0b6;
+        }
+
+        .app-toast.warn {
+            border-left: 4px solid #ffd27a;
+        }
+
+        .app-toast.error {
+            border-left: 4px solid #ff8d86;
+        }
 
         .sold-celebration {
             position: fixed;
@@ -1053,9 +1067,15 @@
         }
 
         @keyframes blink {
+
             0%,
-            100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         @keyframes sold-pop {
@@ -1063,10 +1083,12 @@
                 opacity: 0;
                 transform: scale(0.95);
             }
+
             35% {
                 opacity: 1;
                 transform: scale(1.01);
             }
+
             100% {
                 opacity: 0;
                 transform: scale(1);
@@ -1078,10 +1100,12 @@
                 opacity: 0;
                 transform: scale(0.86);
             }
+
             45% {
                 opacity: 1;
                 transform: scale(1.02);
             }
+
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -1093,9 +1117,11 @@
                 opacity: 0;
                 transform: translateY(-18px) scale(0.8);
             }
+
             20% {
                 opacity: 1;
             }
+
             100% {
                 opacity: 0;
                 transform: translateY(70px) scale(0.3);
@@ -1107,9 +1133,11 @@
                 opacity: 0;
                 transform: rotate(var(--rot)) translateY(0) scaleY(0.3);
             }
+
             25% {
                 opacity: 1;
             }
+
             100% {
                 opacity: 0;
                 transform: rotate(var(--rot)) translateY(-58px) scaleY(0.05);
@@ -1121,9 +1149,11 @@
                 opacity: 0;
                 transform: translateY(0) rotate(0deg);
             }
+
             8% {
                 opacity: 1;
             }
+
             100% {
                 opacity: 0.9;
                 transform: translateY(112vh) rotate(520deg);
@@ -1232,19 +1262,9 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="brand-strip">
-            <div class="brand-main">
-                <img src="/auction-logo.svg" alt="Auction Premier logo" onerror="this.onerror=null;this.src='/auction-logo.svg.webp';">
-                <div>
-                    <div class="brand-title">Auction Premier</div>
-                    <div class="brand-sub">Live Bid Arena</div>
-                </div>
-            </div>
-            <div class="brand-indicator">Broadcast Mode</div>
-        </div>
-
         <header class="header">
             <div class="room-info">
                 <span class="room-chip">Live Room: <span id="roomCode">---</span></span>
@@ -1253,11 +1273,13 @@
             <div style="display:flex; gap:8px; flex-wrap:wrap;">
                 <button class="media-btn" id="soundToggleBtn" onclick="toggleSound()">Sound: On</button>
                 <button class="menu-btn" onclick="showMySquad()">View My Squad</button>
-                <button class="media-btn" onclick="window.location.href = `/team-dashboard.html?room=${roomCode}`;">Team Dashboard</button>
+                <button class="media-btn" onclick="window.location.href = `/team-dashboard.html?room=${roomCode}`;">Team
+                    Dashboard</button>
             </div>
         </header>
 
-        <div class="ticker" id="liveTicker">Waiting for first nomination. Strategy tip: conserve purse for marquee players and depth picks.</div>
+        <div class="ticker" id="liveTicker">Waiting for first nomination. Strategy tip: conserve purse for marquee
+            players and depth picks.</div>
 
         <div class="main-grid">
             <section class="auction-stage">
@@ -1277,7 +1299,8 @@
                         </div>
                         <div class="action-row">
                             <button class="bid-button" id="bidButton" onclick="placeBid()" disabled>Bid</button>
-                            <button class="skip-bid-btn" id="skipBidBtn" onclick="skipMyBid()" style="display:none;" disabled>Skip My Bid</button>
+                            <button class="skip-bid-btn" id="skipBidBtn" onclick="skipMyBid()" style="display:none;"
+                                disabled>Skip My Bid</button>
                         </div>
                     </div>
 
@@ -1293,16 +1316,21 @@
                                 <span class="calc-value" id="calcRemaining">₹0.0 Cr</span>
                             </div>
                         </div>
-                        <button class="quick-bid-btn" id="quickBidBtn" onclick="placeBid()">Quick Bid <span id="quickBidAmount">₹0.0 Cr</span></button>
+                        <button class="quick-bid-btn" id="quickBidBtn" onclick="placeBid()">Quick Bid <span
+                                id="quickBidAmount">₹0.0 Cr</span></button>
                     </div>
                     <div class="target-bid-panel" id="targetBidPanel" aria-live="polite">
                         <div class="target-bid-title" id="targetBidTitle">Target reached</div>
-                        <div class="target-bid-copy" id="targetBidCopy">This bid is above your internal target range for this player.</div>
+                        <div class="target-bid-copy" id="targetBidCopy">This bid is above your internal target range for
+                            this player.</div>
                         <div class="target-bid-actions" id="targetBidActions">
-                            <button class="quick-bid-btn" id="continuePlayerBidBtn" onclick="continueOverTargetBid()">Continue Bid</button>
-                            <button class="skip-bid-btn" id="endPlayerBidBtn" onclick="endOverTargetBid()">End Bid</button>
+                            <button class="quick-bid-btn" id="continuePlayerBidBtn"
+                                onclick="continueOverTargetBid()">Continue Bid</button>
+                            <button class="skip-bid-btn" id="endPlayerBidBtn" onclick="endOverTargetBid()">End
+                                Bid</button>
                         </div>
-                        <div class="target-bid-status" id="targetBidStatus" style="display:none;">Over target: continue mode active</div>
+                        <div class="target-bid-status" id="targetBidStatus" style="display:none;">Over target: continue
+                            mode active</div>
                     </div>
                     <div class="bid-calculator" id="teamAuctionStatusPanel" style="display:none;">
                         <h4>Team Auction Status</h4>
@@ -1317,52 +1345,19 @@
                             </div>
                         </div>
                         <div class="action-row">
-                            <button class="quick-bid-btn" id="continueAuctionBtn" onclick="setTeamAuctionStatus('active')">Continue Auction</button>
-                            <button class="skip-bid-btn" id="endAuctionBtn" onclick="setTeamAuctionStatus('complete')">End Auction</button>
+                            <button class="quick-bid-btn" id="continueAuctionBtn"
+                                onclick="setTeamAuctionStatus('active')">Continue Auction</button>
+                            <button class="skip-bid-btn" id="endAuctionBtn"
+                                onclick="setTeamAuctionStatus('complete')">End Auction</button>
                         </div>
                     </div>
                 </div>
             </section>
 
             <aside class="sidebar">
-                <section class="auctioneer-controls" id="auctioneerControls" style="display: none;">
-                    <h3 class="panel-title">Auctioneer Controls</h3>
-                    <div style="font-size:12px; color:#b8cee5; margin-bottom:8px;">Mode is locked from room creation.</div>
-                    <div class="control-group" id="manualControls">
-                        <select id="playerCategory">
-                            <option value="all">All Players</option>
-                            <option value="marquee">Marquee Players</option>
-                            <option value="capped">Capped Players</option>
-                            <option value="uncapped">Uncapped Players</option>
-                            <option value="batters">Batters</option>
-                            <option value="allrounders">All-rounders</option>
-                            <option value="wicketkeepers">Wicketkeepers</option>
-                            <option value="bowlers">Bowlers</option>
-                        </select>
-                        <input type="text" id="playerSearch" placeholder="Search player by name, country, role...">
-                        <select id="playerSelect">
-                            <option>Loading players...</option>
-                        </select>
-                    </div>
-                    <div class="control-group inline" id="manualControlButtons">
-                        <button onclick="nominatePlayer()">Nominate</button>
-                        <button onclick="finalizeSale()">Sold</button>
-                        <button onclick="markUnsold()">Unsold</button>
-                    </div>
-                </section>
-
                 <section class="auction-queue">
                     <h3 class="panel-title">Upcoming Auction List</h3>
                     <div id="upcomingPlayersList" class="queue-list"></div>
-                </section>
-
-                <section class="chat-box">
-                    <h3 class="panel-title">Auction Feed</h3>
-                    <div class="messages" id="messages"></div>
-                    <div class="chat-input-group">
-                        <input type="text" class="chat-input" id="chatInput" placeholder="Type a message...">
-                        <button class="send-btn" onclick="sendMessage()">Send</button>
-                    </div>
                 </section>
 
                 <section class="auction-outcomes">
@@ -1495,7 +1490,7 @@
                     const tokenMap = JSON.parse(localStorage.getItem('roomResumeTokens') || '{}') || {};
                     tokenMap[data.roomCode] = data.resumeToken;
                     localStorage.setItem('roomResumeTokens', JSON.stringify(tokenMap));
-                } catch (_error) {}
+                } catch (_error) { }
             }
             currentMode = data.mode;
             teamsData = data.teams || {};
@@ -2098,7 +2093,7 @@
 
             const ageMs = Date.now() - Number(handoff.startedAt || 0);
             if (Number.isNaN(ageMs) || ageMs < 0 || ageMs > 12000) {
-                try { sessionStorage.removeItem('auctionStartSoundHandoff'); } catch (_err) {}
+                try { sessionStorage.removeItem('auctionStartSoundHandoff'); } catch (_err) { }
                 return;
             }
 
@@ -2109,7 +2104,7 @@
             if (resumePromise && typeof resumePromise.then === 'function') {
                 resumePromise.then(() => {
                     startHandoffConsumed = true;
-                    try { sessionStorage.removeItem('auctionStartSoundHandoff'); } catch (_err) {}
+                    try { sessionStorage.removeItem('auctionStartSoundHandoff'); } catch (_err) { }
                 }).catch(() => {
                     // Browser autoplay policy may block until user interaction.
                     // Keep handoff data so pointer/keyboard retry can resume.
@@ -2118,7 +2113,7 @@
             }
 
             startHandoffConsumed = true;
-            try { sessionStorage.removeItem('auctionStartSoundHandoff'); } catch (_err) {}
+            try { sessionStorage.removeItem('auctionStartSoundHandoff'); } catch (_err) { }
         }
 
         function playTone(freq, duration, type = 'sine', volume = 0.045, delay = 0) {
@@ -2681,7 +2676,5 @@
         }, { once: true });
     </script>
 </body>
+
 </html>
-
-
-

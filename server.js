@@ -921,6 +921,7 @@ const PLAYER_MARKET_VALUES = loadPlayerMarketValues();
 function normalizeCsvRole(role = '') {
   const value = String(role || '').toLowerCase().replace(/\s+/g, ' ').trim();
   if (value === 'batter') return 'Batsman';
+  if (value === 'batsman') return 'Batsman';
   if (value.includes('all-rounder') || value.includes('all rounder')) return 'All-rounder';
   if (value.includes('wicket')) return 'Wicketkeeper';
   if (value.includes('bowl')) return 'Bowler';
@@ -929,8 +930,8 @@ function normalizeCsvRole(role = '') {
 
 function normalizeCsvTier(rawTier = '', basePrice = 0) {
   const tier = String(rawTier || '').toLowerCase().trim();
-  if (tier === 'elite') return 1;
-  if (tier === 'pro') return 2;
+  if (tier === 'elite' || tier === 'marquee') return 1;
+  if (tier === 'pro' || tier === 'established') return 2;
   return inferTierFromReservePrice(basePrice);
 }
 
@@ -1201,7 +1202,39 @@ const csvBasedPool = buildPlayerPoolFromCsvRows(csvAuctionRows);
 const PLAYER_KEY_POINTS_MAP = loadPlayerKeyPointsMap();
 
 // Combine all players
-const allPlayers = csvBasedPool;
+const allPlayers = [...csvBasedPool]
+  .map(player => {
+    // Compute a "Prestige Score" for complete auction realism
+    // 1. Marquee/Key Player status (Highest priority for the "Initial Stage Hype")
+    const isMarquee = player.isKeyPlayer || 
+                      player.auctionPrimaryCategory === 'Marquee Players' || 
+                      (player.auctionTags || []).includes('Marquee Players');
+    const marqueeWeight = isMarquee ? 1000000 : 0;
+    
+    // 2. Market Valuation: Use the highest of the Market Target or the Latest Sold Price (in Cr)
+    const marketTarget = Number(player.auctionHistory?.market?.target || 0);
+    const latestPrice = Number(player.profile?.latestAuctionPrice || 0);
+    const valuationWeight = Math.max(marketTarget, latestPrice) * 10000;
+    
+    // 3. Status Tie-breakers
+    const tierWeight = (4 - (player.tier || 3)) * 5000;
+    const cappedWeight = (player.cappedStatus === 'Capped') ? 2000 : 0;
+    const basePriceWeight = (player.basePrice || 0.2) * 1000;
+
+    return {
+      ...player,
+      auctionPriorityScore: marqueeWeight + valuationWeight + tierWeight + cappedWeight + basePriceWeight
+    };
+  })
+  .sort((a, b) => {
+    // Primary Sort: Auction Priority Score (High to Low)
+    if (b.auctionPriorityScore !== a.auctionPriorityScore) {
+      return b.auctionPriorityScore - a.auctionPriorityScore;
+    }
+    
+    // Secondary Sort: Alphabetical for consistency
+    return String(a.name || '').localeCompare(String(b.name || ''));
+  });
 const allPlayersByNormalizedName = new Map(
   allPlayers.map((player) => [normalizePlayerName(player.name), player])
 );
