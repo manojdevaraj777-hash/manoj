@@ -2051,6 +2051,32 @@ function getAITeamCodes(room) {
   return Object.keys(room?.teams || {}).filter((teamCode) => !humanTeamCodes.has(teamCode));
 }
 
+const TARGET_ROLE_COUNTS = {
+  batter: 6,
+  wicketkeeper: 2,
+  allrounder: 3,
+  bowler: 6
+};
+
+function computeTeamRoleNeeds(team) {
+  const roles = { batter: 0, wicketkeeper: 0, allrounder: 0, bowler: 0 };
+  const squad = team?.players || [];
+  squad.forEach(player => {
+    const role = classifyPlayingXIRole(player);
+    if (roles[role] !== undefined) roles[role]++;
+  });
+
+  const needs = {};
+  for (const [role, target] of Object.entries(TARGET_ROLE_COUNTS)) {
+    const current = roles[role] || 0;
+    const deficit = Math.max(0, target - current);
+    needs[role] = clamp(deficit / 3, 0, 1);
+  }
+  // Also track if team has ANY wicketkeeper (critical need)
+  needs._needsWK = roles.wicketkeeper === 0 ? 1 : 0;
+  return needs;
+}
+
 function areAllHumanTeamsReadyToEndInAIMode(room) {
   if (!isAIMode(room?.mode)) return false;
 
@@ -2058,6 +2084,13 @@ function areAllHumanTeamsReadyToEndInAIMode(room) {
   if (humanTeamCodes.length === 0) return false;
 
   return humanTeamCodes.every((teamCode) => room?.teams?.[teamCode]?.auctionStatus === 'complete');
+}
+
+function anyHumanTeamEndedAuction(room) {
+  if (!isAIMode(room?.mode)) return false;
+  const humanTeamCodes = getHumanTeamCodes(room);
+  if (humanTeamCodes.length === 0) return false;
+  return humanTeamCodes.some((teamCode) => room?.teams?.[teamCode]?.auctionStatus === 'complete');
 }
 
 function getPlayerSecretScoreForRanking(player = {}) {
@@ -3305,6 +3338,10 @@ function runAIBidCycle(room, io) {
   }
 
   room.aiBidTimeout = setTimeout(() => {
+    if (room.paused) {
+      runAIBidCycle(room, io);
+      return;
+    }
     if (!isAIMode(room.mode) || !room.currentPlayer || room.timeLeft <= 1) {
       return;
     }
@@ -3313,6 +3350,7 @@ function runAIBidCycle(room, io) {
     const demandScore = computePlayerDemandScore(playerData, room.mode);
     const nextBid = calculateNextAIBid(room, playerData);
 
+    const playerRole = classifyPlayingXIRole(playerData);
     const aiBidCandidates = Object.entries(room.teams)
       .filter(([code, team]) => !team.socketId && code !== room.currentHighestBidder && canTeamBidForPlayer(room, code, nextBid, playerData))
       .map(([code]) => {
@@ -3324,9 +3362,16 @@ function runAIBidCycle(room, io) {
         const overseasPressure = (playerData.country !== 'India')
           ? clamp((Number(team?.overseasCount || 0) - 5) * 0.06, 0, 0.18)
           : 0;
+
+        // Role-based squad need: bid harder for players in roles the team lacks
+        const roleNeeds = computeTeamRoleNeeds(team);
+        const roleNeedBoost = roleNeeds[playerRole] || 0;
+        const wkEmergencyBoost = (playerRole === 'wicketkeeper' && roleNeeds._needsWK) ? 0.25 : 0;
+
         const score = Math.max(
           0.05,
-          0.08 + (headroom / Math.max(1, valuation)) + (demandScore * 0.45) + squadNeedBoost - overseasPressure
+          0.08 + (headroom / Math.max(1, valuation)) + (demandScore * 0.45)
+          + squadNeedBoost + (roleNeedBoost * 0.35) + wkEmergencyBoost - overseasPressure
         );
         return { code, score };
       });
@@ -3513,6 +3558,9 @@ function chooseBestAffordableAutoFillPlayer(room, teamCode, candidates, targetSi
   const team = room?.teams?.[teamCode];
   if (!team || !Array.isArray(candidates) || candidates.length === 0) return null;
 
+  const roleNeeds = computeTeamRoleNeeds(team);
+  const squadSize = Array.isArray(team.players) ? team.players.length : 0;
+
   let bestPlayer = null;
   let bestScore = -Infinity;
 
@@ -3520,15 +3568,13 @@ function chooseBestAffordableAutoFillPlayer(room, teamCode, candidates, targetSi
     if (!player || !Number.isFinite(Number(player.basePrice))) continue;
     if (!canTeamBidForPlayer(room, teamCode, Number(player.basePrice), player)) continue;
 
-    const squadSize = Array.isArray(team.players) ? team.players.length : 0;
     const role = classifyPlayingXIRole(player);
     const needBoost = squadSize < targetSize ? 20 : 0;
-    const wicketkeeperBoost = role === 'wicketkeeper' && !team.players.some((entry) => classifyPlayingXIRole(entry) === 'wicketkeeper') ? 9 : 0;
-    const bowlerBoost = role === 'bowler' ? 5 : 0;
-    const allrounderBoost = role === 'allrounder' ? 4 : 0;
+    const roleNeedScore = (roleNeeds[role] || 0) * 10;
+    const wkEmergencyScore = (role === 'wicketkeeper' && roleNeeds._needsWK) ? 15 : 0;
     const secretScore = getPlayerSecretScoreForRanking(player);
     const pricePenalty = Number(player.basePrice || 0) * 1.5;
-    const score = secretScore + needBoost + wicketkeeperBoost + bowlerBoost + allrounderBoost - pricePenalty;
+    const score = secretScore + needBoost + roleNeedScore + wkEmergencyScore - pricePenalty;
 
     if (score > bestScore) {
       bestScore = score;
@@ -3556,15 +3602,15 @@ function addPlayerToTeamFromAuction(team, player, price) {
   }
 }
 
-function autoCompleteAITeamsForPlayingXI(room) {
+function autoCompleteAllTeamsForPlayingXI(room) {
   if (!room || !isAIMode(room.mode)) return;
 
-  const aiTeamCodes = getAITeamCodes(room);
-  if (aiTeamCodes.length === 0) return;
+  const competitionTeamCodes = getCompetitionTeamCodes(room);
+  if (competitionTeamCodes.length === 0) return;
 
   const roomAvailablePlayers = getRoomAvailablePlayers(room);
 
-  for (const teamCode of aiTeamCodes) {
+  for (const teamCode of competitionTeamCodes) {
     const team = room.teams?.[teamCode];
     if (!team) continue;
 
@@ -3616,14 +3662,14 @@ function beginAIAuctionWrapUp(room, io) {
   room.forceAIBidCurrent = false;
   room.reserveExtendedCurrentPlayer = false;
 
-  io.to(room.code).emit('message', 'All human teams ended the auction. AI teams are finishing their squads...');
-  io.to(room.code).emit('gameEnd', 'All human teams are done. AI teams are finishing their squads...');
+  io.to(room.code).emit('message', 'Auction ended. All teams are being auto-filled to 18-20 players...');
+  io.to(room.code).emit('gameEnd', 'Auction ended. All teams are being auto-filled to 18-20 players...');
   io.to(room.code).emit('availablePlayers', getRoomAvailablePlayers(room));
   queueRoomPersist(room.code, room);
 
   room.aiAutoFinishTimeout = setTimeout(() => {
     room.aiAutoFinishTimeout = null;
-    autoCompleteAITeamsForPlayingXI(room);
+    autoCompleteAllTeamsForPlayingXI(room);
     io.to(room.code).emit('teamsUpdate', room.teams);
     startPlayingXIPhase(room, io);
   }, 5000);
@@ -3697,6 +3743,7 @@ function startTimer(room, io) {
   if (room.timer) clearInterval(room.timer);
   
   room.timer = setInterval(() => {
+    if (room.paused) return;
     room.timeLeft--;
     io.to(room.code).emit('timerTick', room.timeLeft);
     
@@ -3798,92 +3845,23 @@ function finalizeSale(room, io) {
       }
     }
   } else if (activePlayerSnapshot) {
-    if (isAIMode(room.mode)) {
-      const demandScore = computePlayerDemandScore(activePlayerSnapshot, room.mode);
-      const historyModel = getPlayerHistoryPricingModel(activePlayerSnapshot);
-      const openingBid = getAIOpeningBid(activePlayerSnapshot);
-      const unsoldStreak = Number(room.aiUnsoldStreak || 0);
-      const aiEligibleTeams = Object.entries(room.teams)
-        .filter(([code, team]) => !team.socketId && canTeamBidForPlayer(room, code, openingBid, activePlayerSnapshot))
-        .map(([code]) => code);
+    // No one bid — player goes unsold (no auto-sell to AI)
+    const unsoldStreak = Number(room.aiUnsoldStreak || 0);
+    const index = roomAvailablePlayers.findIndex((p) => p.id === activePlayerSnapshot.id);
+    if (index !== -1) roomAvailablePlayers.splice(index, 1);
 
-      const adaptiveReserveFloor = getPlayerAIMinimumReserve(activePlayerSnapshot, room);
-      const autoSellProbability = clamp(0.04 + (demandScore * 0.18) + (unsoldStreak * 0.08), 0, 0.45);
+    io.to(room.code).emit('playerUnsold', {
+      player: activePlayerSnapshot,
+      teams: room.teams
+    });
 
-      if (
-        aiEligibleTeams.length > 0
-        && openingBid + 0.001 >= adaptiveReserveFloor
-        && Math.random() <= autoSellProbability
-      ) {
-        const buyer = aiEligibleTeams[Math.floor(Math.random() * aiEligibleTeams.length)];
-        const buyerTeam = room.teams[buyer];
-
-        buyerTeam.purse -= openingBid;
-        buyerTeam.players.push({
-          id: activePlayerSnapshot.id,
-          name: activePlayerSnapshot.name,
-          role: activePlayerSnapshot.role,
-          country: activePlayerSnapshot.country,
-          price: openingBid,
-          boughtInAuction: true,
-          image: activePlayerSnapshot.image
-        });
-        buyerTeam.totalPlayers++;
-        if (activePlayerSnapshot.country !== 'India') buyerTeam.overseasCount++;
-
-        const index = roomAvailablePlayers.findIndex((p) => p.id === activePlayerSnapshot.id);
-        if (index !== -1) roomAvailablePlayers.splice(index, 1);
-
-        io.to(room.code).emit('playerSold', {
-          player: activePlayerSnapshot,
-          buyer,
-          price: openingBid,
-          teams: room.teams
-        });
-
-        room.soldPlayers.push({
-          id: activePlayerSnapshot.id,
-          name: activePlayerSnapshot.name,
-          role: activePlayerSnapshot.role,
-          buyer,
-          price: openingBid
-        });
-        room.aiUnsoldStreak = 0;
-      } else {
-        // In AI mode/manual timer expiry with no bids, treat as unsold and move on.
-        const index = roomAvailablePlayers.findIndex((p) => p.id === activePlayerSnapshot.id);
-        if (index !== -1) roomAvailablePlayers.splice(index, 1);
-
-        io.to(room.code).emit('playerUnsold', {
-          player: activePlayerSnapshot,
-          teams: room.teams
-        });
-
-        room.unsoldPlayers.push({
-          id: activePlayerSnapshot.id,
-          name: activePlayerSnapshot.name,
-          role: activePlayerSnapshot.role,
-          basePrice: activePlayerSnapshot.basePrice
-        });
-        room.aiUnsoldStreak = unsoldStreak + 1;
-      }
-    } else {
-      // Manual mode timer expiry with no bids -> unsold.
-      const index = roomAvailablePlayers.findIndex((p) => p.id === activePlayerSnapshot.id);
-      if (index !== -1) roomAvailablePlayers.splice(index, 1);
-
-      io.to(room.code).emit('playerUnsold', {
-        player: activePlayerSnapshot,
-        teams: room.teams
-      });
-
-      room.unsoldPlayers.push({
-        id: activePlayerSnapshot.id,
-        name: activePlayerSnapshot.name,
-        role: activePlayerSnapshot.role,
-        basePrice: activePlayerSnapshot.basePrice
-      });
-    }
+    room.unsoldPlayers.push({
+      id: activePlayerSnapshot.id,
+      name: activePlayerSnapshot.name,
+      role: activePlayerSnapshot.role,
+      basePrice: activePlayerSnapshot.basePrice
+    });
+    room.aiUnsoldStreak = unsoldStreak + 1;
   }
   
   room.currentPlayer = null;
@@ -3898,7 +3876,7 @@ function finalizeSale(room, io) {
   io.to(room.code).emit('availablePlayers', roomAvailablePlayers);
   queueRoomPersist(room.code, room);
 
-  if (isAIMode(room.mode) && areAllHumanTeamsReadyToEndInAIMode(room)) {
+  if (isAIMode(room.mode) && anyHumanTeamEndedAuction(room)) {
     beginAIAuctionWrapUp(room, io);
     return;
   }
@@ -3919,7 +3897,7 @@ function nominateNextPlayer(room, io) {
   if (!room || room.phase !== ROOM_PHASES.AUCTION) return;
   const roomAvailablePlayers = getRoomAvailablePlayers(room);
 
-  if (isAIMode(room.mode) && areAllHumanTeamsReadyToEndInAIMode(room)) {
+  if (isAIMode(room.mode) && anyHumanTeamEndedAuction(room)) {
     beginAIAuctionWrapUp(room, io);
     return;
   }
@@ -4128,6 +4106,7 @@ io.on('connection', (socket) => {
             targetContinueTeams: room.currentPlayerTargetContinueTeams || {}
           }
         : null,
+      paused: Boolean(room.paused),
       accessStatus: getRoomAccessStatus(room),
       expiredAt: room.expiredAt || null,
       lastActivityAt: room.lastActivityAt || null,
@@ -4255,6 +4234,40 @@ io.on('connection', (socket) => {
     deleteRoomNow(normalizedRoomCode, room, io, 'Room deleted by auctioneer.');
   });
 
+  // Pause / Resume auction (auctioneer only)
+  socket.on('togglePause', (roomCode) => {
+    const normalizedRoomCode = normalizeRoomCode(roomCode);
+    const room = activeRooms.get(normalizedRoomCode);
+    if (!room) {
+      socket.emit('error', 'Room not found.');
+      return;
+    }
+
+    if (room.auctioneer !== socket.id) {
+      socket.emit('error', 'Only the auctioneer can pause/resume the auction.');
+      return;
+    }
+
+    if (room.phase !== ROOM_PHASES.AUCTION) {
+      socket.emit('error', 'Auction already moved to Playing XI stage.');
+      return;
+    }
+
+    room.paused = !room.paused;
+
+    if (room.paused) {
+      clearAIBidTimeout(room);
+      io.to(normalizedRoomCode).emit('auctionPaused', { timeLeft: room.timeLeft });
+      io.to(normalizedRoomCode).emit('message', 'Auction paused by auctioneer.');
+    } else {
+      io.to(normalizedRoomCode).emit('auctionResumed', { timeLeft: room.timeLeft });
+      io.to(normalizedRoomCode).emit('message', 'Auction resumed by auctioneer.');
+      if (isAIMode(room.mode) && room.currentPlayer) {
+        runAIBidCycle(room, io);
+      }
+    }
+  });
+
   // Start auction (auctioneer only)
   socket.on('startAuction', (roomCode) => {
     const normalizedRoomCode = normalizeRoomCode(roomCode);
@@ -4367,6 +4380,10 @@ io.on('connection', (socket) => {
       socket.emit('error', 'No player on auction');
       return;
     }
+    if (room.paused) {
+      socket.emit('error', 'Auction is paused. Wait for the auctioneer to resume.');
+      return;
+    }
     const teamCode = getSocketTeamCode(room, socket.id);
     if (!teamCode) {
       socket.emit('error', 'You haven\'t selected a team yet');
@@ -4455,7 +4472,8 @@ io.on('connection', (socket) => {
     io.to(normalizedRoomCode).emit('message', `${team.name} is now ${normalizedStatus === 'complete' ? 'done with the auction' : 'back in the auction'}.`);
     queueRoomPersist(normalizedRoomCode, room);
 
-    if (isAIMode(room.mode) && areAllHumanTeamsReadyToEndInAIMode(room)) {
+    // When any human team ends in AI mode, auto-fill all remaining AI teams immediately
+    if (isAIMode(room.mode) && normalizedStatus === 'complete') {
       beginAIAuctionWrapUp(room, io);
       return;
     }
@@ -4489,6 +4507,72 @@ io.on('connection', (socket) => {
     finalizeSale(room, io);
   });
   
+  // Skip current player (auctioneer only, both modes)
+  socket.on('skipCurrentPlayer', (roomCode) => {
+    const normalizedRoomCode = normalizeRoomCode(roomCode);
+    const room = activeRooms.get(normalizedRoomCode);
+    const roomAvailablePlayers = room ? getRoomAvailablePlayers(room) : null;
+    if (!room) return;
+    if (room.phase !== ROOM_PHASES.AUCTION) {
+      socket.emit('error', 'Auction already moved to Playing XI stage.');
+      return;
+    }
+
+    clearAIBidTimeout(room);
+
+    if (room.auctioneer !== socket.id) {
+      socket.emit('error', 'Only auctioneer can skip the current player');
+      return;
+    }
+
+    if (!room.currentPlayer) {
+      socket.emit('error', 'No player currently on auction.');
+      return;
+    }
+
+    const playerData = roomAvailablePlayers.find((p) => p.id === room.currentPlayer.id);
+    if (!playerData) {
+      socket.emit('error', 'Player not found in room pool.');
+      return;
+    }
+
+    io.to(normalizedRoomCode).emit('message', `${playerData.name} went unsold!`);
+    io.to(normalizedRoomCode).emit('playerUnsold', {
+      player: playerData,
+      teams: room.teams
+    });
+
+    room.unsoldPlayers.push({
+      id: playerData.id,
+      name: playerData.name,
+      role: playerData.role,
+      basePrice: playerData.basePrice
+    });
+
+    const index = roomAvailablePlayers.findIndex((p) => p.id === playerData.id);
+    if (index !== -1) roomAvailablePlayers.splice(index, 1);
+
+    room.currentPlayer = null;
+    room.currentHighestBidder = null;
+    room.currentPlayerSkippedTeams = {};
+    room.currentPlayerTargetContinueTeams = {};
+    room.currentBidTeams = {};
+    room.currentBidHistory = [];
+    io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
+    queueRoomPersist(normalizedRoomCode, room);
+
+    if (isAuctionReadyForPlayingXI(room)) {
+      startPlayingXIPhase(room, io);
+      return;
+    }
+
+    if (roomAvailablePlayers.length > 0) {
+      setTimeout(() => {
+        nominateNextPlayer(room, io);
+      }, 2000);
+    }
+  });
+
   // Mark unsold
   socket.on('markUnsold', (roomCode) => {
     const normalizedRoomCode = normalizeRoomCode(roomCode);
@@ -4644,6 +4728,10 @@ io.on('connection', (socket) => {
 
     if (!room.currentPlayer) {
       socket.emit('error', 'No active player to skip.');
+      return;
+    }
+    if (room.paused) {
+      socket.emit('error', 'Auction is paused. Wait for the auctioneer to resume.');
       return;
     }
 

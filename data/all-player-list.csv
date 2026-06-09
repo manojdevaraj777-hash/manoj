@@ -1,374 +1,374 @@
-S.No	Player Name	Country	Role	Base Price(In Cr)	Tier	Age	Batting Style	Bowling Style	Form	Matches	Runs	Wickets	Average	Strike Rate	Economy	Capped Status	Primary Auction Category	Auction Tags
-1	Rishabh Pant	India	Wicketkeeper	2	Elite	28	Left-hand bat	N/A	Emerging	128	3638	0	34.32	146.99	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+﻿S.No	Player Name	Country	Role	Base Price(In Cr)	Tier	Age	Batting Style	Bowling Style	Form	Matches	Runs	Wickets	Average	Strike Rate	Economy	Capped Status	Primary Auction Category	Auction Tags
+1	Rishabh Pant	India	Wicketkeeper	2	Elite	28	Left-hand bat	N/A	In Demand	128	3638	0	34.32	146.99	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
 2	Shreyas Iyer	India	Batter	2	Elite	31	Right-hand bat	Right Arm Leg Break	In Demand	136	3799	0	34.23	133.86	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-3	Venkatesh Iyer	India	All-Rounder	2	Elite	31	Left-hand bat	Right Arm Medium	In Demand	62	1468	3	29.96	137.32	10.59	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-4	Virat Kohli	India	Batter	2	Elite	37	Right-hand bat	Right Arm Medium	Developing	269	8758	4	39.81	133.2	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-5	Nicholas Pooran	West Indies	Wicketkeeper	2	Elite	30	Left-hand bat	N/A	In Demand	93	2315	0	33.07	167.27	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-6	Ravindra Jadeja	India	All-Rounder	2	Elite	37	Left-hand bat	Left Arm Orthodox	Developing	257	3267	172	27.92	130.16	7.68	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-7	Yuzvendra Chahal	India	Bowler	2	Elite	35	Right-hand bat	Right Arm Leg Break	In Demand	177	37	224	22.68	43.02	7.95	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-8	Mitchell Starc	Australia	Bowler	2	Elite	36	Left-hand bat	Left Arm Fast	In Demand	52	111	65	23.12	93.28	8.61	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-9	Jasprit Bumrah	India	Bowler	2	Elite	32	Right-hand bat	Right Arm Fast	Developing	148	74	183	22.5	91.36	7.26	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-10	Rohit Sharma	India	Batter	2	Elite	38	Right-hand bat	Right Arm Off Spin	Developing	275	7164	15	29.85	132.57	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-11	Suryakumar Yadav	India	Batter	2	Elite	35	Right-hand bat	Right Arm Medium	Developing	217	6535	0	41.36	154.56	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-12	Arshdeep Singh	India	Bowler	2	Elite	27	Left-hand bat	Left Arm Fast Medium	Emerging	85	31	97	27.52	67.39	9.03	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-13	Shubman Gill	India	Batter	2	Elite	26	Right-hand bat	Right Arm Off Spin	Developing	120	3975	0	39.75	139.03	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-14	Rashid Khan	Afghanistan	Bowler	2	Elite	27	Right-hand bat	Right Arm Leg Break	Developing	139	609	163	23.63	159.42	7.09	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-15	Sanju Samson	India	Wicketkeeper	2	Elite	31	Right-hand bat	N/A	Developing	180	4726	0	30.49	138.92	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-16	KL Rahul	India	Wicketkeeper	2	Elite	33	Right-hand bat	N/A	Emerging	153	5335	0	45.21	136.41	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-17	Jos Buttler	England	Wicketkeeper	2	Elite	35	Right-hand bat	N/A	Emerging	124	4236	0	39.96	149.58	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-18	Hardik Pandya	India	All-Rounder	2	Elite	32	Right-hand bat	Right Arm Fast Medium	Developing	154	2776	79	28.33	147.03	9.22	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-19	Sam Curran	England	All-Rounder	2	Elite	27	Left-hand bat	Left Arm Fast Medium	In Demand	64	997	59	24.93	136.39	9.74	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-20	Ishan Kishan	India	Wicketkeeper	2	Elite	27	Left-hand bat	N/A	In Demand	122	3093	0	29.18	138.76	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-21	Trent Boult	New Zealand	Bowler	2	Elite	36	Right-hand bat	Left Arm Fast Medium	In Demand	122	86	143	26.62	103.61	8.42	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-22	Glenn Maxwell	Australia	All-Rounder	2	Elite	37	Right-hand bat	Right Arm Off Spin	In Demand	141	2819	41	23.89	155.15	8.3	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-23	Mohammad Siraj	India	Bowler	2	Elite	32	Right-hand bat	Right Arm Fast	Emerging	111	112	111	31.22	91.06	8.81	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-24	Deepak Chahar	India	Bowler	2	Elite	33	Right-hand bat	Right Arm Medium	In Demand	97	123	89	29.65	138.2	8.17	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-25	Jofra Archer	England	Bowler	2	Elite	31	Right-hand bat	Right Arm Fast	In Demand	55	263	62	27.03	146.11	7.87	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-26	Bhuvneshwar Kumar	India	Bowler	2	Elite	36	Right-hand bat	Right Arm Medium	In Demand	192	320	202	27.15	91.17	7.71	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-27	Ben Stokes	England	All-Rounder	2	Elite	34	Left-hand bat	Right Arm Medium Fast	In Demand	45	935	28	24.6	133.95	9.21	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-28	MS Dhoni	India	Wicketkeeper	2	Elite	44	Right-hand bat	N/A	Developing	278	5439	0	38.3	137.45	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-29	Pat Cummins	Australia	Bowler	2	Elite	33	Right-hand bat	Right Arm Fast	In Demand	58	557	63	31.06	152.74	8.75	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-30	Marcus Stoinis	Australia	All-Rounder	2	Elite	36	Right-hand bat	Right Arm Medium	Emerging	112	2035	44	27.88	144.84	9.84	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-31	Josh Hazlewood	Australia	Bowler	2	Elite	35	Left-hand bat	Right Arm Fast Medium	In Demand	39	19	57	20.98	65.52	8.28	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-32	Kagiso Rabada	South Africa	Bowler	2	Elite	30	Left-hand bat	Right Arm Fast	In Demand	87	238	122	23.28	109.68	8.66	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-33	Yashasvi Jaiswal	India	Batter	2	Elite	24	Left-hand bat	Right Arm Leg Break	In Demand	67	2160	0	34.29	149.48	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-34	Mohammed Shami	India	Bowler	2	Elite	35	Right-hand bat	Right Arm Fast	Developing	122	86	136	28.04	91.49	8.54	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-35	Phil Salt	England	Wicketkeeper	2	Elite	29	Right-hand bat	N/A	In Demand	36	1110	0	33.64	173.98	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-36	Liam Livingstone	England	All-Rounder	2	32	Right-hand bat	Right Arm Leg Break	Consistent	50	1065	13	25.98	156.16	9.02	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-37	Shardul Thakur	India	All-Rounder	2	34	Right-hand bat	Right Arm Medium Fast	In Demand	108	333	111	11.48	138.75	9.49	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-38	Harry Brook	England	Batter	2	27	Right-hand bat	Right Arm Medium	Consistent	11	190	0	21.11	123.38	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-39	Krunal Pandya	India	All-Rounder	2	35	Left-hand bat	Left Arm Orthodox	In Demand	144	1756	95	22.23	132.43	7.53	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-40	David Warner	Australia	Batter	2	39	Left-hand bat	Right Arm Leg Break	Emerging	184	6565	0	40.52	139.77	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-41	Matheesha Pathirana	Sri Lanka	Bowler	2	23	Right-hand bat	Right Arm Fast	In Demand	32	8	44	21.95	66.67	7.96	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-42	Abhishek Sharma	India	All-Rounder	2	26	Left-hand bat	Left Arm Orthodox	In Demand	77	1816	11	27.52	159.02	8.84	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-43	Faf du Plessis	South Africa	Batter	2	41	Right-hand bat	Right Arm Leg Break	In Demand	154	4773	0	35.1	135.79	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-44	Travis Head	Australia	Batter	2	32	Left-hand bat	Right Arm Off Spin	In Demand	31	931	0	33.25	174.34	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-45	Jake Fraser-Mcgurk	Australia	Batter	2	24	Right-hand bat	Right Arm Medium	Emerging	15	385	0	25.67	199.48	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-46	Rinku Singh	India	Batter	2	28	Left-hand bat	Right Arm Off Spin	In Demand	59	1099	0	31.4	146.92	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-47	Riyan Parag	India	All-Rounder	2	24	Right-hand bat	Right Arm Off Spin	In Demand	84	1531	10	26.86	138.11	8.28	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-48	Ravichandran Ashwin	India	All-Rounder	2	39	Right-hand bat	Right Arm Off Spin	Emerging	221	833	187	13.02	118.16	7.2	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-49	Shivam Dube	India	All-Rounder	2	32	Left-hand bat	Right Arm Medium	In Demand	82	1761	5	29.85	146.72	9.67	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-50	Varun Chakravarthy	India	Bowler	2	34	Right-hand bat	Right Arm Leg Break	In Demand	84	28	97	23.1	56.0	7.53	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-51	Sai Sudharsan	India	Batter	2	24	Left-hand bat	Right Arm Leg Break	In Demand	38	1547	0	46.88	141.78	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-52	Rajat Patidar	India	Batter	2	32	Right-hand bat	Right Arm Off Spin	In Demand	48	1111	0	29.24	154.31	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-53	Tilak Varma	India	Batter	2	23	Left-hand bat	Right Arm Off Spin	In Demand	48	1156	0	34.0	145.36	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-54	Heinrich Klaasen	South Africa	Wicketkeeper	2	34	Right-hand bat	N/A	Emerging	52	1625	0	40.63	167.53	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
-55	Daryl Mitchell	New Zealand	All-Rounder	2	34	Right-hand bat	Right Arm Medium	In Demand	15	351	1	27	131.46	12.13	Capped	All-rounders	Capped Players | All-rounders
-56	Harshal Patel	India	All-Rounder	2	35	Right-hand bat	Right Arm Medium Fast	Consistent	121	274	151	8.84	117.6	8.87	Capped	All-rounders	Capped Players | All-rounders
-57	Axar Patel	India	All-Rounder	2	32	Left-hand bat	Left Arm Orthodox	Developing	165	1918	130	21.55	133.75	7.35	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
-58	T. Natarajan	India	Bowler	2	34	Left-hand bat	Left Arm Fast Medium	In Demand	66	3	71	29.65	60	8.89	Capped	Bowlers	Capped Players | Bowlers
-59	Avesh Khan	India	Bowler	2	29	Right-hand bat	Right Arm Fast Medium	In Demand	78	63	90	28.23	157.5	9.15	Capped	Bowlers	Capped Players | Bowlers
-60	Ruturaj Gaikwad	India	Batter	2	29	Right-hand bat	Right Arm Off Spin	Developing	74	2543	0	39.12	137.02	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
-61	Alzarri Joseph	West Indies	Bowler	2	29	Right-hand bat	Right Arm Fast	In Demand	22	27	21	32.9	84.38	9.55	Capped	Bowlers	Capped Players | Bowlers
-62	Prasidh Krishna	India	Bowler	2	30	Right-hand bat	Right Arm Fast	In Demand	69	9	80	28.94	37.5	8.84	Capped	Bowlers	Capped Players | Bowlers
-63	Jhye Richardson	Australia	Bowler	1.5	29	Right-hand bat	Right Arm Fast	Consistent	4	17	3	52.33	65.38	10.47	Capped	Bowlers	Capped Players | Bowlers
-64	Andre Russell	West Indies	All-Rounder	2	37	Right-hand bat	Right Arm Fast	Developing	140	2651	123	28.2	174.18	9.51	Capped	All-rounders	Capped Players | All-rounders
-65	Cameron Green	Australia	All-Rounder	2	27	Right-hand bat	Right Arm Fast Medium	Developing	29	707	16	41.58	153.03	9.29	Capped	All-rounders	Capped Players | All-rounders
-66	Sunil Narine	West Indies	All-Rounder	2	37	Left-hand bat	Right Arm Off Spin	Developing	192	1792	194	17.57	167.01	6.81	Capped	All-rounders	Capped Players | All-rounders
-67	Krishnappa Gowtham	India	All-Rounder	1	37	Right-hand bat	Right Arm Off Spin	Emerging	36	247	21	13.72	166.89	8.24	Uncapped	All-rounders	Uncapped Players | All-rounders
-68	Jason Holder	West Indies	All-Rounder	2	34	Right-hand bat	Right Arm Fast Medium	In Demand	46	259	53	12.33	122.75	8.81	Capped	All-rounders	Capped Players | All-rounders
-69	Kuldeep Yadav	India	Bowler	1.5	31	Left-hand bat	Left Arm Wrist Spin	Emerging	101	202	105	27.19	86.7	8.09	Capped	Bowlers	Capped Players | Bowlers
-70	Dhruv Jurel	India	Wicketkeeper	2	25	Right-hand bat	N/A	In Demand	28	497	0	24.85	151.52	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-71	Kane Williamson	New Zealand	Batter	2	35	Right-hand bat	Right Arm Off Spin	Emerging	79	2128	0	35.47	125.62	0	Capped	Batters	Capped Players | Batters
-72	Ravi Bishnoi	India	Bowler	2	25	Right-hand bat	Right Arm Leg Break	In Demand	66	31	76	26.24	75.61	8.17	Capped	Bowlers	Capped Players | Bowlers
-73	Jitesh Sharma	India	Wicketkeeper	1	32	Right-hand bat	N/A	In Demand	57	991	0	24.78	156.8	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-74	Kyle Jamieson	New Zealand	Bowler	1.5	31	Right-hand bat	Right Arm Fast Medium	In Demand	13	65	14	29.71	108.33	9.67	Capped	Bowlers	Capped Players | Bowlers
-75	Noor Ahmad	Afghanistan	Bowler	2	21	Right-hand bat	Left Arm Wrist Spin	In Demand	40	29	48	24.54	55.77	8.3	Capped	Bowlers	Capped Players | Bowlers
-76	Wanindu Hasaranga	Sri Lanka	Bowler	2	28	Right-hand bat	Right Arm Leg Break	Consistent	37	81	46	24.33	92.05	8.41	Capped	Bowlers	Capped Players | Bowlers
-77	Lockie Ferguson	New Zealand	Bowler	2	34	Right-hand bat	Right Arm Fast	Consistent	49	72	51	30	153.19	8.97	Capped	Bowlers	Capped Players | Bowlers
-78	Nitish Rana	India	All-Rounder	1.5	32	Left-hand bat	Right Arm Off Spin	In Demand	121	2873	10	27.36	136.03	8.44	Capped	All-rounders	Capped Players | All-rounders
-79	David Miller	South Africa	Batter	1.5	36	Left-hand bat	Right Arm Off Spin	In Demand	144	3139	0	36.5	139.02	0	Capped	Batters	Capped Players | Batters
-80	Washington Sundar	India	All-Rounder	2	26	Left-hand bat	Right Arm Off Spin	In Demand	69	588	40	16.8	129.23	7.73	Capped	All-rounders	Capped Players | All-rounders
-81	Rahul Tewatia	India	All-Rounder	1	33	Left-hand bat	Leg Break	In Demand	108	1094	32	25.44	137.83	8.51	Uncapped	All-rounders	Uncapped Players | All-rounders
-82	Shahrukh Khan	India	All-Rounder	1	30	Right-hand bat	Right Arm Off Spin	In Demand	36	534	2	20.54	141.65	8.75	Uncapped	All-rounders	Uncapped Players | All-rounders
-83	Moeen Ali	England	All-Rounder	2	38	Left-hand bat	Right Arm Off Spin	In Demand	73	1167	41	22.02	139.76	7.23	Capped	All-rounders	Capped Players | All-rounders
-84	Mukesh Kumar	India	Bowler	2	32	Right-hand bat	Right Arm Medium Fast	In Demand	35	10	40	30	55.56	10.34	Capped	Bowlers	Capped Players | Bowlers
-85	Quinton de Kock	South Africa	Wicketkeeper	2	33	Left-hand bat	N/A	In Demand	115	3309	0	30.64	134.02	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-86	Rahul Tripathi	India	Batter	0.75	35	Right-hand bat	Right Arm Medium	In Demand	100	2291	0	26.33	137.85	0	Capped	Batters	Capped Players | Batters
-87	Devdutt Padikkal	India	Batter	2	25	Left-hand bat	Right Arm Off Spin	In Demand	76	1917	0	26.26	129.09	0	Capped	Batters	Capped Players | Batters
-88	Tim David	Australia	All-Rounder	2	30	Right-hand bat	Right Arm Off Spin	In Demand	52	932	0	35.85	178.2	0	Capped	All-rounders	Capped Players | All-rounders
-89	Prithvi Shaw	India	Batter	0.75	26	Right-hand bat	Right Arm Off Spin	Developing	79	1892	0	23.95	147.47	0	Capped	Batters	Capped Players | Batters
-90	Spencer Johnson	Australia	Bowler	2	30	Left-hand bat	Left Arm Fast	In Demand	9	8	5	56.8	72.73	10.39	Capped	Bowlers	Capped Players | Bowlers
-91	Akash Deep	India	Bowler	1	29	Right-hand bat	Right Arm Fast Medium	In Demand	14	25	10	54.8	178.57	11.83	Capped	Bowlers	Capped Players | Bowlers
-92	Umesh Yadav	India	Bowler	2	38	Right-hand bat	Right Arm Fast	Consistent	148	208	144	29.83	103.48	8.45	Capped	Bowlers	Capped Players | Bowlers
-93	Jonny Bairstow	England	Wicketkeeper	2	36	Right-hand bat	N/A	Emerging	52	1674	0	34.88	146.07	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-94	Rilee Rossouw	South Africa	Batter	2	36	Left-hand bat	Right Arm Off Spin	In Demand	22	473	0	23.65	153.57	0	Capped	Batters	Capped Players | Batters
-95	Marco Jansen	South Africa	All-Rounder	1.25	25	Left-hand bat	Left Arm Fast Medium	Consistent	38	150	38	12.5	107.91	9.31	Capped	All-rounders	Capped Players | All-rounders
-96	Mitchell Marsh	Australia	All-Rounder	2	34	Right-hand bat	Right Arm Medium Fast	In Demand	58	1356	37	27.12	141.99	8.52	Capped	All-rounders	Capped Players | All-rounders
-97	Nitish Kumar Reddy	India	All-Rounder	2	22	Right-hand bat	Right Arm Medium Fast	In Demand	21	465	5	30.99	146.69	11.25	Capped	All-rounders	Capped Players | All-rounders
-98	Devon Conway	New Zealand	Batter	2	34	Left-hand bat	Right Arm Medium	In Demand	29	1080	0	43.2	139.72	0	Capped	Batters	Capped Players | Batters
-99	Anrich Nortje	South Africa	Bowler	2	32	Right-hand bat	Right Arm Fast	Emerging	49	49	61	27.8	98	9.09	Capped	Bowlers	Capped Players | Bowlers
-100	Mark Wood	England	Bowler	2	36	Right-hand bat	Right Arm Fast	In Demand	5	12	11	16.27	150.00	8.95	Capped	Bowlers	Capped Players | Bowlers
-101	Tushar Deshpande	India	Bowler	1	30	Right-hand bat	Right Arm Medium Fast	In Demand	48	28	53	30.87	127.27	9.87	Uncapped	Bowlers	Uncapped Players | Bowlers
-102	Romario Shepherd	West Indies	All-Rounder	1.5	31	Right-hand bat	Right Arm Fast Medium	Consistent	20	185	13	26.43	212.64	12.03	Capped	All-rounders	Capped Players | All-rounders
-103	Deepak Hooda	India	All-Rounder	0.75	30	Right-hand bat	Right Arm Off Spin	In Demand	125	1496	10	17.6	127.65	8.64	Capped	All-rounders	Capped Players | All-rounders
-104	Manish Pandey	India	Batter	0.75	36	Right-hand bat	Right Arm Medium	Elite	174	3942	0	29.42	121.52	0	Capped	Batters	Capped Players | Batters
-105	Rovman Powell	West Indies	Batter	1.5	32	Right-hand bat	Right Arm Medium	Consistent	31	404	1	20.2	147.99	0	Capped	Batters	Capped Players | Batters
-106	Steve Smith	Australia	All-Rounder	2	36	Right-hand bat	Right Arm Leg Break	Emerging	103	2485	0	34.51	128.09	15	Capped	All-rounders	Capped Players | All-rounders
-107	Syed Khaleel Ahmed	India	Bowler	2	28	Right-hand bat	Left Arm Fast Medium	In Demand	74	2	89	27.08	22.22	8.95	Capped	Bowlers	Capped Players | Bowlers
-108	Shivam Mavi	India	Bowler	0.75	27	Right-hand bat	Right Arm Fast	Consistent	32	51	30	31.4	91.07	8.71	Capped	Bowlers	Capped Players | Bowlers
-109	Riley Meredith	Australia	Bowler	1.5	29	Right-hand bat	Right Arm Fast	In Demand	18	0	19	32.21	0	9.46	Capped	Bowlers	Capped Players | Bowlers
-110	Sameer Rizvi	India	All-Rounder	0.3	22	Right-hand bat	Right Arm Leg Spin	In Demand	16	332	0	36.89	150.23	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-111	Will Jacks	England	All-Rounder	2	27	Right-hand bat	Right Arm Off Spin	In Demand	21	463	8	27.24	152.81	9.57	Capped	All-rounders	Capped Players | All-rounders
-112	Rahul Chahar	India	Bowler	1	26	Right-hand bat	Right Arm Leg Break	In Demand	80	129	75	29.28	104.03	7.78	Capped	Bowlers	Capped Players | Bowlers
-113	Ajinkya Rahane	India	Batter	1.5	37	Right-hand bat	Right Arm Medium	Consistent	202	5156	1	30.69	125.6	0	Capped	Batters	Capped Players | Batters
-114	Tom Curran	England	Bowler	2	31	Right-hand bat	Right Arm Medium Fast	In Demand	13	127	13	33.08	118.69	10.84	Capped	Bowlers	Capped Players | Bowlers
-115	Piyush Chawla	India	Bowler	0.5	37	Left-hand bat	Right Arm Leg Spin	In Demand	192	624	192	26.6	110.83	7.96	Capped	Bowlers	Capped Players | Bowlers
-116	Maheesh Theekshana	Sri Lanka	Bowler	2	25	Right-hand bat	Right Arm Off Spin	In Demand	38	17	36	33.53	50	8.27	Capped	Bowlers	Capped Players | Bowlers
-117	Prabhsimran Singh	India	Wicketkeeper	1	25	Right-hand bat	N/A	In Demand	51	1170	0	23.88	151.36	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-118	Harshit Rana	India	Bowler	2	24	Right-hand bat	Right Arm Fast	In Demand	27	18	29	24.62	78.26	9.16	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
-119	Rasikh Dar	India	Bowler	0.3	26	Right-hand bat	Right Arm Medium Fast	Consistent	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
-120	Kumar Kushagra	India	Wicketkeeper	0.3	21	Right-hand bat	N/A	In Demand	5	21	0	5.25	100	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-121	Odean Smith	West Indies	All-Rounder	0.75	29	Right-hand bat	Right Arm Medium Fast	In Demand	6	51	6	17	115.91	11.87	Capped	All-rounders	Capped Players | All-rounders
-122	Naman Dhir	India	All-Rounder	0.3	26	Right-hand bat	Right Arm Off Spin	In Demand	26	450	0	28.13	177.87	8.77	Uncapped	All-rounders	Uncapped Players | All-rounders
-123	Chris Jordan	England	Bowler	2	37	Right-hand bat	Right Arm Medium Fast	Emerging	34	81	30	35.67	105.19	9.61	Capped	Bowlers	Capped Players | Bowlers
-124	Mohit Sharma	India	Bowler	0.5	37	Right-hand bat	Right Arm Medium	In Demand	120	127	134	26.22	96.95	8.77	Capped	Bowlers	Capped Players | Bowlers
-125	Nehal Wadhera	India	Batter	0.3	25	Left-hand bat	Right Arm Leg Spin	In Demand	39	732	0	25.24	141.31	0	Uncapped	Batters	Uncapped Players | Batters
-126	Abdul Samad	India	All-Rounder	0.3	24	Right-hand bat	Right Arm Leg Break	Emerging	66	795	2	19.39	150.28	13.16	Uncapped	All-rounders	Uncapped Players | All-rounders
-127	Shakib Al Hasan	Bangladesh	All-Rounder	1	39	Left-hand bat	Left Arm Orthodox	In Demand	71	793	63	19.83	124.49	7.44	Capped	All-rounders	Capped Players | All-rounders
-128	Shubham Dubey	India	Batter	0.3	31	Left-hand bat	Right Arm Off Spin	In Demand	13	139	0	23.17	163.53	0	Uncapped	Batters	Uncapped Players | Batters
-129	Aiden Markram	South Africa	Batter	2	31	Right-hand bat	Right Arm Off Spin	In Demand	60	1518	6	30.98	136.02	0	Capped	Batters	Capped Players | Batters
-130	Rachin Ravindra	New Zealand	All-Rounder	1.5	26	Left-hand bat	Left Arm Orthodox	In Demand	18	413	0	24.29	143.9	3.5	Capped	All-rounders	Capped Players | All-rounders
-131	Harpreet Brar	India	All-Rounder	0.3	30	Left-hand bat	Left Arm Orthodox	In Demand	49	244	35	20.33	120.2	8.03	Uncapped	All-rounders	Uncapped Players | All-rounders
-132	Nuwan Thushara	Sri Lanka	Bowler	0.75	31	Right-hand bat	Right Arm Fast	In Demand	8	0	9	31.44	0	9.43	Capped	Bowlers	Capped Players | Bowlers
-133	Gerald Coetzee	South Africa	Bowler	1.25	25	Right-hand bat	Right Arm Fast	In Demand	14	31	15	31.47	93.94	10.37	Capped	Bowlers	Capped Players | Bowlers
-134	Ashutosh Sharma	India	All-Rounder	0.3	27	Right-hand bat	Right Arm Off Spin	In Demand	24	393	0	28.07	163.75	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-135	Chetan Sakariya	India	Bowler	0.75	28	Left-hand bat	Left Arm Medium Fast	Consistent	20	20	20	31.9	64.52	8.62	Capped	Bowlers	Capped Players | Bowlers
-136	Allah Ghazanfar	Afghanistan	Bowler	0.75	20	Right-hand bat	Right Arm Off Spin	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-137	Priyansh Arya	India	All-Rounder	0.3	24	Left-hand bat	Right Arm Off Spin	Emerging	19	521	0	27.42	183.45	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-138	Umran Malik	India	Bowler	0.75	26	Right-hand bat	Right Arm Fast	Emerging	26	23	29	26.62	143.75	9.4	Capped	Bowlers	Capped Players | Bowlers
-139	Mitchell Santner	New Zealand	All-Rounder	2	34	Left-hand bat	Left Arm Orthodox	In Demand	32	128	26	16	109.4	7.31	Capped	All-rounders	Capped Players | All-rounders
-140	Jaydev Unadkat	India	Bowler	1	34	Right-hand bat	Left Arm Fast Medium	Elite	115	201	114	30.39	118.93	8.91	Capped	Bowlers	Capped Players | Bowlers
-141	Dilshan Madushanka	Sri Lanka	Bowler	0.75	25	Left-hand bat	Left Arm Fast	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-142	Mustafizur Rahman	Bangladesh	Bowler	2	30	Left-hand bat	Left Arm Fast Medium	Consistent	60	13	65	28.45	54.17	8.13	Capped	Bowlers	Capped Players | Bowlers
-143	Mayank Agarwal	India	Batter	1	35	Right-hand bat	Right Arm Off Spin	Developing	131	2756	0	22.97	133.53	0	Capped	Batters	Capped Players | Batters
-144	Adam Zampa	Australia	Bowler	2	34	Right-hand bat	Right Arm Leg Spin	In Demand	22	15	31	21.03	62.5	8.38	Capped	Bowlers	Capped Players | Bowlers
-145	Fazalhaq Farooqi	Afghanistan	Bowler	2	25	Right-hand bat	Left Arm Fast Medium	In Demand	12	5	6	72.83	33.33	10.32	Capped	Bowlers	Capped Players | Bowlers
-146	Ishant Sharma	India	Bowler	0.75	37	Right-hand bat	Right Arm Fast	In Demand	117	57	97	34.84	82.61	8.36	Capped	Bowlers	Capped Players | Bowlers
-147	R. Sai Kishore	India	All-Rounder	0.75	29	Left-hand bat	Left Arm Orthodox	In Demand	25	18	32	4.5	112.5	8.86	Capped	All-rounders	Capped Players | All-rounders
-148	Adam Milne	New Zealand	Bowler	2	33	Right-hand bat	Right Arm Fast	In Demand	10	23	7	46.71	79.31	9.48	Capped	Bowlers	Capped Players | Bowlers
-149	Sam Billings	England	Wicketkeeper	1.5	34	Right-hand bat	N/A	In Demand	30	503	0	19.35	129.64	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-150	Azmatullah Omarzai	Afghanistan	All-Rounder	1.5	26	Right-hand bat	Right Arm Medium Fast	In Demand	16	99	12	12.38	133.78	9.69	Capped	All-rounders	Capped Players | All-rounders
-151	Kartik Tyagi	India	Bowler	0.4	25	Right-hand bat	Right Arm Fast	In Demand	24	18	18	46.39	85.71	10.27	Uncapped	Bowlers	Uncapped Players | Bowlers
-152	Anshul Kamboj	India	All-Rounder	0.3	25	Right-hand bat	Right Arm Fast	In Demand	14	42	15	14	116.67	9.68	Uncapped	All-rounders	Uncapped Players | All-rounders
-153	Josh Inglis	Australia	Wicketkeeper	2	31	Right-hand bat	N/A	Emerging	11	278	0	30.89	162.57	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-154	Navdeep Saini	India	Bowler	0.75	33	Right-hand bat	Right Arm Fast	Emerging	34	33	23	43.96	89.19	8.97	Capped	Bowlers	Capped Players | Bowlers
-155	Anuj Rawat	India	Wicketkeeper	0.3	26	Left-hand bat	N/A	In Demand	24	318	0	19.88	119.1	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-156	Mujeeb Ur Rahman	Afghanistan	Bowler	2	25	Right-hand bat	Right Arm Off Spin	Emerging	20	12	20	31	80	8.34	Capped	Bowlers	Capped Players | Bowlers
-157	Angkrish Raghuvanshi	India	Batter	0.3	20	Right-hand bat	Right Arm Leg Break	In Demand	26	618	0	32.53	147.85	0	Uncapped	Batters	Uncapped Players | Batters
-158	Jacob Bethell	England	All-Rounder	1.25	22	Left-hand bat	Left Arm Orthodox	Emerging	2	67	0	33.5	171.79	0	Capped	All-rounders	Capped Players | All-rounders
-159	Shahbaz Ahamad	India	All-Rounder	1	31	Left-hand bat	Left Arm Orthodox	In Demand	59	560	0	19.31	120.69	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-160	Daniel Sams	Australia	All-Rounder	1.5	33	Right-hand bat	Left Arm Fast	In Demand	16	44	14	4.89	100	8.72	Capped	All-rounders	Capped Players | All-rounders
-161	Vijay Shankar	India	All-Rounder	0.3	35	Right-hand bat	Right Arm Medium	In Demand	78	1233	9	26.23	129.79	8.67	Capped	All-rounders	Capped Players | All-rounders
-162	Karn Sharma	India	Bowler	0.5	38	Right-hand bat	Right Arm Leg Break	In Demand	90	351	83	26.69	120.21	8.38	Capped	Bowlers	Capped Players | Bowlers
-163	Sherfane Rutherford	West Indies	Batter	1.5	27	Left-hand bat	Right Arm Medium	Consistent	26	427	1	23.72	140.46	0	Capped	Batters	Capped Players | Batters
-164	Nathan Ellis	Australia	Bowler	1.25	31	Right-hand bat	Right Arm Fast Medium	In Demand	17	19	19	29.16	76	8.66	Capped	Bowlers	Capped Players | Bowlers
-165	Matt Henry	New Zealand	Bowler	2	34	Right-hand bat	Right Arm Fast Medium	Developing	9	7	4	77.75	70	11.52	Capped	Bowlers	Capped Players | Bowlers
-166	Suyash Sharma	India	Bowler	0.3	22	Right-hand bat	Right Arm Leg Spin	In Demand	29	0	20	43.15	0	8.63	Uncapped	Bowlers	Uncapped Players | Bowlers
-167	Tim Southee	New Zealand	Bowler	1.5	37	Right-hand bat	Right Arm Fast Medium	Emerging	54	120	47	37.06	112.15	8.67	Capped	Bowlers	Capped Players | Bowlers
-168	Glenn Phillips	New Zealand	Batter	2	29	Right-hand bat	Right Arm Off Spin	In Demand	11	107	2	11.89	125.88	0	Capped	Batters	Capped Players | Batters
-169	Abhinav Manohar	India	Batter	0.3	31	Right-hand bat	Right Arm Leg Break	Emerging	27	292	0	15.37	124.26	0	Uncapped	Batters	Uncapped Players | Batters
-170	Mohammad Nabi	Afghanistan	All-Rounder	1.5	41	Right-hand bat	Right Arm Off Spin	In Demand	24	215	15	13.44	143.33	7.44	Capped	All-rounders	Capped Players | All-rounders
-171	Dewald Brevis	South Africa	Batter	0.75	22	Right-hand bat	Right Arm Leg Break	Emerging	16	455	1	28.44	153.2	0	Uncapped	Batters	Uncapped Players | Batters
-172	Sean Abbott	Australia	All-Rounder	2	34	Right-hand bat	Right Arm Fast	Emerging	3	22	1	7.33	122.22	11.56	Capped	All-rounders	Capped Players | All-rounders
-173	Tymal Mills	England	Bowler	2	33	Right-hand bat	Left Arm Fast	Emerging	10	8	11	31.18	57.14	9.85	Capped	Bowlers	Capped Players | Bowlers
-174	Robin Minz	India	Wicketkeeper	0.3	23	Left-hand bat	Right Arm Off Spin	In Demand	2	6	0	3	40	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-175	Evin Lewis	West Indies	Batter	2	34	Left-hand bat	Right Arm Off Spin	Emerging	27	654	0	27.25	137.11	0	Capped	Batters	Capped Players | Batters
-176	Rahmanullah Gurbaz	Afghanistan	Wicketkeeper	2	24	Right-hand bat	N/A	Emerging	19	363	0	21.35	134.94	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-177	Tabraiz Shamsi	South Africa	Bowler	2	36	Left-hand bat	Left Arm Wrist Spin	Developing	5	2	3	60.33	50	9.05	Capped	Bowlers	Capped Players | Bowlers
-178	Vivrant Sharma	India	All-Rounder	0.3	26	Left-hand bat	Right Arm Leg Spin	Emerging	3	69	0	69	146.81	12.33	Uncapped	All-rounders	Uncapped Players | All-rounders
-179	Finn Allen	New Zealand	Batter	2	26	Right-hand bat	Right Arm Off Spin	Emerging	4	80	0	20	205.13	0	Capped	Batters	Capped Players | Batters
-180	Naveen Ul Haq	Afghanistan	Bowler	2	26	Right-hand bat	Right Arm Medium Fast	Emerging	18	18	25	23.64	72	9.16	Capped	Bowlers	Capped Players | Bowlers
-181	Kyle Mayers	West Indies	All-Rounder	1.5	33	Left-hand bat	Right Arm Medium	Emerging	13	379	0	29.15	144.11	8.43	Capped	All-rounders	Capped Players | All-rounders
-182	Karun Nair	India	Batter	0.3	34	Right-hand bat	Right Arm Off Spin	Consistent	84	1694	0	23.86	131.73	0	Capped	Batters	Capped Players | Batters
-183	Mahipal Lomror	India	All-Rounder	0.5	26	Left-hand bat	Left Arm Orthodox	In Demand	40	527	1	18.17	141.29	8.47	Uncapped	All-rounders	Uncapped Players | All-rounders
-184	Reece Topley	England	Bowler	0.75	32	Right-hand bat	Left Arm Fast	In Demand	6	3	5	44.4	50	11.1	Capped	Bowlers	Capped Players | Bowlers
-185	Murugan Ashwin	India	Bowler	0.3	35	Right-hand bat	Right Arm Leg Spin	In Demand	44	35	35	33.2	70	8.01	Uncapped	Bowlers	Uncapped Players | Bowlers
-186	Vaibhav Arora	India	Bowler	0.3	28	Right-hand bat	Right Arm Medium Fast	Elite	36	10	41	28.12	38.46	9.74	Uncapped	Bowlers	Uncapped Players | Bowlers
-187	Lungisani Ngidi	South Africa	Bowler	1	30	Right-hand bat	Right Arm Fast	In Demand	19	0	34	18.06	0	8.33	Capped	Bowlers	Capped Players | Bowlers
-188	Jayant Yadav	India	All-Rounder	0.75	36	Right-hand bat	Right Arm Off Spin	In Demand	20	40	8	10	111.11	6.85	Capped	All-rounders	Capped Players | All-rounders
-189	Tom Banton	England	Wicketkeeper	2	27	Right-hand bat	Right Arm Off Spin	Developing	2	18	0	9	90	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-190	Adil Rashid	England	Bowler	2	38	Right-hand bat	Right Arm Leg Spin	Emerging	3	22	2	45.5	137.5	9.1	Capped	Bowlers	Capped Players | Bowlers
-191	Ben Duckett	England	Batter	2	31	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-192	James Vince	England	Batter	2	35	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-193	Gus Atkinson	England	Bowler	2	28	Right-hand bat	Right Arm Fast Medium	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-194	Michael Bracewell	New Zealand	All-Rounder	1.5	35	Left-hand bat	Right Arm Off Spin	Developing	5	58	6	29	123.4	8.64	Capped	All-rounders	Capped Players | All-rounders
-195	Jamie Overton	England	All-Rounder	1.5	32	Right-hand bat	Right Arm Fast	Emerging	5	95	1	95	161.02	13.9	Capped	All-rounders	Capped Players | All-rounders
-196	K.S Bharat	India	Wicketkeeper	0.75	32	Right-hand bat	N/A	Consistent	10	199	0	28.43	122.09	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-197	Jason Behrendorff	Australia	Bowler	1.5	35	Left-hand bat	Left Arm Fast Medium	Emerging	22	6	19	29.05	66.67	9.05	Capped	Bowlers	Capped Players | Bowlers
-198	Vyshak Vijaykumar	India	Bowler	0.3	29	Right-hand bat	Right Arm Fast	Emerging	19	14	22	29.45	116.67	10.2	Capped	Bowlers	Capped Players | Bowlers
-199	Ryan Rickelton	South Africa	Wicketkeeper	1	29	Left-hand bat	N/A	Emerging	17	486	0	30.38	154.29	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-200	Mohd. Arshad Khan	India	All-Rounder	0.3	28	Left-hand bat	Right Arm Off Spin	Consistent	19	124	0	20.67	140.91	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-201	Kwena Maphaka	South Africa	Bowler	0.75	20	Left-hand bat	Left Arm Fast	Emerging	4	8	2	71.5	400	13	Capped	Bowlers	Capped Players | Bowlers
-202	Simarjeet Singh	India	Bowler	0.3	28	Right-hand bat	Right Arm Fast Medium	In Demand	14	10	11	36.36	66.67	10	Uncapped	Bowlers	Uncapped Players | Bowlers
-203	Gurjapneet Singh	India	Bowler	0.3	27	Left-hand bat	Left Arm Fast Medium	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
-204	Jimmy Neesham	New Zealand	All-Rounder	1.5	35	Left-hand bat	Right Arm Medium Fast	Developing	14	92	8	10.22	98.92	9.28	Capped	All-rounders	Capped Players | All-rounders
-205	Mayank Dagar	India	All-Rounder	0.3	29	Left-hand bat	Left Arm Orthodox	Emerging	8	0	2	0	0	8.89	Uncapped	All-rounders	Uncapped Players | All-rounders
-206	Obed McCoy	West Indies	Bowler	1.25	29	Right-hand bat	Left Arm Fast Medium	Emerging	8	8	11	22.73	160	9.32	Capped	Bowlers	Capped Players | Bowlers
-207	Sushant Mishra	India	Bowler	0.3	25	Left-hand bat	Left Arm Fast	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
-208	M. Siddharth	India	Bowler	0.3	27	Right-hand bat	Left Arm Orthodox	Consistent	7	0	5	40.2	0	8.38	Uncapped	Bowlers	Uncapped Players | Bowlers
-209	Akeal Hosein	West Indies	Bowler	1.5	32	Left-hand bat	Left Arm Orthodox	Emerging	1	16	1	40	160	10	Capped	Bowlers	Capped Players | Bowlers
-210	Dominic Drakes	West Indies	All-Rounder	1.25	28	Left-hand bat	Left Arm Fast Medium	Emerging	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-211	Raj Angad Bawa	India	All-Rounder	0.3	23	Left-hand bat	Right Arm Medium Fast	In Demand	5	19	0	9.5	105.56	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-212	William O'Rourke	New Zealand	Bowler	1.5	24	Right-hand bat	Right Arm Fast	Developing	3	0	6	22	0	12.77	Capped	Bowlers	Capped Players | Bowlers
-213	Tim Seifert	New Zealand	Wicketkeeper	1.25	31	Right-hand bat	N/A	Emerging	3	26	0	8.67	113.04	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-214	Yash Thakur	India	Bowler	0.3	27	Right-hand bat	Right Arm Medium Fast	In Demand	21	0	25	30.8	0	10.43	Uncapped	Bowlers	Uncapped Players | Bowlers
-215	Mark Chapman	New Zealand	Batter	1.5	31	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-216	Daniel Worrall	England	Bowler	1.5	34	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-217	Matthew Potts	England	Bowler	1.5	27	Right-hand bat	Right Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-218	Tom Latham	New Zealand	Wicketkeeper	1.5	34	Left-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-219	Cooper Connolly	Australia	All-Rounder	0.75	22	Left-hand bat	Left Arm Orthodox	Developing	3	108	0	108	163.64	0	Capped	All-rounders	Capped Players | All-rounders
-220	Dwaine Pretorius	South Africa	All-Rounder	0.75	37	Right-hand bat	Right Arm Medium Fast	Emerging	7	44	6	11	157.14	9.52	Capped	All-rounders	Capped Players | All-rounders
-221	Keemo Paul	West Indies	All-Rounder	1.25	28	Right-hand bat	Right Arm Medium Fast	Developing	8	18	9	3.6	75	8.72	Capped	All-rounders	Capped Players | All-rounders
-222	Sikandar Raza	Zimbabwe	All-Rounder	1.25	39	Right-hand bat	Right Arm Off Spin	Emerging	9	182	3	26	133.82	10.07	Capped	All-rounders	Capped Players | All-rounders
-223	Ashton Agar	Australia	All-Rounder	1.25	32	Left-hand bat	Left Arm Orthodox	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-224	Shai Hope	West Indies	Batter	1.25	32	Right-hand bat	Left Arm Medium	Emerging	9	183	0	22.88	150	0	Capped	Batters	Capped Players | Batters
-225	Rajvardhan Hangargekar	India	All-Rounder	0.3	23	Right-hand bat	Right Arm Fast Medium	In Demand	2	0	3	0	0	10	Uncapped	All-rounders	Uncapped Players | All-rounders
-226	Kuldeep Sen	India	Bowler	0.75	29	Right-hand bat	Right Arm Fast Medium	In Demand	12	0	14	27.64	0	9.63	Capped	Bowlers	Capped Players | Bowlers
-227	Aaron Hardie	Australia	All-Rounder	1.25	27	Right-hand bat	Right Arm Medium Fast	Emerging	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-228	Kamlesh Nagarkoti	India	All-Rounder	0.3	26	Right-hand bat	Right Arm Fast	In Demand	12	22	5	5.5	66.67	9.5	Uncapped	All-rounders	Uncapped Players | All-rounders
-229	Nandre Burger	South Africa	Bowler	1.25	30	Left-hand bat	Left Arm Fast	Emerging	9	0	12	18.42	0	8.5	Capped	Bowlers	Capped Players | Bowlers
-230	Wayne Parnell	South Africa	Bowler	1	36	Left-hand bat	Left Arm Fast Medium	Developing	33	65	35	26.77	81.25	7.78	Capped	Bowlers	Capped Players | Bowlers
-231	Shreyas Gopal	India	All-Rounder	0.3	32	Right-hand bat	Right Arm Leg Spin	Consistent	52	180	52	12.86	106.51	8.17	Uncapped	All-rounders	Uncapped Players | All-rounders
-232	Gulbadin Naib	Afghanistan	All-Rounder	1	34	Right-hand bat	Right Arm Medium Fast	Developing	2	19	0	19	126.67	12	Capped	All-rounders	Capped Players | All-rounders
-233	Rishi Dhawan	India	All-Rounder	0.3	36	Right-hand bat	Right Arm Medium Fast	Emerging	39	210	25	19.09	112.3	8.08	Capped	All-rounders	Capped Players | All-rounders
-234	Dushmantha Chameera	Sri Lanka	Bowler	0.75	34	Right-hand bat	Right Arm Fast	In Demand	19	53	13	46.38	126.19	9.73	Capped	Bowlers	Capped Players | Bowlers
-235	Matthew Forde	West Indies	All-Rounder	1.25	23	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-236	Will Young	New Zealand	Batter	1.25	33	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-237	James Anderson	England	Bowler	1.25	43	Left-hand bat	Right Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-238	Jordan Cox	England	Wicketkeeper	1.25	25	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-239	Richard Gleeson	England	Bowler	0.75	38	Right-hand bat	Right Arm Fast	Developing	3	2	2	55	100	9.71	Capped	Bowlers	Capped Players | Bowlers
-240	Mayank Markande	India	Bowler	0.3	28	Right-hand bat	Right Arm Leg Spin	Consistent	39	48	37	29.86	114.29	8.98	Capped	Bowlers	Capped Players | Bowlers
-241	Ashton Turner	Australia	All-Rounder	1	33	Right-hand bat	Right Arm Off Spin	Emerging	6	24	0	4.8	85.71	0	Capped	All-rounders	Capped Players | All-rounders
-242	Luke Wood	England	Bowler	0.75	30	Left-hand bat	Left Arm Fast	Developing	2	9	1	93	300	15.5	Capped	Bowlers	Capped Players | Bowlers
-243	David Payne	England	Bowler	1	35	Right-hand bat	Left Arm Fast	Developing	2	6	2	35	120	14	Capped	Bowlers	Capped Players | Bowlers
-244	Kusal Mendis	Sri Lanka	Wicketkeeper	0.75	31	Right-hand bat	N/A	Developing	1	20	0	20	200	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-245	Sarfaraz Khan	India	Batter	0.75	28	Right-hand bat	Right Arm Leg Break	Emerging	55	684	0	22.06	136.53	0	Capped	Batters	Capped Players | Batters
-246	Josh Philippe	Australia	Wicketkeeper	0.75	28	Right-hand bat	N/A	Developing	5	78	0	19.5	101.3	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-247	Andrew Tye	Australia	Bowler	0.75	39	Right-hand bat	Right Arm Medium Fast	Developing	30	91	42	23.31	119.74	8.59	Capped	Bowlers	Capped Players | Bowlers
-248	Akash Madhwal	India	Bowler	0.3	32	Right-hand bat	Right Arm Fast Medium	Emerging	17	8	23	25.65	57.14	10.06	Uncapped	Bowlers	Uncapped Players | Bowlers
-249	K.C Cariappa	India	All-Rounder	0.3	31	Right-hand bat	Right Arm Off Spin	In Demand	11	24	8	8	114.29	9.67	Uncapped	All-rounders	Uncapped Players | All-rounders
-250	Alex Carey	Australia	Wicketkeeper	1	34	Left-hand bat	N/A	Developing	3	32	0	16	110.34	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-251	Eshan Malinga	Sri Lanka	Bowler	0.3	25	Right-hand bat	Right Arm Fast	Emerging	10	0	16	19.81	0	9.14	Uncapped	Bowlers	Uncapped Players | Bowlers
-252	Mehidy Hasan Miraz	Bangladesh	All-Rounder	1	28	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-253	Nathan Smith	New Zealand	All-Rounder	1	27	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-254	Dan Lawrence	England	Batter	1	28	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-255	Benjamin Sears	New Zealand	Bowler	1	28	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-256	Taskin Ahmed	Bangladesh	Bowler	1	31	Left-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-257	Brydon Carse	England	All-Rounder	1	30	Right-hand bat	Right Arm Fast Medium	Emerging	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-258	Gurnoor Singh Brar	India	Bowler	0.3	25	Left-hand bat	Left Arm Fast Medium	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
-259	Vaibhav Suryavanshi	India	Batter	0.3	15	Left-hand bat	Left Arm Orthodox	Emerging	10	374	0	37.4	218.71	0	Uncapped	Batters	Uncapped Players | Batters
-260	Xavier Bartlett	Australia	Bowler	0.75	27	Right-hand bat	Right Arm Fast Medium	Emerging	7	22	5	37.8	110	9.61	Capped	Bowlers	Capped Players | Bowlers
-261	Patrick Kruger	South Africa	All-Rounder	0.75	31	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-262	Atharva Taide	India	Batter	0.3	25	Left-hand bat	Right Arm Off Spin	In Demand	10	260	0	26	146.89	0	Uncapped	Batters	Uncapped Players | Batters
-263	Prashant Solanki	India	Bowler	0.3	33	Right-hand bat	Right Arm Leg Break	Emerging	2	0	2	19	0	6.33	Uncapped	Bowlers	Uncapped Players | Bowlers
-264	Ben McDermott	Australia	Wicketkeeper	0.75	31	Right-hand bat	N/A	Developing	23	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-265	Ajay Mandal	India	All-Rounder	0.3	30	Left-hand bat	Left Arm Orthodox	In Demand	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-266	Vijayakanth Viyaskanth	Sri Lanka	Bowler	0.75	24	Right-hand bat	Right Arm Leg Break	Developing	3	7	1	86	140	8.6	Capped	Bowlers	Capped Players | Bowlers
-267	Vishnu Vinod	India	Wicketkeeper	0.3	32	Right-hand bat	N/A	Elite	6	56	0	9.33	98.25	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-268	Shamar Joseph	England	Bowler	0.75	26	Right-hand bat	Right Arm Fast	Emerging	1	0	0	0	0	11.75	Capped	Bowlers	Capped Players | Bowlers
-269	Kamindu Mendis	Sri Lanka	All-Rounder	0.75	27	Left-hand bat	Left Arm Orthodox	Emerging	5	92	2	30.67	133.33	8.57	Capped	All-rounders	Capped Players | All-rounders
-270	Bhanuka Rajapaksa	Sri Lanka	Batter	0.75	34	Left-hand bat	Right Arm Medium	Emerging	13	277	0	23.08	145.03	0	Capped	Batters	Capped Players | Batters
-271	Josh Little	Ireland	Bowler	0.75	26	Right-hand bat	Left Arm Fast Medium	Developing	11	0	11	30.82	0	8.92	Capped	Bowlers	Capped Players | Bowlers
-272	Kunal Rathore	India	Wicketkeeper	0.3	23	Left-hand bat	N/A	In Demand	1	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-273	Pravin Dubey	India	Bowler	0.3	32	Right-hand bat	Right Arm Leg Break	In Demand	5	23	2	55.5	69.7	8.54	Uncapped	Bowlers	Uncapped Players | Bowlers
-274	Sandeep Warrier	India	Bowler	0.75	35	Right-hand bat	Right Arm Fast	Developing	10	0	8	31.63	0	9.04	Capped	Bowlers	Capped Players | Bowlers
-275	Dushan Hemantha	Sri Lanka	All-Rounder	0.75	31	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-276	William Sutherland	Australia	All-Rounder	0.75	26	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-277	Johnson Charles	West Indies	Wicketkeeper	0.75	37	Right-hand bat	N/A	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-278	Matthew Breetzke	South Africa	Batter	0.75	27	Right-hand bat	Right Arm Medium	Emerging	1	14	0	14	116.67	0	Capped	Batters	Capped Players | Batters
-279	Swapnil Singh	India	All-Rounder	0.3	35	Left-hand bat	Left Arm Orthodox	Consistent	29	87	8	6.21	82.86	8.88	Uncapped	All-rounders	Uncapped Players | All-rounders
-280	Matthew Short	Australia	All-Rounder	0.75	30	Right-hand bat	Right Arm Off Spin	Developing	7	119	0	17	120.2	6.24	Capped	All-rounders	Capped Players | All-rounders
-281	Donovan Ferreira	South Africa	Wicketkeeper	0.75	27	Right-hand bat	Right Arm Off Spin	In Demand	5	10	0	2.5	58.82	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-282	Charith Asalanka	Sri Lanka	Batter	0.75	28	Left-hand bat	Right Arm Off Spin	Developing	31	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-283	Lahiru Kumara	Sri Lanka	Bowler	0.75	29	Left-hand bat	Right Arm Fast	Developing	25	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-284	Pathum Nissanka	Sri Lanka	Batter	0.75	27	Right-hand bat	Right Arm Medium	Developing	3	86	0	28.67	145.76	0	Capped	Batters	Capped Players | Batters
-285	Blessing Muzarabani	Zimbabwe	Bowler	0.75	29	Right-hand bat	Right Arm Fast	Developing	2	0	4	18.75	0	10.71	Capped	Bowlers	Capped Players | Bowlers
-286	Mukesh Choudhary	India	Bowler	0.3	29	Right-hand bat	Left Arm Fast Medium	In Demand	16	6	17	30.71	100	9.94	Uncapped	Bowlers	Uncapped Players | Bowlers
-287	Darshan Nalkande	India	All-Rounder	0.3	27	Right-hand bat	Right Arm Medium Fast	In Demand	6	12	6	6	100	10.57	Uncapped	All-rounders	Uncapped Players | All-rounders
-288	Keshav Maharaj	South Africa	Bowler	0.75	36	Left-hand bat	Left Arm Orthodox	Developing	2	1	2	19.5	50	6.5	Capped	Bowlers	Capped Players | Bowlers
-289	Dasun Shanaka	Sri Lanka	All-Rounder	0.75	34	Right-hand bat	Right Arm Medium	Developing	3	26	0	13	100	0	Capped	All-rounders	Capped Players | All-rounders
-290	Siddharth Kaul	India	Bowler	0.4	35	Right-hand bat	Right Arm Medium Fast	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-291	Luvnith Sisodia	India	Wicketkeeper	0.3	26	Left-hand bat	Right Arm Off Spin	In Demand	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-292	Lalit Yadav	India	All-Rounder	0.3	29	Right-hand bat	Right Arm Off Spin	Emerging	27	305	10	19.06	105.17	8.85	Uncapped	All-rounders	Uncapped Players | All-rounders
-293	Wiaan Mulder	South Africa	All-Rounder	0.75	28	Right-hand bat	Right Arm Medium Fast	Developing	1	9	0	9	81.82	16	Capped	All-rounders	Capped Players | All-rounders
-294	Lizaad Williams	South Africa	Bowler	0.75	32	Right-hand bat	Right Arm Fast Medium	Emerging	2	1	1	72	50	12	Capped	Bowlers	Capped Players | Bowlers
-295	Junior Dala	South Africa	Bowler	0.75	36	Right-hand bat	Right Arm Medium Fast	Developing	1	0	0	0	0	11.33	Capped	Bowlers	Capped Players | Bowlers
-296	Michael Neser	Australia	Bowler	0.75	36	Right-hand bat	Right Arm Medium Fast	Developing	1	0	0	0	0	15.5	Capped	Bowlers	Capped Players | Bowlers
-297	Ben Dwarshuis	Australia	Bowler	0.75	31	Left-hand bat	Left Arm Fast	Developing	1	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-298	Mahedi Hasan	Bangladesh	All-Rounder	0.75	31	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-299	Dunith Wellalage	Sri Lanka	All-Rounder	0.75	23	Left-hand bat	Left Arm Orthodox	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-300	Roston Chase	West Indies	All-Rounder	0.75	34	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-301	Alick Athanaze	West Indies	Batter	0.75	27	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-302	Ibrahim Zadran	Afghanistan	Batter	0.75	24	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-303	Mikyle Louis	West Indies	Batter	0.75	25	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-304	Towhid Hridoy	Bangladesh	Batter	0.75	25	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-305	Brandon King	West Indies	Batter	0.75	31	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-306	Najibullah Zadran	Afghanistan	Batter	0.75	33	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-307	Hilton Cartwright	Australia	Batter	0.75	34	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-308	Gudakesh Motie	West Indies	Bowler	0.75	31	Left-hand bat	Left Arm Orthodox	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-309	Zak Foulkes	New Zealand	Bowler	0.75	23	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-310	Hasan Mahmud	Bangladesh	Bowler	0.75	26	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-311	Jeffery Vandersay	Sri Lanka	Bowler	0.75	36	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-312	Nahid Rana	Bangladesh	Bowler	0.75	23	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-313	Nqabayomzi Peter	South Africa	Bowler	0.75	24	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-314	Olly Stone	England	Bowler	0.75	32	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-315	Richard Ngarava	Zimbabwe	Bowler	0.75	28	Left-hand bat	Left Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-316	Rishad Hossain	Bangladesh	Bowler	0.75	23	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-317	Tanzim Hasan Sakib	Bangladesh	Bowler	0.75	23	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-318	Zahir Khan Pakten	Afghanistan	Bowler	0.75	27	Right-hand bat	Left Arm Wrist Spin	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-319	Shoriful Islam	Bangladesh	Bowler	0.75	24	Left-hand bat	Left Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-320	Waqar Salamkheil	Afghanistan	Bowler	0.75	27	Right-hand bat	Left Arm Wrist Spin	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-321	Qais Ahmad	Afghanistan	Bowler	0.75	25	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-322	Daryn Dupavillon	South Africa	Bowler	0.75	31	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-323	Tanveer Sangha	Australia	Bowler	0.75	24	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
-324	Kyle Verreynne	South Africa	Wicketkeeper	0.75	28	Right-hand bat	N/A	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-325	Ollie Pope	England	Wicketkeeper	0.75	28	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-326	Andre Fletcher	West Indies	Wicketkeeper	0.75	38	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-327	Kusal Perera	Sri Lanka	Wicketkeeper	0.75	35	Left-hand bat	N/A	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-328	Litton Das	Bangladesh	Wicketkeeper	0.75	31	Right-hand bat	Right Arm Off Spin	Emerging	1	4	0	4	100	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
-329	Karim Janat	Afghanistan	All-Rounder	0.75	27	Right-hand bat	Right Arm Medium Fast	Emerging	1	0	0	0	0	30	Capped	All-rounders	Capped Players | All-rounders
-330	Manan Vohra	India	Batter	0.3	32	Right-hand bat	Right Arm Medium	Emerging	56	1083	0	22.1	130.64	0	Uncapped	Batters	Uncapped Players | Batters
-331	Suyash Prabhudessai	India	All-Rounder	0.3	28	Right-hand bat	Right Arm Off Spin	Emerging	11	126	0	12.6	118.87	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-332	Arjun Tendulkar	India	Bowler	0.3	26	Left-hand bat	Left Arm Fast Medium	Consistent	5	13	3	38	144.44	9.37	Uncapped	Bowlers	Uncapped Players | Bowlers
-333	Harry Tector	Ireland	Batter	0.5	26	Right-hand bat	Right Arm Off Spin	Developing	51	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-334	Ashok Sharma	India	Bowler	0.3	23	Right-hand bat	Right Arm Medium Fast	In Demand	3	0	2	56.5	0	11.3	Uncapped	Bowlers	Uncapped Players | Bowlers
-335	Urvil Patel	India	Wicketkeeper	0.3	26	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-336	Anukul Roy	India	All-Rounder	0.3	27	Left-hand bat	Left Arm Orthodox	In Demand	16	26	9	5.2	96.3	8.31	Uncapped	All-rounders	Uncapped Players | All-rounders
-337	Vipraj Nigam	India	All-Rounder	0.3	21	Right-hand bat	Right Arm Leg Break	Emerging	17	154	12	19.25	179.07	9.34	Uncapped	All-rounders	Uncapped Players | All-rounders
-338	Ayush Mhatre	India	Batter	0.3	18	Right-hand bat	Right Arm Off Spin	Emerging	0	0	0	0	0	0	Uncapped	Batters	Uncapped Players | Batters
-339	Arshin Kulkarni	India	All-Rounder	0.3	21	Right-hand bat	Right Arm Medium Fast	In Demand	2	9	0	4.5	112.5	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-340	Sanvir Singh	India	All-Rounder	0.3	29	Right-hand bat	Right Arm Fast	Emerging	6	25	0	12.5	119.05	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-341	Manav Suthar	India	Bowler	0.3	23	Left-hand bat	Left Arm Orthodox	In Demand	1	1	0	0	50	13	Uncapped	Bowlers	Uncapped Players | Bowlers
-342	Rajan Kumar	India	Bowler	0.3	29	Left-hand bat	Left Arm Fast	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
-343	Shivam Singh	India	All-Rounder	0.3	30	Left-hand bat	Right Arm Off Spin	Emerging	1	2	0	0	66.67	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-344	Digvesh Singh	India	Bowler	0.3	26	Right-hand bat	Right Arm Off Spin	Emerging	15	1	16	31.25	33.33	8.33	Uncapped	Bowlers	Uncapped Players | Bowlers
-345	Shaik Rasheed	India	Batter	0.3	21	Right-hand bat	Right Arm Leg Spin	In Demand	5	71	0	14.2	112.7	0	Uncapped	Batters	Uncapped Players | Batters
-346	Prerak Mankad	India	All-Rounder	0.3	31	Right-hand bat	Right Arm Medium	In Demand	6	97	0	32.33	132.88	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-347	Nishant Sindhu	India	All-Rounder	0.3	22	Left-hand bat	Left Arm Orthodox	In Demand	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-348	Kuldip Yadav	India	Bowler	0.3	29	Left-hand bat	Left Arm Orthodox	In Demand	3	0	2	42	0	9.33	Uncapped	Bowlers	Uncapped Players | Bowlers
-349	Leus Du Plooy	England	Batter	0.5	30	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
-350	Swastik Chhikara	India	Batter	0.3	21	Right-hand bat	Right Arm Off Spin	In Demand	0	0	0	0	0	0	Uncapped	Batters	Uncapped Players | Batters
-351	Prince Yadav	India	Bowler	0.3	24	Right-hand bat	Right Arm Medium Fast	Emerging	9	5	8	40.75	50	9.64	Uncapped	Bowlers	Uncapped Players | Bowlers
-352	Vansh Bedi	India	Wicketkeeper	0.3	23	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-353	Yash Dhull	India	Batter	0.3	23	Right-hand bat	Right Arm Off Spin	Emerging	4	16	0	5.33	69.57	0	Uncapped	Batters	Uncapped Players | Batters
-354	Manoj Bhandage	India	All-Rounder	0.3	27	Right-hand bat	Right Arm Medium Fast	In Demand	1	1	0	1	25	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-355	Vidwath Kaverappa	India	Bowler	0.3	27	Right-hand bat	Right Arm Fast Medium	Emerging	1	0	2	18	0	9	Uncapped	Bowlers	Uncapped Players | Bowlers
-356	Vicky Ostwal	India	All-Rounder	0.3	23	Left-hand bat	Left Arm Orthodox	Emerging	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-357	Kumar Kartikeya Singh	India	Bowler	0.3	28	Right-hand bat	Left Arm Orthodox	Emerging	16	12	12	33.92	70.59	8.66	Uncapped	Bowlers	Uncapped Players | Bowlers
-358	Ripal Patel	India	Batter	0.3	30	Right-hand bat	Right Arm Medium	In Demand	9	80	0	16	109.59	0	Uncapped	Batters	Uncapped Players | Batters
-359	Sachin Baby	India	Batter	0.3	37	Left-hand bat	Right Arm Off Spin	In Demand	21	144	2	14.4	122.03	0	Uncapped	Batters	Uncapped Players | Batters
-360	Akash Singh	India	Bowler	0.3	23	Left-hand bat	Left Arm Fast Medium	Consistent	10	0	9	36.22	0	9.54	Uncapped	Bowlers	Uncapped Players | Bowlers
-361	Ashwani Kumar	India	Bowler	0.3	24	Left-hand bat	Left Arm Fast Medium	Emerging	7	0	11	21.09	0	11.32	Uncapped	Bowlers	Uncapped Players | Bowlers
-362	K.M Asif	India	Bowler	0.3	32	Right-hand bat	Right Arm Fast	In Demand	7	0	7	33	0	10.42	Uncapped	Bowlers	Uncapped Players | Bowlers
-363	Brandon McMullen	Scotland	All-Rounder	0.3	26	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
-364	Anmolpreet Singh	India	Batter	0.3	28	Right-hand bat	Right Arm Off Spin	In Demand	9	139	0	15.44	120.87	0	Uncapped	Batters	Uncapped Players | Batters
-365	Kulwant Khejroliya	India	Bowler	0.3	34	Left-hand bat	Left Arm Fast	In Demand	8	0	6	41.17	0	10.66	Uncapped	Bowlers	Uncapped Players | Bowlers
-366	Yudhvir Charak	India	All-Rounder	0.3	28	Right-hand bat	Right Arm Medium Fast	Consistent	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
-367	Vignesh Puthur	India	Bowler	0.3	25	Right-hand bat	Left Arm Wrist Spin	Emerging	5	0	6	18.17	0	9.08	Uncapped	Bowlers	Uncapped Players | Bowlers
-368	Abhinandan Singh	India	Bowler	0.3	29	Right-hand bat	Right Arm Medium Fast	Emerging	2	0	3	22.67	0	10.2	Uncapped	Bowlers	Uncapped Players | Bowlers
-369	Mohit Rathee	India	Bowler	0.3	27	Right-hand bat	Right Arm Leg Spin	In Demand	1	1	0	0	50	14.5	Uncapped	Bowlers	Uncapped Players | Bowlers
-370	Aryan Juyal	India	Wicketkeeper	0.3	24	Right-hand bat	Right Arm Off Spin	In Demand	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-371	Himanshu Sharma	India	Bowler	0.3	27	Right-hand bat	Right Arm Leg Spin	Emerging	2	0	0	0	0	11.4	Uncapped	Bowlers	Uncapped Players | Bowlers
-372	Upendra Singh Yadav	India	Wicketkeeper	0.3	28	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
-373	Shrijith Krishnan	India	Wicketkeeper	0.3	29	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+3	Virat Kohli	India	Batter	2	Elite	37	Right-hand bat	Right Arm Medium	In Demand	269	8758	4	39.81	133.2	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+4	Ravindra Jadeja	India	All-Rounder	2	Elite	37	Left-hand bat	Left Arm Orthodox	In Demand	257	3267	172	27.92	130.16	7.68	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+5	Jasprit Bumrah	India	Bowler	2	Elite	32	Right-hand bat	Right Arm Fast	In Demand	148	74	183	22.5	91.36	7.26	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+6	Rohit Sharma	India	Batter	2	Elite	38	Right-hand bat	Right Arm Off Spin	In Demand	275	7164	15	29.85	132.57	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+7	Suryakumar Yadav	India	Batter	2	Elite	35	Right-hand bat	Right Arm Medium	In Demand	217	6535	0	41.36	154.56	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+8	Arshdeep Singh	India	Bowler	2	Elite	27	Left-hand bat	Left Arm Fast Medium	In Demand	85	31	97	27.52	67.39	9.03	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+9	Shubman Gill	India	Batter	2	Elite	26	Right-hand bat	Right Arm Off Spin	In Demand	120	3975	0	39.75	139.03	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+10	Rashid Khan	Afghanistan	Bowler	2	Elite	27	Right-hand bat	Right Arm Leg Break	In Demand	139	609	163	23.63	159.42	7.09	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+11	Sanju Samson	India	Wicketkeeper	2	Elite	31	Right-hand bat	N/A	In Demand	180	4726	0	30.49	138.92	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+12	KL Rahul	India	Wicketkeeper	2	Elite	33	Right-hand bat	N/A	In Demand	153	5335	0	45.21	136.41	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+13	Jos Buttler	England	Wicketkeeper	2	Elite	35	Right-hand bat	N/A	In Demand	124	4236	0	39.96	149.58	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+14	Hardik Pandya	India	All-Rounder	2	Elite	32	Right-hand bat	Right Arm Fast Medium	In Demand	154	2776	79	28.33	147.03	9.22	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+15	Ishan Kishan	India	Wicketkeeper	2	Elite	27	Left-hand bat	N/A	In Demand	122	3093	0	29.18	138.76	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+16	Trent Boult	New Zealand	Bowler	2	Elite	36	Right-hand bat	Left Arm Fast Medium	In Demand	122	86	143	26.62	103.61	8.42	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+17	Jofra Archer	England	Bowler	2	Elite	31	Right-hand bat	Right Arm Fast	In Demand	55	263	62	27.03	146.11	7.87	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+18	Bhuvneshwar Kumar	India	Bowler	2	Elite	36	Right-hand bat	Right Arm Medium	In Demand	192	320	202	27.15	91.17	7.71	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+19	MS Dhoni	India	Wicketkeeper	2	Elite	44	Right-hand bat	N/A	In Demand	278	5439	0	38.3	137.45	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+20	Pat Cummins	Australia	Bowler	2	Elite	33	Right-hand bat	Right Arm Fast	In Demand	58	557	63	31.06	152.74	8.75	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+21	Kagiso Rabada	South Africa	Bowler	2	Elite	30	Left-hand bat	Right Arm Fast	In Demand	87	238	122	23.28	109.68	8.66	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+22	Yashasvi Jaiswal	India	Batter	2	Elite	24	Left-hand bat	Right Arm Leg Break	In Demand	67	2160	0	34.29	149.48	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+23	Mohammed Shami	India	Bowler	2	Elite	35	Right-hand bat	Right Arm Fast	In Demand	122	86	136	28.04	91.49	8.54	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+24	David Warner	Australia	Batter	2	Pro	39	Left-hand bat	Right Arm Leg Break	Consistent	184	6565	0	40.52	139.77	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+25	Abhishek Sharma	India	All-Rounder	2	Pro	26	Left-hand bat	Left Arm Orthodox	In Demand	77	1816	11	27.52	159.02	8.84	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+26	Faf du Plessis	South Africa	Batter	2	Pro	41	Right-hand bat	Right Arm Leg Break	In Demand	154	4773	0	35.1	135.79	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+27	Travis Head	Australia	Batter	2	Pro	32	Left-hand bat	Right Arm Off Spin	In Demand	31	931	0	33.25	174.34	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+28	Rinku Singh	India	Batter	2	Pro	28	Left-hand bat	Right Arm Off Spin	In Demand	59	1099	0	31.4	146.92	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+29	Riyan Parag	India	All-Rounder	2	Pro	24	Right-hand bat	Right Arm Off Spin	In Demand	84	1531	10	26.86	138.11	8.28	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+30	Ravichandran Ashwin	India	All-Rounder	2	Pro	39	Right-hand bat	Right Arm Off Spin	Consistent	221	833	187	13.02	118.16	7.2	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+31	Varun Chakravarthy	India	Bowler	2	Pro	34	Right-hand bat	Right Arm Leg Break	Consistent	84	28	97	23.1	56.0	7.53	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+32	Sai Sudharsan	India	Batter	2	Pro	24	Left-hand bat	Right Arm Leg Break	In Demand	38	1547	0	46.88	141.78	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+33	Rajat Patidar	India	Batter	2	Pro	32	Right-hand bat	Right Arm Off Spin	In Demand	48	1111	0	29.24	154.31	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+34	Tilak Varma	India	Batter	2	Pro	23	Left-hand bat	Right Arm Off Spin	In Demand	48	1156	0	34.0	145.36	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+35	Heinrich Klaasen	South Africa	Wicketkeeper	2	Pro	34	Right-hand bat	N/A	In Demand	52	1625	0	40.63	167.53	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+36	Harshal Patel	India	All-Rounder	1.5	Pro	35	Right-hand bat	Right Arm Medium Fast	Consistent	121	274	151	8.84	117.6	8.87	Capped	All-rounders	Capped Players | All-rounders
+37	Axar Patel	India	All-Rounder	2	Pro	32	Left-hand bat	Left Arm Orthodox	In Demand	165	1918	130	21.55	133.75	7.35	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+38	Prasidh Krishna	India	Bowler	2	Pro	30	Right-hand bat	Right Arm Fast	In Demand	69	9	80	28.94	37.5	8.84	Capped	Bowlers	Capped Players | Bowlers
+39	Sunil Narine	West Indies	All-Rounder	2	Pro	37	Left-hand bat	Right Arm Off Spin	In Demand	192	1792	194	17.57	167.01	6.81	Capped	All-rounders	Capped Players | All-rounders
+40	Jason Holder	West Indies	All-Rounder	2	Pro	34	Right-hand bat	Right Arm Fast Medium	In Demand	46	259	53	12.33	122.75	8.81	Capped	All-rounders	Capped Players | All-rounders
+41	Kuldeep Yadav	India	Bowler	2	Pro	31	Left-hand bat	Left Arm Wrist Spin	In Demand	101	202	105	27.19	86.7	8.09	Capped	Bowlers	Capped Players | Bowlers
+42	Dhruv Jurel	India	Wicketkeeper	1.5	Pro	25	Right-hand bat	N/A	In Demand	28	497	0	24.85	151.52	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+43	Mitchell Marsh	Australia	All-Rounder	2	Pro	34	Right-hand bat	Right Arm Medium Fast	In Demand	58	1356	37	27.12	141.99	8.52	Capped	All-rounders	Capped Players | All-rounders
+44	Nitish Kumar Reddy	India	All-Rounder	1.5	Pro	22	Right-hand bat	Right Arm Medium Fast	In Demand	21	465	5	30.99	146.69	11.25	Capped	All-rounders	Capped Players | All-rounders
+45	Anrich Nortje	South Africa	Bowler	2	Pro	32	Right-hand bat	Right Arm Fast	In Demand	49	49	61	27.8	98	9.09	Capped	Bowlers	Capped Players | Bowlers
+46	Prabhsimran Singh	India	Wicketkeeper	2	Pro	25	Right-hand bat	N/A	In Demand	51	1170	0	23.88	151.36	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+47	Naman Dhir	India	All-Rounder	1.5	Pro	26	Right-hand bat	Right Arm Off Spin	In Demand	26	450	0	28.13	177.87	8.77	Uncapped	All-rounders	Uncapped Players | All-rounders
+48	Mohit Sharma	India	Bowler	1.25	Pro	37	Right-hand bat	Right Arm Medium	In Demand	120	127	134	26.22	96.95	8.77	Capped	Bowlers	Capped Players | Bowlers
+49	Priyansh Arya	India	All-Rounder	2	Pro	24	Left-hand bat	Right Arm Off Spin	In Demand	19	521	0	27.42	183.45	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+50	Kartik Tyagi	India	Bowler	2	Pro	25	Right-hand bat	Right Arm Fast	In Demand	24	18	18	46.39	85.71	10.27	Uncapped	Bowlers	Uncapped Players | Bowlers
+51	Anshul Kamboj	India	All-Rounder	1.5	Pro	25	Right-hand bat	Right Arm Fast	In Demand	14	42	15	14	116.67	9.68	Uncapped	All-rounders	Uncapped Players | All-rounders
+52	Angkrish Raghuvanshi	India	Batter	2	Pro	20	Right-hand bat	Right Arm Leg Break	In Demand	26	618	0	32.53	147.85	0	Uncapped	Batters	Uncapped Players | Batters
+53	Vaibhav Suryavanshi	India	Batter	2	Pro	15	Left-hand bat	Left Arm Orthodox	In Demand	10	374	0	37.4	218.71	0	Uncapped	Batters	Uncapped Players | Batters
+54	Jake Fraser-Mcgurk	Australia	Batter	2	Pro	24	Right-hand bat	Right Arm Medium	In Demand	15	385	0	25.67	199.48	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+55	Quinton de Kock	South Africa	Wicketkeeper	2	Pro	33	Left-hand bat	N/A	In Demand	115	3309	0	30.64	134.02	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+56	Jonny Bairstow	England	Wicketkeeper	2	Pro	36	Right-hand bat	N/A	In Demand	52	1674	0	34.88	146.07	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+57	Marco Jansen	South Africa	All-Rounder	2	Pro	25	Left-hand bat	Left Arm Fast Medium	Consistent	38	150	38	12.5	107.91	9.31	Capped	All-rounders	Capped Players | All-rounders
+58	Steve Smith	Australia	All-Rounder	2	Pro	36	Right-hand bat	Right Arm Leg Break	In Demand	103	2485	0	34.51	128.09	7.80	Capped	All-rounders	Capped Players | All-rounders
+59	Aiden Markram	South Africa	Batter	2	Pro	31	Right-hand bat	Right Arm Off Spin	In Demand	60	1518	6	30.98	136.02	0	Capped	Batters	Capped Players | Batters
+60	Sherfane Rutherford	West Indies	Batter	1.5	Pro	27	Left-hand bat	Right Arm Medium	Consistent	26	427	1	23.72	140.46	0	Capped	Batters	Capped Players | Batters
+61	Dewald Brevis	South Africa	Batter	1.5	Pro	22	Right-hand bat	Right Arm Leg Break	In Demand	16	455	1	28.44	153.2	0	Uncapped	Batters	Uncapped Players | Batters
+62	Ryan Rickelton	South Africa	Wicketkeeper	1.5	Pro	29	Left-hand bat	N/A	In Demand	17	486	0	30.38	154.29	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+63	Nicholas Pooran	West Indies	Wicketkeeper	2	Elite	30	Left-hand bat	N/A	In Demand	93	2315	0	33.07	167.27	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+64	Yuzvendra Chahal	India	Bowler	2	Elite	35	Right-hand bat	Right Arm Leg Break	In Demand	177	37	224	22.68	43.02	7.95	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+65	Glenn Maxwell	Australia	All-Rounder	2	Elite	37	Right-hand bat	Right Arm Off Spin	In Demand	141	2819	41	23.89	155.15	8.3	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+66	Mohammad Siraj	India	Bowler	2	Elite	32	Right-hand bat	Right Arm Fast	In Demand	111	112	111	31.22	91.06	8.81	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+67	Marcus Stoinis	Australia	All-Rounder	2	Elite	36	Right-hand bat	Right Arm Medium	In Demand	112	2035	44	27.88	144.84	9.84	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+68	Liam Livingstone	England	All-Rounder	2	Pro	32	Right-hand bat	Right Arm Leg Break	Consistent	50	1065	13	25.98	156.16	9.02	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+69	Shardul Thakur	India	All-Rounder	2	Pro	34	Right-hand bat	Right Arm Medium Fast	In Demand	108	333	111	11.48	138.75	9.49	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+70	Krunal Pandya	India	All-Rounder	1.5	Pro	35	Left-hand bat	Left Arm Orthodox	In Demand	144	1756	95	22.23	132.43	7.53	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+71	T. Natarajan	India	Bowler	1	Pro	34	Left-hand bat	Left Arm Fast Medium	In Demand	66	3	71	29.65	60	8.89	Capped	Bowlers	Capped Players | Bowlers
+72	Avesh Khan	India	Bowler	1.5	Pro	29	Right-hand bat	Right Arm Fast Medium	In Demand	78	63	90	28.23	157.5	9.15	Capped	Bowlers	Capped Players | Bowlers
+73	Ruturaj Gaikwad	India	Batter	2	Elite	29	Right-hand bat	Right Arm Off Spin	Elite	74	2543	0	39.12	137.02	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+74	Andre Russell	West Indies	All-Rounder	2	Elite	37	Right-hand bat	Right Arm Fast	Elite	140	2651	123	28.2	174.18	9.51	Capped	All-rounders	Capped Players | All-rounders
+75	Cameron Green	Australia	All-Rounder	2	Pro	27	Right-hand bat	Right Arm Fast Medium	In Demand	29	707	16	41.58	153.03	9.29	Capped	All-rounders	Capped Players | All-rounders
+76	Kane Williamson	New Zealand	Batter	2	Pro	35	Right-hand bat	Right Arm Off Spin	Consistent	79	2128	0	35.47	125.62	0	Capped	Batters	Capped Players | Batters
+77	Ravi Bishnoi	India	Bowler	1.5	Pro	25	Right-hand bat	Right Arm Leg Break	In Demand	66	31	76	26.24	75.61	8.17	Capped	Bowlers	Capped Players | Bowlers
+78	Nitish Rana	India	All-Rounder	1.5	Pro	32	Left-hand bat	Right Arm Off Spin	In Demand	121	2873	10	27.36	136.03	8.44	Capped	All-rounders	Capped Players | All-rounders
+79	David Miller	South Africa	Batter	1.5	Pro	36	Left-hand bat	Right Arm Off Spin	In Demand	144	3139	0	36.5	139.02	0	Capped	Batters	Capped Players | Batters
+80	Washington Sundar	India	All-Rounder	1.25	Pro	26	Left-hand bat	Right Arm Off Spin	In Demand	69	588	40	16.8	129.23	7.73	Capped	All-rounders	Capped Players | All-rounders
+81	Rahul Tewatia	India	All-Rounder	1		33	Left-hand bat	Leg Break	In Demand	108	1094	32	25.44	137.83	8.51	Uncapped	All-rounders	Uncapped Players | All-rounders
+82	Moeen Ali	England	All-Rounder	2	Pro	38	Left-hand bat	Right Arm Off Spin	In Demand	73	1167	41	22.02	139.76	7.23	Capped	All-rounders	Capped Players | All-rounders
+83	Mukesh Kumar	India	Bowler	1.25	Pro	32	Right-hand bat	Right Arm Medium Fast	In Demand	35	10	40	30	55.56	10.34	Capped	Bowlers	Capped Players | Bowlers
+84	Rahul Tripathi	India	Batter	1.5	Pro	35	Right-hand bat	Right Arm Medium	In Demand	100	2291	0	26.33	137.85	0	Capped	Batters	Capped Players | Batters
+85	Prithvi Shaw	India	Batter	1.5	Pro	26	Right-hand bat	Right Arm Off Spin	Developing	79	1892	0	23.95	147.47	0	Capped	Batters	Capped Players | Batters
+86	Umesh Yadav	India	Bowler	1.5	Pro	38	Right-hand bat	Right Arm Fast	Consistent	148	208	144	29.83	103.48	8.45	Capped	Bowlers	Capped Players | Bowlers
+87	Deepak Hooda	India	All-Rounder	1.25	Pro	30	Right-hand bat	Right Arm Off Spin	In Demand	125	1496	10	17.6	127.65	8.64	Capped	All-rounders	Capped Players | All-rounders
+88	Manish Pandey	India	Batter	1.5	Pro	36	Right-hand bat	Right Arm Medium	Consistent	174	3942	0	29.42	121.52	0	Capped	Batters	Capped Players | Batters
+89	Shivam Mavi	India	Bowler	1	Pro	27	Right-hand bat	Right Arm Fast	Consistent	32	51	30	31.4	91.07	8.71	Capped	Bowlers	Capped Players | Bowlers
+90	Ajinkya Rahane	India	Batter	1.5	Pro	37	Right-hand bat	Right Arm Medium	Consistent	202	5156	1	30.69	125.6	0	Capped	Batters	Capped Players | Batters
+91	Piyush Chawla	India	Bowler	1.5	Pro	37	Left-hand bat	Right Arm Leg Spin	Consistent	192	624	192	26.6	110.83	7.96	Capped	Bowlers	Capped Players | Bowlers
+92	Nehal Wadhera	India	Batter	1		25	Left-hand bat	Right Arm Leg Spin	In Demand	39	732	0	25.24	141.31	0	Uncapped	Batters	Uncapped Players | Batters
+93	Abdul Samad	India	All-Rounder	1		24	Right-hand bat	Right Arm Leg Break	Emerging	66	795	2	19.39	150.28	13.16	Uncapped	All-rounders	Uncapped Players | All-rounders
+94	Shakib Al Hasan	Bangladesh	All-Rounder	1.5	Pro	39	Left-hand bat	Left Arm Orthodox	In Demand	71	793	63	19.83	124.49	7.44	Capped	All-rounders	Capped Players | All-rounders
+95	Harpreet Brar	India	All-Rounder	1		30	Left-hand bat	Left Arm Orthodox	In Demand	49	244	35	20.33	120.2	8.03	Uncapped	All-rounders	Uncapped Players | All-rounders
+96	Ashutosh Sharma	India	All-Rounder	0.75		27	Right-hand bat	Right Arm Off Spin	In Demand	24	393	0	28.07	163.75	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+97	Chetan Sakariya	India	Bowler	0.75	Pro	28	Left-hand bat	Left Arm Medium Fast	Consistent	20	20	20	31.9	64.52	8.62	Capped	Bowlers	Capped Players | Bowlers
+98	Mitchell Santner	New Zealand	All-Rounder	2	Pro	34	Left-hand bat	Left Arm Orthodox	In Demand	32	128	26	16	109.4	7.31	Capped	All-rounders	Capped Players | All-rounders
+99	Jaydev Unadkat	India	Bowler	1.5	Pro	34	Right-hand bat	Left Arm Fast Medium	Consistent	115	201	114	30.39	118.93	8.91	Capped	Bowlers	Capped Players | Bowlers
+100	Mustafizur Rahman	Bangladesh	Bowler	2	Pro	30	Left-hand bat	Left Arm Fast Medium	Consistent	60	13	65	28.45	54.17	8.13	Capped	Bowlers	Capped Players | Bowlers
+101	Mayank Agarwal	India	Batter	1.5	Pro	35	Right-hand bat	Right Arm Off Spin	In Demand	131	2756	0	22.97	133.53	0	Capped	Batters	Capped Players | Batters
+102	Adam Zampa	Australia	Bowler	2	Pro	34	Right-hand bat	Right Arm Leg Spin	In Demand	22	15	31	21.03	62.5	8.38	Capped	Bowlers	Capped Players | Bowlers
+103	Ishant Sharma	India	Bowler	1.25	Pro	37	Right-hand bat	Right Arm Fast	In Demand	117	57	97	34.84	82.61	8.36	Capped	Bowlers	Capped Players | Bowlers
+104	R. Sai Kishore	India	All-Rounder	1	Pro	29	Left-hand bat	Left Arm Orthodox	In Demand	25	18	32	4.5	112.5	8.86	Capped	All-rounders	Capped Players | All-rounders
+105	Sam Billings	England	Wicketkeeper	1.5	Pro	34	Right-hand bat	N/A	In Demand	30	503	0	19.35	129.64	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+106	Shahbaz Ahamad	India	All-Rounder	1		31	Left-hand bat	Left Arm Orthodox	In Demand	59	560	0	19.31	120.69	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+107	Vijay Shankar	India	All-Rounder	1	Pro	35	Right-hand bat	Right Arm Medium	In Demand	78	1233	9	26.23	129.79	8.67	Capped	All-rounders	Capped Players | All-rounders
+108	Karn Sharma	India	Bowler	1	Pro	38	Right-hand bat	Right Arm Leg Break	In Demand	90	351	83	26.69	120.21	8.38	Capped	Bowlers	Capped Players | Bowlers
+109	Mohammad Nabi	Afghanistan	All-Rounder	1.5	Pro	41	Right-hand bat	Right Arm Off Spin	In Demand	24	215	15	13.44	143.33	7.44	Capped	All-rounders	Capped Players | All-rounders
+110	Karun Nair	India	Batter	1	Pro	34	Right-hand bat	Right Arm Off Spin	In Demand	84	1694	0	23.86	131.73	0	Capped	Batters	Capped Players | Batters
+111	Mahipal Lomror	India	All-Rounder	0.75		26	Left-hand bat	Left Arm Orthodox	In Demand	40	527	1	18.17	141.29	8.47	Uncapped	All-rounders	Uncapped Players | All-rounders
+112	Murugan Ashwin	India	Bowler	0.75		35	Right-hand bat	Right Arm Leg Spin	In Demand	44	35	35	33.2	70	8.01	Uncapped	Bowlers	Uncapped Players | Bowlers
+113	Vaibhav Arora	India	Bowler	1		28	Right-hand bat	Right Arm Medium Fast	Elite	36	10	41	28.12	38.46	9.74	Uncapped	Bowlers	Uncapped Players | Bowlers
+114	Yash Thakur	India	Bowler	0.75		27	Right-hand bat	Right Arm Medium Fast	In Demand	21	0	25	30.8	0	10.43	Uncapped	Bowlers	Uncapped Players | Bowlers
+115	Shreyas Gopal	India	All-Rounder	1		32	Right-hand bat	Right Arm Leg Spin	Consistent	52	180	52	12.86	106.51	8.17	Uncapped	All-rounders	Uncapped Players | All-rounders
+116	Manan Vohra	India	Batter	0.75		32	Right-hand bat	Right Arm Medium	Emerging	56	1083	0	22.1	130.64	0	Uncapped	Batters	Uncapped Players | Batters
+117	Rasikh Dar	India	Bowler	1		26	Right-hand bat	Right Arm Medium Fast	In Demand	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
+118	Robin Minz	India	Wicketkeeper	1		23	Left-hand bat	Right Arm Off Spin	In Demand	2	6	0	3	40	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+119	Jamie Overton	England	All-Rounder	1	Pro	32	Right-hand bat	Right Arm Fast	In Demand	5	95	1	95	161.02	13.9	Capped	All-rounders	Capped Players | All-rounders
+120	Cooper Connolly	Australia	All-Rounder	1.5	Pro	22	Left-hand bat	Left Arm Orthodox	In Demand	3	108	0	108	163.64	0	Capped	All-rounders	Capped Players | All-rounders
+121	Eshan Malinga	Sri Lanka	Bowler	2	Pro	25	Right-hand bat	Right Arm Fast	In Demand	10	0	16	19.81	0	9.14	Uncapped	Bowlers	Uncapped Players | Bowlers
+122	Lahiru Kumara	Sri Lanka	Bowler	0.75	Pro	29	Left-hand bat	Right Arm Fast	In Demand	25	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+123	Ayush Mhatre	India	Batter	1		18	Right-hand bat	Right Arm Off Spin	In Demand	0	0	0	0	0	0	Uncapped	Batters	Uncapped Players | Batters
+124	Prince Yadav	India	Bowler	1		24	Right-hand bat	Right Arm Medium Fast	In Demand	9	5	8	40.75	50	9.64	Uncapped	Bowlers	Uncapped Players | Bowlers
+125	Finn Allen	New Zealand	Batter	2	Pro	26	Right-hand bat	Right Arm Off Spin	In Demand	4	80	0	20	205.13	0	Capped	Batters	Capped Players | Batters
+126	Sikandar Raza	Zimbabwe	All-Rounder	1.25	Pro	39	Right-hand bat	Right Arm Off Spin	In Demand	9	182	3	26	133.82	10.07	Capped	All-rounders	Capped Players | All-rounders
+127	Aaron Hardie	Australia	All-Rounder	1.25	Pro	27	Right-hand bat	Right Arm Medium Fast	In Demand	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+128	Kusal Mendis	Sri Lanka	Wicketkeeper	1.5	Pro	31	Right-hand bat	N/A	In Demand	1	20	0	20	200	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+129	Donovan Ferreira	South Africa	Wicketkeeper	1	Pro	27	Right-hand bat	Right Arm Off Spin	In Demand	5	10	0	2.5	58.82	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+130	Keshav Maharaj	South Africa	Bowler	0.75	Pro	36	Left-hand bat	Left Arm Orthodox	In Demand	2	1	2	19.5	50	6.5	Capped	Bowlers	Capped Players | Bowlers
+131	Shubham Dubey	India	Batter	0.75		31	Left-hand bat	Right Arm Off Spin	In Demand	13	139	0	23.17	163.53	0	Uncapped	Batters	Uncapped Players | Batters
+132	Rachin Ravindra	New Zealand	All-Rounder	1.5	Pro	26	Left-hand bat	Left Arm Orthodox	In Demand	18	413	0	24.29	143.9	3.5	Capped	All-rounders	Capped Players | All-rounders
+133	Nuwan Thushara	Sri Lanka	Bowler	0.75	Pro	31	Right-hand bat	Right Arm Fast	In Demand	8	0	9	31.44	0	9.43	Capped	Bowlers	Capped Players | Bowlers
+134	Gerald Coetzee	South Africa	Bowler	1.25	Pro	25	Right-hand bat	Right Arm Fast	In Demand	14	31	15	31.47	93.94	10.37	Capped	Bowlers	Capped Players | Bowlers
+135	Fazalhaq Farooqi	Afghanistan	Bowler	2	Pro	25	Right-hand bat	Left Arm Fast Medium	In Demand	12	5	6	72.83	33.33	10.32	Capped	Bowlers	Capped Players | Bowlers
+136	Adam Milne	New Zealand	Bowler	2	Pro	33	Right-hand bat	Right Arm Fast	In Demand	10	23	7	46.71	79.31	9.48	Capped	Bowlers	Capped Players | Bowlers
+137	Azmatullah Omarzai	Afghanistan	All-Rounder	1.5	Pro	26	Right-hand bat	Right Arm Medium Fast	In Demand	16	99	12	12.38	133.78	9.69	Capped	All-rounders	Capped Players | All-rounders
+138	Anuj Rawat	India	Wicketkeeper	0.75		26	Left-hand bat	N/A	In Demand	24	318	0	19.88	119.1	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+139	Daniel Sams	Australia	All-Rounder	1.5	Pro	33	Right-hand bat	Left Arm Fast	In Demand	16	44	14	4.89	100	8.72	Capped	All-rounders	Capped Players | All-rounders
+140	Nathan Ellis	Australia	Bowler	1.25	Pro	31	Right-hand bat	Right Arm Fast Medium	In Demand	17	19	19	29.16	76	8.66	Capped	Bowlers	Capped Players | Bowlers
+141	Suyash Sharma	India	Bowler	0.75		22	Right-hand bat	Right Arm Leg Spin	In Demand	29	0	20	43.15	0	8.63	Uncapped	Bowlers	Uncapped Players | Bowlers
+142	Glenn Phillips	New Zealand	Batter	2	Pro	29	Right-hand bat	Right Arm Off Spin	In Demand	11	107	2	11.89	125.88	0	Capped	Batters	Capped Players | Batters
+143	Jayant Yadav	India	All-Rounder	0.75	Pro	36	Right-hand bat	Right Arm Off Spin	In Demand	20	40	8	10	111.11	6.85	Capped	All-rounders	Capped Players | All-rounders
+144	Kuldeep Sen	India	Bowler	0.75	Pro	29	Right-hand bat	Right Arm Fast Medium	In Demand	12	0	14	27.64	0	9.63	Capped	Bowlers	Capped Players | Bowlers
+145	Dushmantha Chameera	Sri Lanka	Bowler	0.75	Pro	34	Right-hand bat	Right Arm Fast	In Demand	19	53	13	46.38	126.19	9.73	Capped	Bowlers	Capped Players | Bowlers
+146	Atharva Taide	India	Batter	0.3		25	Left-hand bat	Right Arm Off Spin	In Demand	10	260	0	26	146.89	0	Uncapped	Batters	Uncapped Players | Batters
+147	Mukesh Choudhary	India	Bowler	0.3		29	Right-hand bat	Left Arm Fast Medium	In Demand	16	6	17	30.71	100	9.94	Uncapped	Bowlers	Uncapped Players | Bowlers
+148	Tim Southee	New Zealand	Bowler	1.5	Pro	37	Right-hand bat	Right Arm Fast Medium	Emerging	54	120	47	37.06	112.15	8.67	Capped	Bowlers	Capped Players | Bowlers
+149	Evin Lewis	West Indies	Batter	2	Pro	34	Left-hand bat	Right Arm Off Spin	Emerging	27	654	0	27.25	137.11	0	Capped	Batters	Capped Players | Batters
+150	Sarfaraz Khan	India	Batter	0.75		28	Right-hand bat	Right Arm Leg Break	Emerging	55	684	0	22.06	136.53	0	Capped	Batters	Capped Players | Batters
+151	Devon Conway	New Zealand	Batter	2	Pro	34	Left-hand bat	Right Arm Medium	In Demand	29	1080	0	43.2	139.72	0	Capped	Batters	Capped Players | Batters
+152	Venkatesh Iyer	India	All-Rounder	2	Elite	31	Left-hand bat	Right Arm Medium	In Demand	62	1468	3	29.96	137.32	10.59	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+153	Mitchell Starc	Australia	Bowler	2	Elite	36	Left-hand bat	Left Arm Fast	In Demand	52	111	65	23.12	93.28	8.61	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+154	Sam Curran	England	All-Rounder	2	Elite	27	Left-hand bat	Left Arm Fast Medium	In Demand	64	997	59	24.93	136.39	9.74	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+155	Deepak Chahar	India	Bowler	2	Elite	33	Right-hand bat	Right Arm Medium	In Demand	97	123	89	29.65	138.2	8.17	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+156	Ben Stokes	England	All-Rounder	2	Elite	34	Left-hand bat	Right Arm Medium Fast	In Demand	45	935	28	24.6	133.95	9.21	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+157	Josh Hazlewood	Australia	Bowler	2	Elite	35	Left-hand bat	Right Arm Fast Medium	In Demand	39	19	57	20.98	65.52	8.28	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+158	Phil Salt	England	Wicketkeeper	2	Elite	29	Right-hand bat	N/A	In Demand	36	1110	0	33.64	173.98	0	Capped	Marquee Players	Marquee Players | Capped Players | Wicketkeepers
+159	Harry Brook	England	Batter	2	Pro	27	Right-hand bat	Right Arm Medium	Consistent	11	190	0	21.11	123.38	0	Capped	Marquee Players	Marquee Players | Capped Players | Batters
+160	Matheesha Pathirana	Sri Lanka	Bowler	2	Pro	23	Right-hand bat	Right Arm Fast	In Demand	32	8	44	21.95	66.67	7.96	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+161	Shivam Dube	India	All-Rounder	2	Pro	32	Left-hand bat	Right Arm Medium	In Demand	82	1761	5	29.85	146.72	9.67	Capped	Marquee Players	Marquee Players | Capped Players | All-rounders
+162	Alzarri Joseph	West Indies	Bowler	2	Pro	29	Right-hand bat	Right Arm Fast	In Demand	22	27	21	32.9	84.38	9.55	Capped	Bowlers	Capped Players | Bowlers
+163	Jitesh Sharma	India	Wicketkeeper	1	Pro	32	Right-hand bat	N/A	In Demand	57	991	0	24.78	156.8	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+164	Noor Ahmad	Afghanistan	Bowler	2	Pro	21	Right-hand bat	Left Arm Wrist Spin	In Demand	40	29	48	24.54	55.77	8.3	Capped	Bowlers	Capped Players | Bowlers
+165	Wanindu Hasaranga	Sri Lanka	Bowler	2	Pro	28	Right-hand bat	Right Arm Leg Break	Consistent	37	81	46	24.33	92.05	8.41	Capped	Bowlers	Capped Players | Bowlers
+166	Lockie Ferguson	New Zealand	Bowler	2	Pro	34	Right-hand bat	Right Arm Fast	Consistent	49	72	51	30	153.19	8.97	Capped	Bowlers	Capped Players | Bowlers
+167	Shahrukh Khan	India	All-Rounder	1		30	Right-hand bat	Right Arm Off Spin	In Demand	36	534	2	20.54	141.65	8.75	Uncapped	All-rounders	Uncapped Players | All-rounders
+168	Devdutt Padikkal	India	Batter	2	Pro	25	Left-hand bat	Right Arm Off Spin	In Demand	76	1917	0	26.26	129.09	0	Capped	Batters	Capped Players | Batters
+169	Tim David	Australia	All-Rounder	2	Pro	30	Right-hand bat	Right Arm Off Spin	In Demand	52	932	0	35.85	178.2	0	Capped	All-rounders	Capped Players | All-rounders
+170	Rilee Rossouw	South Africa	Batter	2	Pro	36	Left-hand bat	Right Arm Off Spin	In Demand	22	473	0	23.65	153.57	0	Capped	Batters	Capped Players | Batters
+171	Tushar Deshpande	India	Bowler	1		30	Right-hand bat	Right Arm Medium Fast	In Demand	48	28	53	30.87	127.27	9.87	Uncapped	Bowlers	Uncapped Players | Bowlers
+172	Romario Shepherd	West Indies	All-Rounder	1.5	Pro	31	Right-hand bat	Right Arm Fast Medium	Consistent	20	185	13	26.43	212.64	12.03	Capped	All-rounders	Capped Players | All-rounders
+173	Rovman Powell	West Indies	Batter	1.5	Pro	32	Right-hand bat	Right Arm Medium	Consistent	31	404	1	20.2	147.99	0	Capped	Batters	Capped Players | Batters
+174	Syed Khaleel Ahmed	India	Bowler	2	Pro	28	Right-hand bat	Left Arm Fast Medium	In Demand	74	2	89	27.08	22.22	8.95	Capped	Bowlers	Capped Players | Bowlers
+175	Sameer Rizvi	India	All-Rounder	0.3		22	Right-hand bat	Right Arm Leg Spin	In Demand	16	332	0	36.89	150.23	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+176	Will Jacks	England	All-Rounder	2	Pro	27	Right-hand bat	Right Arm Off Spin	In Demand	21	463	8	27.24	152.81	9.57	Capped	All-rounders	Capped Players | All-rounders
+177	Rahul Chahar	India	Bowler	1	Pro	26	Right-hand bat	Right Arm Leg Break	In Demand	80	129	75	29.28	104.03	7.78	Capped	Bowlers	Capped Players | Bowlers
+178	Maheesh Theekshana	Sri Lanka	Bowler	2	Pro	25	Right-hand bat	Right Arm Off Spin	In Demand	38	17	36	33.53	50	8.27	Capped	Bowlers	Capped Players | Bowlers
+179	Harshit Rana	India	Bowler	2	Pro	24	Right-hand bat	Right Arm Fast	In Demand	27	18	29	24.62	78.26	9.16	Capped	Marquee Players	Marquee Players | Capped Players | Bowlers
+180	Lungisani Ngidi	South Africa	Bowler	1	Pro	30	Right-hand bat	Right Arm Fast	In Demand	19	0	34	18.06	0	8.33	Capped	Bowlers	Capped Players | Bowlers
+181	Mayank Markande	India	Bowler	0.3	Pro	28	Right-hand bat	Right Arm Leg Spin	Consistent	39	48	37	29.86	114.29	8.98	Capped	Bowlers	Capped Players | Bowlers
+182	Vishnu Vinod	India	Wicketkeeper	0.3		32	Right-hand bat	N/A	Elite	6	56	0	9.33	98.25	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+183	Swapnil Singh	India	All-Rounder	0.3		35	Left-hand bat	Left Arm Orthodox	Consistent	29	87	8	6.21	82.86	8.88	Uncapped	All-rounders	Uncapped Players | All-rounders
+184	Krishnappa Gowtham	India	All-Rounder	1		37	Right-hand bat	Right Arm Off Spin	Emerging	36	247	21	13.72	166.89	8.24	Uncapped	All-rounders	Uncapped Players | All-rounders
+185	Shai Hope	West Indies	Batter	1.25	Pro	32	Right-hand bat	Left Arm Medium	In Demand	9	183	0	22.88	150	0	Capped	Batters	Capped Players | Batters
+186	Richard Gleeson	England	Bowler	0.75	Pro	38	Right-hand bat	Right Arm Fast	In Demand	3	2	2	55	100	9.71	Capped	Bowlers	Capped Players | Bowlers
+187	David Payne	England	Bowler	1	Pro	35	Right-hand bat	Left Arm Fast	In Demand	2	6	2	35	120	14	Capped	Bowlers	Capped Players | Bowlers
+188	Matthew Breetzke	South Africa	Batter	0.75	Pro	27	Right-hand bat	Right Arm Medium	In Demand	1	14	0	14	116.67	0	Capped	Batters	Capped Players | Batters
+189	Nahid Rana	Bangladesh	Bowler	0.75	Pro	23	Right-hand bat	Right Arm Fast	In Demand	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+190	Daryl Mitchell	New Zealand	All-Rounder	2	Pro	34	Right-hand bat	Right Arm Medium	In Demand	15	351	1	27	131.46	12.13	Capped	All-rounders	Capped Players | All-rounders
+191	Jhye Richardson	Australia	Bowler	1.5	Pro	29	Right-hand bat	Right Arm Fast	Consistent	4	17	3	52.33	65.38	10.47	Capped	Bowlers	Capped Players | Bowlers
+192	Kyle Jamieson	New Zealand	Bowler	1.5	Pro	31	Right-hand bat	Right Arm Fast Medium	In Demand	13	65	14	29.71	108.33	9.67	Capped	Bowlers	Capped Players | Bowlers
+193	Spencer Johnson	Australia	Bowler	2	Pro	30	Left-hand bat	Left Arm Fast	In Demand	9	8	5	56.8	72.73	10.39	Capped	Bowlers	Capped Players | Bowlers
+194	Akash Deep	India	Bowler	1	Pro	29	Right-hand bat	Right Arm Fast Medium	In Demand	14	25	10	54.8	178.57	11.83	Capped	Bowlers	Capped Players | Bowlers
+195	Mark Wood	England	Bowler	2	Pro	36	Right-hand bat	Right Arm Fast	In Demand	5	12	11	16.27	150.00	8.95	Capped	Bowlers	Capped Players | Bowlers
+196	Riley Meredith	Australia	Bowler	1.5	Pro	29	Right-hand bat	Right Arm Fast	In Demand	18	0	19	32.21	0	9.46	Capped	Bowlers	Capped Players | Bowlers
+197	Tom Curran	England	Bowler	2	Pro	31	Right-hand bat	Right Arm Medium Fast	In Demand	13	127	13	33.08	118.69	10.84	Capped	Bowlers	Capped Players | Bowlers
+198	Kumar Kushagra	India	Wicketkeeper	0.3		21	Right-hand bat	N/A	In Demand	5	21	0	5.25	100	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+199	Odean Smith	West Indies	All-Rounder	0.75	Pro	29	Right-hand bat	Right Arm Medium Fast	In Demand	6	51	6	17	115.91	11.87	Capped	All-rounders	Capped Players | All-rounders
+200	Kyle Mayers	West Indies	All-Rounder	1.5	Pro	33	Left-hand bat	Right Arm Medium	Emerging	13	379	0	29.15	144.11	8.43	Capped	All-rounders	Capped Players | All-rounders
+201	Reece Topley	England	Bowler	0.75	Pro	32	Right-hand bat	Left Arm Fast	In Demand	6	3	5	44.4	50	11.1	Capped	Bowlers	Capped Players | Bowlers
+202	K.S Bharat	India	Wicketkeeper	0.75	Pro	32	Right-hand bat	N/A	Consistent	10	199	0	28.43	122.09	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+203	Mohd. Arshad Khan	India	All-Rounder	0.3		28	Left-hand bat	Right Arm Off Spin	Consistent	19	124	0	20.67	140.91	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+204	Simarjeet Singh	India	Bowler	0.3		28	Right-hand bat	Right Arm Fast Medium	In Demand	14	10	11	36.36	66.67	10	Uncapped	Bowlers	Uncapped Players | Bowlers
+205	M. Siddharth	India	Bowler	0.3		27	Right-hand bat	Left Arm Orthodox	Consistent	7	0	5	40.2	0	8.38	Uncapped	Bowlers	Uncapped Players | Bowlers
+206	Raj Angad Bawa	India	All-Rounder	0.3		23	Left-hand bat	Right Arm Medium Fast	In Demand	5	19	0	9.5	105.56	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+207	Rajvardhan Hangargekar	India	All-Rounder	0.3		23	Right-hand bat	Right Arm Fast Medium	In Demand	2	0	3	0	0	10	Uncapped	All-rounders	Uncapped Players | All-rounders
+208	Kamlesh Nagarkoti	India	All-Rounder	0.3		26	Right-hand bat	Right Arm Fast	In Demand	12	22	5	5.5	66.67	9.5	Uncapped	All-rounders	Uncapped Players | All-rounders
+209	Wayne Parnell	South Africa	Bowler	1	Pro	36	Left-hand bat	Left Arm Fast Medium	Developing	33	65	35	26.77	81.25	7.78	Capped	Bowlers	Capped Players | Bowlers
+210	K.C Cariappa	India	All-Rounder	0.3		31	Right-hand bat	Right Arm Off Spin	In Demand	11	24	8	8	114.29	9.67	Uncapped	All-rounders	Uncapped Players | All-rounders
+211	Ajay Mandal	India	All-Rounder	0.3		30	Left-hand bat	Left Arm Orthodox	In Demand	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+212	Kunal Rathore	India	Wicketkeeper	0.3		23	Left-hand bat	N/A	In Demand	1	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+213	Pravin Dubey	India	Bowler	0.3		32	Right-hand bat	Right Arm Leg Break	In Demand	5	23	2	55.5	69.7	8.54	Uncapped	Bowlers	Uncapped Players | Bowlers
+214	Darshan Nalkande	India	All-Rounder	0.3		27	Right-hand bat	Right Arm Medium Fast	In Demand	6	12	6	6	100	10.57	Uncapped	All-rounders	Uncapped Players | All-rounders
+215	Luvnith Sisodia	India	Wicketkeeper	0.3		26	Left-hand bat	Right Arm Off Spin	In Demand	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+216	Arjun Tendulkar	India	Bowler	0.3		26	Left-hand bat	Left Arm Fast Medium	Consistent	5	13	3	38	144.44	9.37	Uncapped	Bowlers	Uncapped Players | Bowlers
+217	Ashok Sharma	India	Bowler	0.3		23	Right-hand bat	Right Arm Medium Fast	In Demand	3	0	2	56.5	0	11.3	Uncapped	Bowlers	Uncapped Players | Bowlers
+218	Anukul Roy	India	All-Rounder	0.3		27	Left-hand bat	Left Arm Orthodox	In Demand	16	26	9	5.2	96.3	8.31	Uncapped	All-rounders	Uncapped Players | All-rounders
+219	Arshin Kulkarni	India	All-Rounder	0.3		21	Right-hand bat	Right Arm Medium Fast	In Demand	2	9	0	4.5	112.5	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+220	Manav Suthar	India	Bowler	0.3		23	Left-hand bat	Left Arm Orthodox	In Demand	1	1	0	0	50	13	Uncapped	Bowlers	Uncapped Players | Bowlers
+221	Shaik Rasheed	India	Batter	0.3		21	Right-hand bat	Right Arm Leg Spin	In Demand	5	71	0	14.2	112.7	0	Uncapped	Batters	Uncapped Players | Batters
+222	Prerak Mankad	India	All-Rounder	0.3		31	Right-hand bat	Right Arm Medium	In Demand	6	97	0	32.33	132.88	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+223	Nishant Sindhu	India	All-Rounder	0.3		22	Left-hand bat	Left Arm Orthodox	In Demand	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+224	Kuldip Yadav	India	Bowler	0.3		29	Left-hand bat	Left Arm Orthodox	In Demand	3	0	2	42	0	9.33	Uncapped	Bowlers	Uncapped Players | Bowlers
+225	Swastik Chhikara	India	Batter	0.3		21	Right-hand bat	Right Arm Off Spin	In Demand	0	0	0	0	0	0	Uncapped	Batters	Uncapped Players | Batters
+226	Manoj Bhandage	India	All-Rounder	0.3		27	Right-hand bat	Right Arm Medium Fast	In Demand	1	1	0	1	25	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+227	Ripal Patel	India	Batter	0.3		30	Right-hand bat	Right Arm Medium	In Demand	9	80	0	16	109.59	0	Uncapped	Batters	Uncapped Players | Batters
+228	Sachin Baby	India	Batter	0.3		37	Left-hand bat	Right Arm Off Spin	In Demand	21	144	2	14.4	122.03	0	Uncapped	Batters	Uncapped Players | Batters
+229	Akash Singh	India	Bowler	0.3		23	Left-hand bat	Left Arm Fast Medium	Consistent	10	0	9	36.22	0	9.54	Uncapped	Bowlers	Uncapped Players | Bowlers
+230	K.M Asif	India	Bowler	0.3		32	Right-hand bat	Right Arm Fast	In Demand	7	0	7	33	0	10.42	Uncapped	Bowlers	Uncapped Players | Bowlers
+231	Anmolpreet Singh	India	Batter	0.3		28	Right-hand bat	Right Arm Off Spin	In Demand	9	139	0	15.44	120.87	0	Uncapped	Batters	Uncapped Players | Batters
+232	Kulwant Khejroliya	India	Bowler	0.3		34	Left-hand bat	Left Arm Fast	In Demand	8	0	6	41.17	0	10.66	Uncapped	Bowlers	Uncapped Players | Bowlers
+233	Yudhvir Charak	India	All-Rounder	0.3		28	Right-hand bat	Right Arm Medium Fast	Consistent	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+234	Mohit Rathee	India	Bowler	0.3		27	Right-hand bat	Right Arm Leg Spin	In Demand	1	1	0	0	50	14.5	Uncapped	Bowlers	Uncapped Players | Bowlers
+235	Aryan Juyal	India	Wicketkeeper	0.3		24	Right-hand bat	Right Arm Off Spin	In Demand	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+236	Chris Jordan	England	Bowler	2	Pro	37	Right-hand bat	Right Arm Medium Fast	Emerging	34	81	30	35.67	105.19	9.61	Capped	Bowlers	Capped Players | Bowlers
+237	Allah Ghazanfar	Afghanistan	Bowler	0.75		20	Right-hand bat	Right Arm Off Spin	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+238	Umran Malik	India	Bowler	0.75		26	Right-hand bat	Right Arm Fast	Emerging	26	23	29	26.62	143.75	9.4	Capped	Bowlers	Capped Players | Bowlers
+239	Dilshan Madushanka	Sri Lanka	Bowler	0.75		25	Left-hand bat	Left Arm Fast	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+240	Josh Inglis	Australia	Wicketkeeper	2	Pro	31	Right-hand bat	N/A	Emerging	11	278	0	30.89	162.57	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+241	Navdeep Saini	India	Bowler	0.75		33	Right-hand bat	Right Arm Fast	Emerging	34	33	23	43.96	89.19	8.97	Capped	Bowlers	Capped Players | Bowlers
+242	Mujeeb Ur Rahman	Afghanistan	Bowler	2	Pro	25	Right-hand bat	Right Arm Off Spin	Emerging	20	12	20	31	80	8.34	Capped	Bowlers	Capped Players | Bowlers
+243	Jacob Bethell	England	All-Rounder	1.25	Pro	22	Left-hand bat	Left Arm Orthodox	Emerging	2	67	0	33.5	171.79	0	Capped	All-rounders	Capped Players | All-rounders
+244	Matt Henry	New Zealand	Bowler	2	Pro	34	Right-hand bat	Right Arm Fast Medium	Developing	9	7	4	77.75	70	11.52	Capped	Bowlers	Capped Players | Bowlers
+245	Abhinav Manohar	India	Batter	0.3		31	Right-hand bat	Right Arm Leg Break	Emerging	27	292	0	15.37	124.26	0	Uncapped	Batters	Uncapped Players | Batters
+246	Sean Abbott	Australia	All-Rounder	2	Pro	34	Right-hand bat	Right Arm Fast	Emerging	3	22	1	7.33	122.22	11.56	Capped	All-rounders	Capped Players | All-rounders
+247	Tymal Mills	England	Bowler	2	Pro	33	Right-hand bat	Left Arm Fast	Emerging	10	8	11	31.18	57.14	9.85	Capped	Bowlers	Capped Players | Bowlers
+248	Rahmanullah Gurbaz	Afghanistan	Wicketkeeper	2	Pro	24	Right-hand bat	N/A	Emerging	19	363	0	21.35	134.94	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+249	Tabraiz Shamsi	South Africa	Bowler	2	Pro	36	Left-hand bat	Left Arm Wrist Spin	Developing	5	2	3	60.33	50	9.05	Capped	Bowlers	Capped Players | Bowlers
+250	Vivrant Sharma	India	All-Rounder	0.3		26	Left-hand bat	Right Arm Leg Spin	Emerging	3	69	0	69	146.81	12.33	Uncapped	All-rounders	Uncapped Players | All-rounders
+251	Naveen Ul Haq	Afghanistan	Bowler	2	Pro	26	Right-hand bat	Right Arm Medium Fast	Emerging	18	18	25	23.64	72	9.16	Capped	Bowlers	Capped Players | Bowlers
+252	Tom Banton	England	Wicketkeeper	2	Pro	27	Right-hand bat	Right Arm Off Spin	Developing	2	18	0	9	90	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+253	Adil Rashid	England	Bowler	2	Pro	38	Right-hand bat	Right Arm Leg Spin	Emerging	3	22	2	45.5	137.5	9.1	Capped	Bowlers	Capped Players | Bowlers
+254	Ben Duckett	England	Batter	2	Pro	31	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+255	James Vince	England	Batter	2	Pro	35	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+256	Gus Atkinson	England	Bowler	2	Pro	28	Right-hand bat	Right Arm Fast Medium	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+257	Michael Bracewell	New Zealand	All-Rounder	1.5	Pro	35	Left-hand bat	Right Arm Off Spin	Developing	5	58	6	29	123.4	8.64	Capped	All-rounders	Capped Players | All-rounders
+258	Jason Behrendorff	Australia	Bowler	1.5	Pro	35	Left-hand bat	Left Arm Fast Medium	Emerging	22	6	19	29.05	66.67	9.05	Capped	Bowlers	Capped Players | Bowlers
+259	Vyshak Vijaykumar	India	Bowler	0.3		29	Right-hand bat	Right Arm Fast	Emerging	19	14	22	29.45	116.67	10.2	Capped	Bowlers	Capped Players | Bowlers
+260	Kwena Maphaka	South Africa	Bowler	0.75		20	Left-hand bat	Left Arm Fast	Emerging	4	8	2	71.5	400	13	Capped	Bowlers	Capped Players | Bowlers
+261	Gurjapneet Singh	India	Bowler	0.3		27	Left-hand bat	Left Arm Fast Medium	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
+262	Jimmy Neesham	New Zealand	All-Rounder	1.5	Pro	35	Left-hand bat	Right Arm Medium Fast	Developing	14	92	8	10.22	98.92	9.28	Capped	All-rounders	Capped Players | All-rounders
+263	Mayank Dagar	India	All-Rounder	0.3		29	Left-hand bat	Left Arm Orthodox	Emerging	8	0	2	0	0	8.89	Uncapped	All-rounders	Uncapped Players | All-rounders
+264	Obed McCoy	West Indies	Bowler	1.25	Pro	29	Right-hand bat	Left Arm Fast Medium	Emerging	8	8	11	22.73	160	9.32	Capped	Bowlers	Capped Players | Bowlers
+265	Sushant Mishra	India	Bowler	0.3		25	Left-hand bat	Left Arm Fast	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
+266	Akeal Hosein	West Indies	Bowler	1.5	Pro	32	Left-hand bat	Left Arm Orthodox	Emerging	1	16	1	40	160	10	Capped	Bowlers	Capped Players | Bowlers
+267	Dominic Drakes	West Indies	All-Rounder	1.25	Pro	28	Left-hand bat	Left Arm Fast Medium	Emerging	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+268	William O'Rourke	New Zealand	Bowler	1.5	Pro	24	Right-hand bat	Right Arm Fast	Developing	3	0	6	22	0	12.77	Capped	Bowlers	Capped Players | Bowlers
+269	Tim Seifert	New Zealand	Wicketkeeper	1.25	Pro	31	Right-hand bat	N/A	Emerging	3	26	0	8.67	113.04	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+270	Mark Chapman	New Zealand	Batter	1.5	Pro	31	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+271	Daniel Worrall	England	Bowler	1.5	Pro	34	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+272	Matthew Potts	England	Bowler	1.5	Pro	27	Right-hand bat	Right Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+273	Tom Latham	New Zealand	Wicketkeeper	1.5	Pro	34	Left-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+274	Dwaine Pretorius	South Africa	All-Rounder	0.75		37	Right-hand bat	Right Arm Medium Fast	Emerging	7	44	6	11	157.14	9.52	Capped	All-rounders	Capped Players | All-rounders
+275	Keemo Paul	West Indies	All-Rounder	1.25	Pro	28	Right-hand bat	Right Arm Medium Fast	Developing	8	18	9	3.6	75	8.72	Capped	All-rounders	Capped Players | All-rounders
+276	Ashton Agar	Australia	All-Rounder	1.25	Pro	32	Left-hand bat	Left Arm Orthodox	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+277	Nandre Burger	South Africa	Bowler	1.25	Pro	30	Left-hand bat	Left Arm Fast	Emerging	9	0	12	18.42	0	8.5	Capped	Bowlers	Capped Players | Bowlers
+278	Gulbadin Naib	Afghanistan	All-Rounder	1	Pro	34	Right-hand bat	Right Arm Medium Fast	Developing	2	19	0	19	126.67	12	Capped	All-rounders	Capped Players | All-rounders
+279	Rishi Dhawan	India	All-Rounder	0.3		36	Right-hand bat	Right Arm Medium Fast	Emerging	39	210	25	19.09	112.3	8.08	Capped	All-rounders	Capped Players | All-rounders
+280	Matthew Forde	West Indies	All-Rounder	1.25	Pro	23	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+281	Will Young	New Zealand	Batter	1.25	Pro	33	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+282	James Anderson	England	Bowler	1.25	Pro	43	Left-hand bat	Right Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+283	Jordan Cox	England	Wicketkeeper	1.25	Pro	25	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+284	Ashton Turner	Australia	All-Rounder	1	Pro	33	Right-hand bat	Right Arm Off Spin	Emerging	6	24	0	4.8	85.71	0	Capped	All-rounders	Capped Players | All-rounders
+285	Luke Wood	England	Bowler	0.75		30	Left-hand bat	Left Arm Fast	Developing	2	9	1	93	300	15.5	Capped	Bowlers	Capped Players | Bowlers
+286	Josh Philippe	Australia	Wicketkeeper	0.75		28	Right-hand bat	N/A	Developing	5	78	0	19.5	101.3	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+287	Andrew Tye	Australia	Bowler	0.75		39	Right-hand bat	Right Arm Medium Fast	Developing	30	91	42	23.31	119.74	8.59	Capped	Bowlers	Capped Players | Bowlers
+288	Akash Madhwal	India	Bowler	0.3		32	Right-hand bat	Right Arm Fast Medium	Emerging	17	8	23	25.65	57.14	10.06	Uncapped	Bowlers	Uncapped Players | Bowlers
+289	Alex Carey	Australia	Wicketkeeper	1	Pro	34	Left-hand bat	N/A	Developing	3	32	0	16	110.34	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+290	Mehidy Hasan Miraz	Bangladesh	All-Rounder	1	Pro	28	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+291	Nathan Smith	New Zealand	All-Rounder	1	Pro	27	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+292	Dan Lawrence	England	Batter	1	Pro	28	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+293	Benjamin Sears	New Zealand	Bowler	1	Pro	28	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+294	Taskin Ahmed	Bangladesh	Bowler	1	Pro	31	Left-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+295	Brydon Carse	England	All-Rounder	1	Pro	30	Right-hand bat	Right Arm Fast Medium	Emerging	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+296	Gurnoor Singh Brar	India	Bowler	0.3		25	Left-hand bat	Left Arm Fast Medium	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
+297	Xavier Bartlett	Australia	Bowler	0.75		27	Right-hand bat	Right Arm Fast Medium	Emerging	7	22	5	37.8	110	9.61	Capped	Bowlers	Capped Players | Bowlers
+298	Patrick Kruger	South Africa	All-Rounder	0.75		31	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+299	Prashant Solanki	India	Bowler	0.3		33	Right-hand bat	Right Arm Leg Break	Emerging	2	0	2	19	0	6.33	Uncapped	Bowlers	Uncapped Players | Bowlers
+300	Ben McDermott	Australia	Wicketkeeper	0.75		31	Right-hand bat	N/A	Developing	23	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+301	Vijayakanth Viyaskanth	Sri Lanka	Bowler	0.75		24	Right-hand bat	Right Arm Leg Break	Developing	3	7	1	86	140	8.6	Capped	Bowlers	Capped Players | Bowlers
+302	Shamar Joseph	West Indies	Bowler	0.75		26	Right-hand bat	Right Arm Fast	Emerging	1	0	0	0	0	11.75	Capped	Bowlers	Capped Players | Bowlers
+303	Kamindu Mendis	Sri Lanka	All-Rounder	0.75		27	Left-hand bat	Left Arm Orthodox	Emerging	5	92	2	30.67	133.33	8.57	Capped	All-rounders	Capped Players | All-rounders
+304	Bhanuka Rajapaksa	Sri Lanka	Batter	0.75		34	Left-hand bat	Right Arm Medium	Emerging	13	277	0	23.08	145.03	0	Capped	Batters	Capped Players | Batters
+305	Josh Little	Ireland	Bowler	0.75		26	Right-hand bat	Left Arm Fast Medium	Developing	11	0	11	30.82	0	8.92	Capped	Bowlers	Capped Players | Bowlers
+306	Sandeep Warrier	India	Bowler	0.75		35	Right-hand bat	Right Arm Fast	Developing	10	0	8	31.63	0	9.04	Capped	Bowlers	Capped Players | Bowlers
+307	Dushan Hemantha	Sri Lanka	All-Rounder	0.75		31	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+308	William Sutherland	Australia	All-Rounder	0.75		26	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+309	Johnson Charles	West Indies	Wicketkeeper	0.75		37	Right-hand bat	N/A	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+310	Matthew Short	Australia	All-Rounder	0.75		30	Right-hand bat	Right Arm Off Spin	Developing	7	119	0	17	120.2	6.24	Capped	All-rounders	Capped Players | All-rounders
+311	Charith Asalanka	Sri Lanka	Batter	0.75		28	Left-hand bat	Right Arm Off Spin	Developing	31	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+312	Pathum Nissanka	Sri Lanka	Batter	0.75		27	Right-hand bat	Right Arm Medium	Developing	3	86	0	28.67	145.76	0	Capped	Batters	Capped Players | Batters
+313	Blessing Muzarabani	Zimbabwe	Bowler	0.75		29	Right-hand bat	Right Arm Fast	Developing	2	0	4	18.75	0	10.71	Capped	Bowlers	Capped Players | Bowlers
+314	Dasun Shanaka	Sri Lanka	All-Rounder	0.75		34	Right-hand bat	Right Arm Medium	Developing	3	26	0	13	100	0	Capped	All-rounders	Capped Players | All-rounders
+315	Siddharth Kaul	India	Bowler	0.4		35	Right-hand bat	Right Arm Medium Fast	Emerging	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+316	Lalit Yadav	India	All-Rounder	0.3		29	Right-hand bat	Right Arm Off Spin	Emerging	27	305	10	19.06	105.17	8.85	Uncapped	All-rounders	Uncapped Players | All-rounders
+317	Wiaan Mulder	South Africa	All-Rounder	0.75		28	Right-hand bat	Right Arm Medium Fast	Developing	1	9	0	9	81.82	16	Capped	All-rounders	Capped Players | All-rounders
+318	Lizaad Williams	South Africa	Bowler	0.75		32	Right-hand bat	Right Arm Fast Medium	Emerging	2	1	1	72	50	12	Capped	Bowlers	Capped Players | Bowlers
+319	Junior Dala	South Africa	Bowler	0.75		36	Right-hand bat	Right Arm Medium Fast	Developing	1	0	0	0	0	11.33	Capped	Bowlers	Capped Players | Bowlers
+320	Michael Neser	Australia	Bowler	0.75		36	Right-hand bat	Right Arm Medium Fast	Developing	1	0	0	0	0	15.5	Capped	Bowlers	Capped Players | Bowlers
+321	Ben Dwarshuis	Australia	Bowler	0.75		31	Left-hand bat	Left Arm Fast	Developing	1	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+322	Mahedi Hasan	Bangladesh	All-Rounder	0.75		31	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+323	Dunith Wellalage	Sri Lanka	All-Rounder	0.75		23	Left-hand bat	Left Arm Orthodox	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+324	Roston Chase	West Indies	All-Rounder	0.75		34	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+325	Alick Athanaze	West Indies	Batter	0.75		27	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+326	Ibrahim Zadran	Afghanistan	Batter	0.75		24	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+327	Mikyle Louis	West Indies	Batter	0.75		25	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+328	Towhid Hridoy	Bangladesh	Batter	0.75		25	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+329	Brandon King	West Indies	Batter	0.75		31	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+330	Najibullah Zadran	Afghanistan	Batter	0.75		33	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+331	Hilton Cartwright	Australia	Batter	0.75		34	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+332	Gudakesh Motie	West Indies	Bowler	0.75		31	Left-hand bat	Left Arm Orthodox	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+333	Zak Foulkes	New Zealand	Bowler	0.75		23	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+334	Hasan Mahmud	Bangladesh	Bowler	0.75		26	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+335	Jeffery Vandersay	Sri Lanka	Bowler	0.75		36	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+336	Nqabayomzi Peter	South Africa	Bowler	0.75		24	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+337	Olly Stone	England	Bowler	0.75		32	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+338	Richard Ngarava	Zimbabwe	Bowler	0.75		28	Left-hand bat	Left Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+339	Rishad Hossain	Bangladesh	Bowler	0.75		23	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+340	Tanzim Hasan Sakib	Bangladesh	Bowler	0.75		23	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+341	Zahir Khan Pakten	Afghanistan	Bowler	0.75		27	Right-hand bat	Left Arm Wrist Spin	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+342	Shoriful Islam	Bangladesh	Bowler	0.75		24	Left-hand bat	Left Arm Fast Medium	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+343	Waqar Salamkheil	Afghanistan	Bowler	0.75		27	Right-hand bat	Left Arm Wrist Spin	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+344	Qais Ahmad	Afghanistan	Bowler	0.75		25	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+345	Daryn Dupavillon	South Africa	Bowler	0.75		31	Right-hand bat	Right Arm Fast	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+346	Tanveer Sangha	Australia	Bowler	0.75		24	Right-hand bat	Right Arm Leg Break	Developing	0	0	0	0	0	0	Capped	Bowlers	Capped Players | Bowlers
+347	Kyle Verreynne	South Africa	Wicketkeeper	0.75		28	Right-hand bat	N/A	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+348	Ollie Pope	England	Wicketkeeper	0.75		28	Right-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+349	Andre Fletcher	West Indies	Wicketkeeper	0.75		38	Right-hand bat	Right Arm Medium	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+350	Kusal Perera	Sri Lanka	Wicketkeeper	0.75		35	Left-hand bat	N/A	Developing	0	0	0	0	0	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+351	Litton Das	Bangladesh	Wicketkeeper	0.75		31	Right-hand bat	Right Arm Off Spin	Emerging	1	4	0	4	100	0	Capped	Wicketkeepers	Capped Players | Wicketkeepers
+352	Karim Janat	Afghanistan	All-Rounder	0.75		27	Right-hand bat	Right Arm Medium Fast	Emerging	1	0	0	0	0	30	Capped	All-rounders	Capped Players | All-rounders
+353	Suyash Prabhudessai	India	All-Rounder	0.3		28	Right-hand bat	Right Arm Off Spin	Emerging	11	126	0	12.6	118.87	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+354	Harry Tector	Ireland	Batter	0.5		26	Right-hand bat	Right Arm Off Spin	Developing	51	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+355	Urvil Patel	India	Wicketkeeper	0.3		26	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+356	Vipraj Nigam	India	All-Rounder	0.3		21	Right-hand bat	Right Arm Leg Break	Emerging	17	154	12	19.25	179.07	9.34	Uncapped	All-rounders	Uncapped Players | All-rounders
+357	Sanvir Singh	India	All-Rounder	0.3		29	Right-hand bat	Right Arm Fast	Emerging	6	25	0	12.5	119.05	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+358	Rajan Kumar	India	Bowler	0.3		29	Left-hand bat	Left Arm Fast	Emerging	0	0	0	0	0	0	Uncapped	Bowlers	Uncapped Players | Bowlers
+359	Shivam Singh	India	All-Rounder	0.3		30	Left-hand bat	Right Arm Off Spin	Emerging	1	2	0	0	66.67	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+360	Digvesh Singh	India	Bowler	0.3		26	Right-hand bat	Right Arm Off Spin	Emerging	15	1	16	31.25	33.33	8.33	Uncapped	Bowlers	Uncapped Players | Bowlers
+361	Leus Du Plooy	England	Batter	0.5		30	Left-hand bat	Right Arm Off Spin	Developing	0	0	0	0	0	0	Capped	Batters	Capped Players | Batters
+362	Vansh Bedi	India	Wicketkeeper	0.3		23	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+363	Yash Dhull	India	Batter	0.3		23	Right-hand bat	Right Arm Off Spin	Emerging	4	16	0	5.33	69.57	0	Uncapped	Batters	Uncapped Players | Batters
+364	Vidwath Kaverappa	India	Bowler	0.3		27	Right-hand bat	Right Arm Fast Medium	Emerging	1	0	2	18	0	9	Uncapped	Bowlers	Uncapped Players | Bowlers
+365	Vicky Ostwal	India	All-Rounder	0.3		23	Left-hand bat	Left Arm Orthodox	Emerging	0	0	0	0	0	0	Uncapped	All-rounders	Uncapped Players | All-rounders
+366	Kumar Kartikeya Singh	India	Bowler	0.3		28	Right-hand bat	Left Arm Orthodox	Emerging	16	12	12	33.92	70.59	8.66	Uncapped	Bowlers	Uncapped Players | Bowlers
+367	Ashwani Kumar	India	Bowler	0.3		24	Left-hand bat	Left Arm Fast Medium	Emerging	7	0	11	21.09	0	11.32	Uncapped	Bowlers	Uncapped Players | Bowlers
+368	Brandon McMullen	Scotland	All-Rounder	0.3		26	Right-hand bat	Right Arm Medium Fast	Developing	0	0	0	0	0	0	Capped	All-rounders	Capped Players | All-rounders
+369	Vignesh Puthur	India	Bowler	0.3		25	Right-hand bat	Left Arm Wrist Spin	Emerging	5	0	6	18.17	0	9.08	Uncapped	Bowlers	Uncapped Players | Bowlers
+370	Abhinandan Singh	India	Bowler	0.3		29	Right-hand bat	Right Arm Medium Fast	Emerging	2	0	3	22.67	0	10.2	Uncapped	Bowlers	Uncapped Players | Bowlers
+371	Himanshu Sharma	India	Bowler	0.3		27	Right-hand bat	Right Arm Leg Spin	Emerging	2	0	0	0	0	11.4	Uncapped	Bowlers	Uncapped Players | Bowlers
+372	Upendra Singh Yadav	India	Wicketkeeper	0.3		28	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers
+373	Shrijith Krishnan	India	Wicketkeeper	0.3		29	Right-hand bat	N/A	Emerging	0	0	0	0	0	0	Uncapped	Wicketkeepers	Uncapped Players | Wicketkeepers

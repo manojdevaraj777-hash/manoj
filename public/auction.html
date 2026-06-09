@@ -985,6 +985,57 @@
             animation: celebration-pop 900ms ease;
         }
 
+        .auction-pause-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(4, 15, 28, 0.85);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 250ms ease;
+        }
+
+        .auction-pause-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .auction-pause-content {
+            text-align: center;
+            animation: pause-pulse 2s ease-in-out infinite;
+        }
+
+        .auction-pause-icon {
+            font-size: 72px;
+            line-height: 1;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 20px rgba(255, 199, 112, 0.4));
+        }
+
+        .auction-pause-text {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            color: #ffc770;
+            text-shadow: 0 0 30px rgba(255, 199, 112, 0.3);
+        }
+
+        .auction-pause-sub {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 12px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pause-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
         .celebration-player-image {
             width: 92px;
             height: 92px;
@@ -1355,6 +1406,39 @@
             </section>
 
             <aside class="sidebar">
+                <section class="auctioneer-controls" id="auctioneerControls" style="display:none;">
+                    <h3 class="panel-title">Auctioneer Controls</h3>
+                    <div id="manualControls" style="display:none;">
+                        <div class="control-group">
+                            <input type="text" id="playerSearch" placeholder="Search players..." autocomplete="off">
+                            <select id="playerCategory">
+                                <option value="all">All Players</option>
+                                <option value="marquee">Marquee</option>
+                                <option value="capped">Capped</option>
+                                <option value="uncapped">Uncapped</option>
+                                <option value="batters">Batters</option>
+                                <option value="allrounders">All-Rounders</option>
+                                <option value="wicketkeepers">Wicketkeepers</option>
+                                <option value="bowlers">Bowlers</option>
+                            </select>
+                            <select id="playerSelect" size="8" style="width:100%;"></select>
+                        </div>
+                        <div class="control-group" style="margin-top:4px;">
+                            <button onclick="nominatePlayer()">Nominate Player</button>
+                        </div>
+                    </div>
+                    <div id="manualControlButtons" style="display:none;">
+                        <div class="control-group action-row" style="margin-top:8px;display:flex;gap:8px;">
+                            <button class="quick-bid-btn" onclick="finalizeSale()" style="flex:1;">Mark Sold</button>
+                            <button class="skip-bid-btn" onclick="markUnsold()" style="flex:1;">Mark Unsold</button>
+                        </div>
+                    </div>
+                    <div class="control-group" id="auctioneerActionButtons" style="display:flex;gap:8px;margin-top:8px;">
+                        <button class="skip-bid-btn" onclick="skipCurrentPlayer()" style="flex:1;" id="skipPlayerBtn">Skip Player</button>
+                        <button class="media-btn" id="pauseBtnAuctioneer" onclick="togglePause()" style="flex:1;">Pause</button>
+                    </div>
+                </section>
+
                 <section class="auction-queue">
                     <h3 class="panel-title">Upcoming Auction List</h3>
                     <div id="upcomingPlayersList" class="queue-list"></div>
@@ -1374,6 +1458,11 @@
                     </div>
                 </section>
             </aside>
+
+            <section class="teams-panel" id="teamsPanel" style="grid-column:1/-1;">
+                <h3 class="panel-title">All Teams</h3>
+                <div class="teams-grid" id="teamsGrid"></div>
+            </section>
         </div>
 
     </div>
@@ -1399,6 +1488,14 @@
             <div class="celebration-player" id="celebrationPlayer">PLAYER</div>
             <div class="celebration-team" id="celebrationTeam">TEAM</div>
             <div class="celebration-price" id="celebrationPrice">SOLD</div>
+        </div>
+    </div>
+
+    <div class="auction-pause-overlay" id="auctionPauseOverlay">
+        <div class="auction-pause-content">
+            <div class="auction-pause-icon">⏸</div>
+            <div class="auction-pause-text">AUCTION PAUSED</div>
+            <div class="auction-pause-sub">Waiting for the auctioneer to resume...</div>
         </div>
     </div>
 
@@ -1502,6 +1599,14 @@
             updateTeamsDisplay(teamsData);
             updateTeamAuctionStatusPanel();
             renderAuctionOutcomeLists();
+
+            if (data.paused) {
+                document.getElementById('auctionPauseOverlay').classList.add('active');
+                document.getElementById('pauseBtnAuctioneer').innerText = 'Resume';
+            } else {
+                document.getElementById('auctionPauseOverlay').classList.remove('active');
+                document.getElementById('pauseBtnAuctioneer').innerText = 'Pause';
+            }
 
             if (data.auctionState && data.auctionState.player) {
                 syncAuctionState(data.auctionState);
@@ -1995,9 +2100,7 @@
 
         function updateModeDisplay() {
             const badge = document.getElementById('modeBadge');
-            const skipBtn = document.getElementById('skipBidBtn');
             const isAIMode = currentMode === 'ai' || currentMode === 'ai_trainer';
-            skipBtn.style.display = isAIMode ? 'inline-flex' : 'none';
 
             if (isAIMode) {
                 badge.innerText = 'AI Mode';
@@ -2017,6 +2120,7 @@
             const isManualMode = currentMode === 'manual';
             document.getElementById('manualControls').style.display = isManualMode ? 'grid' : 'none';
             document.getElementById('manualControlButtons').style.display = isManualMode ? 'grid' : 'none';
+            document.getElementById('auctioneerActionButtons').style.display = 'flex';
         }
 
         function setPlayerImage(player) {
@@ -2186,10 +2290,8 @@
         function updateBidButton() {
             const teamAuctionEnded = currentTeamAuctionStatus === 'complete';
             const bidDisabled = !myTeam || !auctionLive || currentMode === 'ended' || skippedCurrentPlayer || teamAuctionEnded;
-            const skipDisabled = !myTeam || !auctionLive || (currentMode !== 'ai' && currentMode !== 'ai_trainer') || skippedCurrentPlayer || teamAuctionEnded;
             document.getElementById('bidButton').disabled = bidDisabled;
             document.getElementById('quickBidBtn').disabled = bidDisabled;
-            document.getElementById('skipBidBtn').disabled = skipDisabled;
 
             const bidButton = document.getElementById('bidButton');
             if (!auctionLive) {
@@ -2376,6 +2478,24 @@
             socket.emit('markUnsold', roomCode);
         }
 
+        function togglePause() {
+            socket.emit('togglePause', roomCode);
+        }
+
+        function skipCurrentPlayer() {
+            socket.emit('skipCurrentPlayer', roomCode);
+        }
+
+        socket.on('auctionPaused', (data) => {
+            document.getElementById('auctionPauseOverlay').classList.add('active');
+            document.getElementById('pauseBtnAuctioneer').innerText = 'Resume';
+        });
+
+        socket.on('auctionResumed', (data) => {
+            document.getElementById('auctionPauseOverlay').classList.remove('active');
+            document.getElementById('pauseBtnAuctioneer').innerText = 'Pause';
+        });
+
         function loadAvailablePlayers() {
             socket.emit('getAvailablePlayers', roomCode);
         }
@@ -2459,6 +2579,7 @@
 
         function sendMessage() {
             const input = document.getElementById('chatInput');
+            if (!input) return;
             const message = input.value.trim();
             if (message) {
                 socket.emit('sendMessage', { roomCode, message, playerName });
@@ -2468,6 +2589,7 @@
 
         function addMessage(msg, type) {
             const messagesDiv = document.getElementById('messages');
+            if (!messagesDiv) return;
             const messageDiv = document.createElement('div');
             messageDiv.className = 'message';
             const time = new Date().toLocaleTimeString();
@@ -2645,9 +2767,12 @@
             }, 5000);
         }
 
-        document.getElementById('chatInput').addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') sendMessage();
-        });
+        const chatInput = document.getElementById('chatInput');
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') sendMessage();
+            });
+        }
 
         document.getElementById('playerSearch').addEventListener('input', updatePlayerSelect);
         document.getElementById('playerCategory').addEventListener('change', updatePlayerSelect);

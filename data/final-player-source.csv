@@ -1,374 +1,374 @@
-Source Order,Player Name,2021 Price (Cr),2022 Price (Cr),2023 Price (Cr),2024 Price (Cr),2025 Price (Cr),Sold Seasons,Retained Seasons,Sold Seasons Count,Retained Seasons Count,Times Unsold,Market Min,Market Target,Market Max,Capped Status,Primary Auction Category,Auction Tags
-1,Rishabh Pant,16.0,16.0,16.0,16.0,27.0,2025,"2021,2022,2023,2024",1,4,0,18.01,25.02,31.05,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-2,Shreyas Iyer,12.25,12.25,12.25,12.25,26.75,"2022,2025","2021,2023,2024",2,3,0,17.38,24.14,30.76,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-3,Venkatesh Iyer,0.2,8.0,8.0,8.0,23.75,"2021,2025","2022,2023,2024",2,3,0,14.96,20.77,27.31,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-4,Virat Kohli,15.0,15.0,15.0,15.0,21.0,,"2021,2022,2023,2024,2025",0,5,0,15.0,17.8,21.0,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-5,Nicholas Pooran,10.75,10.75,16.0,16.0,21.0,"2022,2023","2021,2024,2025",2,3,0,14.27,19.82,24.18,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-6,Ravindra Jadeja,16.0,16.0,16.0,16.0,18.0,,"2021,2022,2023,2024,2025",0,5,0,14.9,16.93,19.47,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-7,Yuzvendra Chahal,6.5,6.5,6.5,6.5,18.0,"2022,2025","2021,2023,2024",2,3,0,11.47,15.93,20.7,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-8,Mitchell Starc,U,U,U,24.75,11.75,"2024,2025",,2,0,3,10.34,14.57,22.28,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-9,Jasprit Bumrah,12.0,12.0,12.0,12.0,18.0,,"2021,2022,2023,2024,2025",0,5,0,12.18,16.92,20.7,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-10,Rohit Sharma,16.0,16.0,16.0,16.0,16.3,,"2021,2022,2023,2024,2025",0,5,0,14.2,16.14,18.56,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-11,Suryakumar Yadav,8.0,8.0,8.0,8.0,16.35,,"2021,2022,2023,2024,2025",0,5,0,10.69,14.85,18.8,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-12,Arshdeep Singh,4.0,4.0,4.0,4.0,18.0,2025,"2021,2022,2023,2024",1,4,0,11.15,15.48,20.7,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-13,Shubman Gill,8.0,8.0,8.0,8.0,16.5,2022,"2021,2023,2024,2025",1,4,0,10.78,14.97,18.97,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-14,Rashid Khan,15.0,15.0,15.0,15.0,18.0,2022,"2021,2023,2024,2025",1,4,0,14.43,16.4,18.86,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-15,Sanju Samson,14.0,14.0,14.0,14.0,18.0,,"2021,2022,2023,2024,2025",0,5,0,13.96,15.87,18.25,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-16,KL Rahul,17.0,17.0,17.0,17.0,14.0,"2022,2025","2021,2023,2024",2,3,0,13.73,15.6,17.94,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-17,Jos Buttler,10.0,10.0,10.0,10.0,15.75,2025,"2021,2022,2023,2024",1,4,0,10.59,14.72,18.11,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-18,Hardik Pandya,15.0,15.0,15.0,15.0,16.35,2022,"2021,2023,2024,2025",1,4,0,13.75,15.63,17.97,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-19,Sam Curran,18.5,U,18.5,18.5,2.4,"2023,2025","2021,2024",2,2,1,2.3,10.43,17.76,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-20,Ishan Kishan,15.25,15.25,15.25,15.25,11.25,"2022,2025","2021,2023,2024",2,3,0,11.25,13.38,15.39,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-21,Trent Boult,8.0,8.0,8.0,8.0,12.5,"2022,2025","2021,2023,2024",2,3,0,8.42,11.69,14.37,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-22,Glenn Maxwell,14.25,11.0,11.0,11.0,4.2,"2021,2025","2022,2023,2024",2,3,0,4.2,8.34,14.25,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-23,Mohammad Siraj,7.0,7.0,7.0,7.0,12.25,2025,"2021,2022,2023,2024",1,4,0,8.14,11.31,14.09,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-24,Deepak Chahar,14.0,14.0,14.0,14.0,9.25,"2022,2025","2021,2023,2024",2,3,0,9.25,11.78,14.0,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-25,Jofra Archer,8.0,8.0,8.0,U,12.5,"2022,2025","2021,2023",2,2,1,8.18,11.36,13.86,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-26,Bhuvneshwar Kumar,4.2,4.2,4.2,4.2,10.75,"2022,2025","2021,2023,2024",2,3,0,6.89,9.57,12.36,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-27,Ben Stokes,U,U,U,U,U,,,0,0,5,2.0,10.5,12.5,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-28,MS Dhoni,12.0,12.0,12.0,12.0,4.0,,"2021,2022,2023,2024,2025",0,5,0,4.0,8.53,12.0,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-29,Pat Cummins,15.0,U,U,20.5,18.0,"2021,2024",2025,2,1,2,13.95,18.18,22.55,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-30,Marcus Stoinis,9.2,9.2,10.0,10.0,11.0,"2022,2025","2021,2023,2024",2,3,0,9.14,10.39,11.94,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-31,Josh Hazlewood,7.75,7.75,7.75,U,12.5,"2022,2025","2021,2023",2,2,1,8.16,11.33,13.82,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-32,Kagiso Rabada,9.25,9.25,9.25,9.25,10.75,"2022,2025","2021,2023,2024",2,3,0,8.76,9.95,11.44,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-33,Yashasvi Jaiswal,2.4,4.0,4.0,4.0,18.0,"2021,2022","2023,2024,2025",2,3,0,11.52,16.0,20.88,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-34,Mohammed Shami,6.25,6.25,6.25,6.25,10.0,"2022,2025","2021,2023,2024",2,3,0,6.71,9.32,11.5,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-35,Phil Salt,U,U,2.0,U,11.5,"2023,2025",,2,0,3,6.68,9.27,11.9,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
-36,Liam Livingstone,0.75,11.5,11.5,11.5,8.75,"2021,2022,2025","2023,2024",3,2,0,2.0,9.86,11.5,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-37,Shardul Thakur,10.75,10.75,10.75,4.0,U,"2022,2024","2021,2023",2,2,1,3.84,7.19,10.32,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-38,Harry Brook,U,U,13.25,4.0,6.25,"2023,2024,2025",,3,0,2,3.68,6.21,12.19,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-39,Krunal Pandya,8.25,8.25,8.25,8.25,5.75,"2022,2025","2021,2023,2024",2,3,0,5.75,7.08,8.25,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-40,David Warner,6.25,6.25,6.25,6.25,U,2022,"2021,2023,2024",1,3,1,5.28,6.0,6.9,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-41,Matheesha Pathirana,U,0.2,0.2,0.2,13.0,2022,"2023,2024,2025",1,3,1,7.28,11.42,18.0,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-42,Abhishek Sharma,0.55,6.5,6.5,6.5,14.0,2021,"2022,2023,2024,2025",1,4,0,8.55,11.88,16.52,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-43,Faf du Plessis,7.0,7.0,7.0,7.0,2.0,"2022,2025","2021,2023,2024",2,3,0,2.0,4.83,7.0,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-44,Travis Head,U,U,U,6.8,14.0,2024,2025,1,1,3,8.84,12.28,16.73,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-45,Jake Fraser-Mcgurk,U,U,U,U,9.0,2025,,1,0,4,6.65,7.56,9.32,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-46,Rinku Singh,0.8,0.55,0.55,0.55,13.0,"2021,2022","2023,2024,2025",2,3,0,7.86,11.22,15.86,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-47,Riyan Parag,0.2,3.8,3.8,3.8,14.0,2021,"2022,2023,2024,2025",1,4,0,7.63,10.59,14.72,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-48,Ravichandran Ashwin,5.0,5.0,5.0,5.0,U,2022,"2021,2023,2024",1,3,1,4.22,4.8,5.52,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-49,Shivam Dube,4.4,4.0,4.0,4.0,12.0,"2021,2022","2023,2024,2025",2,3,0,6.72,9.84,13.8,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
-50,Varun Chakravarthy,4.0,8.0,8.0,8.0,12.0,2021,"2022,2023,2024,2025",1,4,0,8.32,10.64,13.92,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
-51,Sai Sudharsan,U,0.2,0.2,0.2,8.5,2022,"2023,2024,2025",1,3,1,5.36,9.64,13.57,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-52,Rajat Patidar,0.2,0.2,0.2,0.2,11.0,"2021,2022","2023,2024,2025",2,3,0,4.57,8.61,12.93,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-53,Tilak Varma,U,1.7,1.7,1.7,8.0,2022,"2023,2024,2025",1,3,1,3.24,5.79,8.8,Capped,Marquee Players,Marquee Players | Capped Players | Batters
-54,Heinrich Klaasen,U,U,5.25,5.25,23.0,2023,"2024,2025",1,2,2,13.38,18.59,24.33,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-55,Daryl Mitchell,U,0.75,U,14.0,U,"2022,2024",,2,0,3,8.11,11.27,14.49,Capped,All-rounders,Capped Players | All-rounders
-56,Harshal Patel,10.75,10.75,10.75,11.75,8.0,"2022,2024,2025","2021,2023",3,2,0,8.0,9.6,11.75,Capped,All-rounders,Capped Players | All-rounders
-57,Axar Patel,9.0,9.0,12.0,12.0,16.5,,"2021,2022,2023,2024,2025",0,5,0,11.18,15.53,18.97,Capped,All-rounders,Capped Players | All-rounders
-58,T. Natarajan,4.0,4.0,4.0,4.0,10.75,"2022,2025","2021,2023,2024",2,3,0,6.87,9.54,12.36,Capped,Bowlers,Capped Players | Bowlers
-59,Avesh Khan,10.0,10.0,10.0,10.0,9.75,"2022,2025","2021,2023,2024",2,3,0,8.7,9.88,11.37,Capped,Bowlers,Capped Players | Bowlers
-60,Ruturaj Gaikwad,6.0,6.0,6.0,6.0,18.0,,"2021,2022,2023,2024,2025",0,5,0,11.4,15.84,20.7,Capped,Batters,Capped Players | Batters
-61,Alzarri Joseph,U,2.4,2.4,11.5,U,"2022,2024",2023,2,1,2,6.71,9.32,12.17,Capped,Bowlers,Capped Players | Bowlers
-62,Prasidh Krishna,10.0,10.0,10.0,10.0,9.5,"2022,2025","2021,2023,2024",2,3,0,8.59,9.77,11.23,Capped,Bowlers,Capped Players | Bowlers
-63,Jhye Richardson,14.0,U,1.5,5.0,U,"2021,2023,2024",,3,0,2,1.5,4.51,12.88,Capped,Bowlers,Capped Players | Bowlers
-64,Andre Russell,12.0,12.0,16.0,16.0,12.0,,"2021,2022,2023,2024,2025",0,5,0,11.38,12.93,16.0,Capped,All-rounders,Capped Players | All-rounders
-65,Cameron Green,U,U,17.5,17.5,U,2023,2024,1,1,3,7.72,11.34,17.85,Capped,All-rounders,Capped Players | All-rounders
-66,Sunil Narine,6.0,6.0,6.0,6.0,12.0,,"2021,2022,2023,2024,2025",0,5,0,7.86,10.92,13.8,Capped,All-rounders,Capped Players | All-rounders
-67,Krishnappa Gowtham,9.25,U,U,U,U,2021,,1,0,4,6.84,7.77,9.57,Uncapped,All-rounders,Uncapped Players | All-rounders
-68,Jason Holder,8.75,8.75,5.75,U,U,"2022,2023",2021,2,1,2,5.29,6.53,8.05,Capped,All-rounders,Capped Players | All-rounders
-69,Kuldeep Yadav,2.0,2.0,2.0,2.0,13.25,2022,"2021,2023,2024,2025",1,4,0,8.08,11.23,15.24,Capped,Bowlers,Capped Players | Bowlers
-70,Dhruv Jurel,U,0.2,0.2,0.2,14.0,2022,"2023,2024,2025",1,3,1,6.52,9.84,14.98,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-71,Kane Williamson,14.0,14.0,2.0,2.0,U,2023,"2021,2022,2024",1,3,1,2.0,5.26,13.44,Capped,Batters,Capped Players | Batters
-72,Ravi Bishnoi,2.0,4.0,4.0,4.0,11.0,"2021,2022","2023,2024,2025",2,3,0,6.46,8.97,12.08,Capped,Bowlers,Capped Players | Bowlers
-73,Jitesh Sharma,U,0.2,0.2,0.2,11.0,"2022,2025","2023,2024",2,2,1,6.31,8.76,12.14,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-74,Kyle Jamieson,15.0,U,1.0,U,U,"2021,2023",,2,0,3,1.5,4.11,13.5,Capped,Bowlers,Capped Players | Bowlers
-75,Noor Ahmad,U,0.3,0.3,0.3,10.0,"2022,2025","2023,2024",2,2,1,5.75,7.98,11.04,Capped,Bowlers,Capped Players | Bowlers
-76,Wanindu Hasaranga,U,10.75,10.75,1.5,5.25,"2022,2024,2025",2023,3,1,1,2.0,6.0,10.32,Capped,Bowlers,Capped Players | Bowlers
-77,Lockie Ferguson,10.0,10.0,10.0,2.0,2.0,"2022,2024,2025","2021,2023",3,2,0,2.0,4.96,10.0,Capped,Bowlers,Capped Players | Bowlers
-78,Nitish Rana,8.0,8.0,8.0,8.0,4.2,"2022,2025","2021,2023,2024",2,3,0,4.2,6.35,8.0,Capped,All-rounders,Capped Players | All-rounders
-79,David Miller,3.0,3.0,3.0,3.0,7.5,"2022,2025","2021,2023,2024",2,3,0,4.82,6.69,8.63,Capped,Batters,Capped Players | Batters
-80,Washington Sundar,8.75,8.75,8.75,8.75,3.2,"2022,2025","2021,2023,2024",2,3,0,3.2,6.35,8.75,Capped,All-rounders,Capped Players | All-rounders
-81,Rahul Tewatia,3.0,9.0,9.0,9.0,4.0,"2021,2022","2023,2024,2025",2,3,0,4.0,5.65,8.88,Uncapped,All-rounders,Uncapped Players | All-rounders
-82,Shahrukh Khan,5.25,9.0,9.0,7.4,4.0,"2021,2022,2024,2025",2023,4,1,0,4.0,5.84,9.9,Uncapped,All-rounders,Uncapped Players | All-rounders
-83,Moeen Ali,7.0,8.0,8.0,8.0,2.0,"2021,2025","2022,2023,2024",2,3,0,2.0,5.31,8.0,Capped,All-rounders,Capped Players | All-rounders
-84,Mukesh Kumar,U,U,5.5,5.5,8.0,"2023,2025",2024,2,1,2,5.06,7.0,8.54,Capped,Bowlers,Capped Players | Bowlers
-85,Quinton de Kock,6.75,6.75,6.75,6.75,3.6,"2022,2025","2021,2023,2024",2,3,0,3.6,5.39,6.75,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-86,Rahul Tripathi,8.5,8.5,8.5,8.5,3.4,"2022,2025","2021,2023,2024",2,3,0,3.4,6.29,8.5,Capped,Batters,Capped Players | Batters
-87,Devdutt Padikkal,7.75,7.75,7.75,7.75,2.0,"2022,2025","2021,2023,2024",2,3,0,2.0,5.26,7.75,Capped,Batters,Capped Players | Batters
-88,Tim David,U,8.25,8.25,8.25,3.0,"2022,2025","2023,2024",2,2,1,2.88,5.61,7.92,Capped,All-rounders,Capped Players | All-rounders
-89,Prithvi Shaw,7.5,7.5,8.0,8.0,U,,"2021,2022,2023,2024",0,4,1,6.65,7.56,8.69,Capped,Batters,Capped Players | Batters
-90,Spencer Johnson,U,U,U,10.0,2.8,"2024,2025",,2,0,3,2.46,4.8,9.0,Capped,Bowlers,Capped Players | Bowlers
-91,Akash Deep,U,0.2,0.2,0.2,8.0,"2022,2025","2023,2024",2,2,1,4.59,6.38,8.83,Capped,Bowlers,Capped Players | Bowlers
-92,Umesh Yadav,1.0,2.0,2.0,5.8,U,"2021,2022,2024",2023,3,1,1,3.56,4.95,6.4,Capped,Bowlers,Capped Players | Bowlers
-93,Jonny Bairstow,6.75,6.75,6.75,6.75,U,2022,"2021,2023,2024",1,3,1,5.7,6.48,7.45,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-94,Rilee Rossouw,U,U,4.6,8.0,U,"2023,2024",,2,0,3,4.82,6.69,8.35,Capped,Batters,Capped Players | Batters
-95,Marco Jansen,0.2,4.2,4.2,4.2,7.0,"2021,2022,2025","2023,2024",3,2,0,4.63,6.42,8.05,Capped,All-rounders,Capped Players | All-rounders
-96,Mitchell Marsh,6.5,6.5,6.5,6.5,3.4,"2022,2025","2021,2023,2024",2,3,0,3.4,5.16,6.5,Capped,All-rounders,Capped Players | All-rounders
-97,Nitish Kumar Reddy,U,U,0.2,0.2,6.0,2023,"2024,2025",1,2,2,2.96,4.86,7.08,Capped,All-rounders,Capped Players | All-rounders
-98,Devon Conway,U,1.0,1.0,1.0,6.25,"2022,2025","2023,2024",2,2,1,3.69,5.13,6.9,Capped,Batters,Capped Players | Batters
-99,Anrich Nortje,6.5,6.5,6.5,6.5,6.5,2025,"2021,2022,2023,2024",1,4,0,5.72,6.5,7.48,Capped,Bowlers,Capped Players | Bowlers
-100,Mark Wood,U,7.5,7.5,7.5,U,2022,"2023,2024",1,2,2,6.07,6.9,7.94,Capped,Bowlers,Capped Players | Bowlers
-101,Tushar Deshpande,U,0.2,0.2,0.2,6.5,"2022,2025","2023,2024",2,2,1,3.74,5.19,7.18,Uncapped,Bowlers,Uncapped Players | Bowlers
-102,Romario Shepherd,U,7.75,0.5,0.5,1.5,"2022,2023,2025",2024,3,1,1,1.5,1.53,7.44,Capped,All-rounders,Capped Players | All-rounders
-103,Deepak Hooda,5.75,5.75,5.75,5.75,1.7,"2022,2025","2021,2023,2024",2,3,0,1.7,4.0,5.75,Capped,All-rounders,Capped Players | All-rounders
-104,Manish Pandey,4.6,4.6,2.4,0.5,0.75,"2022,2023,2024,2025",2021,4,1,0,0.75,1.77,4.6,Capped,Batters,Capped Players | Batters
-105,Rovman Powell,U,2.8,2.8,7.4,1.5,"2022,2024,2025",2023,3,1,1,1.5,3.09,7.1,Capped,Batters,Capped Players | Batters
-106,Steve Smith,U,U,U,U,U,,,0,0,5,2.0,4.5,5.5,Capped,All-rounders,Capped Players | All-rounders
-107,Syed Khaleel Ahmed,5.25,5.25,5.25,5.25,4.8,"2022,2025","2021,2023,2024",2,3,0,4.44,5.04,5.8,Capped,Bowlers,Capped Players | Bowlers
-108,Shivam Mavi,7.25,7.25,6.0,6.4,U,"2022,2023,2024",2021,3,1,1,5.54,6.29,7.23,Capped,Bowlers,Capped Players | Bowlers
-109,Riley Meredith,8.0,1.0,U,U,U,"2021,2022",,2,0,3,1.5,2.78,7.2,Capped,Bowlers,Capped Players | Bowlers
-110,Sameer Rizvi,U,U,U,8.4,0.95,"2024,2025",,2,0,3,0.84,3.26,7.56,Uncapped,All-rounders,Uncapped Players | All-rounders
-111,Will Jacks,U,U,3.2,3.2,5.25,"2023,2025",2024,2,1,2,3.26,4.53,5.55,Capped,All-rounders,Capped Players | All-rounders
-112,Rahul Chahar,5.25,5.25,5.25,5.25,3.2,"2022,2025","2021,2023,2024",2,3,0,3.2,4.36,5.25,Capped,Bowlers,Capped Players | Bowlers
-113,Ajinkya Rahane,1.0,1.0,0.5,0.5,1.5,"2022,2023,2025","2021,2024",3,2,0,1.5,1.5,1.83,Capped,Batters,Capped Players | Batters
-114,Tom Curran,5.25,U,U,1.5,U,"2021,2024",,2,0,3,2.0,2.1,4.73,Capped,Bowlers,Capped Players | Bowlers
-115,Piyush Chawla,2.4,U,0.5,0.5,U,"2021,2023",2024,2,1,2,0.5,0.73,2.21,Capped,Bowlers,Capped Players | Bowlers
-116,Maheesh Theekshana,U,0.7,0.7,0.7,4.4,"2022,2025","2023,2024",2,2,1,2.6,3.61,4.86,Capped,Bowlers,Capped Players | Bowlers
-117,Prabhsimran Singh,0.55,0.6,0.6,0.6,4.0,"2021,2022","2023,2024,2025",2,3,0,1.85,2.97,4.48,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-118,Harshit Rana,U,U,0.2,0.2,4.0,2023,"2024,2025",1,2,2,1.98,3.24,4.72,Capped,Bowlers,Capped Players | Bowlers
-119,Rasikh Dar,U,0.2,U,0.2,6.0,"2022,2024,2025",,3,0,2,3.41,4.73,6.35,Uncapped,Bowlers,Uncapped Players | Bowlers
-120,Kumar Kushagra,U,U,U,7.2,0.65,"2024,2025",,2,0,3,0.57,2.7,6.48,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-121,Odean Smith,U,6.0,0.5,U,U,"2022,2023",,2,0,3,0.75,2.11,5.4,Capped,All-rounders,Capped Players | All-rounders
-122,Naman Dhir,U,U,U,0.2,5.25,"2024,2025",,2,0,3,2.94,4.09,5.43,Uncapped,All-rounders,Uncapped Players | All-rounders
-123,Chris Jordan,3.6,3.6,U,U,U,2022,2021,1,1,3,2.79,3.17,3.73,Capped,Bowlers,Capped Players | Bowlers
-124,Mohit Sharma,U,U,0.5,0.5,2.2,"2023,2025",2024,2,1,2,1.28,1.78,2.33,Capped,Bowlers,Capped Players | Bowlers
-125,Nehal Wadhera,U,U,0.2,0.2,4.2,"2023,2025",2024,2,1,2,2.36,3.28,4.44,Uncapped,Batters,Uncapped Players | Batters
-126,Abdul Samad,4.0,4.0,4.0,4.0,4.2,2025,"2021,2022,2023,2024",1,4,0,3.6,4.09,4.71,Uncapped,All-rounders,Uncapped Players | All-rounders
-127,Shakib Al Hasan,3.2,U,1.5,U,U,"2021,2023",,2,0,3,1.32,1.66,2.88,Capped,All-rounders,Capped Players | All-rounders
-128,Shubham Dubey,U,U,U,5.8,0.8,"2024,2025",,2,0,3,0.7,2.33,5.22,Uncapped,Batters,Uncapped Players | Batters
-129,Aiden Markram,U,2.6,2.6,2.6,2.0,"2022,2025","2023,2024",2,2,1,2.0,2.22,2.55,Capped,Batters,Capped Players | Batters
-130,Rachin Ravindra,U,U,U,1.8,4.0,"2024,2025",,2,0,3,2.37,3.29,4.14,Capped,All-rounders,Capped Players | All-rounders
-131,Harpreet Brar,3.8,3.8,3.8,3.8,1.5,"2022,2025","2021,2023,2024",2,3,0,1.5,2.8,3.8,Uncapped,All-rounders,Uncapped Players | All-rounders
-132,Nuwan Thushara,U,U,U,4.8,1.6,"2024,2025",,2,0,3,1.41,2.45,4.32,Capped,Bowlers,Capped Players | Bowlers
-133,Gerald Coetzee,U,U,U,5.0,2.4,"2024,2025",,2,0,3,2.11,2.96,4.5,Capped,Bowlers,Capped Players | Bowlers
-134,Ashutosh Sharma,U,U,U,0.2,3.8,"2024,2025",,2,0,3,2.13,2.96,3.93,Uncapped,All-rounders,Uncapped Players | All-rounders
-135,Chetan Sakariya,1.2,4.2,4.2,0.5,U,"2021,2022,2024",2023,3,1,1,0.75,1.98,4.03,Capped,Bowlers,Capped Players | Bowlers
-136,Allah Ghazanfar,U,U,U,U,4.8,2025,,1,0,4,3.55,4.03,4.97,Capped,Bowlers,Capped Players | Bowlers
-137,Priyansh Arya,U,U,U,U,3.8,2025,,1,0,4,2.81,3.19,3.93,Uncapped,All-rounders,Uncapped Players | All-rounders
-138,Umran Malik,U,4.0,4.0,4.0,0.75,2025,"2022,2023,2024",1,3,1,0.75,2.41,3.84,Capped,Bowlers,Capped Players | Bowlers
-139,Mitchell Santner,1.9,1.9,1.9,1.9,2.0,"2022,2025","2021,2023,2024",2,3,0,2.0,2.0,2.3,Capped,All-rounders,Capped Players | All-rounders
-140,Jaydev Unadkat,1.3,1.3,0.5,1.6,1.0,"2022,2023,2024,2025",2021,4,1,0,1.0,1.12,1.6,Capped,Bowlers,Capped Players | Bowlers
-141,Dilshan Madushanka,U,U,U,4.6,U,2024,,1,0,4,3.4,3.86,4.76,Capped,Bowlers,Capped Players | Bowlers
-142,Mustafizur Rahman,1.0,2.0,2.0,2.0,U,"2021,2022,2024",2023,3,1,1,2.0,2.0,2.21,Capped,Bowlers,Capped Players | Bowlers
-143,Mayank Agarwal,U,U,U,U,U,,,0,0,5,1.0,2.1,2.5,Capped,Batters,Capped Players | Batters
-144,Adam Zampa,1.5,U,1.5,1.5,2.4,"2023,2025","2021,2024",2,2,1,2.0,2.16,2.65,Capped,Bowlers,Capped Players | Bowlers
-145,Fazalhaq Farooqi,U,0.5,0.5,0.5,2.0,"2022,2025","2023,2024",2,2,1,2.0,2.0,2.34,Capped,Bowlers,Capped Players | Bowlers
-146,Ishant Sharma,0.5,U,0.5,0.5,0.75,"2023,2025","2021,2024",2,2,1,0.75,0.75,0.88,Capped,Bowlers,Capped Players | Bowlers
-147,R. Sai Kishore,3.0,3.0,3.0,3.0,2.0,"2022,2025","2021,2023,2024",2,3,0,2.0,2.53,3.0,Capped,All-rounders,Capped Players | All-rounders
-148,Adam Milne,3.2,1.9,U,U,U,"2021,2022",,2,0,3,2.0,2.0,2.88,Capped,Bowlers,Capped Players | Bowlers
-149,Sam Billings,2.0,2.0,U,U,U,"2021,2022",,2,0,3,1.55,1.76,2.07,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-150,Azmatullah Omarzai,U,U,U,0.5,2.4,"2024,2025",,2,0,3,1.5,1.91,2.48,Capped,All-rounders,Capped Players | All-rounders
-151,Kartik Tyagi,4.0,4.0,4.0,0.6,U,"2022,2024","2021,2023",2,2,1,0.58,2.27,3.84,Uncapped,Bowlers,Uncapped Players | Bowlers
-152,Anshul Kamboj,U,U,U,0.2,3.4,"2024,2025",,2,0,3,1.91,2.65,3.52,Uncapped,All-rounders,Uncapped Players | All-rounders
-153,Josh Inglis,U,U,U,U,2.6,2025,,1,0,4,2.0,2.18,2.69,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-154,Navdeep Saini,2.6,2.6,2.6,2.6,U,2022,"2021,2023,2024",1,3,1,2.2,2.5,2.87,Capped,Bowlers,Capped Players | Bowlers
-155,Anuj Rawat,3.4,3.4,3.4,3.4,0.3,"2022,2025","2021,2023,2024",2,3,0,0.3,2.06,3.4,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-156,Mujeeb Ur Rahman,U,U,U,U,U,,,0,0,5,2.0,2.0,2.1,Capped,Bowlers,Capped Players | Bowlers
-157,Angkrish Raghuvanshi,U,U,U,0.2,3.0,"2024,2025",,2,0,3,1.69,2.34,3.11,Uncapped,Batters,Uncapped Players | Batters
-158,Jacob Bethell,U,U,U,U,2.6,2025,,1,0,4,1.92,2.18,2.69,Capped,All-rounders,Capped Players | All-rounders
-159,Shahbaz Ahamad,U,2.4,2.4,2.4,2.4,"2022,2025","2023,2024",2,2,1,2.03,2.3,2.65,Uncapped,All-rounders,Uncapped Players | All-rounders
-160,Daniel Sams,2.6,2.6,0.75,U,U,"2022,2023",2021,2,1,2,1.5,1.5,2.39,Capped,All-rounders,Capped Players | All-rounders
-161,Vijay Shankar,1.4,1.4,1.4,1.4,1.2,"2022,2025","2021,2023,2024",2,3,0,1.15,1.31,1.5,Capped,All-rounders,Capped Players | All-rounders
-162,Karn Sharma,0.5,0.5,0.5,0.5,0.5,"2022,2025","2021,2023,2024",2,3,0,0.5,0.5,0.57,Capped,Bowlers,Capped Players | Bowlers
-163,Sherfane Rutherford,U,1.0,U,1.5,2.6,"2022,2024,2025",,3,0,2,1.6,2.22,2.75,Capped,Batters,Capped Players | Batters
-164,Nathan Ellis,U,0.75,0.75,0.75,2.0,"2022,2025","2023,2024",2,2,1,1.25,1.71,2.21,Capped,Bowlers,Capped Players | Bowlers
-165,Matt Henry,U,U,U,U,U,,,0,0,5,2.0,2.0,2.1,Capped,Bowlers,Capped Players | Bowlers
-166,Suyash Sharma,U,U,0.2,0.2,2.6,"2023,2025",2024,2,1,2,1.47,2.04,2.75,Uncapped,Bowlers,Uncapped Players | Bowlers
-167,Tim Southee,U,1.5,1.5,U,U,2022,2023,1,1,3,1.5,1.5,1.55,Capped,Bowlers,Capped Players | Bowlers
-168,Glenn Phillips,U,1.5,1.5,1.5,2.0,"2022,2025","2023,2024",2,2,1,2.0,2.0,2.21,Capped,Batters,Capped Players | Batters
-169,Abhinav Manohar,U,U,U,U,3.2,2025,,1,0,4,2.37,2.69,3.31,Uncapped,Batters,Uncapped Players | Batters
-170,Mohammad Nabi,1.0,1.0,U,1.5,U,"2022,2024",2021,2,1,2,1.5,1.5,1.68,Capped,All-rounders,Capped Players | All-rounders
-171,Dewald Brevis,U,3.0,3.0,3.0,U,2022,"2023,2024",1,2,2,2.43,2.76,3.17,Uncapped,Batters,Uncapped Players | Batters
-172,Sean Abbott,U,2.4,U,U,U,2022,,1,0,4,2.0,2.02,2.48,Capped,All-rounders,Capped Players | All-rounders
-173,Tymal Mills,U,1.5,U,U,U,2022,,1,0,4,2.0,2.0,2.07,Capped,Bowlers,Capped Players | Bowlers
-174,Robin Minz,U,U,U,3.6,0.65,"2024,2025",,2,0,3,0.57,1.53,3.24,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-175,Evin Lewis,U,2.0,U,U,U,2022,,1,0,4,2.0,2.0,2.07,Capped,Batters,Capped Players | Batters
-176,Rahmanullah Gurbaz,U,0.5,0.5,0.5,2.0,2025,"2022,2023,2024",1,3,1,2.0,2.0,2.34,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-177,Tabraiz Shamsi,U,U,U,U,U,,,0,0,5,2.0,2.0,2.1,Capped,Bowlers,Capped Players | Bowlers
-178,Vivrant Sharma,U,U,2.6,U,U,2023,,1,0,4,1.92,2.18,2.69,Uncapped,All-rounders,Uncapped Players | All-rounders
-179,Finn Allen,U,0.8,0.8,U,U,2022,2023,1,1,3,2.0,2.0,2.07,Capped,Batters,Capped Players | Batters
-180,Naveen Ul Haq,U,U,0.5,0.5,U,2023,2024,1,1,3,2.0,2.0,2.07,Capped,Bowlers,Capped Players | Bowlers
-181,Kyle Mayers,U,0.5,0.5,0.5,U,2022,"2023,2024",1,2,2,1.5,1.5,1.59,Capped,All-rounders,Capped Players | All-rounders
-182,Karun Nair,0.5,1.4,U,U,0.5,"2021,2022,2025",,3,0,2,0.46,0.64,1.29,Capped,Batters,Capped Players | Batters
-183,Mahipal Lomror,0.95,0.95,0.95,0.95,1.7,"2022,2025","2021,2023,2024",2,3,0,1.13,1.57,1.95,Uncapped,All-rounders,Uncapped Players | All-rounders
-184,Reece Topley,U,U,1.9,1.9,0.75,"2023,2025",2024,2,1,2,0.75,1.21,1.75,Capped,Bowlers,Capped Players | Bowlers
-185,Murugan Ashwin,U,1.6,0.2,U,U,"2022,2023",,2,0,3,0.3,0.6,1.44,Uncapped,Bowlers,Uncapped Players | Bowlers
-186,Vaibhav Arora,0.2,2.0,0.6,0.6,1.8,"2021,2022,2023,2025",2024,4,1,0,1.19,1.66,2.07,Uncapped,Bowlers,Uncapped Players | Bowlers
-187,Lungisani Ngidi,U,0.5,0.5,0.5,1.0,"2022,2025","2023,2024",2,2,1,1.0,1.0,1.17,Capped,Bowlers,Capped Players | Bowlers
-188,Jayant Yadav,1.7,1.7,1.7,1.7,0.75,"2022,2025","2021,2023,2024",2,3,0,0.75,1.29,1.7,Capped,All-rounders,Capped Players | All-rounders
-189,Tom Banton,U,U,U,U,U,,,0,0,5,2.0,2.0,2.1,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-190,Adil Rashid,U,U,2.0,U,U,2023,,1,0,4,2.0,2.0,2.07,Capped,Bowlers,Capped Players | Bowlers
-191,Ben Duckett,U,U,U,U,U,,,0,0,5,2.0,2.0,2.1,Capped,Batters,Capped Players | Batters
-192,James Vince,U,U,U,U,U,,,0,0,5,2.0,2.0,2.1,Capped,Batters,Capped Players | Batters
-193,Gus Atkinson,U,U,U,1.0,U,2024,,1,0,4,2.0,2.0,2.07,Capped,Bowlers,Capped Players | Bowlers
-194,Michael Bracewell,U,U,U,U,U,,,0,0,5,1.5,1.5,1.58,Capped,All-rounders,Capped Players | All-rounders
-195,Jamie Overton,U,U,U,U,1.5,2025,,1,0,4,1.5,1.5,1.55,Capped,All-rounders,Capped Players | All-rounders
-196,K.S Bharat,U,2.0,1.2,0.5,U,"2022,2023,2024",,3,0,2,0.75,0.92,1.84,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-197,Jason Behrendorff,U,0.75,0.75,0.75,U,2022,"2023,2024",1,2,2,1.5,1.5,1.59,Capped,Bowlers,Capped Players | Bowlers
-198,Vyshak Vijaykumar,U,U,U,U,1.8,2025,,1,0,4,1.33,1.51,1.86,Capped,Bowlers,Capped Players | Bowlers
-199,Ryan Rickelton,U,U,U,U,1.0,2025,,1,0,4,1.0,1.0,1.03,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-200,Mohd. Arshad Khan,U,0.2,0.2,0.2,1.3,"2022,2024,2025",2023,3,1,1,0.77,1.06,1.44,Uncapped,All-rounders,Uncapped Players | All-rounders
-201,Kwena Maphaka,U,U,U,U,1.5,2025,,1,0,4,1.11,1.26,1.55,Capped,Bowlers,Capped Players | Bowlers
-202,Simarjeet Singh,U,0.2,0.2,0.2,1.5,"2022,2025","2023,2024",2,2,1,0.88,1.22,1.66,Uncapped,Bowlers,Uncapped Players | Bowlers
-203,Gurjapneet Singh,U,U,U,U,2.2,2025,,1,0,4,1.63,1.85,2.28,Uncapped,Bowlers,Uncapped Players | Bowlers
-204,Jimmy Neesham,U,U,U,U,U,,,0,0,5,1.5,1.5,1.58,Capped,All-rounders,Capped Players | All-rounders
-205,Mayank Dagar,U,U,1.8,1.8,U,2023,2024,1,1,3,1.39,1.58,1.86,Uncapped,All-rounders,Uncapped Players | All-rounders
-206,Obed McCoy,U,0.75,0.75,U,U,2022,2023,1,1,3,1.25,1.25,1.29,Capped,Bowlers,Capped Players | Bowlers
-207,Sushant Mishra,U,U,U,2.2,U,2024,,1,0,4,1.63,1.85,2.28,Uncapped,Bowlers,Uncapped Players | Bowlers
-208,M. Siddharth,0.2,U,U,2.4,0.75,"2021,2024,2025",,3,0,2,0.3,1.08,2.21,Uncapped,Bowlers,Uncapped Players | Bowlers
-209,Akeal Hosein,U,U,1.0,U,U,2023,,1,0,4,1.5,1.5,1.55,Capped,Bowlers,Capped Players | Bowlers
-210,Dominic Drakes,U,1.1,U,U,U,2022,,1,0,4,1.25,1.25,1.29,Capped,All-rounders,Capped Players | All-rounders
-211,Raj Angad Bawa,U,2.0,2.0,U,0.3,"2022,2025",2023,2,1,2,0.3,0.97,1.84,Uncapped,All-rounders,Uncapped Players | All-rounders
-212,William O'Rourke,U,U,U,U,U,,,0,0,5,1.5,1.5,1.58,Capped,Bowlers,Capped Players | Bowlers
-213,Tim Seifert,0.5,0.5,U,U,U,2022,2021,1,1,3,1.25,1.25,1.29,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-214,Yash Thakur,U,U,0.45,0.45,1.6,"2023,2025",2024,2,1,2,0.94,1.31,1.69,Uncapped,Bowlers,Uncapped Players | Bowlers
-215,Mark Chapman,U,U,U,U,U,,,0,0,5,1.5,1.5,1.58,Capped,Batters,Capped Players | Batters
-216,Daniel Worrall,U,U,U,U,U,,,0,0,5,1.5,1.5,1.58,Capped,Bowlers,Capped Players | Bowlers
-217,Matthew Potts,U,U,U,U,U,,,0,0,5,1.5,1.5,1.58,Capped,Bowlers,Capped Players | Bowlers
-218,Tom Latham,U,U,U,U,U,,,0,0,5,1.5,1.5,1.58,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-219,Cooper Connolly,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-220,Dwaine Pretorius,U,0.5,0.5,U,U,2022,2023,1,1,3,0.75,0.75,0.78,Capped,All-rounders,Capped Players | All-rounders
-221,Keemo Paul,U,U,U,U,U,,,0,0,5,1.25,1.25,1.31,Capped,All-rounders,Capped Players | All-rounders
-222,Sikandar Raza,U,U,0.5,0.5,U,2023,2024,1,1,3,1.25,1.25,1.29,Capped,All-rounders,Capped Players | All-rounders
-223,Ashton Agar,U,U,U,U,U,,,0,0,5,1.25,1.25,1.31,Capped,All-rounders,Capped Players | All-rounders
-224,Shai Hope,U,U,U,0.75,U,2024,,1,0,4,1.25,1.25,1.29,Capped,Batters,Capped Players | Batters
-225,Rajvardhan Hangargekar,U,1.5,1.5,1.5,0.3,"2022,2025","2023,2024",2,2,1,0.3,0.91,1.44,Uncapped,All-rounders,Uncapped Players | All-rounders
-226,Kuldeep Sen,U,0.2,0.2,0.2,0.8,"2022,2025","2023,2024",2,2,1,0.75,0.75,0.88,Capped,Bowlers,Capped Players | Bowlers
-227,Aaron Hardie,U,U,U,U,1.25,2025,,1,0,4,1.25,1.25,1.29,Capped,All-rounders,Capped Players | All-rounders
-228,Kamlesh Nagarkoti,1.1,1.1,1.1,U,0.3,"2022,2025","2021,2023",2,2,1,0.3,0.66,1.06,Uncapped,All-rounders,Uncapped Players | All-rounders
-229,Nandre Burger,U,U,U,0.5,U,2024,,1,0,4,1.25,1.25,1.29,Capped,Bowlers,Capped Players | Bowlers
-230,Wayne Parnell,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,Bowlers,Capped Players | Bowlers
-231,Shreyas Gopal,0.75,0.75,U,0.2,0.3,"2022,2024,2025",2021,3,1,1,0.3,0.37,0.72,Uncapped,All-rounders,Uncapped Players | All-rounders
-232,Gulbadin Naib,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,All-rounders,Capped Players | All-rounders
-233,Rishi Dhawan,U,0.55,0.55,0.55,U,2022,"2023,2024",1,2,2,0.45,0.51,0.58,Capped,All-rounders,Capped Players | All-rounders
-234,Dushmantha Chameera,U,U,U,U,0.75,2025,,1,0,4,0.75,0.75,0.78,Capped,Bowlers,Capped Players | Bowlers
-235,Matthew Forde,U,U,U,U,U,,,0,0,5,1.25,1.25,1.31,Capped,All-rounders,Capped Players | All-rounders
-236,Will Young,U,U,U,U,U,,,0,0,5,1.25,1.25,1.31,Capped,Batters,Capped Players | Batters
-237,James Anderson,U,U,U,U,U,,,0,0,5,1.25,1.25,1.31,Capped,Bowlers,Capped Players | Bowlers
-238,Jordan Cox,U,U,U,U,U,,,0,0,5,1.25,1.25,1.31,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-239,Richard Gleeson,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-240,Mayank Markande,0.65,0.65,0.5,0.5,0.3,"2022,2023,2025","2021,2024",3,2,0,0.3,0.44,0.65,Capped,Bowlers,Capped Players | Bowlers
-241,Ashton Turner,U,U,U,1.0,U,2024,,1,0,4,1.0,1.0,1.03,Capped,All-rounders,Capped Players | All-rounders
-242,Luke Wood,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-243,David Payne,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,Bowlers,Capped Players | Bowlers
-244,Kusal Mendis,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-245,Sarfaraz Khan,0.2,0.2,0.2,U,U,2022,"2021,2023",1,2,2,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-246,Josh Philippe,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-247,Andrew Tye,NA,U,U,U,U,,2021,0,1,4,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-248,Akash Madhwal,U,U,1.2,1.2,1.2,2025,"2023,2024",1,2,2,0.97,1.1,1.27,Uncapped,Bowlers,Uncapped Players | Bowlers
-249,K.C Cariappa,0.2,0.3,0.3,U,U,"2021,2022",2023,2,1,2,0.3,0.3,0.32,Uncapped,All-rounders,Uncapped Players | All-rounders
-250,Alex Carey,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-251,Eshan Malinga,U,U,U,U,1.2,2025,,1,0,4,0.89,1.01,1.24,Uncapped,Bowlers,Uncapped Players | Bowlers
-252,Mehidy Hasan Miraz,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,All-rounders,Capped Players | All-rounders
-253,Nathan Smith,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,All-rounders,Capped Players | All-rounders
-254,Dan Lawrence,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,Batters,Capped Players | Batters
-255,Benjamin Sears,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,Bowlers,Capped Players | Bowlers
-256,Taskin Ahmed,U,U,U,U,U,,,0,0,5,1.0,1.0,1.05,Capped,Bowlers,Capped Players | Bowlers
-257,Brydon Carse,U,U,U,U,1.0,2025,,1,0,4,1.0,1.0,1.03,Capped,All-rounders,Capped Players | All-rounders
-258,Gurnoor Singh Brar,U,U,U,U,1.3,2025,,1,0,4,0.96,1.09,1.35,Uncapped,Bowlers,Uncapped Players | Bowlers
-259,Vaibhav Suryavanshi,U,U,U,U,1.1,2025,,1,0,4,0.81,0.92,1.14,Uncapped,Batters,Uncapped Players | Batters
-260,Xavier Bartlett,U,U,U,U,0.8,2025,,1,0,4,0.75,0.75,0.83,Capped,Bowlers,Capped Players | Bowlers
-261,Patrick Kruger,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-262,Atharva Taide,U,0.2,0.2,0.2,0.3,"2022,2025","2023,2024",2,2,1,0.3,0.3,0.35,Uncapped,Batters,Uncapped Players | Batters
-263,Prashant Solanki,U,1.2,1.2,1.2,U,2022,"2023,2024",1,2,2,0.97,1.1,1.27,Uncapped,Bowlers,Uncapped Players | Bowlers
-264,Ben McDermott,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-265,Ajay Mandal,U,U,0.2,0.2,0.3,"2023,2025",2024,2,1,2,0.3,0.3,0.34,Uncapped,All-rounders,Uncapped Players | All-rounders
-266,Vijayakanth Viyaskanth,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-267,Vishnu Vinod,0.2,0.5,0.2,0.2,0.95,"2021,2022,2023,2025",2024,4,1,0,0.59,0.83,1.09,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-268,Shamar Joseph,U,U,U,U,0.75,2025,,1,0,4,0.75,0.75,0.78,Capped,Bowlers,Capped Players | Bowlers
-269,Kamindu Mendis,U,U,U,U,0.75,2025,,1,0,4,0.75,0.75,0.78,Capped,All-rounders,Capped Players | All-rounders
-270,Bhanuka Rajapaksa,U,0.5,0.5,U,U,2022,2023,1,1,3,0.75,0.75,0.78,Capped,Batters,Capped Players | Batters
-271,Josh Little,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-272,Kunal Rathore,U,U,0.2,0.2,0.3,"2023,2025",2024,2,1,2,0.3,0.3,0.34,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-273,Pravin Dubey,0.5,0.5,0.5,0.5,0.3,"2022,2025","2021,2023,2024",2,3,0,0.3,0.41,0.5,Uncapped,Bowlers,Uncapped Players | Bowlers
-274,Sandeep Warrier,NA,U,U,U,U,,2021,0,1,4,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-275,Dushan Hemantha,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-276,William Sutherland,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-277,Johnson Charles,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-278,Matthew Breetzke,U,U,U,U,0.75,2025,,1,0,4,0.75,0.75,0.78,Capped,Batters,Capped Players | Batters
-279,Swapnil Singh,U,U,0.2,0.2,0.5,"2023,2024,2025",,3,0,2,0.3,0.42,0.53,Uncapped,All-rounders,Uncapped Players | All-rounders
-280,Matthew Short,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-281,Donovan Ferreira,U,U,0.5,0.5,0.75,"2023,2025",2024,2,1,2,0.75,0.75,0.84,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-282,Charith Asalanka,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-283,Lahiru Kumara,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-284,Pathum Nissanka,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-285,Blessing Muzarabani,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-286,Mukesh Choudhary,U,0.2,0.2,0.2,0.3,"2022,2025","2023,2024",2,2,1,0.3,0.3,0.35,Uncapped,Bowlers,Uncapped Players | Bowlers
-287,Darshan Nalkande,0.2,0.2,0.2,0.2,0.3,"2022,2025","2021,2023,2024",2,3,0,0.3,0.3,0.37,Uncapped,All-rounders,Uncapped Players | All-rounders
-288,Keshav Maharaj,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-289,Dasun Shanaka,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-290,Siddharth Kaul,U,0.75,0.75,U,U,2022,2023,1,1,3,0.58,0.66,0.78,Capped,Bowlers,Capped Players | Bowlers
-291,Luvnith Sisodia,U,0.2,U,U,0.3,"2022,2025",,2,0,3,0.3,0.3,0.33,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-292,Lalit Yadav,0.65,0.65,0.65,0.65,U,2022,"2021,2023,2024",1,3,1,0.55,0.62,0.72,Uncapped,All-rounders,Uncapped Players | All-rounders
-293,Wiaan Mulder,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-294,Lizaad Williams,U,U,U,U,0.75,2025,,1,0,4,0.75,0.75,0.78,Capped,Bowlers,Capped Players | Bowlers
-295,Junior Dala,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-296,Michael Neser,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-297,Ben Dwarshuis,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-298,Mahedi Hasan,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-299,Dunith Wellalage,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-300,Roston Chase,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,All-rounders,Capped Players | All-rounders
-301,Alick Athanaze,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-302,Ibrahim Zadran,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-303,Mikyle Louis,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-304,Towhid Hridoy,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-305,Brandon King,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-306,Najibullah Zadran,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-307,Hilton Cartwright,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Batters,Capped Players | Batters
-308,Gudakesh Motie,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-309,Zak Foulkes,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-310,Hasan Mahmud,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-311,Jeffery Vandersay,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-312,Nahid Rana,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-313,Nqabayomzi Peter,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-314,Olly Stone,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-315,Richard Ngarava,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-316,Rishad Hossain,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-317,Tanzim Hasan Sakib,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-318,Zahir Khan Pakten,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-319,Shoriful Islam,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-320,Waqar Salamkheil,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-321,Qais Ahmad,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-322,Daryn Dupavillon,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-323,Tanveer Sangha,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Bowlers,Capped Players | Bowlers
-324,Kyle Verreynne,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-325,Ollie Pope,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-326,Andre Fletcher,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-327,Kusal Perera,U,U,U,U,U,,,0,0,5,0.75,0.75,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-328,Litton Das,U,U,0.5,U,U,2023,,1,0,4,0.75,0.75,0.78,Capped,Wicketkeepers,Capped Players | Wicketkeepers
-329,Karim Janat,U,U,U,U,0.75,2025,,1,0,4,0.75,0.75,0.78,Capped,All-rounders,Capped Players | All-rounders
-330,Manan Vohra,0.2,0.2,0.2,U,U,2022,"2021,2023",1,2,2,0.3,0.3,0.32,Uncapped,Batters,Uncapped Players | Batters
-331,Suyash Prabhudessai,U,0.3,0.3,0.3,U,2022,"2023,2024",1,2,2,0.3,0.3,0.32,Uncapped,All-rounders,Uncapped Players | All-rounders
-332,Arjun Tendulkar,0.2,0.3,0.3,0.3,0.3,"2021,2022,2025","2023,2024",3,2,0,0.3,0.3,0.35,Uncapped,Bowlers,Uncapped Players | Bowlers
-333,Harry Tector,U,U,U,U,U,,,0,0,5,0.5,0.5,0.53,Capped,Batters,Capped Players | Batters
-334,Ashok Sharma,U,0.55,U,U,0.3,"2022,2025",,2,0,3,0.3,0.32,0.5,Uncapped,Bowlers,Uncapped Players | Bowlers
-335,Urvil Patel,U,U,0.2,U,0.3,"2023,2025",,2,0,3,0.3,0.46,0.72,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-336,Anukul Roy,0.2,0.2,0.2,0.2,0.4,"2022,2025","2021,2023,2024",2,3,0,0.3,0.36,0.46,Uncapped,All-rounders,Uncapped Players | All-rounders
-337,Vipraj Nigam,U,U,U,U,0.5,2025,,1,0,4,0.37,0.42,0.52,Uncapped,All-rounders,Uncapped Players | All-rounders
-338,Ayush Mhatre,U,U,U,U,0.3,2025,,1,0,4,0.3,0.45,0.75,Uncapped,Batters,Uncapped Players | Batters
-339,Arshin Kulkarni,U,U,U,0.2,0.3,"2024,2025",,2,0,3,0.3,0.3,0.33,Uncapped,All-rounders,Uncapped Players | All-rounders
-340,Sanvir Singh,U,U,0.2,0.2,U,2023,2024,1,1,3,0.3,0.3,0.31,Uncapped,All-rounders,Uncapped Players | All-rounders
-341,Manav Suthar,U,U,U,0.2,0.3,"2024,2025",,2,0,3,0.3,0.3,0.33,Uncapped,Bowlers,Uncapped Players | Bowlers
-342,Rajan Kumar,U,U,0.7,0.7,U,2023,2024,1,1,3,0.54,0.62,0.72,Uncapped,Bowlers,Uncapped Players | Bowlers
-343,Shivam Singh,U,U,0.2,0.2,U,2023,2024,1,1,3,0.3,0.3,0.31,Uncapped,All-rounders,Uncapped Players | All-rounders
-344,Digvesh Singh,U,U,U,U,0.3,2025,,1,0,4,0.3,0.3,0.31,Uncapped,Bowlers,Uncapped Players | Bowlers
-345,Shaik Rasheed,U,U,0.2,0.2,0.3,"2023,2025",2024,2,1,2,0.3,0.3,0.34,Uncapped,Batters,Uncapped Players | Batters
-346,Prerak Mankad,U,0.2,0.2,0.2,U,"2022,2023",2024,2,1,2,0.3,0.3,0.32,Uncapped,All-rounders,Uncapped Players | All-rounders
-347,Nishant Sindhu,U,U,0.6,0.6,0.3,"2023,2025",2024,2,1,2,0.3,0.41,0.55,Uncapped,All-rounders,Uncapped Players | All-rounders
-348,Kuldip Yadav,0.2,0.2,0.2,U,U,"2021,2022",2023,2,1,2,0.3,0.3,0.32,Uncapped,Bowlers,Uncapped Players | Bowlers
-349,Leus Du Plooy,U,U,U,U,U,,,0,0,5,0.5,0.5,0.53,Capped,Batters,Capped Players | Batters
-350,Swastik Chhikara,U,U,U,0.2,0.3,"2024,2025",,2,0,3,0.3,0.3,0.33,Uncapped,Batters,Uncapped Players | Batters
-351,Prince Yadav,U,U,U,U,0.3,2025,,1,0,4,0.3,0.3,0.31,Uncapped,Bowlers,Uncapped Players | Bowlers
-352,Vansh Bedi,U,U,U,U,0.55,2025,,1,0,4,0.41,0.46,0.57,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-353,Yash Dhull,U,0.5,0.5,0.5,U,2022,"2023,2024",1,2,2,0.4,0.46,0.53,Uncapped,Batters,Uncapped Players | Batters
-354,Manoj Bhandage,U,U,0.2,0.2,0.3,"2023,2025",2024,2,1,2,0.3,0.3,0.34,Uncapped,All-rounders,Uncapped Players | All-rounders
-355,Vidwath Kaverappa,U,U,0.2,0.2,U,2023,2024,1,1,3,0.3,0.3,0.31,Uncapped,Bowlers,Uncapped Players | Bowlers
-356,Vicky Ostwal,U,0.2,0.2,0.2,U,2022,"2023,2024",1,2,2,0.3,0.3,0.32,Uncapped,All-rounders,Uncapped Players | All-rounders
-357,Kumar Kartikeya Singh,U,0.2,0.2,0.2,0.3,2025,"2022,2023,2024",1,3,1,0.3,0.3,0.35,Uncapped,Bowlers,Uncapped Players | Bowlers
-358,Ripal Patel,0.2,0.2,0.2,U,U,"2021,2022",2023,2,1,2,0.3,0.3,0.32,Uncapped,Batters,Uncapped Players | Batters
-359,Sachin Baby,0.2,U,U,U,0.3,"2021,2025",,2,0,3,0.3,0.3,0.33,Uncapped,Batters,Uncapped Players | Batters
-360,Akash Singh,0.2,U,U,0.2,0.3,"2021,2024,2025",,3,0,2,0.3,0.3,0.34,Uncapped,Bowlers,Uncapped Players | Bowlers
-361,Ashwani Kumar,U,U,U,U,0.3,2025,,1,0,4,0.3,0.3,0.31,Uncapped,Bowlers,Uncapped Players | Bowlers
-362,K.M Asif,0.2,0.2,0.3,U,U,"2022,2023",2021,2,1,2,0.3,0.3,0.34,Uncapped,Bowlers,Uncapped Players | Bowlers
-363,Brandon McMullen,U,U,U,U,U,,,0,0,5,0.3,0.3,0.32,Capped,All-rounders,Capped Players | All-rounders
-364,Anmolpreet Singh,0.2,0.2,0.2,0.2,U,"2022,2023","2021,2024",2,2,1,0.3,0.3,0.33,Uncapped,Batters,Uncapped Players | Batters
-365,Kulwant Khejroliya,U,U,0.2,U,0.3,"2023,2025",,2,0,3,0.3,0.3,0.33,Uncapped,Bowlers,Uncapped Players | Bowlers
-366,Yudhvir Charak,0.2,U,0.2,0.2,0.35,"2021,2023,2025",2024,3,1,1,0.3,0.31,0.39,Uncapped,All-rounders,Uncapped Players | All-rounders
-367,Vignesh Puthur,U,U,U,U,0.3,2025,,1,0,4,0.3,0.3,0.31,Uncapped,Bowlers,Uncapped Players | Bowlers
-368,Abhinandan Singh,U,U,U,U,0.3,2025,,1,0,4,0.3,0.3,0.31,Uncapped,Bowlers,Uncapped Players | Bowlers
-369,Mohit Rathee,U,U,0.2,U,0.3,"2023,2025",,2,0,3,0.3,0.3,0.33,Uncapped,Bowlers,Uncapped Players | Bowlers
-370,Aryan Juyal,U,0.2,U,U,0.3,"2022,2025",,2,0,3,0.3,0.3,0.33,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-371,Himanshu Sharma,U,U,0.2,0.2,U,2023,2024,1,1,3,0.3,0.3,0.31,Uncapped,Bowlers,Uncapped Players | Bowlers
-372,Upendra Singh Yadav,U,U,0.25,0.25,U,2023,2024,1,1,3,0.3,0.3,0.31,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
-373,Shrijith Krishnan,U,U,U,U,0.3,2025,,1,0,4,0.3,0.3,0.31,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+Source Order,Player Name,2021 Price (Cr),2022 Price (Cr),2023 Price (Cr),2024 Price (Cr),2025 Price (Cr),2026 Price (Cr),Sold Seasons,Retained Seasons,Sold Seasons Count,Retained Seasons Count,Times Unsold,Market Min,Market Target,Market Max,Capped Status,Primary Auction Category,Auction Tags
+1,Rishabh Pant,16.0,16.0,16.0,16.0,27.0,12,2025,"2021,2022,2023,2024",1,4,0,9.16,14.09,27,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+2,Shreyas Iyer,12.25,12.25,12.25,12.25,26.75,12,"2022,2025","2021,2023,2024",2,3,0,8.7,13.39,26.75,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+3,Venkatesh Iyer,0.2,8.0,8.0,8.0,23.75,19,"2021,2025","2022,2023,2024",2,3,0,11.4,20.42,26.13,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+4,Virat Kohli,15.0,15.0,15.0,15.0,21.0,18,,"2021,2022,2023,2024,2025",0,5,0,11.52,17.73,22.16,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+5,Nicholas Pooran,10.75,10.75,16.0,16.0,21.0,16.8,"2022,2023","2021,2024,2025",2,3,0,10.08,18.06,23.1,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+6,Ravindra Jadeja,16.0,16.0,16.0,16.0,18.0,10,,"2021,2022,2023,2024,2025",0,5,0,7.68,11.82,18,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+7,Yuzvendra Chahal,6.5,6.5,6.5,6.5,18.0,14.4,"2022,2025","2021,2023,2024",2,3,0,8.64,15.48,19.8,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+8,Mitchell Starc,U,U,U,24.75,11.75,9.4,"2024,2025",,2,0,3,5.64,14.01,27.23,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+9,Jasprit Bumrah,12.0,12.0,12.0,12.0,18.0,16,,"2021,2022,2023,2024,2025",0,5,0,10.04,15.45,19.31,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+10,Rohit Sharma,16.0,16.0,16.0,16.0,16.3,12,,"2021,2022,2023,2024,2025",0,5,0,8.53,13.12,16.4,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+11,Suryakumar Yadav,8.0,8.0,8.0,8.0,16.35,12,,"2021,2022,2023,2024,2025",0,5,0,7.59,11.67,16.35,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+12,Arshdeep Singh,4.0,4.0,4.0,4.0,18.0,8,2025,"2021,2022,2023,2024",1,4,0,4,8.18,18,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+13,Shubman Gill,8.0,8.0,8.0,8.0,16.5,16,2022,"2021,2023,2024,2025",1,4,0,8,14.59,18.24,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+14,Rashid Khan,15.0,15.0,15.0,15.0,18.0,14,2022,"2021,2023,2024,2025",1,4,0,9.46,14.55,18.19,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+15,Sanju Samson,14.0,14.0,14.0,14.0,18.0,10,,"2021,2022,2023,2024,2025",0,5,0,7.44,11.45,18,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+16,KL Rahul,17.0,17.0,17.0,17.0,14.0,14,"2022,2025","2021,2023,2024",2,3,0,9.46,14.55,18.19,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+17,Jos Buttler,10.0,10.0,10.0,10.0,15.75,12,2025,"2021,2022,2023,2024",1,4,0,7.79,11.98,15.75,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+18,Hardik Pandya,15.0,15.0,15.0,15.0,16.35,12,2022,"2021,2023,2024,2025",1,4,0,8.41,12.94,16.35,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+19,Sam Curran,18.5,U,18.5,18.5,2.4,6.87,"2023,2025","2021,2024",2,2,1,2.4,8.2,18.5,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+20,Ishan Kishan,15.25,15.25,15.25,15.25,11.25,12,"2022,2025","2021,2023,2024",2,3,0,8.14,12.52,15.65,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+21,Trent Boult,8.0,8.0,8.0,8.0,12.5,10,"2022,2025","2021,2023,2024",2,3,0,6.41,9.86,12.5,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+22,Glenn Maxwell,14.25,11.0,11.0,11.0,4.2,7.36,"2021,2025","2022,2023,2024",2,3,0,4.2,7.79,14.25,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+23,Mohammad Siraj,7.0,7.0,7.0,7.0,12.25,9.8,2025,"2021,2022,2023,2024",1,4,0,5.88,10.54,13.48,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+24,Deepak Chahar,14.0,14.0,14.0,14.0,9.25,7.4,"2022,2025","2021,2023,2024",2,3,0,4.44,9.38,15.4,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+25,Jofra Archer,8.0,8.0,8.0,U,12.5,12,"2022,2025","2021,2023",2,2,1,7.53,11.58,14.48,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+26,Bhuvneshwar Kumar,4.2,4.2,4.2,4.2,10.75,10,"2022,2025","2021,2023,2024",2,3,0,4.2,9.01,11.26,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+27,Ben Stokes,U,U,U,U,U,3.92,,,0,0,5,2.55,3.92,4.9,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+28,MS Dhoni,12.0,12.0,12.0,12.0,4.0,8,,"2021,2022,2023,2024,2025",0,5,0,4,8.36,12,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+29,Pat Cummins,15.0,U,U,20.5,18.0,12,"2021,2024",2025,2,1,2,8.67,13.34,20.5,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+30,Marcus Stoinis,9.2,9.2,10.0,10.0,11.0,8.8,"2022,2025","2021,2023,2024",2,3,0,5.28,9.46,12.1,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+31,Josh Hazlewood,7.75,7.75,7.75,U,12.5,10,"2022,2025","2021,2023",2,2,1,6,10.75,13.75,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+32,Kagiso Rabada,9.25,9.25,9.25,9.25,10.75,14,"2022,2025","2021,2023,2024",2,3,0,8.35,12.84,16.05,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+33,Yashasvi Jaiswal,2.4,4.0,4.0,4.0,18.0,10,"2021,2022","2023,2024,2025",2,3,0,2.4,9.61,18,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+34,Mohammed Shami,6.25,6.25,6.25,6.25,10.0,8,"2022,2025","2021,2023,2024",2,3,0,5.11,7.86,10,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+35,Phil Salt,U,U,2.0,U,11.5,9.2,"2023,2025",,2,0,3,5.52,9.89,12.65,Capped,Marquee Players,Marquee Players | Capped Players | Wicketkeepers
+36,Liam Livingstone,0.75,11.5,11.5,11.5,8.75,7,"2021,2022,2025","2023,2024",3,2,0,4.2,8.35,12.65,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+37,Shardul Thakur,10.75,10.75,10.75,4.0,U,5.28,"2022,2024","2021,2023",2,2,1,3.79,5.83,10.75,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+38,Harry Brook,U,U,13.25,4.0,6.25,5,"2023,2024,2025",,3,0,2,3,7.48,14.58,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+39,Krunal Pandya,8.25,8.25,8.25,8.25,5.75,7.73,"2022,2025","2021,2023,2024",2,3,0,4.97,7.64,9.55,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+40,David Warner,6.25,6.25,6.25,6.25,U,8,2022,"2021,2023,2024",1,3,1,4.97,7.65,9.56,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+41,Matheesha Pathirana,U,0.2,0.2,0.2,13.0,10.4,2022,"2023,2024,2025",1,3,1,6.24,11.18,14.3,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+42,Abhishek Sharma,0.55,6.5,6.5,6.5,14.0,10,2021,"2022,2023,2024,2025",1,4,0,0.55,9.62,14,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+43,Faf du Plessis,7.0,7.0,7.0,7.0,2.0,6,"2022,2025","2021,2023,2024",2,3,0,2,5.82,7.28,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+44,Travis Head,U,U,U,6.8,14.0,10,2024,2025,1,1,3,6.6,10.15,14,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+45,Jake Fraser-Mcgurk,U,U,U,U,9.0,7.2,2025,,1,0,4,4.32,7.74,9.9,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+46,Rinku Singh,0.8,0.55,0.55,0.55,13.0,10.4,"2021,2022","2023,2024,2025",2,3,0,6.24,11.18,14.3,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+47,Riyan Parag,0.2,3.8,3.8,3.8,14.0,11.2,2021,"2022,2023,2024,2025",1,4,0,6.72,12.04,15.4,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+48,Ravichandran Ashwin,5.0,5.0,5.0,5.0,U,6,2022,"2021,2023,2024",1,3,1,3.77,5.8,7.25,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+49,Shivam Dube,4.4,4.0,4.0,4.0,12.0,9.6,"2021,2022","2023,2024,2025",2,3,0,5.76,10.32,13.2,Capped,Marquee Players,Marquee Players | Capped Players | All-rounders
+50,Varun Chakravarthy,4.0,8.0,8.0,8.0,12.0,6,2021,"2022,2023,2024,2025",1,4,0,4,6.84,12,Capped,Marquee Players,Marquee Players | Capped Players | Bowlers
+51,Sai Sudharsan,U,0.2,0.2,0.2,8.5,10,2022,"2023,2024,2025",1,3,1,0.2,8.23,10.29,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+52,Rajat Patidar,0.2,0.2,0.2,0.2,11.0,8,"2021,2022","2023,2024,2025",2,3,0,0.2,6.85,11,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+53,Tilak Varma,U,1.7,1.7,1.7,8.0,6.4,2022,"2023,2024,2025",1,3,1,3.84,6.88,8.8,Capped,Marquee Players,Marquee Players | Capped Players | Batters
+54,Heinrich Klaasen,U,U,5.25,5.25,23.0,16,2023,"2024,2025",1,2,2,5.25,15.23,23,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+55,Daryl Mitchell,U,0.75,U,14.0,U,2.1,"2022,2024",,2,0,3,0.75,3.08,14,Capped,All-rounders,Capped Players | All-rounders
+56,Harshal Patel,10.75,10.75,10.75,11.75,8.0,5,"2022,2024,2025","2021,2023",3,2,0,4.15,6.39,11.75,Capped,All-rounders,Capped Players | All-rounders
+57,Axar Patel,9.0,9.0,12.0,12.0,16.5,8,,"2021,2022,2023,2024,2025",0,5,0,6.07,9.34,16.5,Capped,All-rounders,Capped Players | All-rounders
+58,T. Natarajan,4.0,4.0,4.0,4.0,10.75,8.6,"2022,2025","2021,2023,2024",2,3,0,5.16,9.24,11.83,Capped,Bowlers,Capped Players | Bowlers
+59,Avesh Khan,10.0,10.0,10.0,10.0,9.75,3.96,"2022,2025","2021,2023,2024",2,3,0,3.63,5.58,10,Capped,Bowlers,Capped Players | Bowlers
+60,Ruturaj Gaikwad,6.0,6.0,6.0,6.0,18.0,14.4,,"2021,2022,2023,2024,2025",0,5,0,8.64,15.48,19.8,Capped,Batters,Capped Players | Batters
+61,Alzarri Joseph,U,2.4,2.4,11.5,U,3.02,"2022,2024",2023,2,1,2,2.37,3.65,11.5,Capped,Bowlers,Capped Players | Bowlers
+62,Prasidh Krishna,10.0,10.0,10.0,10.0,9.5,6,"2022,2025","2021,2023,2024",2,3,0,4.58,7.05,10,Capped,Bowlers,Capped Players | Bowlers
+63,Jhye Richardson,14.0,U,1.5,5.0,U,1.73,"2021,2023,2024",,3,0,2,1.46,2.24,14,Capped,Bowlers,Capped Players | Bowlers
+64,Andre Russell,12.0,12.0,16.0,16.0,12.0,12.75,,"2021,2022,2023,2024,2025",0,5,0,8.48,13.05,16.31,Capped,All-rounders,Capped Players | All-rounders
+65,Cameron Green,U,U,17.5,17.5,U,3.14,2023,2024,1,1,3,3.14,5.28,17.5,Capped,All-rounders,Capped Players | All-rounders
+66,Sunil Narine,6.0,6.0,6.0,6.0,12.0,10,,"2021,2022,2023,2024,2025",0,5,0,6,9.45,12,Capped,All-rounders,Capped Players | All-rounders
+67,Krishnappa Gowtham,9.25,U,U,U,U,1.22,2021,,1,0,4,0.92,1.42,9.25,Uncapped,All-rounders,Uncapped Players | All-rounders
+68,Jason Holder,8.75,8.75,5.75,U,U,6,"2022,2023",2021,2,1,2,4,6.16,8.75,Capped,All-rounders,Capped Players | All-rounders
+69,Kuldeep Yadav,2.0,2.0,2.0,2.0,13.25,8,2022,"2021,2023,2024,2025",1,4,0,2,7.39,13.25,Capped,Bowlers,Capped Players | Bowlers
+70,Dhruv Jurel,U,0.2,0.2,0.2,14.0,8,2022,"2023,2024,2025",1,3,1,0.2,7.26,14,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+71,Kane Williamson,14.0,14.0,2.0,2.0,U,6.45,2023,"2021,2022,2024",1,3,1,2,6.28,14,Capped,Batters,Capped Players | Batters
+72,Ravi Bishnoi,2.0,4.0,4.0,4.0,11.0,3.96,"2021,2022","2023,2024,2025",2,3,0,2,4.57,11,Capped,Bowlers,Capped Players | Bowlers
+73,Jitesh Sharma,U,0.2,0.2,0.2,11.0,8.8,"2022,2025","2023,2024",2,2,1,5.28,9.46,12.1,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+74,Kyle Jamieson,15.0,U,1.0,U,U,1.58,"2021,2023",,2,0,3,1,1.85,15,Capped,Bowlers,Capped Players | Bowlers
+75,Noor Ahmad,U,0.3,0.3,0.3,10.0,8,"2022,2025","2023,2024",2,2,1,4.8,8.6,11,Capped,Bowlers,Capped Players | Bowlers
+76,Wanindu Hasaranga,U,10.75,10.75,1.5,5.25,4.2,"2022,2024,2025",2023,3,1,1,2.52,6.17,11.83,Capped,Bowlers,Capped Players | Bowlers
+77,Lockie Ferguson,10.0,10.0,10.0,2.0,2.0,4.63,"2022,2024,2025","2021,2023",3,2,0,2,4.79,10,Capped,Bowlers,Capped Players | Bowlers
+78,Nitish Rana,8.0,8.0,8.0,8.0,4.2,4.41,"2022,2025","2021,2023,2024",2,3,0,3.28,5.04,8,Capped,All-rounders,Capped Players | All-rounders
+79,David Miller,3.0,3.0,3.0,3.0,7.5,6,"2022,2025","2021,2023,2024",2,3,0,3.6,6.45,8.25,Capped,Batters,Capped Players | Batters
+80,Washington Sundar,8.75,8.75,8.75,8.75,3.2,3.07,"2022,2025","2021,2023,2024",2,3,0,2.67,4.11,8.75,Capped,All-rounders,Capped Players | All-rounders
+81,Rahul Tewatia,3.0,9.0,9.0,9.0,4.0,3.68,"2021,2022","2023,2024,2025",2,3,0,2.97,4.57,9,Uncapped,All-rounders,Uncapped Players | All-rounders
+82,Shahrukh Khan,5.25,9.0,9.0,7.4,4.0,3.2,"2021,2022,2024,2025",2023,4,1,0,1.92,4.94,9.9,Uncapped,All-rounders,Uncapped Players | All-rounders
+83,Moeen Ali,7.0,8.0,8.0,8.0,2.0,7.36,"2021,2025","2022,2023,2024",2,3,0,2,6.97,8.71,Capped,All-rounders,Capped Players | All-rounders
+84,Mukesh Kumar,U,U,5.5,5.5,8.0,1.89,"2023,2025",2024,2,1,2,1.89,2.96,8,Capped,Bowlers,Capped Players | Bowlers
+85,Quinton de Kock,6.75,6.75,6.75,6.75,3.6,10,"2022,2025","2021,2023,2024",2,3,0,3.6,8.83,11.04,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+86,Rahul Tripathi,8.5,8.5,8.5,8.5,3.4,4.41,"2022,2025","2021,2023,2024",2,3,0,3.29,5.06,8.5,Capped,Batters,Capped Players | Batters
+87,Devdutt Padikkal,7.75,7.75,7.75,7.75,2.0,5.89,"2022,2025","2021,2023,2024",2,3,0,2,5.87,7.75,Capped,Batters,Capped Players | Batters
+88,Tim David,U,8.25,8.25,8.25,3.0,3.92,"2022,2025","2023,2024",2,2,1,2.96,4.56,8.25,Capped,All-rounders,Capped Players | All-rounders
+89,Prithvi Shaw,7.5,7.5,8.0,8.0,U,3.99,,"2021,2022,2023,2024",0,4,1,3.09,4.76,8,Capped,Batters,Capped Players | Batters
+90,Spencer Johnson,U,U,U,10.0,2.8,2.24,"2024,2025",,2,0,3,1.34,4.57,11,Capped,Bowlers,Capped Players | Bowlers
+91,Akash Deep,U,0.2,0.2,0.2,8.0,6.4,"2022,2025","2023,2024",2,2,1,3.84,6.88,8.8,Capped,Bowlers,Capped Players | Bowlers
+92,Umesh Yadav,1.0,2.0,2.0,5.8,U,4.34,"2021,2022,2024",2023,3,1,1,1,4.16,5.8,Capped,Bowlers,Capped Players | Bowlers
+93,Jonny Bairstow,6.75,6.75,6.75,6.75,U,8,2022,"2021,2023,2024",1,3,1,5.04,7.75,9.69,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+94,Rilee Rossouw,U,U,4.6,8.0,U,2.42,"2023,2024",,2,0,3,1.97,3.03,8,Capped,Batters,Capped Players | Batters
+95,Marco Jansen,0.2,4.2,4.2,4.2,7.0,8,"2021,2022,2025","2023,2024",3,2,0,0.2,7.15,8.94,Capped,All-rounders,Capped Players | All-rounders
+96,Mitchell Marsh,6.5,6.5,6.5,6.5,3.4,12,"2022,2025","2021,2023,2024",2,3,0,3.4,10.22,12.78,Capped,All-rounders,Capped Players | All-rounders
+97,Nitish Kumar Reddy,U,U,0.2,0.2,6.0,6,2023,"2024,2025",1,2,2,0.2,5.22,6.53,Capped,All-rounders,Capped Players | All-rounders
+98,Devon Conway,U,1.0,1.0,1.0,6.25,5,"2022,2025","2023,2024",2,2,1,3,5.38,6.88,Capped,Batters,Capped Players | Batters
+99,Anrich Nortje,6.5,6.5,6.5,6.5,6.5,8,2025,"2021,2022,2023,2024",1,4,0,4.93,7.59,9.49,Capped,Bowlers,Capped Players | Bowlers
+100,Mark Wood,U,7.5,7.5,7.5,U,2.1,2022,"2023,2024",1,2,2,2.01,3.09,7.5,Capped,Bowlers,Capped Players | Bowlers
+101,Tushar Deshpande,U,0.2,0.2,0.2,6.5,5.2,"2022,2025","2023,2024",2,2,1,3.12,5.59,7.15,Uncapped,Bowlers,Uncapped Players | Bowlers
+102,Romario Shepherd,U,7.75,0.5,0.5,1.5,1.73,"2022,2023,2025",2024,3,1,1,0.5,1.77,7.75,Capped,All-rounders,Capped Players | All-rounders
+103,Deepak Hooda,5.75,5.75,5.75,5.75,1.7,3.68,"2022,2025","2021,2023,2024",2,3,0,1.7,3.88,5.75,Capped,All-rounders,Capped Players | All-rounders
+104,Manish Pandey,4.6,4.6,2.4,0.5,0.75,4.84,"2022,2023,2024,2025",2021,4,1,0,0.5,4.01,5.01,Capped,Batters,Capped Players | Batters
+105,Rovman Powell,U,2.8,2.8,7.4,1.5,1.98,"2022,2024,2025",2023,3,1,1,1.5,2.41,7.4,Capped,Batters,Capped Players | Batters
+106,Steve Smith,U,U,U,U,U,8,,,0,0,5,5.2,8,10,Capped,All-rounders,Capped Players | All-rounders
+107,Syed Khaleel Ahmed,5.25,5.25,5.25,5.25,4.8,5.28,"2022,2025","2021,2023,2024",2,3,0,3.4,5.23,6.54,Capped,Bowlers,Capped Players | Bowlers
+108,Shivam Mavi,7.25,7.25,6.0,6.4,U,1.65,"2022,2023,2024",2021,3,1,1,1.65,2.63,7.25,Capped,Bowlers,Capped Players | Bowlers
+109,Riley Meredith,8.0,1.0,U,U,U,1.58,"2021,2022",,2,0,3,1,1.7,8,Capped,Bowlers,Capped Players | Bowlers
+110,Sameer Rizvi,U,U,U,8.4,0.95,0.76,"2024,2025",,2,0,3,0.46,3.05,9.24,Uncapped,All-rounders,Uncapped Players | All-rounders
+111,Will Jacks,U,U,3.2,3.2,5.25,4.2,"2023,2025",2024,2,1,2,2.52,4.51,5.78,Capped,All-rounders,Capped Players | All-rounders
+112,Rahul Chahar,5.25,5.25,5.25,5.25,3.2,2.56,"2022,2025","2021,2023,2024",2,3,0,1.54,3.37,5.78,Capped,Bowlers,Capped Players | Bowlers
+113,Ajinkya Rahane,1.0,1.0,0.5,0.5,1.5,4.84,"2022,2023,2025","2021,2024",3,2,0,0.5,3.77,4.84,Capped,Batters,Capped Players | Batters
+114,Tom Curran,5.25,U,U,1.5,U,2.1,"2021,2024",,2,0,3,1.38,2.12,5.25,Capped,Bowlers,Capped Players | Bowlers
+115,Piyush Chawla,2.4,U,0.5,0.5,U,5.64,"2021,2023",2024,2,1,2,0.5,4.82,6.03,Capped,Bowlers,Capped Players | Bowlers
+116,Maheesh Theekshana,U,0.7,0.7,0.7,4.4,3.52,"2022,2025","2023,2024",2,2,1,2.11,3.78,4.84,Capped,Bowlers,Capped Players | Bowlers
+117,Prabhsimran Singh,0.55,0.6,0.6,0.6,4.0,6,"2021,2022","2023,2024,2025",2,3,0,0.55,4.84,6.05,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+118,Harshit Rana,U,U,0.2,0.2,4.0,3.2,2023,"2024,2025",1,2,2,1.92,3.44,4.4,Capped,Bowlers,Capped Players | Bowlers
+119,Rasikh Dar,U,0.2,U,0.2,6.0,3,"2022,2024,2025",,3,0,2,0.2,2.96,6,Uncapped,Bowlers,Uncapped Players | Bowlers
+120,Kumar Kushagra,U,U,U,7.2,0.65,0.52,"2024,2025",,2,0,3,0.31,2.52,7.92,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+121,Odean Smith,U,6.0,0.5,U,U,0.79,"2022,2023",,2,0,3,0.5,1,6,Capped,All-rounders,Capped Players | All-rounders
+122,Naman Dhir,U,U,U,0.2,5.25,4.2,"2024,2025",,2,0,3,2.52,4.51,5.78,Uncapped,All-rounders,Uncapped Players | All-rounders
+123,Chris Jordan,3.6,3.6,U,U,U,2.44,2022,2021,1,1,3,1.64,2.52,3.6,Capped,Bowlers,Capped Players | Bowlers
+124,Mohit Sharma,U,U,0.5,0.5,2.2,4,"2023,2025",2024,2,1,2,0.5,3.36,4.2,Capped,Bowlers,Capped Players | Bowlers
+125,Nehal Wadhera,U,U,0.2,0.2,4.2,3.36,"2023,2025",2024,2,1,2,2.02,3.61,4.62,Uncapped,Batters,Uncapped Players | Batters
+126,Abdul Samad,4.0,4.0,4.0,4.0,4.2,3.36,2025,"2021,2022,2023,2024",1,4,0,2.02,3.61,4.62,Uncapped,All-rounders,Uncapped Players | All-rounders
+127,Shakib Al Hasan,3.2,U,1.5,U,U,5,"2021,2023",,2,0,3,1.5,4.72,5.9,Capped,All-rounders,Capped Players | All-rounders
+128,Shubham Dubey,U,U,U,5.8,0.8,0.79,"2024,2025",,2,0,3,0.78,1.2,5.8,Uncapped,Batters,Uncapped Players | Batters
+129,Aiden Markram,U,2.6,2.6,2.6,2.0,8,"2022,2025","2023,2024",2,2,1,2,6.54,8.18,Capped,Batters,Capped Players | Batters
+130,Rachin Ravindra,U,U,U,1.8,4.0,3.2,"2024,2025",,2,0,3,1.92,3.44,4.4,Capped,All-rounders,Capped Players | All-rounders
+131,Harpreet Brar,3.8,3.8,3.8,3.8,1.5,1.51,"2022,2025","2021,2023,2024",2,3,0,1.25,1.93,3.8,Uncapped,All-rounders,Uncapped Players | All-rounders
+132,Nuwan Thushara,U,U,U,4.8,1.6,1.28,"2024,2025",,2,0,3,0.77,2.34,5.28,Capped,Bowlers,Capped Players | Bowlers
+133,Gerald Coetzee,U,U,U,5.0,2.4,1.92,"2024,2025",,2,0,3,1.15,2.84,5.5,Capped,Bowlers,Capped Players | Bowlers
+134,Ashutosh Sharma,U,U,U,0.2,3.8,3.04,"2024,2025",,2,0,3,1.82,3.27,4.18,Uncapped,All-rounders,Uncapped Players | All-rounders
+135,Chetan Sakariya,1.2,4.2,4.2,0.5,U,0.86,"2021,2022,2024",2023,3,1,1,0.5,1.17,4.2,Capped,Bowlers,Capped Players | Bowlers
+136,Allah Ghazanfar,U,U,U,U,4.8,3.84,2025,,1,0,4,2.3,4.13,5.28,Capped,Bowlers,Capped Players | Bowlers
+137,Priyansh Arya,U,U,U,U,3.8,3.04,2025,,1,0,4,1.82,3.27,4.18,Uncapped,All-rounders,Uncapped Players | All-rounders
+138,Umran Malik,U,4.0,4.0,4.0,0.75,0.92,2025,"2022,2023,2024",1,3,1,0.75,1.42,4,Capped,Bowlers,Capped Players | Bowlers
+139,Mitchell Santner,1.9,1.9,1.9,1.9,2.0,4,"2022,2025","2021,2023,2024",2,3,0,1.9,3.44,4.3,Capped,All-rounders,Capped Players | All-rounders
+140,Jaydev Unadkat,1.3,1.3,0.5,1.6,1.0,4.34,"2022,2023,2024,2025",2021,4,1,0,0.5,3.46,4.34,Capped,Bowlers,Capped Players | Bowlers
+141,Dilshan Madushanka,U,U,U,4.6,U,0.64,2024,,1,0,4,0.64,1,4.6,Capped,Bowlers,Capped Players | Bowlers
+142,Mustafizur Rahman,1.0,2.0,2.0,2.0,U,5,"2021,2022,2024",2023,3,1,1,1,4.38,5.48,Capped,Bowlers,Capped Players | Bowlers
+143,Mayank Agarwal,U,U,U,U,U,4.41,,,0,0,5,2.87,4.41,5.51,Capped,Batters,Capped Players | Batters
+144,Adam Zampa,1.5,U,1.5,1.5,2.4,4,"2023,2025","2021,2024",2,2,1,1.5,3.47,4.34,Capped,Bowlers,Capped Players | Bowlers
+145,Fazalhaq Farooqi,U,0.5,0.5,0.5,2.0,2.1,"2022,2025","2023,2024",2,2,1,0.5,1.82,2.28,Capped,Bowlers,Capped Players | Bowlers
+146,Ishant Sharma,0.5,U,0.5,0.5,0.75,3.3,"2023,2025","2021,2024",2,2,1,0.5,2.64,3.3,Capped,Bowlers,Capped Players | Bowlers
+147,R. Sai Kishore,3.0,3.0,3.0,3.0,2.0,1.6,"2022,2025","2021,2023,2024",2,3,0,0.96,2.02,3.3,Capped,All-rounders,Capped Players | All-rounders
+148,Adam Milne,3.2,1.9,U,U,U,2.1,"2021,2022",,2,0,3,1.38,2.12,3.2,Capped,Bowlers,Capped Players | Bowlers
+149,Sam Billings,2.0,2.0,U,U,U,2.35,"2021,2022",,2,0,3,1.51,2.33,2.91,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+150,Azmatullah Omarzai,U,U,U,0.5,2.4,1.92,"2024,2025",,2,0,3,1.15,2.06,2.64,Capped,All-rounders,Capped Players | All-rounders
+151,Kartik Tyagi,4.0,4.0,4.0,0.6,U,3,"2022,2024","2021,2023",2,2,1,0.6,2.93,4,Uncapped,Bowlers,Uncapped Players | Bowlers
+152,Anshul Kamboj,U,U,U,0.2,3.4,4,"2024,2025",,2,0,3,0.2,3.63,4.54,Uncapped,All-rounders,Uncapped Players | All-rounders
+153,Josh Inglis,U,U,U,U,2.6,2.08,2025,,1,0,4,1.25,2.24,2.86,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+154,Navdeep Saini,2.6,2.6,2.6,2.6,U,0.92,2022,"2021,2023,2024",1,3,1,0.82,1.26,2.6,Capped,Bowlers,Capped Players | Bowlers
+155,Anuj Rawat,3.4,3.4,3.4,3.4,0.3,0.91,"2022,2025","2021,2023,2024",2,3,0,0.3,1.31,3.4,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+156,Mujeeb Ur Rahman,U,U,U,U,U,1.7,,,0,0,5,1.11,1.7,2.13,Capped,Bowlers,Capped Players | Bowlers
+157,Angkrish Raghuvanshi,U,U,U,0.2,3.0,3,"2024,2025",,2,0,3,0.2,2.77,3.46,Uncapped,Batters,Uncapped Players | Batters
+158,Jacob Bethell,U,U,U,U,2.6,2.08,2025,,1,0,4,1.25,2.24,2.86,Capped,All-rounders,Capped Players | All-rounders
+159,Shahbaz Ahamad,U,2.4,2.4,2.4,2.4,1.92,"2022,2025","2023,2024",2,2,1,1.15,2.06,2.64,Uncapped,All-rounders,Uncapped Players | All-rounders
+160,Daniel Sams,2.6,2.6,0.75,U,U,1.58,"2022,2023",2021,2,1,2,0.75,1.59,2.6,Capped,All-rounders,Capped Players | All-rounders
+161,Vijay Shankar,1.4,1.4,1.4,1.4,1.2,2.94,"2022,2025","2021,2023,2024",2,3,0,1.2,2.5,3.13,Capped,All-rounders,Capped Players | All-rounders
+162,Karn Sharma,0.5,0.5,0.5,0.5,0.5,2.64,"2022,2025","2021,2023,2024",2,3,0,0.5,2.06,2.64,Capped,Bowlers,Capped Players | Bowlers
+163,Sherfane Rutherford,U,1.0,U,1.5,2.6,6,"2022,2024,2025",,3,0,2,1,5.12,6.4,Capped,Batters,Capped Players | Batters
+164,Nathan Ellis,U,0.75,0.75,0.75,2.0,1.6,"2022,2025","2023,2024",2,2,1,0.96,1.72,2.2,Capped,Bowlers,Capped Players | Bowlers
+165,Matt Henry,U,U,U,U,U,1.9,,,0,0,5,1.23,1.9,2.38,Capped,Bowlers,Capped Players | Bowlers
+166,Suyash Sharma,U,U,0.2,0.2,2.6,2.08,"2023,2025",2024,2,1,2,1.25,2.24,2.86,Uncapped,Bowlers,Uncapped Players | Bowlers
+167,Tim Southee,U,1.5,1.5,U,U,2.29,2022,2023,1,1,3,1.43,2.2,2.75,Capped,Bowlers,Capped Players | Bowlers
+168,Glenn Phillips,U,1.5,1.5,1.5,2.0,2.1,"2022,2025","2023,2024",2,2,1,1.29,1.99,2.49,Capped,Batters,Capped Players | Batters
+169,Abhinav Manohar,U,U,U,U,3.2,2.56,2025,,1,0,4,1.54,2.75,3.52,Uncapped,Batters,Uncapped Players | Batters
+170,Mohammad Nabi,1.0,1.0,U,1.5,U,1.81,"2022,2024",2021,2,1,2,1,1.73,2.16,Capped,All-rounders,Capped Players | All-rounders
+171,Dewald Brevis,U,3.0,3.0,3.0,U,8,2022,"2023,2024",1,2,2,3,7.08,8.85,Uncapped,Batters,Uncapped Players | Batters
+172,Sean Abbott,U,2.4,U,U,U,1.7,2022,,1,0,4,1.12,1.73,2.4,Capped,All-rounders,Capped Players | All-rounders
+173,Tymal Mills,U,1.5,U,U,U,1.7,2022,,1,0,4,1.1,1.69,2.11,Capped,Bowlers,Capped Players | Bowlers
+174,Robin Minz,U,U,U,3.6,0.65,1.5,"2024,2025",,2,0,3,0.65,1.58,3.6,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+175,Evin Lewis,U,2.0,U,U,U,2.54,2022,,1,0,4,1.63,2.51,3.14,Capped,Batters,Capped Players | Batters
+176,Rahmanullah Gurbaz,U,0.5,0.5,0.5,2.0,1.7,2025,"2022,2023,2024",1,3,1,0.5,1.53,2,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+177,Tabraiz Shamsi,U,U,U,U,U,1.9,,,0,0,5,1.23,1.9,2.38,Capped,Bowlers,Capped Players | Bowlers
+178,Vivrant Sharma,U,U,2.6,U,U,0.3,2023,,1,0,4,0.3,0.46,2.6,Uncapped,All-rounders,Uncapped Players | All-rounders
+179,Finn Allen,U,0.8,0.8,U,U,6,2022,2023,1,1,3,0.8,5.42,6.78,Capped,Batters,Capped Players | Batters
+180,Naveen Ul Haq,U,U,0.5,0.5,U,2.13,2023,2024,1,1,3,0.5,1.89,2.36,Capped,Bowlers,Capped Players | Bowlers
+181,Kyle Mayers,U,0.5,0.5,0.5,U,1.27,2022,"2023,2024",1,2,2,0.5,1.13,1.41,Capped,All-rounders,Capped Players | All-rounders
+182,Karun Nair,0.5,1.4,U,U,0.5,2.94,"2021,2022,2025",,3,0,2,0.5,2.57,3.21,Capped,Batters,Capped Players | Batters
+183,Mahipal Lomror,0.95,0.95,0.95,0.95,1.7,1.36,"2022,2025","2021,2023,2024",2,3,0,0.82,1.46,1.87,Uncapped,All-rounders,Uncapped Players | All-rounders
+184,Reece Topley,U,U,1.9,1.9,0.75,0.79,"2023,2025",2024,2,1,2,0.61,0.94,1.9,Capped,Bowlers,Capped Players | Bowlers
+185,Murugan Ashwin,U,1.6,0.2,U,U,1.13,"2022,2023",,2,0,3,0.2,1.09,1.6,Uncapped,Bowlers,Uncapped Players | Bowlers
+186,Vaibhav Arora,0.2,2.0,0.6,0.6,1.8,1.87,"2021,2022,2023,2025",2024,4,1,0,0.2,1.68,2.1,Uncapped,Bowlers,Uncapped Players | Bowlers
+187,Lungisani Ngidi,U,0.5,0.5,0.5,1.0,1.31,"2022,2025","2023,2024",2,2,1,0.5,1.15,1.44,Capped,Bowlers,Capped Players | Bowlers
+188,Jayant Yadav,1.7,1.7,1.7,1.7,0.75,0.79,"2022,2025","2021,2023,2024",2,3,0,0.62,0.95,1.7,Capped,All-rounders,Capped Players | All-rounders
+189,Tom Banton,U,U,U,U,U,1.9,,,0,0,5,1.23,1.9,2.38,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+190,Adil Rashid,U,U,2.0,U,U,1.7,2023,,1,0,4,1.12,1.72,2.15,Capped,Bowlers,Capped Players | Bowlers
+191,Ben Duckett,U,U,U,U,U,1.9,,,0,0,5,1.23,1.9,2.38,Capped,Batters,Capped Players | Batters
+192,James Vince,U,U,U,U,U,1.9,,,0,0,5,1.23,1.9,2.38,Capped,Batters,Capped Players | Batters
+193,Gus Atkinson,U,U,U,1.0,U,1.7,2024,,1,0,4,1,1.64,2.05,Capped,Bowlers,Capped Players | Bowlers
+194,Michael Bracewell,U,U,U,U,U,1.42,,,0,0,5,0.92,1.42,1.78,Capped,All-rounders,Capped Players | All-rounders
+195,Jamie Overton,U,U,U,U,1.5,2,2025,,1,0,4,1.26,1.94,2.42,Capped,All-rounders,Capped Players | All-rounders
+196,K.S Bharat,U,2.0,1.2,0.5,U,0.86,"2022,2023,2024",,3,0,2,0.5,0.9,2,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+197,Jason Behrendorff,U,0.75,0.75,0.75,U,1.47,2022,"2023,2024",1,2,2,0.75,1.34,1.68,Capped,Bowlers,Capped Players | Bowlers
+198,Vyshak Vijaykumar,U,U,U,U,1.8,1.44,2025,,1,0,4,0.86,1.55,1.98,Capped,Bowlers,Capped Players | Bowlers
+199,Ryan Rickelton,U,U,U,U,1.0,6,2025,,1,0,4,1,5.44,6.8,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+200,Mohd. Arshad Khan,U,0.2,0.2,0.2,1.3,1.04,"2022,2024,2025",2023,3,1,1,0.62,1.12,1.43,Uncapped,All-rounders,Uncapped Players | All-rounders
+201,Kwena Maphaka,U,U,U,U,1.5,1.2,2025,,1,0,4,0.72,1.29,1.65,Capped,Bowlers,Capped Players | Bowlers
+202,Simarjeet Singh,U,0.2,0.2,0.2,1.5,1.2,"2022,2025","2023,2024",2,2,1,0.72,1.29,1.65,Uncapped,Bowlers,Uncapped Players | Bowlers
+203,Gurjapneet Singh,U,U,U,U,2.2,1.76,2025,,1,0,4,1.06,1.89,2.42,Uncapped,Bowlers,Uncapped Players | Bowlers
+204,Jimmy Neesham,U,U,U,U,U,1.42,,,0,0,5,0.92,1.42,1.78,Capped,All-rounders,Capped Players | All-rounders
+205,Mayank Dagar,U,U,1.8,1.8,U,0.3,2023,2024,1,1,3,0.3,0.52,1.8,Uncapped,All-rounders,Uncapped Players | All-rounders
+206,Obed McCoy,U,0.75,0.75,U,U,1.06,2022,2023,1,1,3,0.67,1.03,1.29,Capped,Bowlers,Capped Players | Bowlers
+207,Sushant Mishra,U,U,U,2.2,U,0.3,2024,,1,0,4,0.3,0.47,2.2,Uncapped,Bowlers,Uncapped Players | Bowlers
+208,M. Siddharth,0.2,U,U,2.4,0.75,0.6,"2021,2024,2025",,3,0,2,0.36,1.14,2.64,Uncapped,Bowlers,Uncapped Players | Bowlers
+209,Akeal Hosein,U,U,1.0,U,U,1.27,2023,,1,0,4,0.81,1.25,1.56,Capped,Bowlers,Capped Players | Bowlers
+210,Dominic Drakes,U,1.1,U,U,U,1.06,2022,,1,0,4,0.69,1.06,1.33,Capped,All-rounders,Capped Players | All-rounders
+211,Raj Angad Bawa,U,2.0,2.0,U,0.3,0.32,"2022,2025",2023,2,1,2,0.3,0.49,2,Uncapped,All-rounders,Uncapped Players | All-rounders
+212,William O'Rourke,U,U,U,U,U,1.42,,,0,0,5,0.92,1.42,1.78,Capped,Bowlers,Capped Players | Bowlers
+213,Tim Seifert,0.5,0.5,U,U,U,1.06,2022,2021,1,1,3,0.5,1.02,1.27,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+214,Yash Thakur,U,U,0.45,0.45,1.6,1.28,"2023,2025",2024,2,1,2,0.77,1.38,1.76,Uncapped,Bowlers,Uncapped Players | Bowlers
+215,Mark Chapman,U,U,U,U,U,1.42,,,0,0,5,0.92,1.42,1.78,Capped,Batters,Capped Players | Batters
+216,Daniel Worrall,U,U,U,U,U,1.42,,,0,0,5,0.92,1.42,1.78,Capped,Bowlers,Capped Players | Bowlers
+217,Matthew Potts,U,U,U,U,U,1.42,,,0,0,5,0.92,1.42,1.78,Capped,Bowlers,Capped Players | Bowlers
+218,Tom Latham,U,U,U,U,U,1.42,,,0,0,5,0.92,1.42,1.78,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+219,Cooper Connolly,U,U,U,U,U,4,,,0,0,5,2.6,4,5,Capped,All-rounders,Capped Players | All-rounders
+220,Dwaine Pretorius,U,0.5,0.5,U,U,0.64,2022,2023,1,1,3,0.4,0.62,0.78,Capped,All-rounders,Capped Players | All-rounders
+221,Keemo Paul,U,U,U,U,U,1.19,,,0,0,5,0.77,1.19,1.49,Capped,All-rounders,Capped Players | All-rounders
+222,Sikandar Raza,U,U,0.5,0.5,U,5,2023,2024,1,1,3,0.5,4.33,5.41,Capped,All-rounders,Capped Players | All-rounders
+223,Ashton Agar,U,U,U,U,U,1.19,,,0,0,5,0.77,1.19,1.49,Capped,All-rounders,Capped Players | All-rounders
+224,Shai Hope,U,U,U,0.75,U,1.31,2024,,1,0,4,0.75,1.26,1.58,Capped,Batters,Capped Players | Batters
+225,Rajvardhan Hangargekar,U,1.5,1.5,1.5,0.3,0.32,"2022,2025","2023,2024",2,2,1,0.3,0.51,1.5,Uncapped,All-rounders,Uncapped Players | All-rounders
+226,Kuldeep Sen,U,0.2,0.2,0.2,0.8,0.79,"2022,2025","2023,2024",2,2,1,0.2,0.69,0.86,Capped,Bowlers,Capped Players | Bowlers
+227,Aaron Hardie,U,U,U,U,1.25,5,2025,,1,0,4,1.25,4.58,5.73,Capped,All-rounders,Capped Players | All-rounders
+228,Kamlesh Nagarkoti,1.1,1.1,1.1,U,0.3,0.32,"2022,2025","2021,2023",2,2,1,0.27,0.41,1.1,Uncapped,All-rounders,Uncapped Players | All-rounders
+229,Nandre Burger,U,U,U,0.5,U,1.06,2024,,1,0,4,0.5,1.01,1.26,Capped,Bowlers,Capped Players | Bowlers
+230,Wayne Parnell,U,U,U,U,U,1.37,,,0,0,5,0.89,1.37,1.71,Capped,Bowlers,Capped Players | Bowlers
+231,Shreyas Gopal,0.75,0.75,U,0.2,0.3,2.89,"2022,2024,2025",2021,3,1,1,0.2,2.31,2.89,Uncapped,All-rounders,Uncapped Players | All-rounders
+232,Gulbadin Naib,U,U,U,U,U,0.95,,,0,0,5,0.62,0.95,1.19,Capped,All-rounders,Capped Players | All-rounders
+233,Rishi Dhawan,U,0.55,0.55,0.55,U,0.37,2022,"2023,2024",1,2,2,0.26,0.4,0.55,Capped,All-rounders,Capped Players | All-rounders
+234,Dushmantha Chameera,U,U,U,U,0.75,0.79,2025,,1,0,4,0.51,0.79,0.99,Capped,Bowlers,Capped Players | Bowlers
+235,Matthew Forde,U,U,U,U,U,1.19,,,0,0,5,0.77,1.19,1.49,Capped,All-rounders,Capped Players | All-rounders
+236,Will Young,U,U,U,U,U,1.19,,,0,0,5,0.77,1.19,1.49,Capped,Batters,Capped Players | Batters
+237,James Anderson,U,U,U,U,U,1.19,,,0,0,5,0.77,1.19,1.49,Capped,Bowlers,Capped Players | Bowlers
+238,Jordan Cox,U,U,U,U,U,1.19,,,0,0,5,0.77,1.19,1.49,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+239,Richard Gleeson,U,U,U,U,U,0.79,,,0,0,5,0.51,0.79,0.99,Capped,Bowlers,Capped Players | Bowlers
+240,Mayank Markande,0.65,0.65,0.5,0.5,0.3,0.5,"2022,2023,2025","2021,2024",3,2,0,0.3,0.49,0.65,Capped,Bowlers,Capped Players | Bowlers
+241,Ashton Turner,U,U,U,1.0,U,0.85,2024,,1,0,4,0.56,0.86,1.08,Capped,All-rounders,Capped Players | All-rounders
+242,Luke Wood,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+243,David Payne,U,U,U,U,U,1.05,,,0,0,5,0.68,1.05,1.31,Capped,Bowlers,Capped Players | Bowlers
+244,Kusal Mendis,U,U,U,U,U,6,,,0,0,5,3.9,6,7.5,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+245,Sarfaraz Khan,0.2,0.2,0.2,U,U,1.19,2022,"2021,2023",1,2,2,0.2,1.06,1.33,Capped,Batters,Capped Players | Batters
+246,Josh Philippe,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+247,Andrew Tye,NA,U,U,U,U,1.02,,2021,0,1,4,0.66,1.02,1.27,Capped,Bowlers,Capped Players | Bowlers
+248,Akash Madhwal,U,U,1.2,1.2,1.2,0.96,2025,"2023,2024",1,2,2,0.58,1.03,1.32,Uncapped,Bowlers,Uncapped Players | Bowlers
+249,K.C Cariappa,0.2,0.3,0.3,U,U,0.32,"2021,2022",2023,2,1,2,0.2,0.32,0.4,Uncapped,All-rounders,Uncapped Players | All-rounders
+250,Alex Carey,U,U,U,U,U,0.95,,,0,0,5,0.62,0.95,1.19,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+251,Eshan Malinga,U,U,U,U,1.2,6,2025,,1,0,4,1.2,5.47,6.84,Uncapped,Bowlers,Uncapped Players | Bowlers
+252,Mehidy Hasan Miraz,U,U,U,U,U,0.95,,,0,0,5,0.62,0.95,1.19,Capped,All-rounders,Capped Players | All-rounders
+253,Nathan Smith,U,U,U,U,U,0.95,,,0,0,5,0.62,0.95,1.19,Capped,All-rounders,Capped Players | All-rounders
+254,Dan Lawrence,U,U,U,U,U,0.95,,,0,0,5,0.62,0.95,1.19,Capped,Batters,Capped Players | Batters
+255,Benjamin Sears,U,U,U,U,U,0.95,,,0,0,5,0.62,0.95,1.19,Capped,Bowlers,Capped Players | Bowlers
+256,Taskin Ahmed,U,U,U,U,U,0.95,,,0,0,5,0.62,0.95,1.19,Capped,Bowlers,Capped Players | Bowlers
+257,Brydon Carse,U,U,U,U,1.0,0.85,2025,,1,0,4,0.57,0.87,1.09,Capped,All-rounders,Capped Players | All-rounders
+258,Gurnoor Singh Brar,U,U,U,U,1.3,1.04,2025,,1,0,4,0.62,1.12,1.43,Uncapped,Bowlers,Uncapped Players | Bowlers
+259,Vaibhav Suryavanshi,U,U,U,U,1.1,12,2025,,1,0,4,1.1,10.79,13.49,Uncapped,Batters,Uncapped Players | Batters
+260,Xavier Bartlett,U,U,U,U,0.8,0.64,2025,,1,0,4,0.43,0.66,0.83,Capped,Bowlers,Capped Players | Bowlers
+261,Patrick Kruger,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+262,Atharva Taide,U,0.2,0.2,0.2,0.3,0.32,"2022,2025","2023,2024",2,2,1,0.2,0.3,0.38,Uncapped,Batters,Uncapped Players | Batters
+263,Prashant Solanki,U,1.2,1.2,1.2,U,0.3,2022,"2023,2024",1,2,2,0.3,0.47,1.2,Uncapped,Bowlers,Uncapped Players | Bowlers
+264,Ben McDermott,U,U,U,U,U,0.82,,,0,0,5,0.53,0.82,1.02,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+265,Ajay Mandal,U,U,0.2,0.2,0.3,0.32,"2023,2025",2024,2,1,2,0.2,0.3,0.38,Uncapped,All-rounders,Uncapped Players | All-rounders
+266,Vijayakanth Viyaskanth,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+267,Vishnu Vinod,0.2,0.5,0.2,0.2,0.95,0.76,"2021,2022,2023,2025",2024,4,1,0,0.46,0.82,1.05,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+268,Shamar Joseph,U,U,U,U,0.75,0.64,2025,,1,0,4,0.42,0.65,0.81,Capped,Bowlers,Capped Players | Bowlers
+269,Kamindu Mendis,U,U,U,U,0.75,0.64,2025,,1,0,4,0.42,0.65,0.81,Capped,All-rounders,Capped Players | All-rounders
+270,Bhanuka Rajapaksa,U,0.5,0.5,U,U,0.64,2022,2023,1,1,3,0.4,0.62,0.78,Capped,Batters,Capped Players | Batters
+271,Josh Little,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+272,Kunal Rathore,U,U,0.2,0.2,0.3,0.32,"2023,2025",2024,2,1,2,0.2,0.3,0.38,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+273,Pravin Dubey,0.5,0.5,0.5,0.5,0.3,0.32,"2022,2025","2021,2023,2024",2,3,0,0.23,0.35,0.5,Uncapped,Bowlers,Uncapped Players | Bowlers
+274,Sandeep Warrier,NA,U,U,U,U,0.71,,2021,0,1,4,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+275,Dushan Hemantha,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+276,William Sutherland,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+277,Johnson Charles,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+278,Matthew Breetzke,U,U,U,U,0.75,0.79,2025,,1,0,4,0.51,0.79,0.99,Capped,Batters,Capped Players | Batters
+279,Swapnil Singh,U,U,0.2,0.2,0.5,0.4,"2023,2024,2025",,3,0,2,0.2,0.38,0.5,Uncapped,All-rounders,Uncapped Players | All-rounders
+280,Matthew Short,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+281,Donovan Ferreira,U,U,0.5,0.5,0.75,3,"2023,2025",2024,2,1,2,0.5,2.45,3.06,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+282,Charith Asalanka,U,U,U,U,U,0.82,,,0,0,5,0.53,0.82,1.02,Capped,Batters,Capped Players | Batters
+283,Lahiru Kumara,U,U,U,U,U,2,,,0,0,5,1.3,2,2.5,Capped,Bowlers,Capped Players | Bowlers
+284,Pathum Nissanka,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+285,Blessing Muzarabani,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+286,Mukesh Choudhary,U,0.2,0.2,0.2,0.3,0.32,"2022,2025","2023,2024",2,2,1,0.2,0.3,0.38,Uncapped,Bowlers,Uncapped Players | Bowlers
+287,Darshan Nalkande,0.2,0.2,0.2,0.2,0.3,0.32,"2022,2025","2021,2023,2024",2,3,0,0.2,0.3,0.38,Uncapped,All-rounders,Uncapped Players | All-rounders
+288,Keshav Maharaj,U,U,U,U,U,5,,,0,0,5,3.25,5,6.25,Capped,Bowlers,Capped Players | Bowlers
+289,Dasun Shanaka,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+290,Siddharth Kaul,U,0.75,0.75,U,U,0.34,2022,2023,1,1,3,0.25,0.39,0.75,Capped,Bowlers,Capped Players | Bowlers
+291,Luvnith Sisodia,U,0.2,U,U,0.3,0.32,"2022,2025",,2,0,3,0.2,0.31,0.39,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+292,Lalit Yadav,0.65,0.65,0.65,0.65,U,0.3,2022,"2021,2023,2024",1,3,1,0.24,0.37,0.65,Uncapped,All-rounders,Uncapped Players | All-rounders
+293,Wiaan Mulder,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+294,Lizaad Williams,U,U,U,U,0.75,0.64,2025,,1,0,4,0.42,0.65,0.81,Capped,Bowlers,Capped Players | Bowlers
+295,Junior Dala,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+296,Michael Neser,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+297,Ben Dwarshuis,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+298,Mahedi Hasan,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+299,Dunith Wellalage,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+300,Roston Chase,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,All-rounders,Capped Players | All-rounders
+301,Alick Athanaze,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+302,Ibrahim Zadran,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+303,Mikyle Louis,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+304,Towhid Hridoy,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+305,Brandon King,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+306,Najibullah Zadran,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+307,Hilton Cartwright,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Batters,Capped Players | Batters
+308,Gudakesh Motie,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+309,Zak Foulkes,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+310,Hasan Mahmud,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+311,Jeffery Vandersay,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+312,Nahid Rana,U,U,U,U,U,0.79,,,0,0,5,0.51,0.79,0.99,Capped,Bowlers,Capped Players | Bowlers
+313,Nqabayomzi Peter,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+314,Olly Stone,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+315,Richard Ngarava,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+316,Rishad Hossain,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+317,Tanzim Hasan Sakib,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+318,Zahir Khan Pakten,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+319,Shoriful Islam,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+320,Waqar Salamkheil,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+321,Qais Ahmad,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+322,Daryn Dupavillon,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+323,Tanveer Sangha,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Bowlers,Capped Players | Bowlers
+324,Kyle Verreynne,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+325,Ollie Pope,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+326,Andre Fletcher,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+327,Kusal Perera,U,U,U,U,U,0.71,,,0,0,5,0.46,0.71,0.89,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+328,Litton Das,U,U,0.5,U,U,0.64,2023,,1,0,4,0.41,0.63,0.79,Capped,Wicketkeepers,Capped Players | Wicketkeepers
+329,Karim Janat,U,U,U,U,0.75,0.64,2025,,1,0,4,0.42,0.65,0.81,Capped,All-rounders,Capped Players | All-rounders
+330,Manan Vohra,0.2,0.2,0.2,U,U,1.79,2022,"2021,2023",1,2,2,0.2,1.58,1.98,Uncapped,Batters,Uncapped Players | Batters
+331,Suyash Prabhudessai,U,0.3,0.3,0.3,U,0.3,2022,"2023,2024",1,2,2,0.2,0.3,0.38,Uncapped,All-rounders,Uncapped Players | All-rounders
+332,Arjun Tendulkar,0.2,0.3,0.3,0.3,0.3,0.35,"2021,2022,2025","2023,2024",3,2,0,0.2,0.33,0.41,Uncapped,Bowlers,Uncapped Players | Bowlers
+333,Harry Tector,U,U,U,U,U,0.68,,,0,0,5,0.44,0.68,0.85,Capped,Batters,Capped Players | Batters
+334,Ashok Sharma,U,0.55,U,U,0.3,0.32,"2022,2025",,2,0,3,0.21,0.33,0.55,Uncapped,Bowlers,Uncapped Players | Bowlers
+335,Urvil Patel,U,U,0.2,U,0.3,0.3,"2023,2025",,2,0,3,0.2,0.29,0.36,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+336,Anukul Roy,0.2,0.2,0.2,0.2,0.4,0.32,"2022,2025","2021,2023,2024",2,3,0,0.2,0.31,0.4,Uncapped,All-rounders,Uncapped Players | All-rounders
+337,Vipraj Nigam,U,U,U,U,0.5,0.4,2025,,1,0,4,0.24,0.43,0.55,Uncapped,All-rounders,Uncapped Players | All-rounders
+338,Ayush Mhatre,U,U,U,U,0.3,2,2025,,1,0,4,0.3,1.81,2.26,Uncapped,Batters,Uncapped Players | Batters
+339,Arshin Kulkarni,U,U,U,0.2,0.3,0.32,"2024,2025",,2,0,3,0.2,0.31,0.39,Uncapped,All-rounders,Uncapped Players | All-rounders
+340,Sanvir Singh,U,U,0.2,0.2,U,0.3,2023,2024,1,1,3,0.2,0.29,0.36,Uncapped,All-rounders,Uncapped Players | All-rounders
+341,Manav Suthar,U,U,U,0.2,0.3,0.32,"2024,2025",,2,0,3,0.2,0.31,0.39,Uncapped,Bowlers,Uncapped Players | Bowlers
+342,Rajan Kumar,U,U,0.7,0.7,U,0.3,2023,2024,1,1,3,0.23,0.36,0.7,Uncapped,Bowlers,Uncapped Players | Bowlers
+343,Shivam Singh,U,U,0.2,0.2,U,0.3,2023,2024,1,1,3,0.2,0.29,0.36,Uncapped,All-rounders,Uncapped Players | All-rounders
+344,Digvesh Singh,U,U,U,U,0.3,0.3,2025,,1,0,4,0.2,0.3,0.38,Uncapped,Bowlers,Uncapped Players | Bowlers
+345,Shaik Rasheed,U,U,0.2,0.2,0.3,0.32,"2023,2025",2024,2,1,2,0.2,0.3,0.38,Uncapped,Batters,Uncapped Players | Batters
+346,Prerak Mankad,U,0.2,0.2,0.2,U,0.32,"2022,2023",2024,2,1,2,0.2,0.3,0.38,Uncapped,All-rounders,Uncapped Players | All-rounders
+347,Nishant Sindhu,U,U,0.6,0.6,0.3,0.32,"2023,2025",2024,2,1,2,0.23,0.36,0.6,Uncapped,All-rounders,Uncapped Players | All-rounders
+348,Kuldip Yadav,0.2,0.2,0.2,U,U,0.32,"2021,2022",2023,2,1,2,0.2,0.3,0.38,Uncapped,Bowlers,Uncapped Players | Bowlers
+349,Leus Du Plooy,U,U,U,U,U,0.48,,,0,0,5,0.31,0.48,0.6,Capped,Batters,Capped Players | Batters
+350,Swastik Chhikara,U,U,U,0.2,0.3,0.32,"2024,2025",,2,0,3,0.2,0.31,0.39,Uncapped,Batters,Uncapped Players | Batters
+351,Prince Yadav,U,U,U,U,0.3,2,2025,,1,0,4,0.3,1.81,2.26,Uncapped,Bowlers,Uncapped Players | Bowlers
+352,Vansh Bedi,U,U,U,U,0.55,0.44,2025,,1,0,4,0.26,0.47,0.61,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+353,Yash Dhull,U,0.5,0.5,0.5,U,0.3,2022,"2023,2024",1,2,2,0.22,0.34,0.5,Uncapped,Batters,Uncapped Players | Batters
+354,Manoj Bhandage,U,U,0.2,0.2,0.3,0.32,"2023,2025",2024,2,1,2,0.2,0.3,0.38,Uncapped,All-rounders,Uncapped Players | All-rounders
+355,Vidwath Kaverappa,U,U,0.2,0.2,U,0.3,2023,2024,1,1,3,0.2,0.29,0.36,Uncapped,Bowlers,Uncapped Players | Bowlers
+356,Vicky Ostwal,U,0.2,0.2,0.2,U,0.3,2022,"2023,2024",1,2,2,0.2,0.28,0.35,Uncapped,All-rounders,Uncapped Players | All-rounders
+357,Kumar Kartikeya Singh,U,0.2,0.2,0.2,0.3,0.3,2025,"2022,2023,2024",1,3,1,0.2,0.28,0.35,Uncapped,Bowlers,Uncapped Players | Bowlers
+358,Ripal Patel,0.2,0.2,0.2,U,U,0.32,"2021,2022",2023,2,1,2,0.2,0.3,0.38,Uncapped,Batters,Uncapped Players | Batters
+359,Sachin Baby,0.2,U,U,U,0.3,0.36,"2021,2025",,2,0,3,0.2,0.35,0.44,Uncapped,Batters,Uncapped Players | Batters
+360,Akash Singh,0.2,U,U,0.2,0.3,0.35,"2021,2024,2025",,3,0,2,0.2,0.33,0.41,Uncapped,Bowlers,Uncapped Players | Bowlers
+361,Ashwani Kumar,U,U,U,U,0.3,0.3,2025,,1,0,4,0.2,0.3,0.38,Uncapped,Bowlers,Uncapped Players | Bowlers
+362,K.M Asif,0.2,0.2,0.3,U,U,0.32,"2022,2023",2021,2,1,2,0.2,0.31,0.39,Uncapped,Bowlers,Uncapped Players | Bowlers
+363,Brandon McMullen,U,U,U,U,U,0.3,,,0,0,5,0.2,0.3,0.38,Capped,All-rounders,Capped Players | All-rounders
+364,Anmolpreet Singh,0.2,0.2,0.2,0.2,U,0.32,"2022,2023","2021,2024",2,2,1,0.2,0.3,0.38,Uncapped,Batters,Uncapped Players | Batters
+365,Kulwant Khejroliya,U,U,0.2,U,0.3,0.32,"2023,2025",,2,0,3,0.2,0.31,0.39,Uncapped,Bowlers,Uncapped Players | Bowlers
+366,Yudhvir Charak,0.2,U,0.2,0.2,0.35,0.35,"2021,2023,2025",2024,3,1,1,0.2,0.33,0.41,Uncapped,All-rounders,Uncapped Players | All-rounders
+367,Vignesh Puthur,U,U,U,U,0.3,0.3,2025,,1,0,4,0.2,0.3,0.38,Uncapped,Bowlers,Uncapped Players | Bowlers
+368,Abhinandan Singh,U,U,U,U,0.3,0.3,2025,,1,0,4,0.2,0.3,0.38,Uncapped,Bowlers,Uncapped Players | Bowlers
+369,Mohit Rathee,U,U,0.2,U,0.3,0.32,"2023,2025",,2,0,3,0.2,0.31,0.39,Uncapped,Bowlers,Uncapped Players | Bowlers
+370,Aryan Juyal,U,0.2,U,U,0.3,0.32,"2022,2025",,2,0,3,0.2,0.31,0.39,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+371,Himanshu Sharma,U,U,0.2,0.2,U,0.3,2023,2024,1,1,3,0.2,0.29,0.36,Uncapped,Bowlers,Uncapped Players | Bowlers
+372,Upendra Singh Yadav,U,U,0.25,0.25,U,0.3,2023,2024,1,1,3,0.2,0.29,0.36,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
+373,Shrijith Krishnan,U,U,U,U,0.3,0.3,2025,,1,0,4,0.2,0.3,0.38,Uncapped,Wicketkeepers,Uncapped Players | Wicketkeepers
