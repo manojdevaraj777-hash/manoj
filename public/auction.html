@@ -2494,6 +2494,12 @@
             document.getElementById('pauseBtnAuctioneer').innerText = 'Pause';
         });
 
+        document.getElementById('auctionPauseOverlay').addEventListener('click', () => {
+            if (document.getElementById('auctionPauseOverlay').classList.contains('active') && isAuctioneer) {
+                togglePause();
+            }
+        });
+
         function loadAvailablePlayers() {
             socket.emit('getAvailablePlayers', roomCode);
         }
