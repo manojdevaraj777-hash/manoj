@@ -1434,7 +1434,6 @@
                         </div>
                     </div>
                     <div class="control-group" id="auctioneerActionButtons" style="display:none;gap:8px;margin-top:8px;">
-                        <button class="skip-bid-btn" onclick="skipCurrentPlayer()" style="flex:1;" id="skipPlayerBtn">Skip Player</button>
                         <button class="media-btn" id="pauseBtnAuctioneer" onclick="togglePause()" style="flex:1;">Pause</button>
                     </div>
                 </section>
@@ -1600,14 +1599,6 @@
             updateTeamAuctionStatusPanel();
             renderAuctionOutcomeLists();
 
-            if (data.paused) {
-                document.getElementById('auctionPauseOverlay').classList.add('active');
-                document.getElementById('pauseBtnAuctioneer').innerText = 'Resume';
-            } else {
-                document.getElementById('auctionPauseOverlay').classList.remove('active');
-                document.getElementById('pauseBtnAuctioneer').innerText = 'Pause';
-            }
-
             if (data.auctionState && data.auctionState.player) {
                 syncAuctionState(data.auctionState);
             }
@@ -1619,6 +1610,14 @@
                 document.getElementById('auctioneerControls').style.display = 'block';
                 updateAuctioneerControlVisibility();
                 loadAvailablePlayers();
+            }
+
+            if (data.paused) {
+                document.getElementById('auctionPauseOverlay').classList.add('active');
+                if (isAuctioneer) document.getElementById('pauseBtnAuctioneer').innerText = 'Resume';
+            } else {
+                document.getElementById('auctionPauseOverlay').classList.remove('active');
+                if (isAuctioneer) document.getElementById('pauseBtnAuctioneer').innerText = 'Pause';
             }
         });
 
@@ -2121,6 +2120,8 @@
             document.getElementById('manualControls').style.display = isManualMode ? 'grid' : 'none';
             document.getElementById('manualControlButtons').style.display = isManualMode ? 'grid' : 'none';
             document.getElementById('auctioneerActionButtons').style.display = 'flex';
+            const isAIMode = currentMode === 'ai' || currentMode === 'ai_trainer';
+            document.getElementById('skipBidBtn').style.display = isAIMode ? 'inline-flex' : 'none';
         }
 
         function setPlayerImage(player) {
@@ -2290,8 +2291,10 @@
         function updateBidButton() {
             const teamAuctionEnded = currentTeamAuctionStatus === 'complete';
             const bidDisabled = !myTeam || !auctionLive || currentMode === 'ended' || skippedCurrentPlayer || teamAuctionEnded;
+            const skipDisabled = !myTeam || !auctionLive || (currentMode !== 'ai' && currentMode !== 'ai_trainer') || skippedCurrentPlayer || teamAuctionEnded;
             document.getElementById('bidButton').disabled = bidDisabled;
             document.getElementById('quickBidBtn').disabled = bidDisabled;
+            document.getElementById('skipBidBtn').disabled = skipDisabled;
 
             const bidButton = document.getElementById('bidButton');
             if (!auctionLive) {
@@ -2480,10 +2483,6 @@
 
         function togglePause() {
             socket.emit('togglePause', roomCode);
-        }
-
-        function skipCurrentPlayer() {
-            socket.emit('skipCurrentPlayer', roomCode);
         }
 
         socket.on('auctionPaused', (data) => {
