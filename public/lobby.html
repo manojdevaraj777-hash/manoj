@@ -1379,9 +1379,9 @@
 
         async function deleteHistoryRoom(roomCode) {
             const confirmed = await showConfirmDialog({
-                title: 'Remove from history',
-                message: `Remove room ${roomCode} from recent rooms list?`,
-                confirmText: 'Remove'
+                title: 'Delete Room',
+                message: `Delete room ${roomCode}? This will end the auction for all players in that room.`,
+                confirmText: 'Delete'
             });
             if (confirmed) {
                 socket.emit('deleteRoomHistory', roomCode);

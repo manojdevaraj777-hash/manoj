@@ -4057,6 +4057,15 @@ io.on('connection', (socket) => {
   socket.on('deleteRoomHistory', (roomCode) => {
     const code = String(roomCode || '').trim().toUpperCase();
     if (!code) return;
+    const room = activeRooms.get(code);
+    if (room && room.auctioneer === socket.id) {
+      deleteRoomNow(code, room, io, 'Room deleted.');
+      return;
+    }
+    if (room && room.auctioneer !== socket.id) {
+      socket.emit('error', 'Only the auctioneer can delete this room.');
+      return;
+    }
     const idx = roomHistory.findIndex((r) => r.roomCode === code);
     if (idx !== -1) {
       roomHistory.splice(idx, 1);
