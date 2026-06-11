@@ -394,6 +394,22 @@
             color: #ff9b9b;
         }
 
+        .history-del {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 18px;
+            line-height: 1;
+            padding: 0 2px;
+            cursor: pointer;
+            transition: color 200ms;
+            flex-shrink: 0;
+        }
+
+        .history-del:hover {
+            color: #ff6b6b;
+        }
+
         .players-list h3,
         .status-panel h3 {
             font-family: 'Bebas Neue', sans-serif;
@@ -1349,15 +1365,20 @@
                 const timeAgo = Math.floor((Date.now() - r.createdAt) / 60000);
                 const ago = timeAgo < 1 ? 'Just now' : timeAgo < 60 ? `${timeAgo}m ago` : `${Math.floor(timeAgo / 60)}h ago`;
                 const statusClass = r.status === 'active' ? 'active' : 'ended';
-                return `<div class="history-item" onclick="window.location.href='/lobby.html?room=${r.roomCode}'">
-                    <div class="history-code">${escHtml(r.roomCode)}</div>
-                    <div class="history-info">
+                return `<div class="history-item">
+                    <div class="history-code" onclick="window.location.href='/lobby.html?room=${r.roomCode}'" style="cursor:pointer;">${escHtml(r.roomCode)}</div>
+                    <div class="history-info" onclick="window.location.href='/lobby.html?room=${r.roomCode}'" style="cursor:pointer;">
                         <div class="history-name">${escHtml(r.roomName)}</div>
                         <div class="history-meta">${escHtml(r.creatorName)} · ${r.mode} · ${ago}</div>
                     </div>
                     <span class="history-status ${statusClass}">${r.status}</span>
+                    <button class="history-del" onclick="event.stopPropagation();deleteHistoryRoom('${r.roomCode}')" title="Remove from history">&times;</button>
                 </div>`;
             }).join('');
+        }
+
+        function deleteHistoryRoom(roomCode) {
+            socket.emit('deleteRoomHistory', roomCode);
         }
 
         function escHtml(str) {

@@ -4053,6 +4053,16 @@ io.on('connection', (socket) => {
   socket.on('getRoomHistory', () => {
     socket.emit('roomHistoryUpdate', getRoomHistorySnapshot());
   });
+
+  socket.on('deleteRoomHistory', (roomCode) => {
+    const code = String(roomCode || '').trim().toUpperCase();
+    if (!code) return;
+    const idx = roomHistory.findIndex((r) => r.roomCode === code);
+    if (idx !== -1) {
+      roomHistory.splice(idx, 1);
+      io.emit('roomHistoryUpdate', getRoomHistorySnapshot());
+    }
+  });
   
   // Join room
   socket.on('joinRoom', async (data) => {
