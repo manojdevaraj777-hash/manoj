@@ -1377,8 +1377,15 @@
             }).join('');
         }
 
-        function deleteHistoryRoom(roomCode) {
-            socket.emit('deleteRoomHistory', roomCode);
+        async function deleteHistoryRoom(roomCode) {
+            const confirmed = await showConfirmDialog({
+                title: 'Remove from history',
+                message: `Remove room ${roomCode} from recent rooms list?`,
+                confirmText: 'Remove'
+            });
+            if (confirmed) {
+                socket.emit('deleteRoomHistory', roomCode);
+            }
         }
 
         function escHtml(str) {
