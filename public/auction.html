@@ -665,9 +665,8 @@
             background: rgba(0, 0, 0, 0.16);
             padding: 8px;
             display: grid;
-            grid-template-rows: auto 1fr;
+            grid-template-rows: auto minmax(0, 1fr);
             gap: 6px;
-            height: 220px;
             min-height: 0;
         }
 
@@ -683,10 +682,9 @@
         }
 
         .outcome-list {
-            max-height: none;
-            height: 100%;
-            min-height: 0;
+            max-height: 180px;
             overflow-y: auto;
+            scrollbar-width: thin;
             display: grid;
             gap: 5px;
             align-content: start;
