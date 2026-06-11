@@ -667,11 +667,6 @@
             border-radius: 10px;
             background: rgba(0, 0, 0, 0.16);
             padding: 8px;
-            display: grid;
-            grid-template-rows: auto minmax(0, 1fr);
-            gap: 6px;
-            max-height: 240px;
-            min-height: 0;
         }
 
         .outcome-col h4 {
@@ -686,14 +681,11 @@
         }
 
         .outcome-list {
+            max-height: 210px;
             overflow-y: auto;
-            scrollbar-width: thin;
             display: grid;
             gap: 5px;
-            align-content: start;
             padding-right: 3px;
-            min-height: 0;
-            overscroll-behavior: contain;
         }
 
         .outcome-list::-webkit-scrollbar {
