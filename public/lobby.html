@@ -1330,7 +1330,13 @@
             renderRoomHistory(rooms);
         });
 
-        socket.emit('getRoomHistory');
+        if (socket.connected) {
+            socket.emit('getRoomHistory');
+        } else {
+            socket.on('connect', () => {
+                socket.emit('getRoomHistory');
+            });
+        }
 
         function renderRoomHistory(rooms) {
             const list = document.getElementById('roomHistoryList');
