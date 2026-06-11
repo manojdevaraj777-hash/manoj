@@ -196,94 +196,6 @@
             gap: 18px;
         }
 
-        .room-history {
-            margin-top: 20px;
-        }
-
-        .room-history h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-            color: #ffe4b3;
-        }
-
-        .history-list {
-            display: grid;
-            gap: 8px;
-            max-height: 320px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-
-        .history-list::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .history-list::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 3px;
-        }
-
-        .history-list::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 3px;
-        }
-
-        .history-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 10px 14px;
-            cursor: pointer;
-            transition: border-color 200ms;
-        }
-
-        .history-item:hover {
-            border-color: rgba(255, 199, 112, 0.4);
-        }
-
-        .history-code {
-            font-family: monospace;
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffc770;
-            min-width: 60px;
-        }
-
-        .history-info {
-            flex: 1;
-        }
-
-        .history-name {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .history-meta {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .history-status {
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .history-status.active {
-            background: rgba(61, 223, 186, 0.15);
-            color: #aef4e2;
-        }
-
-        .history-status.ended {
-            background: rgba(255, 107, 107, 0.15);
-            color: #ff9b9b;
-        }
-
         .card {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -632,11 +544,6 @@
             </section>
         </div>
 
-        <section class="room-history" id="roomHistorySection" style="display:none;">
-            <h3>Recent Rooms</h3>
-            <div id="roomHistoryList" class="history-list"></div>
-        </section>
-
         <section class="how-to-play">
             <h3>How The Auction Works</h3>
             <div class="steps">
@@ -670,10 +577,6 @@
 
         socket.on('connect', () => {
             socket.emit('getRoomHistory');
-        });
-
-        socket.on('roomHistoryUpdate', (rooms) => {
-            renderRoomHistory(rooms);
         });
 
         function getResumeTokenMap() {
@@ -782,40 +685,6 @@
         document.getElementById('joinRoomCode').addEventListener('input', (event) => {
             event.target.value = event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5);
         });
-
-        function renderRoomHistory(rooms) {
-            const section = document.getElementById('roomHistorySection');
-            const list = document.getElementById('roomHistoryList');
-            if (!rooms || rooms.length === 0) {
-                section.style.display = 'none';
-                return;
-            }
-            section.style.display = 'block';
-            list.innerHTML = rooms.map((r) => {
-                const timeAgo = Math.floor((Date.now() - r.createdAt) / 60000);
-                const ago = timeAgo < 1 ? 'Just now' : timeAgo < 60 ? `${timeAgo}m ago` : `${Math.floor(timeAgo / 60)}h ago`;
-                const statusClass = r.status === 'active' ? 'active' : 'ended';
-                return `<div class="history-item" onclick="joinHistoryRoom('${r.roomCode}')">
-                    <div class="history-code">${r.roomCode}</div>
-                    <div class="history-info">
-                        <div class="history-name">${escHtml(r.roomName)}</div>
-                        <div class="history-meta">${r.creatorName} · ${r.mode} · ${ago}</div>
-                    </div>
-                    <span class="history-status ${statusClass}">${r.status}</span>
-                </div>`;
-            }).join('');
-        }
-
-        function joinHistoryRoom(code) {
-            document.getElementById('joinRoomCode').value = code;
-            document.getElementById('joinRoomCode').focus();
-        }
-
-        function escHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
 
     </script>
 </body>
