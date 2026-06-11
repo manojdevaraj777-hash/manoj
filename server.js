@@ -1248,6 +1248,17 @@ if (csvBasedPool.length > 0) {
 
 // Active rooms storage
 const activeRooms = new Map();
+const roomHistory = [];
+
+function getRoomHistorySnapshot() {
+  return roomHistory.slice(0, 50);
+}
+
+function updateRoomHistoryStatus(roomCode, status) {
+  const entry = roomHistory.find((r) => r.roomCode === roomCode);
+  if (entry) entry.status = status;
+}
+
 const MAX_DISPLAY_NAME_LENGTH = 24;
 const MAX_ROOM_NAME_LENGTH = 28;
 const ROOM_CODE_LENGTH = 5;
@@ -1457,6 +1468,8 @@ function deleteRoomNow(roomCode, room, io, reason = 'Room deleted by auctioneer.
 
   activeRooms.delete(roomCode);
   void deletePersistedRoom(roomCode);
+  updateRoomHistoryStatus(roomCode, 'ended');
+  io.emit('roomHistoryUpdate', getRoomHistorySnapshot());
 }
 
 async function initializeRoomPersistence() {
@@ -4021,10 +4034,24 @@ io.on('connection', (socket) => {
     };
 
     activeRooms.set(roomCode, newRoom);
+    roomHistory.unshift({
+      roomCode,
+      roomName: safeRoomName,
+      mode: normalizedMode,
+      creatorName: safePlayerName,
+      createdAt: Date.now(),
+      status: 'active'
+    });
+    if (roomHistory.length > 50) roomHistory.length = 50;
     queueRoomPersist(roomCode, newRoom, 0);
     socket.join(roomCode);
     socket.emit('roomCreated', { roomCode, roomName: safeRoomName, mode: normalizedMode });
     socket.emit('message', `Room created successfully. Share join code ${roomCode} with friends.`);
+    io.emit('roomHistoryUpdate', getRoomHistorySnapshot());
+  });
+
+  socket.on('getRoomHistory', () => {
+    socket.emit('roomHistoryUpdate', getRoomHistorySnapshot());
   });
   
   // Join room
