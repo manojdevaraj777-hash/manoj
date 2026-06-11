@@ -1358,6 +1358,10 @@
                         <h4>Bid Calculator</h4>
                         <div class="calculator-info">
                             <div class="calc-row">
+                                <span>Current Purse</span>
+                                <span class="calc-value" id="calcPurse">₹151.0 Cr</span>
+                            </div>
+                            <div class="calc-row">
                                 <span>Current Bid</span>
                                 <span class="calc-value" id="calcCurrentBid">₹0.0 Cr</span>
                             </div>
@@ -2366,9 +2370,18 @@
         function updateBidCalculator() {
             const calculator = document.getElementById('bidCalculator');
             const bidButton = document.getElementById('bidButton');
+
+            let myPurse = 151;
+            if (myTeam && teamsData[myTeam]) {
+                myPurse = Number(teamsData[myTeam].purse);
+            }
+            document.getElementById('calcPurse').innerText = formatCr(myPurse);
+
             if (!auctionLive) {
                 bidButton.innerText = 'Bid';
-                calculator.style.display = 'none';
+                document.getElementById('calcCurrentBid').innerText = '₹0.0 Cr';
+                document.getElementById('calcRemaining').innerText = '₹0.0 Cr';
+                calculator.style.display = myTeam ? 'block' : 'none';
                 return;
             }
 
@@ -2379,14 +2392,7 @@
             const increment = getBidIncrement(currentBid);
             const nextBid = roundBidByMode(currentBid + increment);
 
-            let myPurse = 151;
-            if (myTeam && teamsData[myTeam]) {
-                myPurse = Number(teamsData[myTeam].purse);
-            }
-
             const remainingAfterBid = Number((myPurse - nextBid).toFixed(2));
-            const affordable = nextBid <= myPurse;
-            const teamAuctionEnded = currentTeamAuctionStatus === 'complete';
 
             document.getElementById('calcCurrentBid').innerText = formatCr(currentBid);
             document.getElementById('calcRemaining').innerText = formatCr(remainingAfterBid);
