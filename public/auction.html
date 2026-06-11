@@ -1366,8 +1366,7 @@
                                 <span class="calc-value" id="calcRemaining">₹0.0 Cr</span>
                             </div>
                         </div>
-                        <button class="quick-bid-btn" id="quickBidBtn" onclick="placeBid()">Quick Bid <span
-                                id="quickBidAmount">₹0.0 Cr</span></button>
+
                     </div>
                     <div class="target-bid-panel" id="targetBidPanel" aria-live="polite">
                         <div class="target-bid-title" id="targetBidTitle">Target reached</div>
@@ -1799,7 +1798,6 @@
             addMessage(`Game End: ${message}`, 'end');
             document.getElementById('liveTicker').innerText = `Auction complete. ${message}`;
             document.getElementById('bidButton').disabled = true;
-            document.getElementById('quickBidBtn').disabled = true;
         });
 
         socket.on('playingXIStarted', (data) => {
@@ -2292,7 +2290,6 @@
             const bidDisabled = !myTeam || !auctionLive || currentMode === 'ended' || skippedCurrentPlayer || teamAuctionEnded;
             const skipDisabled = !myTeam || !auctionLive || (currentMode !== 'ai' && currentMode !== 'ai_trainer') || skippedCurrentPlayer || teamAuctionEnded;
             document.getElementById('bidButton').disabled = bidDisabled;
-            document.getElementById('quickBidBtn').disabled = bidDisabled;
             document.getElementById('skipBidBtn').disabled = skipDisabled;
 
             const bidButton = document.getElementById('bidButton');
@@ -2393,10 +2390,8 @@
 
             document.getElementById('calcCurrentBid').innerText = formatCr(currentBid);
             document.getElementById('calcRemaining').innerText = formatCr(remainingAfterBid);
-            document.getElementById('quickBidAmount').innerText = formatCr(nextBid);
             bidButton.innerText = 'Bid';
 
-            document.getElementById('quickBidBtn').disabled = !affordable || !myTeam || !auctionLive || skippedCurrentPlayer || currentMode === 'ended' || teamAuctionEnded;
             calculator.style.display = 'block';
         }
 
