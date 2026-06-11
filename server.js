@@ -105,7 +105,15 @@ app.get('/healthz', (_req, res) => {
     uptimeSeconds: Math.round(process.uptime())
   });
 });
-app.use(express.static('public'));
+app.use(express.static('public', {
+  etag: false,
+  lastModified: false,
+  setHeaders: (res) => {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+  }
+}));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/sounds', express.static(path.join(__dirname, 'sounds')));
 
