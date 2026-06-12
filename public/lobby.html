@@ -934,6 +934,15 @@
                 window.location.href = `/playing11.html?room=${data.roomCode}`;
                 return;
             }
+            // If auction is already in progress (reconnect after refresh), show the overlay
+            if (data.phase === 'auction') {
+                const alreadyStarted = data.auctionState?.player || (data.soldPlayers && data.soldPlayers.length > 0) || (data.unsoldPlayers && data.unsoldPlayers.length > 0);
+                if (alreadyStarted) {
+                    auctionRedirectInProgress = true;
+                    showAuctionOverlay(data.roomCode);
+                    return;
+                }
+            }
             document.getElementById('roomCode').innerText = data.roomCode;
             currentMode = data.mode === 'ai_trainer' ? 'ai' : (data.mode || 'manual');
             if (data.resumeToken) {
