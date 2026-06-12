@@ -3778,15 +3778,20 @@ function startTimer(room, io) {
 function finalizeSale(room, io) {
   if (!room || room.phase !== ROOM_PHASES.AUCTION) return;
   clearAIBidTimeout(room);
+
+  // Remove current player from raw availablePlayers BEFORE getRoomAvailablePlayers filters them out
+  const currentPlayerId = room.currentPlayer?.id;
+  if (currentPlayerId) {
+    const rawIdx = (room.availablePlayers || []).findIndex((p) => p?.id === currentPlayerId);
+    if (rawIdx !== -1) room.availablePlayers.splice(rawIdx, 1);
+  }
+
   const roomAvailablePlayers = getRoomAvailablePlayers(room);
 
-  const activePlayerSnapshot = room.currentPlayer
-    ? roomAvailablePlayers.find((p) => p.id === room.currentPlayer.id) || room.currentPlayer
-    : null;
+  const playerData = room.currentPlayer || null;
 
   if (room.currentHighestBidder && room.currentPlayer) {
     const buyerTeam = room.teams[room.currentHighestBidder];
-    const playerData = roomAvailablePlayers.find((p) => p.id === room.currentPlayer.id) || activePlayerSnapshot;
     
     if (buyerTeam && playerData) {
       let finalSalePrice = room.currentPlayer.currentBid;
@@ -3816,10 +3821,6 @@ function finalizeSale(room, io) {
         }
         room.currentPlayer.currentBid = finalSalePrice;
       }
-
-      // Remove from available players
-      const index = roomAvailablePlayers.findIndex((p) => p.id === playerData.id);
-      if (index !== -1) roomAvailablePlayers.splice(index, 1);
 
       if (shouldSell) {
         buyerTeam.purse -= finalSalePrice;
@@ -3865,22 +3866,20 @@ function finalizeSale(room, io) {
         room.aiUnsoldStreak = Number(room.aiUnsoldStreak || 0) + 1;
       }
     }
-  } else if (activePlayerSnapshot) {
+  } else if (playerData) {
     // No one bid — player goes unsold (no auto-sell to AI)
     const unsoldStreak = Number(room.aiUnsoldStreak || 0);
-    const index = roomAvailablePlayers.findIndex((p) => p.id === activePlayerSnapshot.id);
-    if (index !== -1) roomAvailablePlayers.splice(index, 1);
 
     io.to(room.code).emit('playerUnsold', {
-      player: activePlayerSnapshot,
+      player: playerData,
       teams: room.teams
     });
 
     room.unsoldPlayers.push({
-      id: activePlayerSnapshot.id,
-      name: activePlayerSnapshot.name,
-      role: activePlayerSnapshot.role,
-      basePrice: activePlayerSnapshot.basePrice
+      id: playerData.id,
+      name: playerData.name,
+      role: playerData.role,
+      basePrice: playerData.basePrice
     });
     room.aiUnsoldStreak = unsoldStreak + 1;
   }
@@ -4565,7 +4564,6 @@ io.on('connection', (socket) => {
   socket.on('markUnsold', (roomCode) => {
     const normalizedRoomCode = normalizeRoomCode(roomCode);
     const room = activeRooms.get(normalizedRoomCode);
-    const roomAvailablePlayers = room ? getRoomAvailablePlayers(room) : null;
     if (!room) return;
     if (room.phase !== ROOM_PHASES.AUCTION) {
       socket.emit('error', 'Auction already moved to Playing XI stage.');
@@ -4585,11 +4583,13 @@ io.on('connection', (socket) => {
     }
     
     if (room.currentPlayer) {
-      const playerData = roomAvailablePlayers.find((p) => p.id === room.currentPlayer.id);
-      if (!playerData) {
-        socket.emit('error', 'Player not found in room pool.');
-        return;
-      }
+      // Remove from raw availablePlayers BEFORE getRoomAvailablePlayers
+      const currentId = room.currentPlayer.id;
+      const rawIdx = (room.availablePlayers || []).findIndex((p) => p?.id === currentId);
+      if (rawIdx !== -1) room.availablePlayers.splice(rawIdx, 1);
+
+      const roomAvailablePlayers = getRoomAvailablePlayers(room);
+      const playerData = room.currentPlayer;
 
       io.to(normalizedRoomCode).emit('message', `${playerData.name} went unsold!`);
       io.to(normalizedRoomCode).emit('playerUnsold', {
@@ -4603,30 +4603,26 @@ io.on('connection', (socket) => {
         role: playerData.role,
         basePrice: playerData.basePrice
       });
-      
-      // Remove from available players
-      const index = roomAvailablePlayers.findIndex((p) => p.id === playerData.id);
-      if (index !== -1) roomAvailablePlayers.splice(index, 1);
-    }
-    
-    room.currentPlayer = null;
-    room.currentHighestBidder = null;
-    room.currentPlayerSkippedTeams = {};
-    room.currentPlayerTargetContinueTeams = {};
-    room.currentBidTeams = {};
-    room.currentBidHistory = [];
-    io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
-    queueRoomPersist(normalizedRoomCode, room);
 
-    if (isAuctionReadyForPlayingXI(room)) {
-      startPlayingXIPhase(room, io);
-      return;
-    }
+      room.currentPlayer = null;
+      room.currentHighestBidder = null;
+      room.currentPlayerSkippedTeams = {};
+      room.currentPlayerTargetContinueTeams = {};
+      room.currentBidTeams = {};
+      room.currentBidHistory = [];
+      io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
+      queueRoomPersist(normalizedRoomCode, room);
 
-    if (isAIMode(room.mode) && roomAvailablePlayers.length > 0) {
-      setTimeout(() => {
-        nominateNextPlayer(room, io);
-      }, 2000);
+      if (isAuctionReadyForPlayingXI(room)) {
+        startPlayingXIPhase(room, io);
+        return;
+      }
+
+      if (isAIMode(room.mode) && roomAvailablePlayers.length > 0) {
+        setTimeout(() => {
+          nominateNextPlayer(room, io);
+        }, 2000);
+      }
     }
   });
 
