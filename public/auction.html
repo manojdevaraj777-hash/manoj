@@ -2566,9 +2566,7 @@
             const root = document.getElementById('upcomingPlayersList');
             if (!root) return;
 
-            const queue = (availablePlayers || [])
-                .filter((player) => player && player.id !== currentPlayerId)
-                .slice(0, 20);
+            const queue = (availablePlayers || []).slice(0, 20);
 
             if (!queue.length) {
                 root.innerHTML = '<div class="outcome-empty">No upcoming players available.</div>';
@@ -2577,13 +2575,15 @@
 
             root.innerHTML = queue
                 .map((player, idx) => {
+                    const isCurrent = player && currentPlayerId && player.id === currentPlayerId;
                     const age = (player && player.profile && player.profile.age !== undefined && player.profile.age !== null) ? player.profile.age : '--';
                     const role = (player && player.role) || 'N/A';
                     const primaryCategory = (player && player.auctionPrimaryCategory) || 'All Players';
                     const basePrice = Number((player && player.basePrice) || 0).toFixed(2);
+                    const badge = isCurrent ? ' <span style="color:#ff7a18;font-weight:700;">(Bidding)</span>' : '';
                     return `
-                        <div class="queue-item">
-                            <strong>${idx + 1}. ${player.name || 'Unknown Player'}</strong>
+                        <div class="queue-item${isCurrent ? ' queue-item-current' : ''}">
+                            <strong>${idx + 1}. ${player.name || 'Unknown Player'}${badge}</strong>
                             <div class="queue-meta">Age: ${age} | Role: ${role} | Category: ${primaryCategory} | Base: &#8377;${basePrice} Cr</div>
                         </div>
                     `;

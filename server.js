@@ -1555,6 +1555,15 @@ function getRoomAvailablePlayers(room) {
   return room.availablePlayers;
 }
 
+function getAvailablePlayersForClients(room) {
+  let list = getRoomAvailablePlayers(room);
+  // Prepend current player so they appear in the queue list (not just main display)
+  if (room && room.currentPlayer) {
+    list = [room.currentPlayer, ...list];
+  }
+  return list;
+}
+
 function mergePlayerWithMasterData(player = {}) {
   const normalized = normalizePlayerName(player?.name);
   const masterPlayer = allPlayersByNormalizedName.get(normalized);
@@ -3685,7 +3694,7 @@ function beginAIAuctionWrapUp(room, io) {
 
   io.to(room.code).emit('message', 'Auction ended. All teams are being auto-filled to 18-20 players...');
   io.to(room.code).emit('gameEnd', 'Auction ended. All teams are being auto-filled to 18-20 players...');
-  io.to(room.code).emit('availablePlayers', getRoomAvailablePlayers(room));
+  io.to(room.code).emit('availablePlayers', getAvailablePlayersForClients(room));
   queueRoomPersist(room.code, room);
 
   room.aiAutoFinishTimeout = setTimeout(() => {
@@ -3893,7 +3902,7 @@ function finalizeSale(room, io) {
   room.reserveExtendedCurrentPlayer = false;
   room.forceAIBidCurrent = false;
   room.fastTrackEndAt = null;
-  io.to(room.code).emit('availablePlayers', roomAvailablePlayers);
+  io.to(room.code).emit('availablePlayers', getAvailablePlayersForClients(room));
   queueRoomPersist(room.code, room);
 
   if (isAIMode(room.mode) && anyHumanTeamEndedAuction(room)) {
@@ -3966,7 +3975,7 @@ function nominateNextPlayer(room, io) {
   }
   
   io.to(room.code).emit('playerNominated', room.currentPlayer);
-  io.to(room.code).emit('availablePlayers', roomAvailablePlayers);
+  io.to(room.code).emit('availablePlayers', getAvailablePlayersForClients(room));
   queueRoomPersist(room.code, room);
 }
 
@@ -4172,7 +4181,7 @@ io.on('connection', (socket) => {
     io.to(normalizedRoomCode).emit('playersUpdate', buildPlayersSnapshot(room));
     io.to(normalizedRoomCode).emit('teamsUpdate', room.teams);
     emitRoomAccessState(normalizedRoomCode, room, io.to(normalizedRoomCode));
-    socket.emit('availablePlayers', getRoomAvailablePlayers(room));
+    socket.emit('availablePlayers', getAvailablePlayersForClients(room));
     socket.emit('message', `Welcome to room ${normalizedRoomCode}, ${player.name}!`);
 
     if (room.phase === ROOM_PHASES.AUCTION && room.currentPlayer && !room.timer) {
@@ -4414,7 +4423,7 @@ io.on('connection', (socket) => {
     startTimer(room, io);
     
     io.to(normalizedRoomCode).emit('playerNominated', room.currentPlayer);
-    io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
+    io.to(normalizedRoomCode).emit('availablePlayers', getAvailablePlayersForClients(room));
     queueRoomPersist(normalizedRoomCode, room);
   });
   
@@ -4610,7 +4619,7 @@ io.on('connection', (socket) => {
       room.currentPlayerTargetContinueTeams = {};
       room.currentBidTeams = {};
       room.currentBidHistory = [];
-      io.to(normalizedRoomCode).emit('availablePlayers', roomAvailablePlayers);
+      io.to(normalizedRoomCode).emit('availablePlayers', getAvailablePlayersForClients(room));
       queueRoomPersist(normalizedRoomCode, room);
 
       if (isAuctionReadyForPlayingXI(room)) {
@@ -4798,9 +4807,9 @@ io.on('connection', (socket) => {
       return;
     }
 
-    socket.emit('availablePlayers', getRoomAvailablePlayers(room));
+    socket.emit('availablePlayers', getAvailablePlayersForClients(room));
   });
-  
+
   // Get my squad
   socket.on('getMySquad', (roomCode) => {
     const normalizedRoomCode = normalizeRoomCode(roomCode);
