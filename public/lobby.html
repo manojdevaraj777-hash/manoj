@@ -994,21 +994,12 @@
         });
 
         socket.on('auctionStarted', () => {
-            if (!startSoundPlayed) {
-                playStartAuctionSound();
-                startSoundPlayed = true;
-            }
-            trackStartSoundHandoff();
             if (auctionRedirectInProgress) return;
             auctionRedirectInProgress = true;
-
-            document.addEventListener('visibilitychange', writeStartSoundHandoff);
-            window.addEventListener('pagehide', writeStartSoundHandoff);
-
-            setTimeout(() => {
-                writeStartSoundHandoff();
-                window.location.href = `/auction.html?room=${roomCode}`;
-            }, 1800);
+            try {
+                sessionStorage.setItem('auctionRoomJustStarted', roomCode);
+            } catch (_err) { }
+            window.location.href = `/auction.html?room=${roomCode}`;
         });
 
         socket.on('playingXIStarted', (data) => {
