@@ -8,6 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>IPL Auction - Live</title>
+    <link rel="preload" href="/sounds/Ipl%20Message.mp3" as="audio" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -1588,9 +1589,16 @@
                 const justStartedRoom = sessionStorage.getItem('auctionRoomJustStarted');
                 if (justStartedRoom === data.roomCode) {
                     sessionStorage.removeItem('auctionRoomJustStarted');
-                    startTransitionSound.currentTime = 0;
-                    const p = startTransitionSound.play();
-                    if (p && typeof p.then === 'function') p.catch(() => {});
+                    const playSound = () => {
+                        startTransitionSound.currentTime = 0;
+                        const p = startTransitionSound.play();
+                        if (p && typeof p.then === 'function') p.catch(() => {});
+                    };
+                    if (startTransitionSound.readyState >= 2) {
+                        playSound();
+                    } else {
+                        startTransitionSound.addEventListener('canplaythrough', playSound, { once: true });
+                    }
                 }
             } catch (_err) { }
             tryResumeStartSoundHandoff();
