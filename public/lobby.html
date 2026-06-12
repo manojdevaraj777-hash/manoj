@@ -1002,10 +1002,13 @@
             if (auctionRedirectInProgress) return;
             auctionRedirectInProgress = true;
 
+            document.addEventListener('visibilitychange', writeStartSoundHandoff);
+            window.addEventListener('pagehide', writeStartSoundHandoff);
+
             setTimeout(() => {
                 writeStartSoundHandoff();
                 window.location.href = `/auction.html?room=${roomCode}`;
-            }, 140);
+            }, 1800);
         });
 
         socket.on('playingXIStarted', (data) => {
