@@ -1585,23 +1585,26 @@
             soldPlayersHistory = Array.isArray(data.soldPlayers) ? data.soldPlayers.slice(-40) : [];
             unsoldPlayersHistory = Array.isArray(data.unsoldPlayers) ? data.unsoldPlayers.slice(-40) : [];
             hydrateMyTeam();
-            try {
-                const justStartedRoom = sessionStorage.getItem('auctionRoomJustStarted');
-                if (justStartedRoom === data.roomCode) {
-                    sessionStorage.removeItem('auctionRoomJustStarted');
-                    const playSound = () => {
-                        startTransitionSound.currentTime = 0;
-                        const p = startTransitionSound.play();
-                        if (p && typeof p.then === 'function') p.catch(() => {});
-                    };
-                    if (startTransitionSound.readyState >= 2) {
-                        playSound();
-                    } else {
-                        startTransitionSound.addEventListener('canplaythrough', playSound, { once: true });
+            // Skip start sound if inside an iframe (lobby plays it)
+            if (window === window.top) {
+                try {
+                    const justStartedRoom = sessionStorage.getItem('auctionRoomJustStarted');
+                    if (justStartedRoom === data.roomCode) {
+                        sessionStorage.removeItem('auctionRoomJustStarted');
+                        const playSound = () => {
+                            startTransitionSound.currentTime = 0;
+                            const p = startTransitionSound.play();
+                            if (p && typeof p.then === 'function') p.catch(() => {});
+                        };
+                        if (startTransitionSound.readyState >= 2) {
+                            playSound();
+                        } else {
+                            startTransitionSound.addEventListener('canplaythrough', playSound, { once: true });
+                        }
                     }
-                }
-            } catch (_err) { }
-            tryResumeStartSoundHandoff();
+                } catch (_err) { }
+                tryResumeStartSoundHandoff();
+            }
             updateModeDisplay();
             updateTeamsDisplay(teamsData);
             updateTeamAuctionStatusPanel();

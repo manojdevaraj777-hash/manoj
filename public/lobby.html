@@ -996,18 +996,27 @@
         socket.on('auctionStarted', () => {
             if (auctionRedirectInProgress) return;
             auctionRedirectInProgress = true;
-            try {
-                sessionStorage.setItem('auctionRoomJustStarted', roomCode);
-            } catch (_err) { }
-            window.location.href = `/auction.html?room=${roomCode}`;
+            // Play start sound (lobby page stays open, so sound continues)
+            playStartAuctionSound();
+            // SPA: show auction overlay instead of navigating away (keeps sound playing)
+            showAuctionOverlay(roomCode);
         });
 
         socket.on('playingXIStarted', (data) => {
             const nextRoomCode = (data && data.roomCode) || roomCode;
-            showToast('Auction complete. Opening Playing XI room...');
-            setTimeout(() => {
-                window.location.href = `/playing11.html?room=${nextRoomCode}`;
-            }, 1200);
+            // If auction overlay is showing, close overlay and redirect top window
+            const overlay = document.getElementById('auctionOverlay');
+            if (overlay && overlay.style.display !== 'none') {
+                showToast('Auction complete. Opening Playing XI room...');
+                setTimeout(() => {
+                    window.location.href = `/playing11.html?room=${nextRoomCode}`;
+                }, 1200);
+            } else {
+                showToast('Auction complete. Opening Playing XI room...');
+                setTimeout(() => {
+                    window.location.href = `/playing11.html?room=${nextRoomCode}`;
+                }, 1200);
+            }
         });
 
         socket.on('error', (error) => {
@@ -1387,6 +1396,27 @@
             div.textContent = str;
             return div.innerHTML;
         }
+    </script>
+
+    <div id="auctionOverlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:99999;background:#fff;">
+        <iframe id="auctionFrame" src="" style="width:100%;height:100%;border:none;"></iframe>
+    </div>
+
+    <script>
+        function showAuctionOverlay(roomCode) {
+            const overlay = document.getElementById('auctionOverlay');
+            const frame = document.getElementById('auctionFrame');
+            frame.src = `/auction.html?room=${roomCode}`;
+            overlay.style.display = 'block';
+        }
+        function closeAuctionOverlay() {
+            const overlay = document.getElementById('auctionOverlay');
+            if (overlay) overlay.style.display = 'none';
+        }
+        // Listen for messages from the iframe auction page to close
+        window.addEventListener('message', (e) => {
+            if (e.data === 'closeAuctionOverlay') closeAuctionOverlay();
+        });
     </script>
 </body>
 </html>
